@@ -1,0 +1,291 @@
+% (c) Matthew Kousoulas, Amarit Matharu
+%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{math490}
+[2018/09/21 v0.01 LaTeX package for Dr. Pardue's math490 course at UMBC]
+
+\RequirePackage{mathtools,array,xspace,amssymb,xypic,mathrsfs,graphicx}
+\RequirePackage[shortlabels]{enumitem}
+\RequirePackage[margin=1.75in]{geometry}
+\RequirePackage[thmmarks,amsmath]{ntheorem}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{newtxtext}
+\RequirePackage{newtxmath}
+\RequirePackage{bbold}
+% \RequirePackage{stix}
+% \usepackage[bitstream-charter]{mathdesign}
+% \usepackage{mathptmx}
+% \usepackage{tgtermes}
+% \usepackage{xypdf}
+
+\newcommand{\attr}[1]{\begin{flushright}by {#1}\end{flushright}}
+\renewcommand{\AA}{Anthony Agwu} % replaced Angstrom symbol Å
+\newcommand{\JC}{Jay Chernak}
+\newcommand{\BJ}{Bruce James}
+\newcommand{\MK}{Matthew Kousoulas}
+\newcommand{\ML}{Mark Laczin}
+\newcommand{\AM}{Amarith Matharu}
+\newcommand{\EM}{Emily McGovern}
+\newcommand{\KP}{Keith Pardue}
+\newcommand{\TW}{Teddy Weinberg}
+
+\pagenumbering{gobble}
+\setlist{nolistsep}
+
+\newtoks\theoremheaderfont
+\def\theorem@numberfont{\normalfont}
+\def\theorem@notefont{\normalfont}
+\newtheoremstyle{test}%
+  {\item[\hskip\labelsep \theorem@headerfont ##1\ \theorem@numberfont ##2\theorem@separator]}%
+  {\item[\hskip\labelsep \theorem@headerfont ##1\ \theorem@numberfont ##2\ \theorem@notefont (##3)\theorem@separator]}
+\newtheoremstyle{nonumbertest}%
+  {\item[\theorem@headerfont\hskip\labelsep ##1\theorem@separator]}%
+  {\item[\theorem@headerfont\hskip \labelsep ##1\ \theorem@notefont (##3)\theorem@separator]}
+
+\theoremstyle{test}
+\theoremseparator{.}
+\theoremheaderfont{\upshape\scshape}
+\theorembodyfont{\itshape}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theorembodyfont{\normalfont}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\theoremnumbering{roman}
+\newtheorem{exercise}{Exercise}[section]
+\theoremsymbol{\(\square\)}
+\newtheorem*{proof}{\indent Proof}
+
+% \renewcommand*{\theexercise}{\thechapter.\thesection.\roman{exercise}}
+% \renewcommand*{\thetheorem}{\thechapter.\thesection.\arabic{theorem}}
+
+\newcommand{\setexercise}[3]{%
+	\setcounter{chapter}{#1}
+	\setcounter{section}{#2}
+\setcounter{exercise}{#3-1}}
+
+\newcounter{tmpchp}
+\newcounter{tmpsec}
+\newcommand{\settheorem}[3]{%
+	\setcounter{tmpchp}{1*\thechapter}
+	\setcounter{chapter}{#1}
+	\setcounter{tmpsec}{1*\thesection}
+	\setcounter{section}{#2}
+\setcounter{theorem}{#3-1}}
+
+\newcommand{\popthm}{%
+	\setcounter{chapter}{\thetmpchp}
+	\setcounter{section}{\thetmpsec}
+}
+
+\DeclareRobustCommand{\em}{%
+	\@nomath\em \if b\expandafter\@car\f@series\@nil
+\normalfont \else \bfseries \fi}
+
+% these ease writing arrays where every entry is in math mode
+\newcolumntype{L}{>{\(}l<{\)}}
+\newcolumntype{C}{>{\(}c<{\)}}
+\newcolumntype{R}{>{\(}r<{\)}}
+
+\newcommand{\defeq}{\coloneqq}
+\newcommand{\eqdef}{\eqqcolon}
+
+% shortcuts for various fonts
+\newcommand{\mcl}{\mathcal}
+\newcommand{\mbf}{\mathbf}
+\newcommand{\mbb}{\mathbb}
+\newcommand{\msr}{\mathscr}
+\newcommand{\mfr}{\mathfrak}
+\newcommand{\msf}{\mathsf}
+\newcommand{\mrm}{\mathrm}
+
+% shortcuts for common categories
+\newcommand*{\cat}[1]{\textsf{#1}\xspace}
+\newcommand{\Cat}{\textsf{Cat}\xspace}
+\newcommand{\CAT}{\textsf{CAT}\xspace}
+\newcommand{\Set}{\textsf{Set}\xspace}
+\renewcommand{\Top}{\textsf{Top}\xspace} % replaced logical Top ⫪
+\newcommand{\Ring}{\textsf{Ring}\xspace}
+\newcommand{\Field}{\textsf{Field}\xspace}
+\newcommand{\Group}{\textsf{Group}\xspace}
+\newcommand{\Monoid}{\textsf{Monoid}\xspace}
+% these can only be used in math mode
+% if you can come up with a macro that works in both tell me
+\newcommand{\Setp}{\textsf{Set}_*}
+\newcommand{\Topp}{\textsf{Top}_*}
+\newcommand*{\Mod}[1]{\textsf{Mod}_{#1}}
+\newcommand*{\Mat}[1]{\textsf{Mat}_{#1}}
+\newcommand*{\Vect}[1]{\textsf{Vect}_{#1}}
+
+% this is to get the 'element of or equal to' relation symbol
+\DeclareFontEncoding{LS1}{}{\noaccents@}
+\DeclareFontSubstitution{LS1}{stix}{m}{n}
+\DeclareSymbolFont{foo}{LS1}{stixscr}{m}{n}
+\DeclareMathSymbol{\is@invb}{\mathrel}{foo}{"3E}
+\newcommand{\isinvb}{\mathrel{\raisebox{1pt}{\scalebox{.85}{\(\is@invb\)}}}}
+
+% blackboard bold shortcuts
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\DD}{\mathbb{D}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\renewcommand{\SS}{\mathbb S}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+% sans serif shortcuts
+\newcommand{\sA}{\mathsf{A}}
+\newcommand{\sB}{\mathsf{B}}
+\newcommand{\sC}{\mathsf{C}}
+\newcommand{\sD}{\mathsf{D}}
+\newcommand{\sE}{\mathsf{E}}
+\newcommand{\sF}{\mathsf{F}}
+\newcommand{\sJ}{\mathsf{J}}
+\newcommand{\sP}{\mathsf{P}}
+
+% script shortcuts -- NOT USED FOR CATEGORIES, USE mathsf
+% note: cD, cH, cL, and cR were commands in an earlier version of xypic now
+% considered obsolete, the file xyv2.tex still defines them, hence the
+% renewcommand
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\renewcommand{\cD}{\mathcal{D}} % see note
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\renewcommand{\cH}{\mathcal{H}} % see note
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cP}{\mathcal{P}}
+\renewcommand{\cL}{\mathcal{L}} % see note
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cZ}{\mathcal{Z}}
+
+\newcommand{\mm}{\mathfrak{m}}
+\newcommand{\pp}{\mathfrak{p}}
+\newcommand{\qq}{\mathfrak{q}}
+\newcommand{\ee}{\mathfrak{e}}
+
+% shortcuts for various greek letters
+\newcommand{\al}{\alpha}
+\newcommand{\be}{\beta}
+\newcommand{\gm}{\gamma}
+\newcommand{\Gm}{\Gamma}
+\newcommand{\de}{\delta}
+\newcommand{\De}{\Delta}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\ze}{\zeta}
+\renewcommand{\th}{\theta} % replaced thorn þ
+\newcommand{\Th}{\Theta}
+\newcommand{\io}{\iota}
+\newcommand{\ka}{\kappa}
+\newcommand{\lm}{\lambda}
+\newcommand{\Lm}{\Lambda}
+\newcommand{\sm}{\sigma}
+\newcommand{\Sm}{\Sigma}
+\newcommand{\om}{\omega}
+\newcommand{\Om}{\Omega}
+
+% for embedding text in display style math
+\newcommand*{\qtextq}[1]{\quad\text{#1}\quad}
+\newcommand*{\qtext}[1]{\quad\text{#1}}
+\newcommand*{\textq}[1]{\text{#1}\quad}
+\newcommand{\IN}{\text{ in }}
+\newcommand{\AND}{\text{ and }}
+\newcommand{\OR}{\text{ or }}
+\newcommand{\ST}{\text{ such that }}
+
+% 1/<stuff> seems to be the most common fraction
+\newcommand*{\recip}[1]{\frac{1}{#1}}
+\newcommand*{\trecip}[1]{\tfrac{1}{#1}}
+\newcommand*{\ipr}[2]{\left\langle{#1},{#2}\right\rangle}
+
+\newcommand{\id}{1}
+\newcommand{\op}{\textrm{op}}
+\newcommand{\nil}{\varnothing}
+\newcommand{\by}{\times}
+\newcommand{\emb}{\hookrightarrow}
+\newcommand{\wto}{\rightharpoonup}
+\newcommand{\bic}{\leftrightarrow}
+\newcommand{\To}{\Rightarrow}
+\newcommand*{\inv}[1]{{#1}^{-1}}
+
+\newcommand{\Ztwo}{\ZZ\sqbraq{\sqrt{2}}}
+\newcommand{\rtwo}{\sqrt{2}}
+\newcommand*{\lst}[3][1]{{#2}_{#1},\dots,{#2}_{#3}}
+\newcommand*{\fm}[3][i]{\{{#2}_{#1}\}_{{#1}\in{#3}}}
+
+% function defintions
+\newcommand*{\func}[3]{{#1}\colon{#2}\to{#3}}
+\newcommand*{\Func}[3]{{#1}\colon{#2}\To{#3}}
+\newcommand*{\mono}[3]{{#1}\colon{#2}\rightarrowtail{#3}}
+\newcommand*{\epi}[3]{{#1}\colon{#2}\twoheadrightarrow{#3}}
+\newcommand*{\incl}[3]{{#1}\colon{#2}\hookrightarrow{#3}}
+\newcommand*{\pfunc}[3]{{{#1}\colon{#2}\rightrightarrows{#3}}}
+\newcommand*{\idfunc}[1]{{{\id_{#1}}\colon{#1}\to{#1}}}
+\newcommand*{\oper}[2]{{{#1}\colon{#2}\by{#2}\to{#2}}}
+\newcommand*{\nper}[3]{{{#1}\colon{#2}^{#3}\to{#2}}}
+
+\newcommand*{\con}[3]{{#1}\equiv{#2}\!\mod{#3}}
+\newcommand*{\pcon}[3]{{#1}\equiv{#2}\!\pmod{#3}}
+
+% auto resize delimiters
+\newcommand*{\norm}[1]{\left\|{#1}\right\|}
+\newcommand*{\abs}[1]{\left\lvert{#1}\right\rvert}
+\newcommand*{\qty}[1]{\left({#1}\right)}
+\newcommand*{\sqr}[1]{\left[{#1}\right]}
+\newcommand*{\floor}[1]{\left\lfloor{#1}\right\rfloor}
+\newcommand*{\ceil}[1]{\left\lceil{#1}\right\rceil}
+\newcommand*{\angl}[1]{\left\langle{#1}\right\rangle}
+
+\newcommand*{\basis}[2]{\left\{{#1}_1,\dots,{#1}_{#2}\right\}}
+\newcommand*{\inlnmat}[1]{\left(\begin{smallmatrix}#1\end{smallmatrix}\right)}
+\newcommand*{\dispmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand*{\adj}[1]{\!\sqr{#1}}
+\newcommand*{\fld}[1]{\!\qty{#1}}
+\newcommand*{\fps}[1]{\!\sqr{\!\sqr{#1}\!}}
+\newcommand*{\lps}[1]{\!\qty{\!\qty{#1}\!}}
+
+% this is the preferred way to make non-italic text for function and operator
+% names; it automatically handles spacing
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\mor}{mor}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\len}{len}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\colim}{colim}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Gal}{Gal}
+
+% \DeclareMathOperator{\diam}{diam}
+% \DeclareMathOperator{\diag}{diag}
+% \DeclareMathOperator{\dist}{dist}
+% \DeclareMathOperator{\clus}{clus}
+% \DeclareMathOperator{\Span}{span}
+% \DeclareMathOperator{\iso}{iso}
+% \DeclareMathOperator{\im}{im}
+% \DeclareMathOperator{\tail}{tail}
+% \DeclareMathOperator{\trace}{trace}
+
+\endinput
+%%
+%% End of file `mathutils.sty'.

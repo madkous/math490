@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage{math490}
+\title{Math 490}
+\author{Matthew Kousoulas}
+\begin{document}
+\maketitle
+
+\setexercise{1}{2}{6}
+\begin{exercise}
+	Prove that a morphism that is both a monomorphism and a split epimorphism is
+	necessarily an isomorphism. Argue by duality that a split monomorphism that
+	is an epimorphism is also an isomorphism.
+\end{exercise}
+	\[\xymatrix{x \ar@(ul,dl)[]_{gf} \ar@/^8pt/[rr]|f && y \ar@/^8pt/[ll]|{g} \ar@(dr,ur)_{1_y}}\]
+\begin{proof}
+	Let \(\sC\) be a category with objects \(x\) and \(y\) and a morphism
+	\(\func{f}{x}{y}\). If \(f\) is a split epimorphism, then there exists
+	another morphism \(\func{g}{y}{x}\) such that \(fg=\id_y\). If \(f\) is also
+	a monomorphism, then for any object \(w\) and any parallel pair of morphisms
+	\(\pfunc{h,k}{w}{x}\), \(fh=fk\) implies that \(h=k\). Combining these facts
+	with some basic algebra:
+	\begin{align*}
+		\id_yf&=f\id_x && \textrm{definition of identies}, \\
+		fgf&=f\id_x && \textrm{\(g\) is a right inverse of \(f\)}, \\
+		gf&=\id_x && \textrm{\(f\) is left cancellable},
+	\end{align*}
+	gives that \(g\) is also a left inverse of \(f\).
+
+	Supposing instead that \(f\) is an epimorphism and a split monomorphism with
+	left inverse \(g\) in the category \(\sC\). Then it is also a monomorphism
+	and a split epimorphism in \(\sC^\op\), thus \(f\) is an isomorphism in
+	\(\sC^\op\). Since duality of categories is expressed through a functor, and
+	by Lemma 1.3.8 functors preserve isomorphisms, \(f\) is also an isomorphism
+	in \(\sC\).
+\end{proof}
+\end{document}
+

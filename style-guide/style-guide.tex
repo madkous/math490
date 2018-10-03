@@ -1,0 +1,228 @@
+\documentclass{article}
+\usepackage{math490}
+%% Matt needed another kludge
+%% vvvv DON'T INCLUDE THIS! vvvv
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist
+%% ^^^^ DON'T INCLUDE THIS! ^^^^
+\title{Math 490 Style Guide}
+\author{Matthew Kousoulas}
+\begin{document}
+\maketitle
+
+% bullet installations
+% reword latex numbering
+
+This document outlines some basic guidelines for writing \texttt{.tex} files so
+that the whole class maintains a uniform look and Amarit is able to compile the
+whole answer key at the end of the course.
+
+\section*{Installation}
+Included with this guide is a file, \texttt{math490.sty}, that contains code
+meant to replace the preamble of your \texttt{.tex} file (explained below).
+There are two options for installation:
+\begin{itemize}
+	\item You can place \texttt{math490.sty} in the same directory as your
+		\texttt{.tex} files. This is probably the easier option to get started,
+		but if you want to keep problems in multiple directories, you will need
+		to copy \texttt{math490.sty} into each directory and possibly update
+		them over the course of the semester.
+
+	\item You can also place \texttt{math490.sty} in the \texttt{texmf}
+		directory associated with your \TeX{} distribution. The advantage of
+		this option is only having a single file to worry about that all of your
+		projects can access. On Unix based systems the texmf is usually
+		\texttt{\textasciitilde/texmf/tex/latex/math490/math490.sty}. For
+		Windows it depends on whether you have MiKTeX or TeX Live. Amarit is
+		familiar with MiKTeX and can help you with installation.
+\end{itemize}
+
+\section*{Preamble}
+The preamble of a tex file is everything before the \verb1\begin{document}1
+line. It is important that this be uniform across all the final drafts. (The
+technical reason is that \LaTeX{} compilation is weird and we're going to use
+the \emph{subfiles} package to make it sane. Each file you send in will have its
+preamble replaced with boiler plate code require by \emph{subfiles} and inherit
+the preamble from a master file Amarit will write.) The first six lines of your
+final drafts should be the following:
+\begin{verbatim}
+\documentclass{article}
+\usepackage{math490}
+\title{<title>}
+\author{<name>}
+\begin{document}
+\maketitle
+\end{verbatim}
+Note that it's fine for you to put shortcuts in or otherwise modify your
+preamble for drafts. Just let Amarit or Matt know about these changes so we can
+release an updated \texttt{.sty} file before you make the final draft. As long
+as the copy Amarit receives to place in the final answer key has the above
+format everything will be fine.
+
+\section*{Naming Scheme}
+One thing that will be exceptionally helpful for Amarit when he is compiling
+the answer key is a consistent naming scheme for files. We decided on
+\texttt{<last-name>-<problem-number>.tex} all lowercase. If you are doing
+multiple exercises as one assignment, keep them in separate files. As an example
+we have included our first homeworks: \texttt{kousoulas-1.2.v.tex} and
+\texttt{mutharu-1.1.iii.tex}. These are also included as a demonstration of
+\texttt{math490.sty} in addition to the chart below.
+
+\section*{Environments}
+We've predefined all of the environments that Riehl uses in the text, theorem,
+proof, definition, etc. Unfortunately to get the numbering to work there's a bit
+of a kludge. \LaTeX{} automatically numbers theorems and other environments as
+they appear in the text. In order to provide the appropriate reference to the
+theorem in Riehl's text we need to override this behaviour.
+
+If you want to copy a theorem or definition from the text you need to proceed it
+with line \verb1\settheorem{<chapter#>}{<section#>}{<theorem#>}1 and follow it
+with \verb1\popthm1. Use this command regardless of whether you are making a
+lemma, corollary, definition, or any other environment. The two exceptions are
+exercises which are explained below and proofs which are not numbered.
+
+\section*{Exercises}
+For readability it would be good for us to preface all of our solutions with a
+copy of the exercise statement. Please try to the copy the problem statement
+verbatim. Similar to the other environment preface it with
+\verb1\setexercise{<chapter#>}{<section#>}{<theorem#>}1, however there is no need
+to follow the environment with anything.
+
+\section*{Template}
+We've included a template file that you can use to start all your projects. It
+contains a lemma, exercise, and proof environment. You only need to change the
+body text and numbering. You can also change lemma to a different environment to
+match the text.
+
+\section*{Style Conventions}
+In the interest of having a professional looking answer key at the end of the
+course, we have a handful of formatting conventions largely drawn from Riehl's
+text.
+
+First, there are often a variety of notations to choose from for a single
+concept. You should defer to Riehl's notation first, and if using something
+beyond the text Dr. Pardue's notation second. For example, both \(1_x\) and
+\(\mrm{id}_x\) are used to denote the identity morphism on a space \(x\). In
+keeping with Riehl's notation please use \(1_x\).
+
+Also, a few things to be careful with in general typesetting. Often \LaTeX{}
+will have a bunch of commands that all render the same glyph but have different
+spacing. These correspond to whether the glyph is being used to symbolize an
+operator, a relation, delimiters, or punctuation. For example \verb1|1 is an
+operator while \verb1\mid1 is a relation. Similarly, \verb1:1 is an operator
+while \verb1\colon1 is punctuation and is used for function definitions. In the
+latter case we have defined a handful of macros for defining functions that
+automatically use the correct spacing. This is further documented in the
+\LaTeX{} symbol guide that we sent out.
+
+Finally, we want to mention that \verb1$$1 as the delimiter for display style
+math mode is deprecated. It is a primitive in \TeX{} that was replaced by
+\verb1\[1 and \verb1\]1 by the \textbf{amsmath} packages. (These are
+aliases for \verb1\begin{equation*}1 and \verb1\end{equation*}1) The latter
+creates a much more robust environment that properly handles spacing and won't
+break on complicated commands. \textbf{amsmath} also introduced the matching
+syntax \verb1\(1 and \verb1\)1 for in-line math, unlike the above these are just
+aliases for \verb1$1, so the choice is stylistic.
+
+\begin{tabular}{l|L}
+	Command & Output \\ \hline
+	\verb1x | y1 & x|y \\
+	\verb1x \mid y1 & x\mid y \\
+	\verb1x : y1 & x:y \\
+	\verb1x \colon y1 & x\colon y \\
+\end{tabular}
+
+\section*{Commands}
+We've also defined a bunch of formatting commands to make typesetting easier.
+These build on the shortcuts that Dr. Pardue has provided with his own \LaTeX{}
+examples. Included below is a table of commands with examples of their use.
+We've done our best to include everything that people regularly use. If there is
+a shortcut that we've missed and you would like to use, let one of us know and
+we will update the \texttt{.sty} file and redistribute it as necessary.
+\newpage
+
+\section*{Examples}
+To help use these we have a table demonstrating the use of some of the commands.
+We've only put in a representative sample. There are a lot more in the
+\texttt{.sty} available to use. Please look it over and feel free to make
+suggestions. Also note that with the exception of the category names, these
+shortcuts are only available in math mode.
+
+\begin{changemargin}{-1in}{-1in}
+	\begin{center}
+		\begin{tabular}{l|L|l}
+			Command & Output & Notes \\ \hline
+			\verb1\Top1 & \Top & works in text mode and math mode\\
+			\verb1\Setp1 & \Setp & works only in math mode\\
+			\verb1\Mod{R}1 & \Mod{R} & the subscript is the issue\\
+			\verb1\func{f}{A}{B}1 & \func{f}{A}{B} & functions\\
+			\verb1\func{\inv{f}}{PB}{PA}1 & \func{\inv{f}}{PB}{PA} & inverse functions\\
+			\verb1\mono{g}{A}{B}1 & \mono{g}{A/_{\ker{f}}}{B} & monomorphisms \\
+			\verb1\epi{h}{A}{B}1 & \epi{h}{A}{\range(A)} & epimorphisms \\
+			\verb1\Func{F}{\sC^\op}{\cat{D}}1 & \Func{F}{\sC^\op}{\cat{D}} & Riehl uses doubled arrows for functors\\
+			\verb4\incl{\io}{S^1}{\RR^2}4 & \incl{\io}{S^1}{\RR^2} & inclusions \\
+			\verb1\idfunc{\NN}1 & \idfunc{\NN} & identities \\
+			\verb1\oper{+}{\RR}1 & \oper{+}{\RR} & operations \\
+			\verb1\nper{\norm{\cdot}}{\CC}{n}1 & \nper{\norm{\cdot}}{\CC}{n} & n-ary operations \\
+			\verb1\de\defeq\recip{\ep}1 & \de\defeq\recip{\ep} \\
+			\verb1\ZZ\fps{x}1 & \ZZ\fps{x} & automatically inserts \verb1\left1 \& \verb1\right1 \\
+			\verb12\isinvb31 & 2\isinvb3 & everyone's favourite relation \\
+			\verb1\qty{\frac{\len f}{\rtwo}}1 & \qty{\frac{\len f}{\rtwo}} \\
+			\verb1\inlnmat{\al&\be\\\gm&\de}1 & \inlnmat{\al&\be\\\gm&\de} & useful for typesetting permutations \\
+			\verb1\angl{\lst{x}{n}}1 & \angl{\lst{x}{n}} & optional argument changes the first index \\
+			\verb1\fm{y}{\nil}1 & \fm{y}{\nil} & empty list is the best list \\
+		\end{tabular}
+	\end{center}
+\end{changemargin}
+
+\section*{Packages}
+One of the limitations of using subfiles to compile the final project is that we
+have to all be using the same set of packages for the whole document. We've
+tried to include an expansive list of packages from the start to give everyone
+flexibility while still avoiding conflicts and packages that don't come with
+both MiKTeX and TeX Live. Here is a list of the packages we've included along
+with a brief description:
+\begin{description}
+	\item[mathtools] is a wrapper for \emph{amsmath} that fixes several
+		problems and adds some useful functionality.
+
+	\item[xypic] is a simple drawing library suited to typesetting
+		commutative diagrams. It is considerably less powerful than
+		\emph{PGF/TikZ} which some of you use, but it is more than enough to
+		typeset every diagram in Riehl's book.
+
+	\item[enumitem] allows for customising the enumerate, itemize, and
+		description environments. Don't go crazy here, the goal is to match the
+		look of the text. We've included a common example.
+
+	\item[array] updates the implementation of the array and tabular
+		environments making them extensible and more robust.
+
+	\item[amssymb] provides a handful of extra symbols for typesetting math.
+
+	\item[graphicx] provides the \verb1\scalebox1 command and allows embedding
+		of images.
+\end{description}
+If you look at the \texttt{.sty} file you will see we have included a handful of
+other packages. You shouldn't need to interact with these, but we've included a
+description for the sake of completeness.
+\begin{description}
+	\item[ntheorem] is a replacement for \emph{amsthm} allowing more
+		flexible typesetting. (Matt couldn't figure out how to get \emph{amsthm}
+		to give him output that looked like Riehl's textbook.)
+
+	\item[xspace] is a very simple library that makes some of the shortcuts
+		simpler to use. It adds a context aware trailing space to text mode
+		shortcuts. See the code for details.
+
+	\item[fontenc] is included along with a bunch of other font packages to
+		match the look of Riehl's text. As best as Matt can tell the text uses
+		Nimbus Roman for the body text. Some of the spacing is off which annoys
+		him to no end, but he can learn to cope.
+
+	\item[geometry] handles the page margins.
+\end{description}
+Documentation for all of these packages can be found on CTAN, the repository for
+\TeX{} packages. We've also included documentation in a separate archive.
+\end{document}
+
