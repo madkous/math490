@@ -1,0 +1,100 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\begin{lemma}\leavevmode
+	\begin{enumerate}[(i)]
+		\item If \(\mono{f}{x}{y}\) and \(\mono{g}{y}{z}\) are monomorphisms,
+			then so is \(\mono{gf}{x}{z}\).
+
+		\item If \(\func{f}{x}{y}\) and \(\func{g}{y}{z}\) are morphisms so
+			that \(gf\) is monic, then \(f\) is monic.
+	\end{enumerate}
+	Dually:
+	\begin{enumerate}[(i')]
+		\item If \(\epi{f}{x}{y}\) and \(\epi{g}{y}{z}\) are epimorphisms,
+			then so is \(\epi{gf}{x}{z}\).
+
+		\item If \(\func{f}{x}{y}\) and \(\func{g}{y}{z}\) are morphisms so
+			that \(gf\) is epic, then \(g\) is epic.
+	\end{enumerate}
+\end{lemma}
+
+\begin{exercise}
+	Prove Lemma 1.2.11 by proving either (i) or (i') and either (ii) or (ii'),
+	then arguing by duality. Conclude that the monomorphisms in any category
+	define a subcategory of that category and dually that the epimorphisms also
+	define a subcategory.
+\end{exercise}
+
+First we will show the above properties for monomorphisms, and then apply
+duality, as the problem suggests, to prove the corresponding properties for
+epimorphisms.
+
+\begin{proof}
+	% {\bf Proof of Lemma 1.2.11 (i)}\\
+	First, we will prove that the composition of two monomorphisms is a
+	monomorphism. Let \(\sC\) be a category and \(\func{f}{x}{y}\) and
+	\(\func{g}{y}{z}\) be monomorphisms of \(\sC\). Let \(\func{h,k}{w}{x}\) be
+	two morphisms in \(\sC\) so that: \(gf)h=(gf)k\). Since compositions of
+	morphisms are associative, we have \(g(fh)=g(fk)\). Since \(g\) is monic, we
+	get: \((fh)=(fk)\). Since \(f\) is monic, we ultimately get: \(h=k\). Thus,
+	\(gf\) is monic. Thus, the compositions of two monomorphisms is indeed a
+	monomorphism.
+
+	% {\bf Proof of Lemma 1.2.11 (ii)}\\
+	Next we will show that If the composition of two morphisms is monic, then
+	the rightmost morphism is monic. Take morphisms \(\func{a}{x}{y}\) and
+	\(\func{b}{y}{z}\) from category \(\sC\) where \(ba\) is monic. Take
+	\(\func{h,k}{w}{x}\) so that \(ah=ak\). Left composing \(b\) on both sides
+	of the equations results in: \(b(ah)=b(ak)\). By associativity we get:
+	\((ba)h=(ba)k\). Applying the properties of monomorphisms results in:
+	\(h=k\). Thus \(a\) is monic. So we have shown that if the composition of two
+	morphisms is monic, then the rightmost morphism is monic.
+
+	% {\bf Monomorphisms form a subcategory}\\
+	Now we will show that the monomorphisms of any category forms a category.
+	Suppose that \(\sD\) is a subcategory of \(\sC\) where the morphisms of
+	\(\sD\) are the monomorphisms of \(\sC\) and \(\sD\) and \(\sC\) have the
+	same objects. Since for any object \(x\) in \(\sC\), if we had for morphisms
+	\(h\) and \(k\) of \(\sC\) with codomain \(x\) the following property:
+	\(id_{x}h=id_{x}k\), then \(h=k\), since \(id_{x}\) is left cancellable,
+	thus the identity morphism for every object in \(\sD\) is a monomorphism.
+	Therefore, every object in \(\sD\) has a identity arrow in \(\sD\). Since
+	the composition of two monomorphisms is a monomorphism, then \(\sD\)
+	contains compositions of its morphisms. Obviously, the domains and codomains
+	of morphisms of \(\sD\) are contained in \(\sD\) since \(\sD\) and \(\sC\)
+	have the same objects. Thus \(\sD\) is a subcategory of \(\sC\).
+
+	We have shown that:
+	\begin{enumerate}
+		\item the composition of two monomorphisms in \(\sC\) is a monomorphism.
+
+		\item If the composition of two morphisms in \(\sC\) is monic, then the
+			rightmost morphism is monic.
+
+		\item The class of monomorphisms of any category \(\sC\) forms a
+			subcategory of \(\sC\).
+	\end{enumerate}
+
+	% {\bf Proofs of Lemma 1.2.11 (i'), Lemma 1.2.11 (i'), and Epimorphisms forming a subcategory}\\
+	Now we will use duality to show the corresponding properties for
+	epimorphisms. If we have the opposite category \(\sC^{\op}\), where the
+	epimorphisms of \(\sC\) are the monomorphisms of \(\sC^{\op}\), this means
+	that the three properties proven for monomorphisms also work for
+	\(\sC^{\op}\). The properties of monomorphisms in \(\sC^{\op}\) are the dual
+	properties of epimorphisms in \((\sC^{\op})^{\op} = \sC\). Namely,
+	\begin{enumerate}
+		\item the composition of two epimorphisms in \(\sC\) is an epimorphism.
+
+		\item If the composition of two morphisms in \(\sC\) is epic, then the
+			leftmost morphism is epic (Since \(f^\op g^\op\) in \(\sC^\op\)
+			corresponds to \(gf\) in \(\sC\)).
+
+		\item The class of epimorphisms of any category \(\sC\) forms a
+			subcategory of \(\sC\).
+	\end{enumerate}
+	This completes the proof.
+\end{proof}
+
+\end{document}
+

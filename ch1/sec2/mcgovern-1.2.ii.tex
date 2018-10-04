@@ -1,0 +1,48 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\setexercise{1}{2}{2}
+\begin{exercise}\leavevmode
+	\begin{enumerate}[(i)]
+	\item Show that a morphism \( \func{f}{x}{y} \) is a split epimorphism
+		in a category \( \sC \) if and only if for all \( c\in \sC,\)
+		post-composition \( \func{f_*}{\sC(c,x)}{\sC(c,y)} \) defines a
+		surjective function.
+	\begin{proof}
+		 First, assume that \(f\) is a split epimorphism and that \(c \in
+		 \ob\sC\). That is, there exists a function \(\func{g}{y}{x}\) such that
+		 \(fg = id_y\). Now, consider the function
+		 \(\func{f_*}{\sC(c,x)}{\sC(c,y)}.\) We know that this function
+		 corresponds to composition on the left by \(f\), so in order for this
+		 function to be surjective, for every \(\func{k}{c}{y}\), there must
+		 exists a \(\func{j}{c}{x}\) such that \(fj = k\). Now, for an arbitrary
+		 \(k\), consider \(j = gk\). It is easy to see that \(\func{gk}{c}{x}\),
+		 and that \(f_*(gk) = f(gk) = (fg)k = id_yk = k\). We can construct
+		 \(j\) in this way for every \(k \in \sC(c,y)\), so we see that \(f_*\)
+		 is surjective.
+
+		Now, assume that \(f_*\) is surjective, that is, for any choice of \(c
+		\in \sC\),  and any \(k \in \sC(c,y)\), \(k = fg\), for some \(g \in
+		\sC(c,x)\). Now, suppose \(c = y\) and \(k = id_y\), so we have that
+		there exists a \(g \in \sC(y,x)\) where \(fg = id_y\), and this implies
+		that \(f\) is a spilt epimorphism.
+	\end{proof}
+
+	\item Argue by duality that \(f\) is a split monomoprhism if and
+		only if for all \(c\in\sC,\) pre-composition
+		\(\func{f_*}{\sC(y,c)}{\sC(x,c)}\) is a surjective function.
+	\begin{proof}
+		We know that if \(f^{\op}\) is a split epimorphism, that
+		\(\func{f_{*}^{\op}}{C^{\op}(c,y)}{C^{\op}(c,x)}\) is surjective.
+		However, if we consider the definitions of \(f^{\op}\) and split
+		monomorphisms and epimorphisms, we see that \(f^{\op}\) being a split
+		epimorphism implies that \(f\) is a split monomorphism. We also see that
+		\(\func{f_{*}^{\op}}{\sC^{\op}(c,y)}{\sC^{\op}(c,x)}\) is equivalent to
+		\(\func{f^{*}}{\sC(y,c)}{\sC(x,c)}.\) So we have that \(f\) is a split
+		monomorphism if and only if \(\func{f^{*}}{\sC(y,c)}{\sC(x,c)}\) is
+		surjective.
+	\end{proof}
+\end{enumerate}
+\end{exercise}
+
+\end{document}

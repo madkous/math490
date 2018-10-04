@@ -1,0 +1,48 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\setexercise{1}{1}{1}
+\begin{exercise}\leavevmode
+	\begin{enumerate}[(i)]
+		\item Show that a morphism can have at most one inverse isomorphism.
+			\begin{proof}
+				Let \(\func{f}{x}{y}\) be an arbitrary morphism, and let
+				\(\func{g}{y}{x}\) and \(\func{g}{y}{x}\) be two inverse
+				isomorphisms of \(f\). That is to say, \(gf=hf=1_{x}\) and
+				\(fg=fh=1_{y}\). Consider the composition \(gfh\). This is a
+				valid composition, since the domain of \(g\) is equal to the
+				codomain of \(f\), and the domain of \(f\) is equal to the
+				codomain of \(h\). Composition is associative, so \((gf)h =
+				g(fh)\).
+
+				Evaluate each of these expressions independently:
+				\begin{itemize}
+					\item Evaluated as \((gf)h\), we find that \(gf=1_{x}\), so
+						\((gf)h=1_{x}h=h\).
+					\item Evaluated as \(g(fh)\), we find that \(fh=1_{y}\), so
+						\(g(fh)=g1_{y}=g\).
+				\end{itemize}
+
+				Since both expressions are equal, we can conclude that \(h=g\).
+				So any two inverse isomorphisms of \(f\) must be equal. Since
+				\(f\) was arbitrary, we can generalize to conclude that any
+				morphism can have at most one (distinct) inverse isomorphism.
+			\end{proof}
+
+		\item Consider a morphism \(\func{f}{x}{y}\). Show that if there exist a
+			pair of isomorphisms \(\func{g,h}{y}{x}\) so that \(gf=1_{x}\) and
+			\(fh=1_{y}\), then \(g=h\) and \(f\) is an isomorphism.\\
+			\begin{proof}
+				Let \(\func{f}{x}{y}\) be an arbitrary morphism, and let
+				\(\func{g,h}{y}{x}\) be morphisms such that \(gf=1_{X}\) and
+				\(fh=1_{y}\). Similarly to above, evaluate the composition
+				\(gfh\) as \((gf)h=1_{x}h=h\) and as \(g(fh)=g1_{y}=g\). Due to
+				associativity, \((gf)h=g(fh)\), so we can conclude that \(g=h\).
+				\(fh=1_{y}\) was given, and using our previous conclusion, we can
+				substitute \(g\) for \(h\) to obtain \(fg=1_{y}\). Since we were
+				also given \(gf=1_{x}\), we can conclude that \(f\) is an
+				isomorphism.
+			\end{proof}
+	\end{enumerate}
+\end{exercise}
+\end{document}

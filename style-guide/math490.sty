@@ -64,9 +64,9 @@
 \newcounter{tmpchp}
 \newcounter{tmpsec}
 \newcommand{\settheorem}[3]{%
-	\setcounter{tmpchp}{\thechapter}
+	\setcounter{tmpchp}{\value{chapter}}
 	\setcounter{chapter}{#1}
-	\setcounter{tmpsec}{\thesection}
+	\setcounter{tmpsec}{\value{section}}
 	\setcounter{section}{#2}
 \setcounter{theorem}{#3-1}}
 
@@ -88,6 +88,7 @@
 \newcommand{\eqdef}{\eqqcolon}
 
 % shortcuts for various fonts
+\newcommand{\tbf}{\textbf}
 \newcommand{\mcl}{\mathcal}
 \newcommand{\mbf}{\mathbf}
 \newcommand{\mbb}{\mathbb}
@@ -102,7 +103,7 @@
 \newcommand{\CAT}{\textsf{CAT}\xspace}
 \newcommand{\Set}{\textsf{Set}\xspace}
 \newcommand{\Fin}{\textsf{Fin}\xspace}
-\renewcommand{\Top}{\textsf{Top}\xspace}
+\renewcommand{\Top}{\textsf{Top}\xspace} % replaced logical Top ⫪
 \newcommand{\Ring}{\textsf{Ring}\xspace}
 \newcommand{\Field}{\textsf{Field}\xspace}
 \newcommand{\Group}{\textsf{Group}\xspace}
@@ -115,6 +116,16 @@
 \newcommand*{\Mod}[1]{\textsf{Mod}_{#1}}
 \newcommand*{\Mat}[1]{\textsf{Mat}_{#1}}
 \newcommand*{\Vect}[1]{\textsf{Vect}_{#1}}
+\newcommand{\zero}{\mbb{0}}
+\newcommand{\one}{\mbb{1}}
+\newcommand{\two}{\mbb{2}}
+\newcommand{\three}{\mbb{3}}
+\newcommand{\four}{\mbb{4}}
+\newcommand{\five}{\mbb{5}}
+\newcommand{\six}{\mbb{6}}
+\newcommand{\seven}{\mbb{7}}
+\newcommand{\eight}{\mbb{8}}
+\newcommand{\nine}{\mbb{9}}
 
 % this is to get the 'element of or equal to' relation symbol
 \DeclareFontEncoding{LS1}{}{\noaccents@}
@@ -131,7 +142,7 @@
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\RR}{\mathbb{R}}
-\renewcommand{\SS}{\mathbb S}
+\renewcommand{\SS}{\mathbb{S}}
 \newcommand{\ZZ}{\mathbb{Z}}
 
 % sans serif shortcuts
@@ -145,17 +156,20 @@
 \newcommand{\sP}{\mathsf{P}}
 
 % script shortcuts -- NOT USED FOR CATEGORIES, USE mathsf
+% note: cD, cH, cL, and cR were commands in an earlier version of xypic now
+% considered obsolete, the file xyv2.tex still defines them, hence the
+% renewcommand
 \newcommand{\cA}{\mathcal{A}}
 \newcommand{\cB}{\mathcal{B}}
 \newcommand{\cC}{\mathcal{C}}
-\renewcommand{\cD}{\mathcal{D}}
+\renewcommand{\cD}{\mathcal{D}} % see note
 \newcommand{\cF}{\mathcal{F}}
 \newcommand{\cG}{\mathcal{G}}
-\renewcommand{\cH}{\mathcal{H}}
+\renewcommand{\cH}{\mathcal{H}} % see note
 \newcommand{\cI}{\mathcal{I}}
 \newcommand{\cJ}{\mathcal{J}}
 \newcommand{\cP}{\mathcal{P}}
-\renewcommand{\cL}{\mathcal{L}}
+\renewcommand{\cL}{\mathcal{L}} % see note
 \newcommand{\cN}{\mathcal{N}}
 \newcommand{\cS}{\mathcal{S}}
 \newcommand{\cT}{\mathcal{T}}
@@ -176,9 +190,9 @@
 \newcommand{\Gm}{\Gamma}
 \newcommand{\de}{\delta}
 \newcommand{\De}{\Delta}
-\newcommand{\ep}{\varepsilon}
+\newcommand{\ep}{\epsilon}
 \newcommand{\ze}{\zeta}
-\renewcommand{\th}{\theta}
+\renewcommand{\th}{\theta} % replaced thorn þ
 \newcommand{\Th}{\Theta}
 \newcommand{\io}{\iota}
 \newcommand{\ka}{\kappa}

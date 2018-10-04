@@ -9,9 +9,10 @@
 [2018/09/21 v0.01 LaTeX package for Dr. Pardue's math490 course at UMBC]
 
 \RequirePackage{mathtools,array,xspace,amssymb,xypic,mathrsfs,graphicx}
+\RequirePackage{hyperref}
 \RequirePackage[shortlabels]{enumitem}
 \RequirePackage[margin=1.75in]{geometry}
-\RequirePackage[thmmarks,amsmath]{ntheorem}
+\RequirePackage[thmmarks,amsmath,hyperref]{ntheorem}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{newtxtext}
 \RequirePackage{newtxmath}
@@ -21,6 +22,13 @@
 % \usepackage{mathptmx}
 % \usepackage{tgtermes}
 % \usepackage{xypdf}
+\hypersetup{
+    % colorlinks,
+    % citecolor=black,
+    % filecolor=black,
+    % linkcolor=black,
+    % urlcolor=black
+}
 
 \newcommand{\attr}[1]{\begin{flushright}by {#1}\end{flushright}}
 \renewcommand{\AA}{Anthony Agwu} % replaced Angstrom symbol Å
@@ -28,25 +36,25 @@
 \newcommand{\BJ}{Bruce James}
 \newcommand{\MK}{Matthew Kousoulas}
 \newcommand{\ML}{Mark Laczin}
-\newcommand{\AM}{Amarith Matharu}
+\newcommand{\AM}{I Love My Cat}
 \newcommand{\EM}{Emily McGovern}
 \newcommand{\KP}{Keith Pardue}
 \newcommand{\TW}{Teddy Weinberg}
 
-\pagenumbering{gobble}
+% \pagenumbering{gobble}
 \setlist{nolistsep}
 
 \newtoks\theoremheaderfont
 \def\theorem@numberfont{\normalfont}
 \def\theorem@notefont{\normalfont}
-\newtheoremstyle{test}%
-  {\item[\hskip\labelsep \theorem@headerfont ##1\ \theorem@numberfont ##2\theorem@separator]}%
-  {\item[\hskip\labelsep \theorem@headerfont ##1\ \theorem@numberfont ##2\ \theorem@notefont (##3)\theorem@separator]}
-\newtheoremstyle{nonumbertest}%
-  {\item[\theorem@headerfont\hskip\labelsep ##1\theorem@separator]}%
-  {\item[\theorem@headerfont\hskip \labelsep ##1\ \theorem@notefont (##3)\theorem@separator]}
+\newtheoremstyle{basic}%
+	{\item[\hskip\labelsep \theorem@headerfont ##1\ \theorem@numberfont ##2\theorem@separator]}%
+	{\item[\hskip\labelsep \theorem@headerfont ##1\ \theorem@numberfont ##2\ \theorem@notefont (##3)\theorem@separator]}
+\newtheoremstyle{nonumberbasic}%
+	{\item[\theorem@headerfont\hskip\labelsep ##1\theorem@separator]}%
+	{\item[\theorem@headerfont\hskip \labelsep ##1\ \theorem@notefont (##3)\theorem@separator]}
 
-\theoremstyle{test}
+\theoremstyle{basic}
 \theoremseparator{.}
 \theoremheaderfont{\upshape\scshape}
 \theorembodyfont{\itshape}
@@ -59,10 +67,18 @@
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{remark}[theorem]{Remark}
 \theoremnumbering{roman}
-\newtheorem{exercise}{Exercise}[section]
 \theoremsymbol{\(\square\)}
 \newtheorem*{proof}{\indent Proof}
+\theoremsymbol{}
+\theorempostwork{ \addcontentsline{toc}{subsection}{Exercise {\theexercise}}}%
+\newtheorem{exercise}{Exercise}[section]
 
+% \newenvironment{exercise}[1][]
+%  {\expandafter\exer\if\relax\detokenize{#1}\relax\else[#1]\fi
+%   \addcontentsline{toc}{bsection}
+%     {\protect\tocsection{}{\theexer}{Exercise\if\relax\detokenize{#1}\relax\else\ (#1)\fi}}%
+%  }
+%  {\endexer}
 % \renewcommand*{\theexercise}{\thechapter.\thesection.\roman{exercise}}
 % \renewcommand*{\thetheorem}{\thechapter.\thesection.\arabic{theorem}}
 
@@ -74,9 +90,9 @@
 \newcounter{tmpchp}
 \newcounter{tmpsec}
 \newcommand{\settheorem}[3]{%
-	\setcounter{tmpchp}{1*\thechapter}
+	\setcounter{tmpchp}{\value{chapter}}
 	\setcounter{chapter}{#1}
-	\setcounter{tmpsec}{1*\thesection}
+	\setcounter{tmpsec}{\value{section}}
 	\setcounter{section}{#2}
 \setcounter{theorem}{#3-1}}
 
@@ -98,6 +114,7 @@
 \newcommand{\eqdef}{\eqqcolon}
 
 % shortcuts for various fonts
+\newcommand{\tbf}{\textbf}
 \newcommand{\mcl}{\mathcal}
 \newcommand{\mbf}{\mathbf}
 \newcommand{\mbb}{\mathbb}
@@ -111,6 +128,7 @@
 \newcommand{\Cat}{\textsf{Cat}\xspace}
 \newcommand{\CAT}{\textsf{CAT}\xspace}
 \newcommand{\Set}{\textsf{Set}\xspace}
+\newcommand{\Fin}{\textsf{Fin}\xspace}
 \renewcommand{\Top}{\textsf{Top}\xspace} % replaced logical Top ⫪
 \newcommand{\Ring}{\textsf{Ring}\xspace}
 \newcommand{\Field}{\textsf{Field}\xspace}
@@ -119,10 +137,21 @@
 % these can only be used in math mode
 % if you can come up with a macro that works in both tell me
 \newcommand{\Setp}{\textsf{Set}_*}
+\newcommand{\Finp}{\textsf{Fin}_*}
 \newcommand{\Topp}{\textsf{Top}_*}
 \newcommand*{\Mod}[1]{\textsf{Mod}_{#1}}
 \newcommand*{\Mat}[1]{\textsf{Mat}_{#1}}
 \newcommand*{\Vect}[1]{\textsf{Vect}_{#1}}
+\newcommand{\zero}{\mbb{0}}
+\newcommand{\one}{\mbb{1}}
+\newcommand{\two}{\mbb{2}}
+\newcommand{\three}{\mbb{3}}
+\newcommand{\four}{\mbb{4}}
+\newcommand{\five}{\mbb{5}}
+\newcommand{\six}{\mbb{6}}
+\newcommand{\seven}{\mbb{7}}
+\newcommand{\eight}{\mbb{8}}
+\newcommand{\nine}{\mbb{9}}
 
 % this is to get the 'element of or equal to' relation symbol
 \DeclareFontEncoding{LS1}{}{\noaccents@}
@@ -139,7 +168,7 @@
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\RR}{\mathbb{R}}
-\renewcommand{\SS}{\mathbb S}
+\renewcommand{\SS}{\mathbb{S}}
 \newcommand{\ZZ}{\mathbb{Z}}
 
 % sans serif shortcuts
@@ -187,7 +216,7 @@
 \newcommand{\Gm}{\Gamma}
 \newcommand{\de}{\delta}
 \newcommand{\De}{\Delta}
-\newcommand{\ep}{\varepsilon}
+\newcommand{\ep}{\epsilon}
 \newcommand{\ze}{\zeta}
 \renewcommand{\th}{\theta} % replaced thorn þ
 \newcommand{\Th}{\Theta}

@@ -1,0 +1,117 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\setexercise{1}{1}{3}
+\begin{exercise}
+For any category \(\sC\) and any object \(c\) in \(\sC\) show that:
+\begin{enumerate}
+	\item There is a category \(c/\sC\) whose objects are morphisms
+		\(\func{f}{c}{x}\) with domain \(c\) and in which a morphism from
+		\(\func{f}{c}{x}\) to \(\func{g}{c}{y}\) is a map \(\func{h}{x}{y}\)
+		between the codomains so that the triangle \[ \xymatrix{&c\ar[dr]^g
+		\ar[dl]_f& \\ x \ar[rr]_h && y } \] \tbf{commutes}, i.e., so that
+		\(g=hf.\)
+
+	\item There is a category \(\sC/c\) whose objects are morphisms
+		\(\func{f}{x}{c}\) with codomain \(c\) and in which a morphism from
+		\(\func{f}{x}{c}\) to \( \func{g}{y}{c} \) between the domains so that
+		the triangle \[ \xymatrix{x \ar[rr]^h\ar[dr]_f && y\ar[dl]^g\\ &c & } \]
+		\tbf{commutes}, i.e., so that \(f=gh\)
+
+		The categories \(c/\sC\AND\sC/c\) are called \tbf{slice categories} of
+		\(\sC\) \tbf{under} and \tbf{over} \(c,\) respectively.
+\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	First we must determine the form of the objects and morphisms in \(c/\sC.\)
+	The objects of \(c/\sC\) are diagrams of the following form.
+	\[ \xymatrix{c\ar[r]^f& x} \]
+	The morphisms in \(c/\sC\) are diagrams of the following form.
+	\[ \xymatrix{&c\ar[dr]^g \ar[dl]_f& \\ x \ar[rr]_h && y } \]
+	Though this is notation is by no means standard, to help distinguish between
+	morphisms in \(\sC\) and morphisms in the slice categories, we will
+	define \(h'\) as a short hand for the diagram with the morphism \(h\) as the
+	bottom arrow (or top in \(\sC/c\)). Notice that both the objects are
+	commutative diagrams in \(\sC.\) We could also think of the objects as
+	functors from  the category \(\mathbb{2}\) and the morphisms as functors
+	from the category \(\mathbb{3}.\) By the way we have defined morphisms the
+	only reasonable choices for the domain and codomain of \(h'\) is \(f\) and
+	\(g\) respectively.
+
+	We can see how to compose two compatible morphisms \(\func{i'}{e}{f}\) and
+	\(\func{h'}{f}{g}\) in \(c/\sC\) by looking at the following diagram in
+	\(\sC.\)
+	\[ \xymatrix{&c\ar[dr]\ar[dr]^g\ar[dl]\ar[dl]_e\ar[d]_f\\
+	z\ar[r]_{i}&x\ar[r]_h&y } \]
+	Since \((hi)e=h(ie)=hf=g\) in \(\sC\) the diagram commutes, and the
+	composition \(hi\) can be thought of as a member of \(c/\sC\) denoted as
+	\((hi)'\) with domain and codomain \(e\) and \(g\). Using the diagram
+	notation \((hi)'\) is denoted as follows.
+
+	\[ \xymatrix{&c\ar[dr]^g \ar[dl]_e& \\ x \ar[rr]_{hi} && y } \]
+	Because we have defined composition in \(c/\sC\) in terms of composition
+	in \(\sC\) \(c/\sC\) inherits the associativity of \(\sC\) That
+	is for composable morphisms  \(h',\;i',\AND j' \IN \sC\) we have
+	\[ (h'i')j'=(hi)j=h(ij)=h'(i'j'). \]
+
+	We need to obtain the identity morphism of each object \(f\) in
+	\(c/\sC.\) To do so notice that the follow diagram commutes, because
+	\(\sC\) is a category.
+	\[ \xymatrix{c\ar[d]_f\ar[dr]^f\\ x\ar[r]_{1_x}&x } \]
+	Looking at the same diagram from a different perspective we see that
+	\(1_x\) actually acts as the identity morphism for \(f\) in \(c/\sC\)
+	Since we were careful when defining the morphisms in \(c/\sC\) this
+	identity is well defined. If we had defined the morphisms in \(c/\sC\)
+	to be anything less than a commutative diagrams, it would seem as
+	\(1_x\) could serve as the identity for multiple objects in \(c/\sC.\)
+	This issue is not restricted to identity morphisms, but it is most
+	obvious in the case of identity morphisms. However since we defined
+	morphisms appropriately we can use the notation defined earlier to write
+	\(1_{x}=1_{f}:f\to f\) without any ambiguity. This notion can be used to
+	obtain the left and right identities by considering the following
+	commutative diagram in \(\sC\)
+	\[\xymatrix{&&c\ar[dr]_g\ar[drr]^g\ar[dl]^f\ar[dll]_f\\
+	x\ar[r]_{1_x}&x\ar[rr]_h&&y\ar[r]_{1_y}&y }\]
+	Translating the above diagram into the slice category notation we have
+	that \(h'1_{f}= h'=1_{g}h'.\) We have shown that \(c/\sC\) satisfies all
+	the axioms of a category.
+
+	We can use the same method to show that \(\sC/c\) is also a category.
+	The only difference is direction of each arrow. Hence this proof will be
+	relatively terse. The objects in \(c/\sC\) are the following diagram.
+	\[\xymatrix{x\ar[r]^f& c}\]
+	A morphisms  \(h'\) in \(\sC/c\) has the form of the following diagram.
+	\[\xymatrix{x \ar[rr]^h\ar[dr]_f && y\ar[dl]^g\\ &c & }\]
+	The domain of \(h'\) is \(f\) and the codomain of \(h\) is \(g.\) We
+	define composition on \(\sC/c\) by taking compatible in \(\sC/c\)
+	morphisms \(i':e\to f\AND h':f\to g\) and observing the following
+	diagram in \(\sC.\)
+
+	\[\xymatrix{z\ar[r]^i\ar[dr]_e &x\ar[d]^f\ar[r]^h&y\ar[dl]^g\\ &c & }\]
+	Again this diagram commutes since \(g(hi)=(gh)i=fi=e\) in \(\sC.\)
+	We see that \((ih)\) is member of \(\sC/c\) with domain \(e\) and
+	codomain \(g\) and is denoted as follows.
+	\[\xymatrix{z \ar[rr]^{ih}\ar[dr]_e && y\ar[dl]^g\\ &c & }\]
+	Just like we did in the previous case, we have defined composition in
+	terms of the composition in \(\sC.\) Hence the associativity is
+	inherited. That is given composable morphisms \(i',h',\AND j'\) we have
+	\[(j'h')i'=(jh)i=j(hi)=j'(h'i').\]
+	We can obtain the identity element for each object \(f\IN \sC/c\) in the
+	exact same way as before.
+	\[\xymatrix{c\ar[d]_f\ar[dr]^f\\ x\ar[r]_{1_x}&x }\]
+	Since the above diagram commutes we can write \(1'_x=1_{f}:f\to f\) To
+	get an identity for an arbitrary element observe that the diagram below
+	commutes and gives us that \(1_{f}h'=h'=h'1_{g}\).
+	\[\xymatrix{x\ar[r]^{1_{x}}&x\ar[rr]^h&&y\ar[r]^{1_{y}}&y
+							 \\&&c\ar[urr]_g\ar[ur]^g\ar[ul]_f\ar[ull]^f}\]
+	Therefore both \(c/\sC\) and \(\sC/c\) are categories in their own right.
+\end{proof}
+
+If you looked over to the next page and read the definition of opposite
+categories, you should notice that \(((c/(\sC)^{\op}))^{\op}=(\sC/c)\)
+If we knew about opposite categories beforehand we could have just
+proved that the \(c/\sC\) is a category and then cited this result and
+been done (since the opposite category is category, it's in the name
+after all), without all the extra tedium of swapping arrows.
+\end{document}
