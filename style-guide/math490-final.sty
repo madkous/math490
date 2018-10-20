@@ -101,9 +101,13 @@
 	\setcounter{section}{\thetmpsec}
 }
 
-\DeclareRobustCommand{\em}{%
-	\@nomath\em \if b\expandafter\@car\f@series\@nil
-\normalfont \else \bfseries \fi}
+% \DeclareRobustCommand{\em}{%
+% 	\@nomath\em \if b\expandafter\@car\f@series\@nil
+% \normalfont \else \bfseries \fi}
+
+\renewenvironment{quote}%
+	{\list{}{\topsep=3pt\leftmargin=0.60in\rightmargin=0.60in}\item[]\relax}%
+	{\endlist}
 
 % these ease writing arrays where every entry is in math mode
 \newcolumntype{L}{>{\(}l<{\)}}
