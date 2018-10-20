@@ -1,0 +1,54 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\setexercise{1}{2}{7}
+\begin{exercise}
+	Regarding a poset \((\sP,\le)\) as a category, define the supremum of a
+	subcollection of objects \(A\in\sP\) in such a way that the dual
+	statement defines the infimum. Prove that the supremum of a subset of
+	objects is unique, whenever it exists, in such a way that the dual proof
+	demonstrates the uniqueness of the infimum.
+\end{exercise}
+\begin{proof}
+	Given a subcollection, \(C\), of objects \(A\in\sP\), define an upper bound
+	as follows: a object \(u\) is an upper bound of \(C\) if for all objects
+	\(x\) in \(C\) there is a morphism \(\func{x\le u}{x}{u}\). (Recall that
+	morphisms in a poset category are merely elements of the \(\le\) relation.)
+	Note that this immediately gives us a dual notion of a lower bound by
+	considering instead \(\sP^\op\). A lower bound of \(C\) in \(\sP\) is an
+	upper bound of \(C\) in \(\sP^\op\). In other words an object \(l^\op\) such
+	that for all objects \(x^\op\) in \(C\) there is a morphism \(\func{(x\le
+	l)^\op}{x^\op}{l^\op}\), or equivalently \(\func{(l\le x)}{l}{x}\).
+
+	Letting \(F\) be the collection of all upper bounds of \(C\), we define the
+	supremum of \(C\), if it exists%
+	\footnote{There are many cases where suprema fail to exist. Consider
+		the poset category: \[\xymatrix{a&b\\c\ar[u]\ar[ur]&d\ar[u]\ar[ul]}\]
+		the set \(\{c,d\}\) has as upper bounds \(\{a,b\}\). However,
+		\(\{a,b\}\) has as lower bounds \(\{c,d\}\). Because these sets are
+		disjoint there is no supremum of \(\{c,d\}\). Even in more common
+		orderings, like the usual ordering on the rational numbers,
+		subcollections can fail to have suprema. For example,
+		\(\{x\in\QQ|x^2<2\}\).
+
+		A poset with the property that any collection of elements has a supremum
+		and infimum is called a complete lattice.
+	}, to be a lower bound of \(F\) (as defined
+	above) which is contained in \(F\). The condition of containment implies
+	uniqueness. Supposing we have two lower bounds \(x\) and \(y\) of \(F\). If
+	both are contained in \(F\), then there are maps \(\func{x\le y}{x}{y}\) and
+	\(\func{y\le x}{y}{x}\). Since the only endomorphisms in \(\sP\) are
+	identities these must compose to identities and thus be inverses, and
+	because \(\sP\) is a partially ordered set (as opposed to just being a
+	preordered set) the only isomorphisms are identities. In familiar terms, a
+	partial order is antisymmetric. Thus \(x\) and \(y\) are the same object.
+
+	We may thus define the infimum of \(C\) to be its supremum on \(\sP^\op\).
+	This time we consider the collection \(I\) of lower bounds \(C\) (the upper
+	bounds of \(C\) in \(\sP^\op\)). The infimum is then an upper bound of \(I\)
+	which is contained in \(I\) (a lower bound in \(\sP^\op\)). The infimum must
+	be unique because it's a supremum in the opposite category, and suprema are
+	unique.
+\end{proof}
+\end{document}
+

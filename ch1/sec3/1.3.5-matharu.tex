@@ -1,0 +1,33 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\setexercise{1}{3}{5}
+\begin{exercise}
+	What is the difference between a functor
+	$ \sC^{\op}\to \sD $ and a functor $ \sC\to \sD^{\op} $? What is the
+	difference between a functor  $ \sC \to \sD $ and a functor $ \sC^{\op}\to \sD^{\op}?$
+\end{exercise}
+
+\begin{proof}
+	We will show that if $ F $ is a functor from $ \sC\to\sD,$ then $ F $ is
+	also a functor from $ \sC^\op $ to $ \sD^\op,$ and then deduce the relation
+	ship between a functor $ \sC^{\op}\to \sD $ and a functor $ \sC\to
+	\sD^{\op}$ as a special case.
+
+	To show that if $ F $ is a functor from $ \sC\to\sD,$ then $ F $ is
+	also a functor from $ \sC^\op $ to $ \sD^\op,$
+	immediately from the functoriality axioms, that is for any two composable
+	morphisms $ f\AND g \IN\sC $ and for any object $ x\IN\sC $ we must have
+	$F(fg)=FfFg$ and $ F1_x=1_{Fx}.$ Since for each object in $ \sC\AND \sD $
+	the identity maps are the same in their respective opposite categories, we
+	only need to verify that $ F $ respects composition when take composable
+	morphisms from $\sC^\op $ to $ \sD^\op.$ Since the objects  $ \sC^\op
+	\AND\sD^\op$ are exactly the same as in $ \sC\AND \sD$ and the morphisms
+	are the some only with domains and codomains switched, we can apply $ F $
+	to the morphisms of $ \sC^\op $ and get morphisms in $ \sD^\op.$ This gives
+	us that	$ Ffg=FfFg, $ and $ F $ is a functor from $ \sC^\op  $ to $
+	\sD^\op. $ Now since $ \sC=\qty{\sC^\op}^\op \AND \sD=\qty{\sD^\op}^\op$ we
+	see that there is no difference from a functor $ \sC^{\op} \to \sD $ and a
+	functor $ \sC\to \sD^{\op}  $ as well.
+\end{proof}
+\end{document}

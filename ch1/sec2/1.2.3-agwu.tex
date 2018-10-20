@@ -1,6 +1,7 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
 
+\settheorem{1}{2}{11}
 \begin{lemma}\leavevmode
 	\begin{enumerate}[(i)]
 		\item If \(\mono{f}{x}{y}\) and \(\mono{g}{y}{z}\) are monomorphisms,
@@ -11,13 +12,14 @@
 	\end{enumerate}
 	Dually:
 	\begin{enumerate}[(i')]
-		\item If \(\epi{f}{x}{y}\) and \(\epi{g}{y}{z}\) are epimorphisms,
-			then so is \(\epi{gf}{x}{z}\).
+		\item If \(\epic{f}{x}{y}\) and \(\epic{g}{y}{z}\) are epimorphisms,
+			then so is \(\epic{gf}{x}{z}\).
 
 		\item If \(\func{f}{x}{y}\) and \(\func{g}{y}{z}\) are morphisms so
 			that \(gf\) is epic, then \(g\) is epic.
 	\end{enumerate}
 \end{lemma}
+\popthm
 
 \begin{exercise}
 	Prove Lemma 1.2.11 by proving either (i) or (i') and either (ii) or (ii'),

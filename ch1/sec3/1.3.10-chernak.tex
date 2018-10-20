@@ -1,0 +1,79 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+% \begin{flushleft}
+% 	{\small Note: In this exercise, I use the notation `\([x]\)' to denote the
+% 	conjugacy class of an element \(x\) and `\(s^*\)' to  denote the set of the
+% conjugacy classes of the elements of a group \(s\). Furthermore, I will use F
+% instead of Conj, to increase readability.}
+% \end{flushleft}
+
+\setexercise{1}{3}{10}
+\begin{exercise}
+	Show that the construction of the set of conjugacy classes of elements of a
+	group is functorial, defining a functor
+	\(\mathrm{Conj}\colon\mathsf{Group\to Set}\). Conclude that any pair of
+	groups whose sets of conjugacy classes of elements have differing
+	cardinalities cannot be isomorphic.
+\end{exercise}
+
+\begin{proof}
+	Let the functor \(F:\mathsf{Group\to Set}\) represent the construction of
+	the set of conjugacy classes of elements of a group, defined as follows:
+	\begin{itemize}
+		\item For any group \(s\), \(Fs = s^*\).
+
+		\item For any groups \(s\) and \(t\) and any group homomorphism
+			\(f\colon s\to 	t\), define the morphism \(Ff\colon s^*\to t^*\)
+			such that for each \([x]\in s^*\), \(Ff([x]) = [f(x)]\).\smallskip\\
+			\textit{\footnotesize (The proof that every \(Ff\) is well-defined
+			is non-trivial; see Subproof 1.3.x.0, below.)}
+	\end{itemize}
+
+	First we will prove that \(F\) is functorial by showing that it fulfills
+	both functoriality axioms:
+	\begin{itemize}
+		\item Let \(f\) and \(g\) be group homomorphisms such that \(gf\) is a
+			valid composition, and let \([x]\in(\textrm{dom}(f))^*\) be
+			arbitrary. \[FgFf([x])=Fg([f(x)])=[g(f(x))]=[gf(x)]=F(gf([x])).\]
+			Since \([x]\), f, and g were arbitrary, \(FgFf = F(gf)\). So \(F\)
+			fulfills the first functoriality axiom.
+
+		\item For an arbitrary group \(s\) and element \(x\in s\),
+			\[F1_s([x])=[1_s(x)]=[x]=1_{s^*}([x])=1_{Fs}([x]).\] Since s and x
+			were arbitrary, \(F1_{s}=1_{Fs}\). So \(F\) fulfills the second
+			functoriality axiom.
+	\end{itemize}
+	F fulfills both axioms, so we can conclude that it is indeed
+	functorial.
+
+	Let \(s\) and \(t\) be two isomorphic groups, and let \(f\colon s\to t\) be
+	an isomorphism. Functors preserve isomorphisms, (as per the `first lemma in
+	category theory') so \(Ff\colon s^*\to t^*\) must also be an isomorphism.
+	This makes \(s^*\) and \(t^*\) isomorphic, which in turn means they must
+	have the same cardinality. So we can conclude the contrapositive: that any
+	pair of groups whose sets of conjugacy classes have \textit{different}
+	cardinalities \textit{cannot} be isomorphic.
+
+	\paragraph*{Subproof 1.3.x.0.} In order for each \(Ff\) to be well-defined,
+	it must send each \([x]\in s^*\) to a single \([f(x)]\in t^*\). But there
+	may be more than one element in \([x]\), and since the definition does not
+	mention which \(x\) should be used as a 'representative,' it might seem that
+	there could be cases in which there were multiple possible \([f(x)]\) (and
+	therefore, multiple possible \(Ff([x])\)) for a single \([x]\). So in order
+	for \(Ff\) to be well-defined, \([f(x)]\) must be the same for every
+	possible choice of \(x\in [x]\). In other words, we need to show that
+	\([f(a)] = [f(b)]\) for any \(a, b\) in the same conjugate class.
+
+	So, let \(a, b\) be arbitrary members of the same conjugate class. Recall
+	that this means that there is some \(n\in s\) such that \(b = nan^{-1}\).
+	Furthermore, recall that group homomorphisms (like \(f\)) preserve inverses.
+	With this in mind, \[f(b) = f(nan^{-1}) = f(n)f(a)f(n^{-1}) =
+	f(n)f(a)f(n)^{-1}\]
+
+	\(n\in s\), so \(f(n)\in t\). This means that there is some \(m\in t\) such
+	that \(mf(a)m^{-1} = f(b)\). So \(f(a)\) and \(f(b)\) are conjugates, (and
+	therefore \([f(a)] = [f(b)]\) by definition,) which makes \(Ff\)
+	well-defined.
+\end{proof}
+\end{document}
