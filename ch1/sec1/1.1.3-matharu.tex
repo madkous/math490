@@ -35,9 +35,9 @@ For any category \(\sC\) and any object \(c\) in \(\sC\) show that:
 	define \(h'\) as a short hand for the diagram with the morphism \(h\) as the
 	bottom arrow (or top in \(\sC/c\)). Notice that both the objects are
 	commutative diagrams in \(\sC.\) We could also think of the objects as
-	functors from  the category \(\mathbb{2}\) and the morphisms as functors
+	functors\footnote{Functors are defined in section 1.3. Right now the diagrams here are just helpful tools to keep track of equations. Diagrams are made formal in section 1.6.} from  the category \(\mathbb{2}\) and the morphisms as functors
 	from the category \(\mathbb{3}.\) By the way we have defined morphisms the
-	only reasonable choices for the domain and codomain of \(h'\) is \(f\) and
+	only reasonable choices for the domain and codomain of \(h'\) are \(f\) and
 	\(g\) respectively.
 
 	We can see how to compose two compatible morphisms \(\func{i'}{e}{f}\) and
@@ -47,12 +47,12 @@ For any category \(\sC\) and any object \(c\) in \(\sC\) show that:
 	z\ar[r]_{i}&x\ar[r]_h&y } \]
 	Since \((hi)e=h(ie)=hf=g\) in \(\sC\) the diagram commutes, and the
 	composition \(hi\) can be thought of as a member of \(c/\sC\) denoted as
-	\((hi)'\) with domain and codomain \(e\) and \(g\). Using the diagram
+	\((hi)'\) with domain and codomain \(e\) and \(g\), respectively. Using the diagram
 	notation \((hi)'\) is denoted as follows.
 
 	\[ \xymatrix{&c\ar[dr]^g \ar[dl]_e& \\ x \ar[rr]_{hi} && y } \]
 	Because we have defined composition in \(c/\sC\) in terms of composition
-	in \(\sC\) \(c/\sC\) inherits the associativity of \(\sC\) That
+	in \(\sC,\) \(c/\sC\) inherits the associativity of \(\sC\) That
 	is for composable morphisms  \(h',\;i',\AND j' \IN \sC\) we have
 	\[ (h'i')j'=(hi)j=h(ij)=h'(i'j'). \]
 
@@ -61,15 +61,15 @@ For any category \(\sC\) and any object \(c\) in \(\sC\) show that:
 	\(\sC\) is a category.
 	\[ \xymatrix{c\ar[d]_f\ar[dr]^f\\ x\ar[r]_{1_x}&x } \]
 	Looking at the same diagram from a different perspective we see that
-	\(1_x\) actually acts as the identity morphism for \(f\) in \(c/\sC\)
-	Since we were careful when defining the morphisms in \(c/\sC\) this
+	\(1_x\) actually acts as the identity morphism for \(f\) in \(c/\sC.\)
+	Since we were careful when defining the morphisms in \(c/\sC,\) this
 	identity is well defined. If we had defined the morphisms in \(c/\sC\)
 	to be anything less than a commutative diagrams, it would seem as
-	\(1_x\) could serve as the identity for multiple objects in \(c/\sC.\)
-	This issue is not restricted to identity morphisms, but it is most
-	obvious in the case of identity morphisms. However since we defined
-	morphisms appropriately we can use the notation defined earlier to write
-	\(1_{x}=1_{f}:f\to f\) without any ambiguity. This notion can be used to
+	\(1'_x\) could serve as the identity for multiple objects in \(c/\sC.\)
+	This issue is not restricted to identity morphisms, but this ambiguity is most
+	obvious in the case of identity morphisms. However, since we defined
+	morphisms appropriately, we can use the notation defined earlier to write
+	\(1'_{x}=1_{f}:f\to f\) without any ambiguity. This notion can be used to
 	obtain the left and right identities by considering the following
 	commutative diagram in \(\sC\)
 	\[\xymatrix{&&c\ar[dr]_g\ar[drr]^g\ar[dl]^f\ar[dll]_f\\
@@ -78,7 +78,7 @@ For any category \(\sC\) and any object \(c\) in \(\sC\) show that:
 	that \(h'1_{f}= h'=1_{g}h'.\) We have shown that \(c/\sC\) satisfies all
 	the axioms of a category.
 
-	We can use the same method to show that \(\sC/c\) is also a category.
+	We can use the same procedure to show that \(\sC/c\) is also a category.
 	The only difference is direction of each arrow. Hence this proof will be
 	relatively terse. The objects in \(c/\sC\) are the following diagram.
 	\[\xymatrix{x\ar[r]^f& c}\]
@@ -110,7 +110,7 @@ For any category \(\sC\) and any object \(c\) in \(\sC\) show that:
 \end{proof}
 
 If you looked over to the next page and read the definition of opposite
-categories, you should notice that \(((c/(\sC)^{\op}))^{\op}=(\sC/c)\)
+categories, you should notice that \(((c/(\sC)^{\op}))^{\op}=(\sC/c).\)
 If we knew about opposite categories beforehand we could have just
 proved that the \(c/\sC\) is a category and then cited this result and
 been done (since the opposite category is category, it's in the name

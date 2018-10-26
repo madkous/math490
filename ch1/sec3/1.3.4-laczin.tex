@@ -32,8 +32,8 @@
 	The assignments are required to satisfy the following two
 	\emph{functoriality axioms}:
 	\begin{itemize}
-		\item For any composable pair $f$, $g$ in $\cat{C}$, $Fg\cdot Ff =
-			F(g\cdot f)$.
+		\item For any composable pair $f$, $g$ in $\cat{C}$, $Fg Ff =
+			F(g f)$.
 
 		\item For each object $c$ in $\cat{C}$, $F(1_c) = 1_{Fc}$.
 	\end{itemize}
@@ -57,8 +57,8 @@ them from another variety of functor that we now introduce.
 	The assignments are required to satisfy the following two
 	\emph{functoriality axioms}:
 	\begin{itemize}
-		\item For any composable pair $f$, $g$ in $\cat{C}$, $Ff\cdot Fg =
-			F(g\cdot f)$.
+		\item For any composable pair $f$, $g$ in $\cat{C}$, $Ff Fg =
+			F(gf)$.
 
 		\item For each object $c$ in $\cat{C}$, $F(1_c) = 1_{Fc}$.
 	\end{itemize}
@@ -105,16 +105,17 @@ them from another variety of functor that we now introduce.
 	\cat{C}(c,j)$. \\
 
 	To show composition, let $\func{f}{x}{y}$ and $\func{g}{w}{x}$ be a
-	composable pair of morphisms in $\cat{C}$. Note first that $\func{f\cdot
+	composable pair of morphisms in $\cat{C}$. Note first that $\func{f
 	g}{w}{y}$ and that $\func{\cat{C}(c,-)(f)}{\cat{C}(c,x)}{\cat{C}(c,y)}$, and
 	finally that $\func{\cat{C}(c,-)(g)}{\cat{C}(c,w)}{\cat{C}(c,x)}$. \\ Since
 	$\dom\cat{C}(c,-)(f) = \cod\cat{C}(c,-)(g) = \cat{C}(c,x)$, we can compose
-	as follows: \[\func{\cat{C}(c,-)(f)\cdot
-	\cat{C}(c,-)(g)}{\cat{C}(c,w)}{\cat{C}(c,y)}\] Since
-	$\func{\cat{C}(c,-)(f\cdot g)}{\cat{C}(c,w)}{\cat{C}(c,y)}$ and both this
-	and the above are given by applying $f\cdot g$ to a morphism in
-	$\cat{C}(c,w)$, we have that $\cat{C}(c,-)(f)\cdot \cat{C}(c,-)(g) =
-	\cat{C}(c,-)(f\cdot g)$, satisfying functor composition.\\
+	as follows: \[\func{\cat{C}(c,-)(f)
+	\qty{\cat{C}(c,-)(g)}}{\cat{C}(c,w)}{\cat{C}(c,y)}.\] Since
+	$\cat{C}(c,-)(f g)$ 
+	and $ \cat{C}(c,-)(f)\qty{\cat{C}(c,-)(g)} $ 
+	are given by applying $f g$ to a morphism in
+	$\cat{C}(c,w)$, we have that $\cat{C}(c,-)(f) \cat{C}(c,-)(g) =
+	\cat{C}(c,-)(f g)$, satisfying functor composition.\\
 
 	To show that identities are preserved, note that for any object
 	$x\in\cat{C}$, $\func{1_x}{x}{x}$. Then
@@ -124,8 +125,7 @@ them from another variety of functor that we now introduce.
 	the identity $a\mapsto a$. Then consider $1_{\cat{C}(c,-)(x)} =
 	1_{\cat{C}(c,x)}$, which is the identity of $\cat{C}(c,x)$, taking each
 	element $a$ of the set to itself: $a\mapsto a$. Thus, $\cat{C}(c,-)(1_x) =
-	1_{\cat{C}(c,-)(x)}$ and $\cat{C}(c,-)$ preserves identities.
-	Diagrammatically:\\
+	1_{\cat{C}(c,-)(x)}$ and $\cat{C}(c,-)$ preserves identities, as show by the following diagram.\\
 	\[\xymatrix{
 		c\ar[r]^a\ar[dr]_{1_xa}&x\ar[d]^{1_x} \\
 		& y=x

@@ -19,21 +19,21 @@
 	the related pairs.  Identities are the unique morphisms $(x,x)$, which exist
 	based on the reflexivity of the relation.  Note that if $(a,b)$ and $(b,c)$
 	are in the relation, the composition will be $(b,c)(a,b) = (a,c)$.\\ \\ What
-	do the properties of a functor between preorders $C$ (with relation $R$) and
-	$D$ (with relation $S$) tell us?  First, we know that $F(1_x) = 1_{F(x)}$
-	for all $x \in obC$.  This implies that the morphism $(x,x)$ must be brought
-	to the morphism $(F(x),F(x))$.  This becomes redundant with the next step.
-	\\ \\ We also know that $F(\dom(f)) = \dom(F(f))$ for all $f \in morC$.  If
-	$f = (a,b)$, then $F(\dom(f)) = F(a)$ and thus $F(f)$ must be a pair $(F(a),
-	z_1)$ for some $z_1 \in obD$.  Similarly, $F(\cod(f)) = \cod(F(f))$ implies
-	that if $f = (a,b)$, then $F(\cod(f)) = F(b)$ and $F(f)$ must be a pair
-	$(z_2,F(b))$.  Combining these, we get that $F(f)$ for $f = (a,b)$ must be a
-	pair $(F(a),F(b))$.  This means that if $(a,b) \in R$  then $(F(a),F(b)) \in
+	do the properties of a functor between preorders $\sC$ (with relation $R$) and
+	$\sD$ (with relation $S$) tell us?  First, we know that $F1_x = 1_{Fx}$
+	for all $x \in \ob\sC$.  This implies that the morphism $(x,x)$ must be brought
+	to the morphism $(Fx,Fx)$.  This becomes redundant with the next step.
+	\\ \\ We also know that $F(\dom(f)) = \dom(Ff)$ for all $f \in \mor\sC$.  If
+	$f = (a,b)$, then $F(\dom(f)) = F(a)$ and thus $Ff$ must be a pair $(F(a),
+	z_1)$ for some $z_1 \in \ob\sD$.  Similarly, $F(\cod(f)) = \cod(Ff)$ implies
+	that if $f = (a,b)$, then $F(\cod(f)) = Fb$ and $Ff$ must be a pair
+	$(z_2,Fb)$.  Combining these, we get that $Ff$ for $f = (a,b)$ must be a
+	pair $(Fa,Fb)$.  This means that if $(a,b) \in R$  then $(Fa,Fb) \in
 	S$.  \\ \\ Thus, $F$ provides us a preorder homomorphism, as $F$ preserves
 	related pairs.  The final property to check for a functor is composable
 	pairs.  If two morphisms $f$ and $g$ are composable, then $F(fg) =
-	F(f)F(g)$.  This means $F((b,c)(a,b)) = F((a,c)) = (F(b),F(c))(F(a)(F(b)) =
-	(F(a),F(c))$, which was already confirmed by the previous property.  Thus,
+	FfFg$.  This means $$F((b,c)(a,b)) = F(a,c) = (Fb,Fc)(Fa,Fb) =
+	(Fa,Fc),$$ which was already confirmed by the previous property.  Thus,
 	the functor is a preorder homomoprhism.
 \end{proof}
 

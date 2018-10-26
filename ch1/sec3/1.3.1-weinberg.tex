@@ -12,18 +12,18 @@
 	element of the group is a morphism in the category.  All domains and
 	codomains are that object \(x\).  There is one identity morphism \(1_x\),
 	which is the identity element in the group.  Composition is the same as
-	multiplication in this context. \\ \\ A functor between groups \(C\) and
+	multiplication in this context. \\ \\ A functor between groups \(\sC\) and
 	\(D\) with respective objects \(x_1\) and \(x_2\) must trivially be such
-	that \(F(x_1) = x_2\).  Our primary concern is the behavior of the functor
-	on the morphisms. We require that for a functor \(F(1_x) = 1_{F(x)}\) for
-	all objects \(x \in obC\), which in this case just implies that \(1_{x_1}\)
+	that \(Fx_1 = x_2\).  Our primary concern is the behavior of the functor
+	on the morphisms. We require that for a functor \(F1_x = 1_{Fx}\) for
+	all objects \(x \in \ob\sC\), which in this case just implies that \(1_{x_1}\)
 	is taken to \(1_{x_2}\).  Additionally, we require \(F(\dom(f)) =
-	\dom(F(f))\) and \(F(\cod(f)) = \cod(F(f))\) for all morphisms \(f\) in the
-	first category.  This is a trivial requirement, as \(F(\dom(f)) = \dom(F(f))
-	= F(\cod(f))= \cod(F(f)) = x_2\) regardless of \(f\).  Finally we require
-	that if \(f\) and \(g\) are a composable pair of morphisms in \(C\), then
-	\(F(fg) = F(f)F(g)\). However, all morphisms in \(D\) are composable, and
-	this implies that \(F(f*g) = F(f)*F(g)\) in the notation of groups with
+	\dom(Ff)\) and \(F(\cod(f)) = \cod(Ff)\) for all morphisms \(f\) in the
+	first category.  This is a trivial requirement, as \(F(\dom(f)) = \dom(Ff)
+	= F(\cod(f))= \cod(Ff) = x_2\) regardless of \(f\).  Finally we require
+	that if \(f\) and \(g\) are a composable pair of morphisms in \(\sC\), then
+	\(F(fg) = FfFg\). However, all morphisms in \(\sD\) are composable, and
+	this implies that \(F(f*g) = Ff*Fg\) in the notation of groups with
 	operation \(*\).  This property and the preservation of identities are
 	directly the definition of a group homomorphism, so this functor is simply a
 	group homomorphism.

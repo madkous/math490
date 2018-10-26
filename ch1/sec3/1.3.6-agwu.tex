@@ -15,9 +15,9 @@
 		\item as morphisms $\qty{d,e,f}\rightarrow \qty{d',e',f'}$, a pair of
 			morphisms $\qty{\func{h}{d}{d'},\func{k}{e}{e'}}$ so that the square
 			\[\xymatrix{
-					Fd \ar[d]^{Fh} \ar[r]_{f} & Ge\ar[d]^{Gk}  \\
-			Fd'\ar[r]^{f'} &Ge'}\]
-			commutes in $\sC$, i.e., so that $f' \cdot Fh = Gk \cdot f$.
+					Fd \ar[d]_{Fh} \ar[r]^{f} & Ge\ar[d]^{Gk}  \\
+			Fd'\ar[r]_{f'} &Ge'}\]
+			commutes in $\sC$, i.e., so that $f' Fh = Gk  f$.
 	\end{enumerate}
 	Define a pair of projection functors $\func{dom}{F\downarrow G}{\sD}$ and
 	$\func{cod}{F\downarrow G}{\sE}$
@@ -36,12 +36,12 @@
 	respectively. Let us take our supposed objects $\qty{0,0,\io}$  and
 	$\qty{1,1,\al}$ where $\io$ is the inclusion function and our supposed
 	morphism $\qty{\func{f}{0}{1},\func{f}{0}{1}}$ so that the diagram
-	\[\xymatrix{ &A0 \ar[d]^{A)} \ar[r]_{\io} & B0\ar[d]^{Bf}  \\  &
-	A1\ar[r]^{\al} &B1   } \] commutes. Now there are at least two functions for
+	\[\xymatrix{ &A0 \ar[d]_{Af} \ar[r]^{\io} & B0\ar[d]^{Bf}  \\  &
+	A1\ar[r]_{\al} &B1   } \] commutes. Now there are at least two functions for
 	$\al$ that would allow the diagram above to commute. The first is if $\al$
-	was simply an inclusion function so the functions $\al \cdot Af$ and $Bf
-	\cdot \io$ are inclusion functions from the singleton set $A0$ to $B1$, thus
-	$\al \cdot Af$ =  $Bf \cdot \io$. The second function which I will denote
+	was simply an inclusion function so the functions $\al  Af$ and $Bf
+	 \io$ are inclusion functions from the singleton set $A0$ to $B1$, thus
+	$\al  Af$ =  $Bf  \io$. The second function which I will denote
 	$\al'$ is defined as follows:\[ \al'(0) = 0, \al'(1) = 2,\al'(2) = 1.\]
 	Since $\al'$ still maps $0$ in $A1$ to itself in $B1$, the diagram above
 	still commutes. Thus our supposed morphism
@@ -53,7 +53,7 @@
 	Returning to the notation established in the first paragraph, we will append
 	morphism pairs $\qty{f,f'}$ to the end of some morphism
 	$\qty{\func{h}{d}{d'},\func{k}{e}{e'}}$ so that we specify that the intended
-	domain and codomain of the morphism is $\qty{d,e,f,}$ and $\qty{d',e',f'}$
+	domain and codomain of the morphism is $\qty{d,e,f}$ and $\qty{d',e',f'}$
 	respectively. Thus the uniqueness of the domain and codomain of some
 	morphism $\qty{\func{h}{d}{d'},\func{k}{e}{e'}} \qty{f,f'}$ follows from the
 	uniqueness of the domain and codomain of $h$ and $k$, and additionally from
@@ -61,57 +61,62 @@
 	complete the rest of the proof using the notation established in the first
 	paragraph.
 
-	For an object $\qty{d,e,f,}$,denoted as $c$, we can define an identity
+	For an object $\qty{d,e,f}$,denoted as $c$, we can define an identity
 	morphism for $c$ as the following:  \[ 1_c  = \qty{1_{d},1_{e}}\qty{f,f}\]
 	where $1_{d}$ and $1_{e}$ are the respective identities of $d$ and $e$. Thus
-	the diagram \[\xymatrix{ &Fd \ar[d]^{F1_{d}} \ar[r]_{f} & Ge\ar[d]^{G1_{e}}
-						 \\  & Fd\ar[r]^{f} &Ge   } \] trivially commutes. The
-		unique domain and codomain of $1_c$, both being $\qty{d,e,f,}$, are
+	the diagram \[\xymatrix{ &Fd \ar[d]_{F1_{d}} \ar[r]{f} & Ge\ar[d]^{G1_{e}}
+						 \\  & Fd\ar[r]_{f} &Ge   } \] trivially commutes. The
+		unique domain and codomain of $1_c$, both being $\qty{d,e,f}$, are
 		derived from the unique domain and codomains of the identities $1_d$ and
 		$1_e$, and the uniquely specified $f$.
 
 	Now let us define morphism composition between two morphisms.
-	$\qty{\func{h}{d}{d_1},\func{k}{e}{e_1}} \qty{f,f_1}$ and
-	$\qty{\func{h}{d_1}{d_2},\func{k}{e_1}{e_2}} \qty{f_1,f_2}$ which we will
-	denote $\func{\al}{(d,e,f)}{(d_1,e_1,f_1)}$ and
-	$\func{\be}{(d_1,e_1,f_1)}{(d_2,e_2,f_2)}$.
+	$$\qty{\func{h}{d}{d_1},\func{k}{e}{e_1}} \qty{f,f_1} \AND 
+	\qty{\func{h}{d_1}{d_2},\func{k}{e_1}{e_2}} \qty{f_1,f_2}$$ which we will
+	denote $$\func{\al}{(d,e,f)}{(d_1,e_1,f_1)} \AND
+	\func{\be}{(d_1,e_1,f_1)}{(d_2,e_2,f_2)}.$$
 	The composition of $\al$ and $\be$ shall be defined as follows:
-	\[\be \cdot \al=\qty{\func{h' \cdot h}{d}{d_{2}},\func{k' \cdot k}{e}{e_{2}}}\qty{f,f_2}\]
+	\[\be  \al=\qty{\func{h'  h}{d}{d_{2}},\func{k'  k}{e}{e_{2}}}\qty{f,f_2}\]
 	resulting in the diagram
-	\[\xymatrix{ Fd \ar[d]^{Fh} \ar[r]_{f} & Ge\ar[d]^{Gk}  \\
-			Fd_{1} \ar[d]^{Fh'}\ar[r]^{f_{1}}& Ge_{1} \ar[d]^{Gk'} \\
+	\[\xymatrix{ Fd \ar[d]_{Fh} \ar[r]^{f} & Ge\ar[d]^{Gk}  \\
+			Fd_{1} \ar[d]_{Fh'}\ar[r]^{f_{1}}& Ge_{1} \ar[d]^{Gk'} \\
 	Fd_{2} \ar[r]^{f_{2}} &Ge_2 } \]
 	which commutes since functors preserve composition of morphisms and the top
-	and bottom squares commute by construction of $\al$ and $\be$. Thus we have
+	and bottom squares commute by construction of $\al$ and $\be$\footnote{See diagram 1.6.10.}. Thus we have
 	that the following diagram commutes:
-	\[\xymatrix{ &Fd \ar[d]^{Fh' \cdot Fh}\ar[r]_{f} & Ge\ar[d]^{Gk' \cdot Gk}
+	\[\xymatrix{ &Fd \ar[d]_{Fh'  Fh}\ar[r]_{f} & Ge\ar[d]^{Gk' Gk}
 			 \\  & Fd_2\ar[r]^{f_2} &Ge_2 }\]
-	which is the commutative square for the composed morphism $\be \cdot \al$.
-	The morphism $\be \cdot \al$ derives its unique domain from the unique
-	domains of $h' \cdot h$ and $k' \cdot k$ and the specified function $f$
-	which gives the domain $\qty{d,e,f,}$ which is the domain of $\al$, and the
+	which is the commutative square for the composed morphism $\be  \al$.
+	The morphism $\be \al$ derives its unique domain from the unique
+	domains of $h' h$ and $k' k$ and the specified function $f$
+	which gives the domain $\qty{d,e,f}$ which is the domain of $\al$, and the
 	unique codomain is derived similarly resulting in the codomain
 	$\qty{d_2,e_2,f_2}$ which is the codomain of $\be$. So the composition of
-	morphisms $\al$ and $\be$ gives a morphism $\be \cdot \al$ with the domain
-	of $\al$ and the codomain of $\be$
+	morphisms $\al$ and $\be$ gives a morphism $\be \al$ with the domain
+	of $\al$ and the codomain of $\be.$
 
 	Now that we have defined the identity morphism and composition of morphism,
 	we can show that the identity morphism is left and right cancellable, and
 	that composition is associative.
 
 	Let $\qty{\func{h}{d}{d'},\func{k}{e}{e'}} \qty{f,f'}$ , denoted as $\al$,
-	be a morphism with domain and codomain $\qty{d,e,f,}$ and $\qty{d',e',f',}$
+	be a morphism with domain and codomain $\qty{d,e,f}$ and $\qty{d',e',f',}$
 	respectively, denoted as $c$ and $c'$ respectively. Starting with the
 	composition of $\al$ and $1_{c}$, we can show the following chain of
 	equalities:
-	\[\al \cdot 1_{c } = \qty{h \cdot 1_{d},k \cdot 1_{e}}\qty{f,f'}\]
-	\[ \al \cdot 1_{c} = \qty{h,k}\qty{f,f'} \]
-	\[ \al \cdot 1_{c} = \al\]
+	\begin{align*}
+	\al  1_{c } &= \qty{h 1_{d},k 1_{e}}\qty{f,f'}\\
+	&= \qty{h,k}\qty{f,f'} \\
+	 &= \al.
+	\end{align*}
 	Composing  $1_{c'}$ and $\al$ gives us a similar result:
-	\[ 1_{c' } \cdot \al = \qty{1_{d'} \cdot h, 1_{e'} \cdot k}\qty{f,f'}\]
-	\[ 1_{c' } \cdot \al = \qty{h,k}\qty{f,f'}\]
-	\[ 1_{c' } \cdot \al = \al\]. Thus we have shown
-	that $1_{c' } \cdot \al = \al = \al \cdot 1_{c}$. Therefore the identity
+	\begin{align*}
+	1_{c' } \al &= \qty{1_{d'} h, 1_{e'} k}\qty{f,f'}\\
+	&= \qty{h,k}\qty{f,f'}\\
+	&= \al.
+	\end{align*} 
+	Thus we have shown
+	that $1_{c' } \al = \al = \al 1_{c}$. Therefore the identity
 	morphism is left and right cancellable.
 
 	Finally, we will show that the composition of morphisms is associative. Take
@@ -119,51 +124,53 @@
 	$\qty{\func{h}{d}{d_1},\func{k}{e}{e_1}} \qty{f,f_1}$,
 	$\qty{\func{h}{d_1}{d_2},\func{k}{e_1}{e_2}} \qty{f_1,f_2}$, and
 	$\qty{\func{h}{d_2}{d_3},\func{k}{e_2}{e_3}} \qty{f_2,f_3}$, denoted as
-	$\al$, $\be$, and $\gm$ respectively. Starting from $(\gm \cdot \be) \cdot
-	\al$ , we will demonstrate the following equality
-	\[(\gm\cdot\be)\cdot\al=((h_2\cdot h_1),(k_2\cdot k_1))(f_1,f_3) \cdot \al\]
-	\[(\gm\cdot\be)\cdot\al=((h_2\cdot h_1)\cdot h,(k_2\cdot k_1)\cdot k)(f,f_3)\]
-	\[(\gm\cdot\be)\cdot\al=(h_2\cdot(h_1\cdot h),k_2\cdot(k_1\cdot k))(f,f_3)\]
-	\[(\gm\cdot\be)\cdot\al=\gm\cdot((h_1\cdot h),(k_1\cdot k))(f,f_2)\]
-	\[(\gm\cdot\be)\cdot\al=\gm\cdot(\be \cdot \al)\] Thus the
-	composition of morphisms is associative.
+	$\al$, $\be$, and $\gm$ respectively. Now observe that:
+	\begin{align*}
+	(\gm\be)\al&=((h_2h_1),(k_2 k_1))(f_1,f_3) \al\\
+	&=((h_2 h_1) h,(k_2 k_1) k)(f,f_3)\\
+	&=(h_2(h_1 h),k_2(k_1 k))(f,f_3)\\	
+	&=\gm((h_1 h),(k_1 k))(f,f_2)\\
+	&=\gm(\be \al).
+	\end{align*}
+	 
+	Thus thecomposition of morphisms is associative, and we have shown
+	that $F \downarrow G$ is a category.
 
-	We have thus shown that $F \downarrow G$ is a category.
-
-	Now we will define the functors $\func{dom}{F \downarrow G}{\sD}$ and
-	$\func{cod}{F \downarrow G}{\sE}$ for object $\qty{d,e,f}$ and morphism
-	$\qty{\func{h}{d}{d'},\func{k}{e}{e'}} \qty{f,f'}$ as follows:
-	\[ dom\qty{d,e,f} = d, dom\qty{h,k}\qty{f,f'} = h \]
-	\[  cod\qty{d,e,f} = e, cod\qty{h,k}\qty{f,f'} = k \] Now we will verify
-	that both $dom$ and $cod$ are indeed functors.
+	Now we will define the functors $\func{\dom}{F \downarrow G}{\sD}$ and
+	$\func{\cod}{F \downarrow G}{\sE}$ for object $\qty{d,e,f}$ and morphism
+	$\qty{\func{h}{d}{d'},\func{k}{e}{e'}} \qty{f,f'}$ as follows: 
+	\begin{align*}
+	\dom\qty{d,e,f} &= d, \dom\qty{h,k}\qty{f,f'} \;\;= h \\
+	\cod\qty{d,e,f} &= e, \cod\qty{h,k}\qty{f,f'} \quad= k. 
+	\end{align*}
+	
+	Now we will verify that both $\dom$ and $\cod$ are indeed functors.
 
 	Now let us take the morphism $\qty{\func{h}{d}{d_1},\func{k}{e}{e_1}}
-	\qty{f,f_1}$  denoted $\func{\al}{\qty{d,e,f}}{\qty{d_1,e_1,f_1}}$ .
-	Applying $dom$ to $\al$ gives us $\func{h}{d}{d_{1}}$ where $dom\qty{d,e,f}
-	= d$ and $dom\qty{d_1,e_1,f_1} = d_1$. Applying $cod$ to $\al$ gives
-	$\func{k}{e}{e_{1}}$ where $cod\qty{d,e,f} = e$ and $cod\qty{d_1,e_1,f_1} =
+	\qty{f,f_1}$  denoted $\func{\al}{\qty{d,e,f}}{\qty{d_1,e_1,f_1}}.$ 
+	Applying $\dom$ to $\al$ gives us $\func{h}{d}{d_{1}}$ where $\dom\qty{d,e,f}
+	= d$ and $\dom\qty{d_1,e_1,f_1} = d_1$. Applying $\cod$ to $\al$ gives
+	$\func{k}{e}{e_{1}}$ where $\cod\qty{d,e,f} = e$ and $\cod\qty{d_1,e_1,f_1} =
 	e_1$. Thus $\func{\al}{\qty{d,e,f}}{\qty{d_1,e_1,f_1}}$ gets mapped to
-	$\func{dom\al}{dom\qty{d,e,f}}{dom\qty{d_1,e_1,f_1}}$ and
-	$\func{cod\al}{cod\qty{d,e,f}}{cod\qty{d_1,e_1,f_1}}$ by $dom$ and $cod$
+	$\func{\dom\al}{\dom\qty{d,e,f}}{\dom\qty{d_1,e_1,f_1}}$ and
+	$\func{\cod\al}{\cod\qty{d,e,f}}{\cod\qty{d_1,e_1,f_1}}$ by $\dom$ and $\cod$
 	respectively.
 
 	For object $\qty{d,e,f}$, the identity arrow $\qty{1_{d},1_{e}}\qty{f,f}$
-	get mapped to $1_d$ and $1_e$ by $dom$ and $cod$ respectively. Since
-	$dom\qty{d,e,f} = d$ and $cod\qty{d,e,f} = e$, This shows that $dom$ and
-	$cod$ preserve identities.
+	get mapped to $1_d$ and $1_e$ by $\dom$ and $\cod$ respectively. Since
+	$\dom\qty{d,e,f} = d$ and $\cod\qty{d,e,f} = e$, This shows that $\dom$ and
+	$\cod$ preserve identities.
 
 	Finally take morphisms $\qty{\func{h}{d}{d_1},\func{k}{e}{e_1}} \qty{f,f_1}$
 	denoted $\func{\al}{\qty{d,e,f}}{\qty{d_1,e_1,f_1}}$ and
 	$\qty{\func{h'}{d_1}{d_2},\func{k'}{e_1}{e_2}} \qty{f_1,f_2}$   denoted
 	$\func{\be}{\qty{d_1,e_1,f_1}}{\qty{d_2,e_2,f_2}}$. Then we have the
 	following equalities:
-	\[dom\be \cdot \al = dom\qty{h' \cdot h,k' \cdot k}\qty{f,f_2} =h'
-	\cdot h = dom\be \cdot dom\al\] and
-	\[cod\be \cdot \al = cod \qty{h' \cdot h,k' \cdot k}\qty{f,f_2}=  k'
-	\cdot k = cod\be \cdot cod\al\]. Thus $dom$ and $cod$ perserve morphism
-	composition.
-
-	Therefore $dom$ and $cod$ are functors.
+	\[\dom(\be \al) = \dom\qty{h'  h,k'  k}\qty{f,f_2} =h'
+	 h = \dom\be  \dom\al\] and
+	\[\cod(\be \al) = \cod \qty{h' h,k' k}\qty{f,f_2}=  k'
+	 k = \cod\be\cod\al\]. Thus $\dom$ and $\cod$ perserve morphism
+	composition, and $\dom$ and $\cod$ are functors.
 \end{proof}
 \end{document}
 
