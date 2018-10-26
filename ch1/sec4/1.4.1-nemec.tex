@@ -1,0 +1,43 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\setexercise{1}{4}{1}
+\begin{exercise}
+	Suppose $\alpha: F \Rightarrow G$ is a natural isomorphism. Show that inverses
+	of the component morphisms define the components of a natural isomorphism
+	$\alpha^{-1}: G \Rightarrow F$.
+\end{exercise}
+
+\begin{proof}
+	Suppose we have a natural isomorphism $\alpha: F \Rightarrow G$. We display
+	the square of morphisms below for convenience.
+	\[\begin{tikzcd}
+			Fc \arrow{r}{\alpha_{c}} \arrow[swap]{d}{Ff}  &
+			Gc \arrow{d}{Gf} \\
+			Fc' \arrow[swap]{r}{\alpha_{c'}} &
+			Gc'
+	\end{tikzcd}\]
+
+	The above diagram commutes, and $(Gf)(\alpha_{c})=(\alpha_{c'})(Ff)$ takes
+	us from $Fc$ To $Gc'$. Consider the component morphisms $\alpha_{c}$ of
+	$\alpha$. Because $\alpha$ is a natural isomorphism, every component
+	morphism, $\alpha_{c}$, has an inverse,  $\alpha_{c}^{-1}$. We need to see
+	that all the inverse component morphisms, $\alpha_{c}^{-1}$, make a natural
+	transformation.
+
+	To see where $\alpha_{c}^{-1}$ takes us, examine the square of morphisms
+	below. All the components are still in $D$ and take us from $Gc$ to $Fc'$.
+	\[\begin{tikzcd}
+			Gc \arrow{r}{\alpha_{c}^{-1}} \arrow[swap]{d}{Gf}  &
+			Fc \arrow{d}{Ff} \\
+			Gc' \arrow[swap]{r}{\alpha_{c'}^{-1}} &
+			Fc'
+	\end{tikzcd}\]
+	Since $(Gf)\alpha_{c}=\alpha_{c'}(Ff)$,
+	\[\alpha_{c'}^{-1}(Gf)=\alpha_{c'}^{-1}(Gf)\alpha_c\alpha_c^{-1}=
+	\alpha_{c'}^{-1}\alpha_{c'}(Ff)\alpha_c^{-1}=(Ff)\alpha_c^{-1}.\]
+	So, the diagram above commutes and if we let $(\alpha^{-1})_c=\alpha_c^{-1}$
+	then $\alpha^{-1}$ is a natural transformation from $G$ to $F$.
+\end{proof}
+\end{document}
