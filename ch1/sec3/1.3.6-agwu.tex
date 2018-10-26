@@ -19,8 +19,8 @@
 			Fd'\ar[r]_{f'} &Ge'}\]
 			commutes in $\sC$, i.e., so that $f' Fh = Gk  f$.
 	\end{enumerate}
-	Define a pair of projection functors $\func{dom}{F\downarrow G}{\sD}$ and
-	$\func{cod}{F\downarrow G}{\sE}$
+	Define a pair of projection functors $\func{\dom}{F\downarrow G}{\sD}$ and
+	$\func{\cod}{F\downarrow G}{\sE}$
 \end{exercise}
 
 \begin{proof}
@@ -64,7 +64,7 @@
 	For an object $\qty{d,e,f}$,denoted as $c$, we can define an identity
 	morphism for $c$ as the following:  \[ 1_c  = \qty{1_{d},1_{e}}\qty{f,f}\]
 	where $1_{d}$ and $1_{e}$ are the respective identities of $d$ and $e$. Thus
-	the diagram \[\xymatrix{ &Fd \ar[d]_{F1_{d}} \ar[r]{f} & Ge\ar[d]^{G1_{e}}
+	the diagram \[\xymatrix{ &Fd \ar[d]_{F1_{d}} \ar[r]^{f} & Ge\ar[d]^{G1_{e}}
 						 \\  & Fd\ar[r]_{f} &Ge   } \] trivially commutes. The
 		unique domain and codomain of $1_c$, both being $\qty{d,e,f}$, are
 		derived from the unique domain and codomains of the identities $1_d$ and
@@ -84,7 +84,7 @@
 	which commutes since functors preserve composition of morphisms and the top
 	and bottom squares commute by construction of $\al$ and $\be$\footnote{See diagram 1.6.10.}. Thus we have
 	that the following diagram commutes:
-	\[\xymatrix{ &Fd \ar[d]_{Fh'  Fh}\ar[r]_{f} & Ge\ar[d]^{Gk' Gk}
+	\[\xymatrix{ &Fd \ar[d]_{Fh'  Fh}\ar[r]^{f} & Ge\ar[d]^{Gk' Gk}
 			 \\  & Fd_2\ar[r]^{f_2} &Ge_2 }\]
 	which is the commutative square for the composed morphism $\be  \al$.
 	The morphism $\be \al$ derives its unique domain from the unique
@@ -169,7 +169,7 @@
 	\[\dom(\be \al) = \dom\qty{h'  h,k'  k}\qty{f,f_2} =h'
 	 h = \dom\be  \dom\al\] and
 	\[\cod(\be \al) = \cod \qty{h' h,k' k}\qty{f,f_2}=  k'
-	 k = \cod\be\cod\al\]. Thus $\dom$ and $\cod$ perserve morphism
+	 k = \cod\be\cod\al.\] Thus $\dom$ and $\cod$ perserve morphism
 	composition, and $\dom$ and $\cod$ are functors.
 \end{proof}
 \end{document}

@@ -10,28 +10,23 @@
 \end{exercise}
 
 \begin{proof}
-Let $t_0$ and $t_1$ be two terminal objects in a category $f: X \rightarrow Y$.
-
-That means there is a unique homomorphism $f_0: x \rightarrow t_0$ and $f_1: x
+Let $t_0$ and $t_1$ be two terminal objects in a category $f\colon X \rightarrow Y$.
+That means there is a unique homomorphism $f_0\colon x \rightarrow t_0$ and $f_1\colon x
 \rightarrow t_1$ for all $x$ in $X$. We want to show that there is a unique
 isomorphism between $t_0$ and $t_1$.
 %Before we show that there is a unique isomorphism, let us first see if there is
 %a homomorphism at all between the two terminal objects.
-
 %Immediately we get the feeling that these are in fact the same object. Here's
 %how.
-
-Since $t_0$ is a terminal object, we have a morphism $f_0: t_1 \rightarrow t_0$.
-And since $t_1$ is a terminal object, we have a morphism $f_1: t_0 \rightarrow
-t_1$. Consider the composition $f_0 f_1$. This gives us $f_0 f_1: t_0
-\rightarrow t_1 \rightarrow t_0$ or more simply $f_0 f_1: t_0 \rightarrow t_0$.
+Since $t_0$ is a terminal object, we have a morphism $f_0\colon t_1 \rightarrow t_0$.
+And since $t_1$ is a terminal object, we have a morphism $f_1\colon t_0 \rightarrow
+t_1$. Consider the composition $f_0 f_1$. This gives us $f_0 f_1\colon t_0
+\rightarrow t_1 \rightarrow t_0$ or more simply $f_0 f_1\colon t_0 \rightarrow t_0$.
 So we must have that $f_0 f_1 = 1_{t_0}$. Similarly, it must be that $f_1 f_0 =
 1_{t_1}$. This is exactly what it means to be isomorphic.
-
 Therefore any two terminal objects in a category are indeed connected by a
 unique isomorphism.
-
 %Since $t_0 \in X$ is a terminal object, anything else in $X$ maps to $t_0$,
-%including $t_1$. So we have $f_0: t_1 \rightarrow t_0$.
+%including $t_1$. So we have $f_0\colon t_1 \rightarrow t_0$.
 \end{proof}
 \end{document}

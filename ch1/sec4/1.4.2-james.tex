@@ -17,24 +17,24 @@
 	between these categories, and then find natural transformation in this
 	context.
 
-	Given two such categories, $BC$ and $BD$ with their respective groups $C$
-	and $D$, any functors $F$ and $G$ between $BC$ and $BD$ must map the object
+	Given two such categories, $\sB C$ and $\sB D$ with their respective groups $C$
+	and $D$, any functors $F$ and $G$ between $\sB C$ and $\sB D$ must map the object
 	$C_*$ to the object $D_*$. Since functors are functions, looking at the
-	functor $F$, the role of $F$ acting on the morphisms of $BC$ is the same as
+	functor $F$, the role of $F$ acting on the morphisms of $\sB C$ is the same as
 	a function acting on the elements of $C$ under group multiplication. So, $F:
 	C_* \rightarrow D_*$, for the special elements $C_* \in C$ and $D_* \in D$.
 	Taking any two elements $c, c'$ in $C$, $cc'$ is the composition in the
-	category $BC$, and since the domain $= C =$ codomain of $BC$, then any pair
+	category $\sB C$, and since the both the domain codomain of $\sB C$ are equal to $ C $, then any pair
 	$cc'$ is composable. As functors respect the functoriality axioms, $F(cc') =
 	F(c)F(c')$ in $D$, and $F(1_C) = 1_{F_C}$ in $D$, then the functor $F$
 	behaves as a group homomorphism between the groups $C$ and $D$.
 
-	To find a natural transformation $\alpha: F \implies G$ between $F$ and $G$,
-	we can let $\alpha_{C_*}: FC_* \rightarrow GC_*$ be a class of morphisms,
-	with $f: C_* \rightarrow C_*$, such that $Gf\alpha_{C_*} = \alpha_{C_*}Ff$.
+	To find a natural transformation $\Func{\al}{F}{G}$ between $F$ and $G$,
+	we can let $\alpha_{C_*}\colon FC_* \rightarrow GC_*$ be a class of morphisms,
+	with $f\colon C_* \rightarrow C_*$, such that $Gf\alpha_{C_*} = \alpha_{C_*}Ff$.
 	In our case, we have $C_*$ as the single object of $BC$, and the morphism
 	$f$ as an element $c$ in $C$. Also, we have that $FC_* = D_*$ and $GC_* =
-	D_*$, so our class of morphisms now is $\alpha_{C_*}: D_* \rightarrow D_*$.
+	D_*$, so our class of morphisms now is $\alpha_{C_*}\colon D_* \rightarrow D_*$.
 	Thus, for the object $C_*$, the natural transformation gives the equality
 	$\alpha_{C_*}Ff = Gf \alpha_{C_*}$.
 
@@ -44,8 +44,8 @@
 	inverse, $\alpha_{C*}^{-1}$. Thus $\alpha_{C_*}Ff = Gf \alpha_{C_*}$ implies
 	$\alpha_{C*}^{-1} \alpha_{C_*}Ff = \alpha_{C*}^{-1} Gf \alpha_{C_*}$,
 	implies $Ff = \alpha_{C*}^{-1} Gf \alpha_{C_*}$, for all $f$. Noting that
-	$Ff$ and $Gf$ are morphisms in the category $BD$, and hence is an element of
-	the group $D$, then $Ff$ and $Gf$ are in $Aut(D)$, and $\alpha_{C_*}$ forms
+	$Ff$ and $Gf$ are morphisms in the category $\sB D$, and hence is an element of
+	the group $D$, then $Ff$ and $Gf$ are in $\Aut(D)$, and $\alpha_{C_*}$ forms
 	a conjugacy class for these automorphisms.
 \end{proof}
 \end{document}

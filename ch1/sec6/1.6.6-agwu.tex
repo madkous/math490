@@ -8,8 +8,8 @@
 	\in \sC$ equipped with a map $\func{\gm}{C}{TC}$. A morphism
 	$\func{f}{\qty{C,\gm}}{\qty{C',\gm'}}$ of coalgebras is a map
 	$\func{f}{C}{C'}$ so that the following square commutes.
-	\[\xymatrix{ &C \ar[d]^{\gm} \ar[r]_{f} & C'\ar[d]^{\gm'}  \\  &
-	TC\ar[r]^{Tf} &TC'}\]
+	\[\xymatrix{ &C \ar[d]_{\gm} \ar[r]^{f} & C'\ar[d]^{\gm'}  \\  &
+	TC\ar[r]_{Tf} &TC'}\]
 	Prove that if $\qty{C,\gm}$ is a {\bf terminal coalgebra}, that is
 	a terminal object in the category of coalgebras, then the map
 	$\func{\gm}{C}{TC}$ is an isomorphism.
@@ -18,21 +18,21 @@
 	Suppose that $\func{T}{\sC}{\sC}$ is an endofunctor and $\qty{C,\gm}$ a
 	terminal coalgebra. Let $\func{\chi}{TC}{C}$ be the unique morphism so that
 	the following diagram commutes.
-	\[\xymatrix{ TC \ar[d]^{T\gm} \ar[r]_{\chi} & C\ar[d]^{\gm} \\
-	TTC\ar[r]^{T\chi} &TC}\]
+	\[\xymatrix{ TC \ar[d]_{T\gm} \ar[r]^{\chi} & C\ar[d]^{\gm} \\
+	TTC\ar[r]_{T\chi} &TC}\]
 	Then we
-	have that: $$ \gm \cdot \chi = T\qty{\chi \cdot \gm}    $$ Now we will
-	to show that the diagram $$\xymatrix{ &C \ar[d]^{\gm} \ar[r]_{\chi \cdot
-	\gm} & C\ar[d]^{\gm}  \\  & TC\ar[r]^{T\qty{\chi \cdot \gm}} &TC   } $$
-	commutes. Since $ \gm \cdot \chi = T\qty{\chi \cdot \gm}    $, then
-	composing $\gm$ on the right will give $$ \gm \cdot \chi \cdot \gm =
-	T\qty{\chi \cdot \gm} \cdot \gm   $$ which shows that the diagram above
-	commutes. This means that the morphism $\chi \cdot \gm$ uniquely allows
+	have that: $$ \gm  \chi = T\qty{\chi \gm}    $$ Now we will
+	to show that the diagram $$\xymatrix{ &C \ar[d]^{\gm} \ar[r]^{\chi
+	\gm} & C\ar[d]_{\gm}  \\  & TC\ar[r]_{T\qty{\chi  \gm}} &TC   } $$
+	commutes. Since $ \gm  \chi = T\qty{\chi  \gm}    $, then
+	composing $\gm$ on the right will give $$ \gm  \chi  \gm =
+	T\qty{\chi  \gm}  \gm,   $$ which shows that the diagram above
+	commutes. This means that the morphism $\chi  \gm$ uniquely allows
 	the diagram above to commute. The identity morphism $1_C$ gives an
-	endomorphism of the terminal coalgebra $\qty{C,\gm}$ since $\gm \cdot \
-	1_{C} = T1_{C} \cdot \gm = 1_{TC} \cdot \gm$ by the properties of
-	identity morphisms, thus $\chi \cdot \gm = 1_{C}$. This will give us
-	$$\gm \cdot \chi = T\qty{\chi \cdot \gm}  = T1_{C} = 1_{TC} $$. Thus
+	endomorphism of the terminal coalgebra $\qty{C,\gm}$ since $\gm  \
+	1_{C} = T1_{C}  \gm = 1_{TC}  \gm$ by the properties of
+	identity morphisms, thus $\chi  \gm = 1_{C}$. This will give us
+	$$\gm  \chi = T\qty{\chi  \gm}  = T1_{C} = 1_{TC}.$$ Thus
 	$\chi$ and $\gm$ are inverses, therefore $\gm$ is an isomorphism.
 \end{proof}
 

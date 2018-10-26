@@ -14,24 +14,22 @@
 	Finish the following proof of Lemma 1.5.10:
 \end{exercise}
 
-\begin{quote}
 	Any morphism \(f\colon a\to b\) and fixed isomorphisms \(a \cong a'\) and
 	\(b \cong b'\) determine a unique morphism \(f'\colon a'\to b'\) so that any
-	of---or equivalently, all of---the following four diagrams commute:
+	of,or equivalently, all of the following four diagrams commute:
 
 	\[\xymatrix{
-	& a\ar[d]^{f} & a'\ar[l]^{\alpha}\ar[d]^{f'} & a\ar[d]^{f}\ar[r]^{\alpha^{-1}} & a'\ar[d]^{f'} & a\ar[d]^{f} & a'\ar[l]^{\alpha}\ar[d]^{f'} & a\ar[d]^{f}\ar[r]^{\alpha^{-1}} & a'\ar[d]^{f'}\\
-	& b\ar[r]^{\beta} & b' & b\ar[r]^{\beta} & b' & b & b'\ar[l]^{\beta^{-1}} & b & b'\ar[l]^{\beta^{-1}}
+	& a\ar[d]_{f} & a'\ar[l]_{\alpha}\ar[d]^{f'} & a\ar[d]_{f}\ar[r]^{\alpha^{-1}} & a'\ar[d]^{f'} & a\ar[d]_{f} & a'\ar[l]_{\alpha}\ar[d]^{f'} & a\ar[d]_{f}\ar[r]^{\alpha^{-1}} & a'\ar[d]^{f'}\\
+	& b\ar[r]_{\beta} & b' & b\ar[r]_{\beta} & b' & b & b'\ar[l]^{\beta^{-1}} & b & b'\ar[l]^{\beta^{-1}}
 	}\]
 
 The first diagram defines \(f'\). The commutativity of the remaining diagrams
 will be proven below.
-\end{quote}
 
-\paragraph{Proof.} The prompt implies that the first diagram, at least, is
+\begin{proof}
+ The prompt implies that the first diagram, at least, is
 commutative; so we know that \(f' = \beta f \alpha \).
 
-\begin{quote}
 	At this point, it might be tempting to immediately right-compose both sides
 	of that expression with \(\alpha^{-1}\), to obtain \(f'(\alpha^{-1}) = \beta
 	f \alpha(\alpha^{-1})\). Then we could simplify to obtain \(f' \alpha^{-1} =
@@ -44,8 +42,7 @@ commutative; so we know that \(f' = \beta f \alpha \).
 	\(\beta f \alpha (\alpha^{-1})\) is trivial. But the validity of \(f'
 	(\alpha^{-1})\) is decidedly non-trivial, and this must be proven before the
 	logic above can be applied.
-\end{quote}
-
+	
 First, it will be useful to explicitly identify the domains and codomains of the
 morphisms included in each diagram, to make further references more concise.
 These can easily be inferred from the diagrams: \(f \colon a \to b; f' \colon a'
@@ -53,8 +50,8 @@ These can easily be inferred from the diagrams: \(f \colon a \to b; f' \colon a'
 inverses of each morphism go between the same objects, but with the domain and
 codomain reversed. Now the remainder of the proof becomes almost trivial:
 
-As stated above, \(Cod(\alpha^{-1}) = Dom(\alpha) = a' = Dom (f')\). So
-\(Dom(f') = Cod(\alpha^{-1})\), which means \(f' \alpha^{-1}\) is a valid
+As stated above, \(\cod(\alpha^{-1}) = \dom(\alpha) = a' = \dom (f')\). So
+\(\dom(f') = \cod(\alpha^{-1})\), which means \(f' \alpha^{-1}\) is a valid
 composition. With that in mind, we are now able to apply the logic quoted in the
 note above to show that \(f' \alpha^{-1} = \beta f\); and this is sufficient to
 show that the second diagram commutes.
@@ -69,8 +66,9 @@ specifically, by taking the compositions \((\beta^{-1})f' = (\beta^{-1})\beta f
 these compositions are valid.
 
 Fortunately, this is still fairly easy: the validity of \(\beta^{-1} \beta\) is
-trivial, and \(Dom(\beta^{-1}) = Cod(\beta) = b' = Cod(f')\), so \(\beta^{-1}
+trivial, and \(\dom(\beta^{-1}) = \cod(\beta) = b' = \cod(f')\), so \(\beta^{-1}
 f'\) is valid. This means that the compositions mentioned in the previous
 paragraph are valid, and therefore that \(\beta^{-1} f' = f \alpha\) and
 \(\beta^{-1} f' \alpha^{-1} = f\). So the third and fourth diagrams commute.
+\end{proof}
 \end{document}

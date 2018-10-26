@@ -6,40 +6,40 @@
 question is posed in the book, because it allows me to combine several parts of
 the problem.
 
-First, consider the functor $F_Z: \Group_{id}\rightarrow \Group$, where $G
-\rightarrow Z(G)$. We will now show that there exists a similar functor $F_Z:
-\Group_{epi} \rightarrow \Group$. We define $F_Z$ as the following: $F_Z(G) =
-Z(G)$ and if $f: G \rightarrow H$, then $F_{Z} f = f|_{Z(G)}$. We must show that
+First, consider the functor $F_Z\colon \Group_{id}\rightarrow \Group$, where $G
+\rightarrow Z(G)$. We will now show that there exists a similar functor $F_Z\colon
+\Group_\epi \rightarrow \Group$. We define $F_Z$ as the following: $F_Z(G) =
+Z(G)$ and if $f\colon G \rightarrow H$, then $F_{Z} f = f|_{Z(G)}$. We must show that
 this functor satisfies the properties of a functor.
 \begin{enumerate}
 	\item Because each group has a unique center and each morphism $f$ with
-		$dom(f) = G$ has a unique restriction to $Z(G)$, this functor is well
+		$\dom(f) = G$ has a unique restriction to $Z(G)$, this functor is well
 		defined and satisfies the first two properties (0 and 1).
 
 	\item We see that $F_{Z} 1_{G} = 1_{G}|_{Z(G)} = 1_{Z(G)} = 1_{F_{Z}G}$, so
 		the functor preserves identities.
 
-	\item We easily see that by definition of function restriction, if $f: G
-		\rightarrow H$, then $dom(F_{Z}f) = F_{Z}dom(f)$. To see that this
+	\item We easily see that by definition of function restriction, if $f\colon G
+		\rightarrow H$, then $\dom(F_{Z}f) = F_{Z}\dom(f)$. To see that this
 		morphism has a well-defined codomain under this functor, we show that if
 		$g \in Z(G)$, then $f(g) \in Z(H)$. To do this, consider, for any $k \in
 		H$, that since $f$ is an epimorphism and therefore surjective, that $k =
 		f(h)$ for some $h \in G$. So \[f(g)k = f(g)f(h) = f(gh)\]Since $g \in
 		Z(G)$, \[f(gh) = f(hg) = f(h)f(g) = kf(g)\] So $f(g) \in Z(H)$ and
-		therefore we have a well-defined codomain and  \[cod(F_{Z}f) =
-		cod(f|_{Z_(G)}) = Z(H) = F_{Z}cod(f).\]
+		therefore we have a well-defined codomain and  \[\cod(F_{Z}f) =
+		\cod(f|_{Z_(G)}) = Z(H) = F_{Z}\cod(f).\]
 
-	\item If $f:G \rightarrow H$ and $G: H \rightarrow K$, we see that $F_Z(gf)
+	\item If $f\colon G \rightarrow H$ and $G\colon H \rightarrow K$, we see that $F_Z(gf)
 		= gf|_{Z(G)}$. By the property we proved in the previous part
 		\[gf|_{Z(G)} = g|_{Z(H)}f|_{Z(G)} = F_ZgF_Zf.\] So this functor also
 		preserves morphism composition.
 \end{enumerate}
 
 We have seen that $F_Z$ satisfies all properties of a functor. We also note that
-$F_Z$ will be a functor from $\Group_{iso} \rightarrow \Group$.
+$F_Z$ will be a functor from $\Group_\iso \rightarrow \Group$.
 
-To show that there is no such functor between $Group$ and $Group$, consider the
-composition of the homorphism $sgn: S_n \rightarrow \{ \pm 1 \} $ and $\iota:
+To show that there is no such functor between $\Group$ and $\Group$, consider the
+composition of the homorphism $sgn\colon S_n \rightarrow \{ \pm 1 \} $ and $\iota\colon
 \{1, (1 \,\, 2) \} \rightarrow S_4$. We say $ g(x) = sgn(\iota(x))$. We see that
 $g$ is an isomorphism, and so $F_Zg$ should also be an isomorphism. However,
 this is not possible under any function of morphism, as $S_4$ has a trivial
@@ -47,21 +47,21 @@ center and so any morphism from $Z(\{1, (1\,\,2)\} \rightarrow Z(S_4)
 \rightarrow Z(\{\pm 1\})$ must be trivial. So $F_Z$ cannot be a functor from
 $\Group \rightarrow \Group$.
 
-Now consider the functor $F_C:  \Group_{id} \rightarrow \Group$. We will show
-there exists a similarly constructed functor from $Group \rightarrow Group$
-defined as the following: for $G \in ob(Group)$, $F_CG = C(G)$, where C(G) is
-the commutator subgroup of $G$. If $f : G \rightarrow H$, $F_Cf = f|_{C(G)}$, We
+Now consider the functor $F_C\colon  \Group_{id} \rightarrow \Group$. We will show
+there exists a similarly constructed functor from $\Group \rightarrow \Group$
+defined as the following: for $G \in \ob(\Group)$, $F_CG = C(G)$, where C(G) is
+the commutator subgroup of $G$. If $f \colon G \rightarrow H$, $F_Cf = f|_{C(G)}$, We
 will show that this satisfies all the properties of a functor.
 \begin{enumerate}
 	\item Because each group has a unique commutator subgroup and each morphism
-		$f$ with $dom(f) = G$ has a unique restriction to $C(G)$, this functor
+		$f$ with $\dom(f) = G$ has a unique restriction to $C(G)$, this functor
 		is well defined and satisfies the first two properties (0 and 1).
 
 	\item We see that $F_{C} 1_{G} = 1_{G}|_{C(G)} = 1_{C(G)} = 1_{F_{C}G}$, so
 		the functor preserves identities.
 
-	\item We easily see that by definition of function restriction, if $f: G
-		\rightarrow H$, then $dom(F_{Z}f) = F_{Z}dom(f)$. To see that the
+	\item We easily see that by definition of function restriction, if $f\colon G
+		\rightarrow H$, then $\dom(F_{Z}f) = F_{Z}\dom(f)$. To see that the
 		codomain is well defined under this functor, we show that if $g \in
 		C(G)$, then $f(g) \in C(H)$. If $g \in C(G)$, $g = \Pi_{i = 1}^{n} a_i$,
 		where each $a_i = hkh^{-1}k^{-1}$ for some $h,k \in G$. So $$f(g) =
@@ -70,38 +70,38 @@ will show that this satisfies all the properties of a functor.
 		f(h_i)f(k_i)f(h_i^{-1})f(k_i^{-1}) = \Pi_{i = 1}^{n}
 		f(h_i)f(k_i)f(h_i)^{-1}f(k_i)^{-1}$$ But since $f(k_i), f(h_i) \in H$,
 		this is an element of $C(H)$. So if $g \in C(G)$, $f(G) \in C(H)$ and
-		therefore the comdomain is well defined and  \[cod(F_{C}f) =
-		cod(f|_{C_(G)}) = C(H) = F_{C}cod(f)\].
+		therefore the comdomain is well defined and  \[\cod(F_{C}f) =
+		\cod(f|_{C_(G)}) = C(H) = F_{C}\cod(f)\].
 
-	\item If $f:G \rightarrow H$ and $G: H \rightarrow K$, we see that $F_C(gf)
+	\item If $f\colon G \rightarrow H$ and $G\colon H \rightarrow K$, we see that $F_C(gf)
 		= gf|_{C(G)}$. By the property we proved in the previous part
 		\[gf|_{C(G)} = g|_{C(H)}f|_{C(G)} = F_CgF_Cf.\] So this functor also
 		preserves morphism composition.
 \end{enumerate}
 
 So we have shown that this is a functor for $\Group \rightarrow \Group$, and we
-note that this implies that it is also a functor for $\Group_{iso} \rightarrow
-\Group$ and $\Group _{epi} \rightarrow \Group$.
+note that this implies that it is also a functor for $\Group_\iso \rightarrow
+\Group$ and $\Group _\epi \rightarrow \Group$.
 
-Next, we show that there is a functor $F_A: \Group_{iso} \rightarrow \Group$,
-defined as follows: If $G$ is a group, then $F_AG = Aut(G)$ and if $\phi$ is a
+Next, we show that there is a functor $F_A\colon \Group_\iso \rightarrow \Group$,
+defined as follows: If $G$ is a group, then $F_AG = \Aut(G)$ and if $\phi$ is a
 morphism between two groups $G$ and $H$, then $(F_A\phi)(f) = \phi f \phi^{-1}$.
 We now show that this definition satisfies the properties of a functor.
 \begin{enumerate}
 	\item Each group has uniquely defined automorphism group, and each morphism
-		$\phi$ conjugates elements of $Aut(G)$in a unique way, so the functor is
+		$\phi$ conjugates elements of $\Aut(G)$in a unique way, so the functor is
 		well defined.
 
-	\item $F_A(1_G)(f) = 1f1 = 1_{Aut(G)}(f)$, so the functor preserves
+	\item $F_A(1_G)(f) = 1f1 = 1_{\Aut(G)}(f)$, so the functor preserves
 		identities.
 
-	\item $F_A(dom \phi) = F_A(G) = Aut(G) = dom F_A(\phi)$.
+	\item $F_A(\dom \phi) = F_A(G) = \Aut(G) =\dom F_A(\phi)$.
 
-	\item We know that $cod\phi = H$ (because $\phi: G \rightarrow H$). So
-		$F_A(cod\phi) = Aut(H)$ $F_A\phi(f) = \phi f \phi^{-1}$, which we have
+	\item We know that $\cod\phi = H$ (because $\phi\colon G \rightarrow H$). So
+		$F_A(\cod\phi) = \Aut(H)$ $F_A\phi(f) = \phi f \phi^{-1}$, which we have
 		seen goes from $H$ to $H$, and since it is composed of isomorphisms, it
-		is also an automorphism, so $codF_A\phi = Aut(H)$. So co-domain is
-		well-defined under this functor and $codF_Af = F_Acodf$.
+		is also an automorphism, so $\cod F_A\phi = \Aut(H)$. So co-domain is
+		well-defined under this functor and $\cod F_Af = F_A\cod f$.
 
 	\item For two composable morphisms $\phi$ and $\tau$, \[F_A(\phi\tau)(f) =
 			\phi\tau f (\phi\tau)^{-1} = \phi \tau f \tau^{-1} \phi^{-1} =
@@ -109,127 +109,9 @@ We now show that this definition satisfies the properties of a functor.
 		preserves composition.
 \end{enumerate}
 So $F_A$ satisfies all the properties of a functor, and there exists a functor
-from $\Group_{iso} \rightarrow \Group$ of the desired form.
+from $\Group_\iso \rightarrow \Group$ of the desired form.
 
-It is unclear whether or not there is a functor from  $\Group_{epi}$to $\Group$
-and from $\Group$ to $\Group$ defined in the manner, but I believe that this is
-not the case, although I am having trouble finding a counterexample.
-\end{document}
-
-||||||| merged common ancestors
-\documentclass[main.tex]{subfiles}
-\begin{document}
-
-\textit{Note:} In this solution, I structure my work differently that the
-question is posed in the book, because it allows me to combine several parts of
-the problem.
-
-First, consider the functor $F_Z: \Group_{id}\rightarrow \Group$, where $G
-\rightarrow Z(G)$. We will now show that there exists a similar functor $F_Z:
-\Group_{epi} \rightarrow \Group$. We define $F_Z$ as the following: $F_Z(G) =
-Z(G)$ and if $f: G \rightarrow H$, then $F_{Z} f = f|_{Z(G)}$. We must show that
-this functor satisfies the properties of a functor.
-\begin{enumerate}
-	\item Because each group has a unique center and each morphism $f$ with
-		$dom(f) = G$ has a unique restriction to $Z(G)$, this functor is well
-		defined and satisfies the first two properties (0 and 1).
-
-	\item We see that $F_{Z} 1_{G} = 1_{G}|_{Z(G)} = 1_{Z(G)} = 1_{F_{Z}G}$, so
-		the functor preserves identities.
-
-	\item We easily see that by definition of function restriction, if $f: G
-		\rightarrow H$, then $dom(F_{Z}f) = F_{Z}dom(f)$. To see that this
-		morphism has a well-defined codomain under this functor, we show that if
-		$g \in Z(G)$, then $f(g) \in Z(H)$. To do this, consider, for any $k \in
-		H$, that since $f$ is an epimorphism and therefore surjective, that $k =
-		f(h)$ for some $h \in G$. So \[f(g)k = f(g)f(h) = f(gh)\]Since $g \in
-		Z(G)$, \[f(gh) = f(hg) = f(h)f(g) = kf(g)\] So $f(g) \in Z(H)$ and
-		therefore we have a well-defined codomain and  \[cod(F_{Z}f) =
-		cod(f|_{Z_(G)}) = Z(H) = F_{Z}cod(f).\]
-
-	\item If $f:G \rightarrow H$ and $G: H \rightarrow K$, we see that $F_Z(gf)
-		= gf|_{Z(G)}$. By the property we proved in the previous part
-		\[gf|_{Z(G)} = g|_{Z(H)}f|_{Z(G)} = F_ZgF_Zf.\] So this functor also
-		preserves morphism composition.
-\end{enumerate}
-
-We have seen that $F_Z$ satisfies all properties of a functor. We also note that
-$F_Z$ will be a functor from $\Group_{iso} \rightarrow \Group$.
-
-To show that there is no such functor between $Group$ and $Group$, consider the
-composition of the homorphism $sgn: S_n \rightarrow \{ \pm 1 \} $ and $\iota:
-\{1, (1 \,\, 2) \} \rightarrow S_4$. We say $ g(x) = sgn(\iota(x))$. We see that
-$g$ is an isomorphism, and so $F_Zg$ should also be an isomorphism. However,
-this is not possible under any function of morphism, as $S_4$ has a trivial
-center and so any morphism from $Z(\{1, (1\,\,2)\} \rightarrow Z(S_4)
-\rightarrow Z(\{\pm 1\})$ must be trivial. So $F_Z$ cannot be a functor from
-$\Group \rightarrow \Group$.
-
-Now consider the functor $F_C:  \Group_{id} \rightarrow \Group$. We will show
-there exists a similarly constructed functor from $Group \rightarrow Group$
-defined as the following: for $G \in ob(Group)$, $F_CG = C(G)$, where C(G) is
-the commutator subgroup of $G$. If $f : G \rightarrow H$, $F_Cf = f|_{C(G)}$, We
-will show that this satisfies all the properties of a functor.
-\begin{enumerate}
-	\item Because each group has a unique commutator subgroup and each morphism
-		$f$ with $dom(f) = G$ has a unique restriction to $C(G)$, this functor
-		is well defined and satisfies the first two properties (0 and 1).
-
-	\item We see that $F_{C} 1_{G} = 1_{G}|_{C(G)} = 1_{C(G)} = 1_{F_{C}G}$, so
-		the functor preserves identities.
-
-	\item We easily see that by definition of function restriction, if $f: G
-		\rightarrow H$, then $dom(F_{Z}f) = F_{Z}dom(f)$. To see that the
-		codomain is well defined under this functor, we show that if $g \in
-		C(G)$, then $f(g) \in C(H)$. If $g \in C(G)$, $g = \Pi_{i = 1}^{n} a_i$,
-		where each $a_i = hkh^{-1}k^{-1}$ for some $h,k \in G$. So $$f(g) =
-		f(\Pi_{i = 1}^{n} h_ik_ih_i^{-1}k_i^{-1}) = \Pi_{i = 1}^{n}
-		f(h_ik_ih_i^{-1}k_i^{-1}) =$$ $$  \Pi_{i = 1}^{n}
-		f(h_i)f(k_i)f(h_i^{-1})f(k_i^{-1}) = \Pi_{i = 1}^{n}
-		f(h_i)f(k_i)f(h_i)^{-1}f(k_i)^{-1}$$ But since $f(k_i), f(h_i) \in H$,
-		this is an element of $C(H)$. So if $g \in C(G)$, $f(G) \in C(H)$ and
-		therefore the comdomain is well defined and  \[cod(F_{C}f) =
-		cod(f|_{C_(G)}) = C(H) = F_{C}cod(f)\].
-
-	\item If $f:G \rightarrow H$ and $G: H \rightarrow K$, we see that $F_C(gf)
-		= gf|_{C(G)}$. By the property we proved in the previous part
-		\[gf|_{C(G)} = g|_{C(H)}f|_{C(G)} = F_CgF_Cf.\] So this functor also
-		preserves morphism composition.
-\end{enumerate}
-
-So we have shown that this is a functor for $\Group \rightarrow \Group$, and we
-note that this implies that it is also a functor for $\Group_{iso} \rightarrow
-\Group$ and $\Group _{epi} \rightarrow \Group$.
-
-Next, we show that there is a functor $F_A: \Group_{iso} \rightarrow \Group$,
-defined as follows: If $G$ is a group, then $F_AG = Aut(G)$ and if $\phi$ is a
-morphism between two groups $G$ and $H$, then $(F_A\phi)(f) = \phi f \phi^{-1}$.
-We now show that this definition satisfies the properties of a functor.
-\begin{enumerate}
-	\item Each group has uniquely defined automorphism group, and each morphism
-		$\phi$ conjugates elements of $Aut(G)$in a unique way, so the functor is
-		well defined.
-
-	\item $F_A(1_G)(f) = 1f1 = 1_{Aut(G)}(f)$, so the functor preserves
-		identities.
-
-	\item $F_A(dom \phi) = F_A(G) = Aut(G) = dom F_A(\phi)$.
-
-	\item We know that $cod\phi = H$ (because $\phi: G \rightarrow H$). So
-		$F_A(cod\phi) = Aut(H)$ $F_A\phi(f) = \phi f \phi^{-1}$, which we have
-		seen goes from $H$ to $H$, and since it is composed of isomorphisms, it
-		is also an automorphism, so $codF_A\phi = Aut(H)$. So co-domain is
-		well-defined under this functor and $codF_Af = F_Acodf$.
-
-	\item For two composable morphisms $\phi$ and $\tau$, \[F_A(\phi\tau)(f) =
-			\phi\tau f (\phi\tau)^{-1} = \phi \tau f \tau^{-1} \phi^{-1} =
-		F_A(\phi)(\tau f \tau^{-1}) = F_A(\phi)F_A(\tau)(f),\] so this functor
-		preserves composition.
-\end{enumerate}
-So $F_A$ satisfies all the properties of a functor, and there exists a functor
-from $\Group_{iso} \rightarrow \Group$ of the desired form.
-
-It is unclear whether or not there is a functor from  $\Group_{epi}$to $\Group$
+It is unclear whether or not there is a functor from  $\Group_\epi$to $\Group$
 and from $\Group$ to $\Group$ defined in the manner, but I believe that this is
 not the case, although I am having trouble finding a counterexample.
 \end{document}

@@ -15,34 +15,34 @@
 	\end{enumerate}
 \end{exercise}
 \begin{proof}
-	Consider categories $C$ and $D$, and a functor $F: C \rightarrow D$ that is
-	full and faithful. That is, for all $x,y \in C$, the function $F: C(x,y)
-	\rightarrow D(Fx,Fy)$ that takes $f$ to $Ff$ is bijective. Now, for a
-	morphism $f: x\rightarrow y$, suppose that $Ff: Fx \rightarrow Fy$ is an
-	isomorphism. This means that there exists $G: Fy \rightarrow Fx$ where
-	$G(Ff) = id_{Fx}$ and $Ff(G) = id_{Fy}$. Now, we can apply the definition of
-	full and faithful functor to see that $C(y,x)$ is in bijection with
-	$D(Fy,Fx)$ and so there exists a unique $g \in C(y,x)$ where $Fg = G$. We
+	Consider categories $\sC$ and $\sD$, and a functor $F\colon \sC \rightarrow \sD$ that is
+	full and faithful. That is, for all $x,y \in \sC$, the function $F\colon \sC(x,y)
+	\rightarrow \sD(Fx,Fy)$ that takes $f$ to $Ff$ is bijective. Now, for a
+	morphism $f\colon x\rightarrow y$, suppose that $Ff\colon Fx \rightarrow Fy$ is an
+	isomorphism. This means that there exists $G\colon Fy \rightarrow Fx$ where
+	$G(Ff) = \id_{Fx}$ and $Ff(G) = \id_{Fy}$. Now, we can apply the definition of
+	full and faithful functor to see that $\sC(y,x)$ is in bijection with
+	$\sD(Fy,Fx)$ and so there exists a unique $g \in \sC(y,x)$ where $Fg = G$. We
 	claim that $g = f^{-1}$.
 
-	To show this, we must show that $fg = id_y$. We consider $F(fg)$, the image
+	To show this, we must show that $fg = \id_y$. We consider $F(fg)$, the image
 	of $fg$ under our full and faithful functor. We see that
-	$$ F(fg) = FfFg = FfG = id_{Fy} = F(id_y)$$
-	by properties of functors and our previous defintions of $g$ and $G$. Since
-	we know that $F: C(y,y) \rightarrow D(Fy,F,y)$ is bijective, $F(fg) =
-	F(id_y)$ implies that $fg = id_y$. We must also show that $gf = id_x$. We
+	$$ F(fg) = FfFg = FfG = \id_{Fy} = F(\id_y)$$
+	by properties of functors and our previous definitions of $g$ and $G$. Since
+	we know that $F\colon \sC(y,y) \rightarrow \sD(Fy,F,y)$ is bijective, $F(fg) =
+	F(\id_y)$ implies that $fg = \id_y$. We must also show that $gf = \id_x$. We
 	use a similar method and show that
-	$$F(gf) = FgFf = G(Ff) = id_{Fx} = F(id_x).$$
-	Since we again know that $F: C(x,x) \rightarrow D(Fx,Fx)$ is bijective, this
-	implies that $gf = id_x$. So we have that $fg = id_y$ and that $gf = id_x$.
+	$$F(gf) = FgFf = G(Ff) = \id_{Fx} = F(\id_x).$$
+	Since we again know that $F\colon \sC(x,x) \rightarrow \sD(Fx,Fx)$ is bijective, this
+	implies that $gf = \id_x$. So we have that $fg = \id_y$ and that $gf = \id_x$.
 	Therefore, $f$ is an isomorphism with inverse $g$.
 
 	\subparagraph{}
 	If $Fx$ and $Fy$ are isomorphic, we know that there exists
-	some isomorphism $G: Fx \rightarrow Fy$. But since $F$ is a full and
-	faithful functor and therefore $C(x,y)$ is in bijection with $D(Fx,Fy)$, $G
-	= Ff$ for some $f: x \rightarrow y$. By part i, we know that if $Ff$ is an
+	some isomorphism $G\colon Fx \rightarrow Fy$. But since $F$ is a full and
+	faithful functor and therefore $\sC(x,y)$ is in bijection with $\sD(Fx,Fy)$, $G
+	= Ff$ for some $f\colon x \rightarrow y$. By part i, we know that if $Ff$ is an
 	isomorphism, then $f$ is also an isomorphism, so we see here that we have an
-	isomorphism $f: x \rightarrow y$, and therefore $x$ and $y$ are isomorphic.
+	isomorphism $f\colon x \rightarrow y$, and therefore $x$ and $y$ are isomorphic.
 \end{proof}
 \end{document}

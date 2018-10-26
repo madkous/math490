@@ -4,36 +4,36 @@
 \paragraph{}
 \settheorem{1}{5}{1}
 \begin{lemma}
-	Fixing a parallel pair of functors $F,G:\bC\rightrightarrows\bD$, natural
+	Fixing a parallel pair of functors $F,G:\sC\rightrightarrows\sD$, natural
 	transformations $\alpha:F\Rightarrow G$ correspond bijectively to functors
-	$H:\bC\times{\mathbb 2}\rightarrow\bD$ such that $H$ restricts along $i_0$
+	$H:\sC\times{\mathbb 2}\rightarrow\sD$ such that $H$ restricts along $i_0$
 	and $i_1$ to the functors $F$ and $G$, i.e., so that
 	\[\xymatrix{
-			\bC\ar[r]^{i_0\,\,\,\,\,\,\,}\ar[rd]_F&\bC\times{\mathbb 2}\ar[d]^H&
-	\bC\ar[l]_{\,\,\,\,\,\,i_1}\ar[ld]^G\\&\bD&}\]
+			\sC\ar[r]^{i_0\,\,\,\,\,\,\,}\ar[rd]_F&\sC\times{\mathbb 2}\ar[d]^H&
+	\sC\ar[l]_{\,\,\,\,\,\,i_1}\ar[ld]^G\\&\sD&}\]
 \end{lemma}
 \popthm
 
 Before going on, I'd like to make a set-theoretic remark about exactly what the
-bijection is between. Say that $U$ is a non-empty universe and that $\bC$ and
-$\bD$ are $U$-categories.
+bijection is between. Say that $U$ is a non-empty universe and that $\sC$ and
+$\sD$ are $U$-categories.
 
-Assume further that $\bC$ is a $U$-small category and that $\bD$ is a
+Assume further that $\sC$ is a $U$-small category and that $\sD$ is a
 $U$-locally small category. Then the class of all morphisms from $Fc$ to $Gc$ as
-$c$ varies over objects of $\bC$ forms a $U$-set. Then the class of all
-functions from $\ob\bC$ to this $U$-set is also a $U$-set. The natural
+$c$ varies over objects of $\sC$ forms a $U$-set. Then the class of all
+functions from $\ob\sC$ to this $U$-set is also a $U$-set. The natural
 transformations form a subclass of this $U$-set, and so the class of all natural
 transformations from $F$ to $G$ forms a $U$-set.
 
-In this case, $\bC\times{\mathbb 2}$ is also a $U$-small category and so each
-functor $H:\bC\times{\mathbb 2}\rightarrow\bD$ is a $U$-set by the Axiom of
+In this case, $\sC\times{\mathbb 2}$ is also a $U$-small category and so each
+functor $H:\sC\times{\mathbb 2}\rightarrow\sD$ is a $U$-set by the Axiom of
 Replacement in $U$. We may thus form a $U$-class of these functors. The lemma
 then implies through the Axiom of Replacement again that this $U$-class is also
 a $U$-set.
 
-However, if the objects of $\bC$ form a proper $U$-class, then any natural
+However, if the objects of $\sC$ form a proper $U$-class, then any natural
 transformation $\alpha:F\Rightarrow G$ is also a proper $U$-class. This is
-because as a function, $\alpha$ has domain $\ob\bC$, a proper $U$-class. In this
+because as a function, $\alpha$ has domain $\ob\sC$, a proper $U$-class. In this
 case, $\alpha$ is not an element of $U$ and is thus not an element of any
 $U$-class.
 
@@ -50,23 +50,23 @@ in the lemma is a bijection between $V$-sets.
 	In the category ${\mathbb 2}$, there are precisely three morphisms:
 	\[\begin{array}{l}\phi_{00}:0\rightarrow 0\\ \phi_{01}:0\rightarrow 1\\
 	\phi_{11}:1\rightarrow 1\end{array}\] ($\phi_{00}$ and $\phi_{11}$ are
-	identity morphisms.) Any morphism in $\bC\times\mathbb 2$ is of the form
+	identity morphisms.) Any morphism in $\sC\times\mathbb 2$ is of the form
 	\[(f,\phi_{mn}):(x,m)\rightarrow(y,n)\] where $f:x\rightarrow y$ is a
-	morphism in $\bC$ and $m,n\in\{0,1\}$ with $m\le n$.
+	morphism in $\sC$ and $m,n\in\{0,1\}$ with $m\le n$.
 
 	Let $N$ be the collection (or more precisely $U$-set or $V$-set as above) of
 	natural transformations from $F$ to $G$, and let $X$ be the collection of
 	functors $H$ as described in the statement of the lemma. We first make a
 	function from $N$ to $X$ taking $\alpha\in N$ to $H_\alpha\in X$.
 
-	Define the functor $H_\alpha:\bC\times{\mathbb 2}\rightarrow\bD$ as follows:
+	Define the functor $H_\alpha:\sC\times{\mathbb 2}\rightarrow\sD$ as follows:
 	\begin{enumerate}
-		\item For every $c\in\ob\bC$,
+		\item For every $c\in\ob\sC$,
 			\begin{enumerate}
 				\item $H_\alpha(c,0)=Fc$ and
 				\item $H_\alpha(c,1)=Gc$.
 			\end{enumerate}
-		\item For every morphism $f:x\rightarrow y$ in $\bC$,
+		\item For every morphism $f:x\rightarrow y$ in $\sC$,
 			\begin{enumerate}
 				\item $H_\alpha(f,\phi_{00})=Ff$,
 				\item $H_\alpha(f,\phi_{11})=Gf$, and
@@ -107,7 +107,7 @@ in the lemma is a bijection between $V$-sets.
 			\[H_\alpha(gf,\phi_{11})=G(gf)=GgGf=H_\alpha(g,\phi_{11})H_\alpha(f,\phi_{11}).\]
 	\end{enumerate}
 
-	Now, the functors $i_n:\bC\rightarrow\bC\times\mathbb 2$ for $n=0,1$ are the
+	Now, the functors $i_n:\sC\rightarrow\sC\times\mathbb 2$ for $n=0,1$ are the
 	following. On objects, $i_nc=(c,n)$. On morphisms, $i_nf=(f,\phi_{nn})$. So,
 	on objects the compositions are $H_\alpha i_0c=H_\alpha (c,0)=Fc$ and
 	$H_\alpha i_1c=H_\alpha (c,1)=Gc$. On morphisms, the compositions are
@@ -116,9 +116,9 @@ in the lemma is a bijection between $V$-sets.
 	So, we have constructed a function $\alpha\mapsto H_\alpha$ from $N$ to $X$.
 
 	Now, we construct a function from $X$ to $N$. Given a functor
-	$H:\bC\times\mathbb 2\rightarrow\bD$ such that $Hi_0=F$ and $Hi_1=G$, we
+	$H:\sC\times\mathbb 2\rightarrow\sD$ such that $Hi_0=F$ and $Hi_1=G$, we
 	must construct a natural transformation $\alpha^H:F\Rightarrow G$. For an
-	object $c$ in $\bC$, let $\alpha^H_c=H(1_c,\phi_{01})$. We must see that
+	object $c$ in $\sC$, let $\alpha^H_c=H(1_c,\phi_{01})$. We must see that
 	this gives a natural transformation.
 
 	Using that $H$ is a functor, we have that
@@ -127,7 +127,7 @@ in the lemma is a bijection between $V$-sets.
 	\[\cod\alpha^H_c=\cod H(1_c,\phi_{01})=H\cod(1_c,\phi_{01})=H(c,1)=Gc.\]
 	So, $\alpha^H_c:Fc\rightarrow Gc$ as required.
 
-	Now, if $f:x\rightarrow y$ in $\bC$, then
+	Now, if $f:x\rightarrow y$ in $\sC$, then
 	\[\begin{array}{l}Gf\alpha^H_x=H(i_1f)H(1_x,\phi_{01})=H(f,\phi_{11})
 			H(1_x,\phi_{01})=H(f,\phi_{01})\\
 	\\=H(1_y,\phi_{01})H(f,\phi_{00})=\alpha^H_yH(i_0f)=\alpha^H_yFf.
@@ -139,7 +139,7 @@ in the lemma is a bijection between $V$-sets.
 	Now, we must see that our two functions are inverses of each other. Starting
 	with a natural transformation $\alpha$ in $N$, going to $X$ and back to $N$
 	gives the natural transformation $\alpha^{H_\alpha}$. For each object $c$ in
-	$\bC$, we must verify that $\alpha^{H_\alpha}_c=\alpha_c$. Combining the
+	$\sC$, we must verify that $\alpha^{H_\alpha}_c=\alpha_c$. Combining the
 	definitions of our two functions, we see that
 	\[\alpha^{H_\alpha}_c=H_\alpha(1_c,\phi_{01})=G1_c\alpha_c=1_{Gc}\alpha_c=\alpha_c\]
 	as required.
@@ -149,7 +149,7 @@ in the lemma is a bijection between $V$-sets.
 	$H_{\alpha^H}(x,1)=Gx=Hi_1x=H(x,1)$. So, these two functors agree on
 	objects.
 
-	On morphisms, we have three cases for a given $f:x\rightarrow y$ in $\bC$.
+	On morphisms, we have three cases for a given $f:x\rightarrow y$ in $\sC$.
 	\begin{enumerate}
 		\item
 			\[H_{\alpha^H}(f,\phi_{00})=Ff=Hi_0f=H(f,\phi_{00}),\]

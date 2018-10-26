@@ -12,7 +12,7 @@
 	To construct the inverse equivalence between  \textsf{G} and $\textsf{B}G$,
 	we must find a fully faithful and essentially surjective functor between
 	these categories. First, we see that since $\textsf{B}G$ has just one
-	object, that any functor $F: \textsf{G} \rightarrow \textsf{B}G$ will be
+	object and any two singleton sets are isomorphic, that any functor $F\colon \textsf{G} \rightarrow \textsf{B}G$ will be
 	essentially surjective. We define our functor $F$ on the objects of
 	\textsf{G} by sending any object of \textsf{G} to the one object of
 	$\textsf{B}G$. Before defining our functor on morphisms, we first show that
@@ -21,7 +21,7 @@
 
 	First, we define a class of reference morphisms for our groupoid in the
 	following manner: Because $\textsf{G}$ is connected, we have at least one
-	morphism in $\textsf{G} (x,y)$ for any $y \in ob\textsf{G}$. By the Axiom of
+	morphism in $\textsf{G} (x,y)$ for any $y \in \ob\textsf{G}$. By the Axiom of
 	Choice, for each $y$, we can choose a morphism $f_y$. Note that if
 	$\textsf{G}$ is not small, we must apply the Axiom of Choice in a larger
 	universe. Since $\textsf{G}$ is a groupoid, we also have a morphism
@@ -42,16 +42,16 @@
 	bijections to define a bijection $\phi = \sigma\rho$ from $\textsf{G}(x,x)$
 	to $\textsf{G}(y,z)$, where $\phi(\gamma) = f_z\gamma f_y^{-1}$.
 
-	Clearly, we also have an inverse bijection $\phi^{-1}: \textsf{G}(x,y)
+	Clearly, we also have an inverse bijection $\phi^{-1}\colon \textsf{G}(x,y)
 	\rightarrow G$, where for a $g \in \textsf{G}(y,z)$ such that $g = f_z\gamma
 	f_y^{-1}$, $\phi^{-1}(g) = \gamma$. We will use this to define our functor
-	on morphisms, so that for a morphism $g: y\rightarrow z$, $Fg =
+	on morphisms, so that for a morphism $g\colon y\rightarrow z$, $Fg =
 	\phi^{-1}(g)$. First, we note that in this setting $f_x = 1_x$ and that for
 	any $y$, $f_y = f_y\gamma f_x = f_y\gamma$, so that $Ff_y = 1_x$. Also, for
 	any $y$, $1_y = f_y 1_x f_y^{-1}$, so our functor preserves identities.
 
 	Now, we show that our functor preserves composition of morphisms. To do
-	this, consider $g: y\rightarrow z$ and $h: z \rightarrow w$, where $g =
+	this, consider $g\colon y\rightarrow z$ and $h\colon z \rightarrow w$, where $g =
 	f_z\gamma_gf_y^{-1}$ and $h = f_w\gamma_hf_z^{-1}$. Now, consider $Fhg$. We
 	know that $hg = f_w\gamma_hf_z^{-1}f_z\gamma_gf_y^{-1} =
 	f_w\gamma_h\gamma_gf_y^{-1}$. So $Fhg = \gamma_h\gamma_g = FhFg$. So we see
@@ -59,35 +59,35 @@
 	well defined functor.
 
 	To see that our functor is fully faithful, we remember that for any $y,z \in
-	ob\textsf{G}$, $\textsf{G}(y,z)$ is in bijection with $G$. Since $Fy = Fz =
+	\ob\textsf{G}$, $\textsf{G}(y,z)$ is in bijection with $G$. Since $Fy = Fz =
 	\emptyset$, the only object of $\textsf{B}G$, and the set
 	$\textsf{B}G(\emptyset, \emptyset) = G$, we have a bijection between
 	$\textsf{G}(y,z)$ and $\textsf{B}G(Fy, Fz)$ and therefore a fully faithful
 	functor. Therefore, we have a fully faithful functor that is essentially
 	surjective on objects from $\textsf{G}$ to $\textsf{B}G$.
 
-	Now, call the functor defined in 1.5.12  $\iota: \textsf{B}G \rightarrow
-	\textsf{G}$. We must now define natural transformations $\tau:F\iota
-	\Rightarrow 1_{\textsf{B}G} $ and $\eta: 1_{\textsf{G}}\Rightarrow \iota F$.
+	Now, call the functor defined in 1.5.12  $\iota\colon \textsf{B}G \rightarrow
+	\textsf{G}$. We must now define natural transformations $\tau\colon F\iota
+	\Rightarrow 1_{\textsf{B}G} $ and $\eta\colon 1_{\textsf{G}}\Rightarrow \iota F$.
 	For all $\gamma \in mor\textsf{B}G$, we have that $F\iota(\gamma) =
 	F(\gamma) = \gamma$ and that $F\iota(\emptyset) = Fx = \emptyset$ so $F\iota
 	= 1_{\textsf{B}G}$, and the natural transformation is the identity
 	transformation. Now, for each $y \in ob\textsf{G}$, we must find $\eta_y$,
-	so that the following diagram commutes for every $f: y \rightarrow z$.
+	so that the following diagram commutes for every $f\colon y \rightarrow z$.
 	\[\xymatrix{
 			\iota Fy = x
 			\ar[r]^{\iota Ff}
 			\ar[d]_{\eta_y}
 			& \iota Fz = x
-			\ar[d]_{\eta_z}
+			\ar[d]^{\eta_z}
 			\\
 			y
-			\ar[r]^{f}
+			\ar[r]_{f}
 			& z
 	}\]
 	We claim that if $\eta_y = f_y$, the reference morphism picked earlier, than
 	we will have formed a natural transformation. First, note that since $f$ can
-	be represented by $f_z\gamma f_y^{-1}$ for some automorphism $\gamma: x
+	be represented by $f_z\gamma f_y^{-1}$ for some automorphism $\gamma\colon x
 	\rightarrow x$ and that $\gamma = f_z^{-1}ff_y$. Also, note that $\iota Ff =
 	\iota(\gamma) = \gamma$. So we must show that $f_z\gamma = ff_y$. We know
 	that $f_z\gamma = f_zf_z^{-1}ff_y = ff_y$, so we have the desired equality.
@@ -98,10 +98,10 @@
 			\ar[r]^{\iota Ff}
 			\ar[d]_{f_y}
 			&  x
-			\ar[d]_{f_z}
+			\ar[d]^{f_z}
 			\\
 			y
-			\ar[r]^{f}
+			\ar[r]_{f}
 			& z
 		}
 	\end{align}
