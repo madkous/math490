@@ -1,0 +1,26 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	Find a concrete category that contains a monomorphism whose underlying
+	function is not injective. Find a concrete category that contains an
+	epimorphism whose underlying function is not surjective.
+\end{exercise}
+
+\begin{proof}
+	For the first example, take a subcategory of $\bold {Set}$, $C$, consisting
+	of two objects, $A$ being the set with elements 0, 1, and 2, and $B$ being
+	the set with elements 0, and 1. Take as morphisms between $A$ and $B$ the
+	identity morphisms, $1_A$ and $1_B$, along with the morphism, $f : A
+	\rightarrow B$, defined by $f(0) = 0$, $f(1) = 0$, and $f(2) = 0$. Since
+	$f1_A = f1_B$ implies $1_A = 1_B$, then $f$ is a monomorphism. Yet since $f$
+	sends $0$ to $0$ and $1$ to $0$ in the underlying sets, then $f$is not
+	injective.
+
+	For the second example, take the objects $\bold Z$ and $\bold Q$ in the
+	category $\bold {Ring}$. There is a unique ring homomorphism between $\bold
+	Z$ and $\bold Q$. This homomorphism is not surjective on the underlying sets,
+	yet from the previous exercise 1.2.v, this homomorphism is an epimorphism.
+\end{proof}
+\end{document}

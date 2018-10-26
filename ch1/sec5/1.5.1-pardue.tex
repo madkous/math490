@@ -1,0 +1,164 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\settheorem{1}{5}{1}
+\begin{lemma}
+	Fixing a parallel pair of functors $F,G:\bC\rightrightarrows\bD$, natural
+	transformations $\alpha:F\Rightarrow G$ correspond bijectively to functors
+	$H:\bC\times{\mathbb 2}\rightarrow\bD$ such that $H$ restricts along $i_0$
+	and $i_1$ to the functors $F$ and $G$, i.e., so that
+	\[\xymatrix{
+			\bC\ar[r]^{i_0\,\,\,\,\,\,\,}\ar[rd]_F&\bC\times{\mathbb 2}\ar[d]^H&
+	\bC\ar[l]_{\,\,\,\,\,\,i_1}\ar[ld]^G\\&\bD&}\]
+\end{lemma}
+\popthm
+
+Before going on, I'd like to make a set-theoretic remark about exactly what the
+bijection is between. Say that $U$ is a non-empty universe and that $\bC$ and
+$\bD$ are $U$-categories.
+
+Assume further that $\bC$ is a $U$-small category and that $\bD$ is a
+$U$-locally small category. Then the class of all morphisms from $Fc$ to $Gc$ as
+$c$ varies over objects of $\bC$ forms a $U$-set. Then the class of all
+functions from $\ob\bC$ to this $U$-set is also a $U$-set. The natural
+transformations form a subclass of this $U$-set, and so the class of all natural
+transformations from $F$ to $G$ forms a $U$-set.
+
+In this case, $\bC\times{\mathbb 2}$ is also a $U$-small category and so each
+functor $H:\bC\times{\mathbb 2}\rightarrow\bD$ is a $U$-set by the Axiom of
+Replacement in $U$. We may thus form a $U$-class of these functors. The lemma
+then implies through the Axiom of Replacement again that this $U$-class is also
+a $U$-set.
+
+However, if the objects of $\bC$ form a proper $U$-class, then any natural
+transformation $\alpha:F\Rightarrow G$ is also a proper $U$-class. This is
+because as a function, $\alpha$ has domain $\ob\bC$, a proper $U$-class. In this
+case, $\alpha$ is not an element of $U$ and is thus not an element of any
+$U$-class.
+
+In either case, let $V$ be a universe such that $U\in V$. Then all of the
+categories mentioned in the lemma are small $V$-categories so that the bijection
+in the lemma is a bijection between $V$-sets.
+
+\setexercise{1}{5}{1}
+\begin{exercise}
+	Prove the lemma above.
+\end{exercise}
+
+\begin{proof}
+	In the category ${\mathbb 2}$, there are precisely three morphisms:
+	\[\begin{array}{l}\phi_{00}:0\rightarrow 0\\ \phi_{01}:0\rightarrow 1\\
+	\phi_{11}:1\rightarrow 1\end{array}\] ($\phi_{00}$ and $\phi_{11}$ are
+	identity morphisms.) Any morphism in $\bC\times\mathbb 2$ is of the form
+	\[(f,\phi_{mn}):(x,m)\rightarrow(y,n)\] where $f:x\rightarrow y$ is a
+	morphism in $\bC$ and $m,n\in\{0,1\}$ with $m\le n$.
+
+	Let $N$ be the collection (or more precisely $U$-set or $V$-set as above) of
+	natural transformations from $F$ to $G$, and let $X$ be the collection of
+	functors $H$ as described in the statement of the lemma. We first make a
+	function from $N$ to $X$ taking $\alpha\in N$ to $H_\alpha\in X$.
+
+	Define the functor $H_\alpha:\bC\times{\mathbb 2}\rightarrow\bD$ as follows:
+	\begin{enumerate}
+		\item For every $c\in\ob\bC$,
+			\begin{enumerate}
+				\item $H_\alpha(c,0)=Fc$ and
+				\item $H_\alpha(c,1)=Gc$.
+			\end{enumerate}
+		\item For every morphism $f:x\rightarrow y$ in $\bC$,
+			\begin{enumerate}
+				\item $H_\alpha(f,\phi_{00})=Ff$,
+				\item $H_\alpha(f,\phi_{11})=Gf$, and
+				\item $H_\alpha(f,\phi_{01})=Gf\alpha_x=\alpha_yFf$.
+			\end{enumerate}
+	\end{enumerate}
+	There is no ambiguity in the final case, since $\alpha:F\Rightarrow G$ being
+	a natural transformation tells us that the following diagram commutes.
+	\[\xymatrix{Fx\ar[r]^{Ff}\ar[d]_{\alpha_x} & Fy\ar[d]^{\alpha_y}\\
+	Gx\ar[r]_{Gf} & Gy}\]
+
+	Let's check that $H$ really is a functor. It takes objects to objects and
+	morphisms to morphisms. Notice that in each of the three  formulas for
+	$H_\alpha(f,\phi_{mn})$, the domain of $H_\alpha(f,\phi_{mn})$ is equal to
+	$H_\alpha(x,m)$, either $Fx$ or $Gx$ as need be. Likewise, in each case the
+	codomain of $H_\alpha(f,\phi_{mn})$ is equal to $H_\alpha(y,n)$, either $Fy$
+	or $Gy$ as need be. So, we see that $H_\alpha\circ\dom=\dom\circ H_\alpha$
+	and $H_\alpha\circ\cod=\cod\circ H_\alpha$ as required.
+
+	$(f,\phi_{mn})$ is an identity if and only if $f=1_x$ and $m=n$. We have
+	that $H_\alpha(1_x,\phi_{00})=F1_x=1_{Fx}$, since $F$ is a functor, and
+	$H_\alpha(1_x,\phi_{11})=G1_x=1_{Gx}$, since $G$ is a functor. So,
+	$H_\alpha$ takes identities to identities as required.
+
+	Finally, if we also have $(g,\phi_{np}):(y,n)\rightarrow (z,p)$ then $m\le
+	n\le p$ and $(g,\phi_{np})(f,\phi_{mn})=(gf,\phi_{mp})$. There are four
+	cases to consider:
+	\begin{enumerate}
+		\item $(m,n,p)=(0,0,0)$:
+			\[H_\alpha(gf,\phi_{00})=F(gf)=FgFf=H_\alpha(g,\phi_{00})H_\alpha(f,\phi_{00}).\]
+		\item $(m,n,p)=(0,0,1)$:
+			\[\begin{array}{l}H_\alpha(gf,\phi_{01})=G(gf)\alpha_x=Gg(Gf\alpha_x)=Gg(\alpha_yFf)\\ \\
+					=(Gg\alpha_y)Ff=H_\alpha(g,\phi_{01})H_\alpha(f,\phi_{00}).
+			\end{array}\]
+		\item $(m,n,p)=(0,1,1)$:
+			\[H_\alpha(gf,\phi_{01})=G(gf)\alpha_x=Gg(Gf\alpha_x)=H_\alpha(g,\phi_{11})H_\alpha(f,\phi_{01}).\]
+		\item $(m,n,p)=(1,1,1)$:
+			\[H_\alpha(gf,\phi_{11})=G(gf)=GgGf=H_\alpha(g,\phi_{11})H_\alpha(f,\phi_{11}).\]
+	\end{enumerate}
+
+	Now, the functors $i_n:\bC\rightarrow\bC\times\mathbb 2$ for $n=0,1$ are the
+	following. On objects, $i_nc=(c,n)$. On morphisms, $i_nf=(f,\phi_{nn})$. So,
+	on objects the compositions are $H_\alpha i_0c=H_\alpha (c,0)=Fc$ and
+	$H_\alpha i_1c=H_\alpha (c,1)=Gc$. On morphisms, the compositions are
+	$H_\alpha i_0f=H_\alpha (f,\phi_{00})=Ff$ and $H_\alpha i_1f=H_\alpha
+	(f,\phi_{11})=Gf$. So, $H_\alpha i_0=F$ and $H_\alpha i_1=G$ as required.
+	So, we have constructed a function $\alpha\mapsto H_\alpha$ from $N$ to $X$.
+
+	Now, we construct a function from $X$ to $N$. Given a functor
+	$H:\bC\times\mathbb 2\rightarrow\bD$ such that $Hi_0=F$ and $Hi_1=G$, we
+	must construct a natural transformation $\alpha^H:F\Rightarrow G$. For an
+	object $c$ in $\bC$, let $\alpha^H_c=H(1_c,\phi_{01})$. We must see that
+	this gives a natural transformation.
+
+	Using that $H$ is a functor, we have that
+	\[\dom\alpha^H_c=\dom H(1_c,\phi_{01})=H\dom(1_c,\phi_{01})=H(c,0)=Fc.\]
+	Similarly,
+	\[\cod\alpha^H_c=\cod H(1_c,\phi_{01})=H\cod(1_c,\phi_{01})=H(c,1)=Gc.\]
+	So, $\alpha^H_c:Fc\rightarrow Gc$ as required.
+
+	Now, if $f:x\rightarrow y$ in $\bC$, then
+	\[\begin{array}{l}Gf\alpha^H_x=H(i_1f)H(1_x,\phi_{01})=H(f,\phi_{11})
+			H(1_x,\phi_{01})=H(f,\phi_{01})\\
+	\\=H(1_y,\phi_{01})H(f,\phi_{00})=\alpha^H_yH(i_0f)=\alpha^H_yFf.
+	\end{array}\]
+	This verifies that $\alpha^H$ is a natural transformation from $F$ to $G$,
+	so that we have constructed a function from $X$ to $N$ taking $H$ to
+	$\alpha^H$.
+
+	Now, we must see that our two functions are inverses of each other. Starting
+	with a natural transformation $\alpha$ in $N$, going to $X$ and back to $N$
+	gives the natural transformation $\alpha^{H_\alpha}$. For each object $c$ in
+	$\bC$, we must verify that $\alpha^{H_\alpha}_c=\alpha_c$. Combining the
+	definitions of our two functions, we see that
+	\[\alpha^{H_\alpha}_c=H_\alpha(1_c,\phi_{01})=G1_c\alpha_c=1_{Gc}\alpha_c=\alpha_c\]
+	as required.
+
+	In the other direction, we must verify that for any $H\in X$,
+	$H_{\alpha^H}=H$. On objects, $H_{\alpha^H}(x,0)=Fx=Hi_0x=H(x,0)$ and
+	$H_{\alpha^H}(x,1)=Gx=Hi_1x=H(x,1)$. So, these two functors agree on
+	objects.
+
+	On morphisms, we have three cases for a given $f:x\rightarrow y$ in $\bC$.
+	\begin{enumerate}
+		\item
+			\[H_{\alpha^H}(f,\phi_{00})=Ff=Hi_0f=H(f,\phi_{00}),\]
+		\item
+			\[H_{\alpha^H}(f,\phi_{11})=Gf=Hi_1f=H(f,\phi_{11},)\]
+		\item
+			\[H_{\alpha^H}(f,\phi_{01})=Gf\alpha^H_x=Hi_1f\alpha^H_x=H(f,\phi_{11})H(1_x,\phi_{01})=H(f,\phi_{01}).\]
+	\end{enumerate}
+	So, $H$ and $H_{\alpha^H}$ agree on morphisms as well as objects, so that
+	$H=H_{\alpha^H}$ as required.
+\end{proof}
+\end{document}

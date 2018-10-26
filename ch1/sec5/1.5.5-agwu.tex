@@ -1,0 +1,21 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\setexercise{1}{5}{5}
+\begin{exercise}
+	Find an example to show that a faithful functor need not reflect
+	isomorphisms.
+\end{exercise}
+
+\begin{proof}
+	Let $\func{F}{\mathbb{2}}{\mathbb{1}}$ be the unique morphism from
+	$\mathbb{2}$ to $\mathbb{1}$. For $x,y \in \ob\mathbb{2}$, $\mathbb{2}(x,y)$
+	either contains one morphism or is empty, thus the  function from
+	$\mathbb{2}(x,y)$ to $\mathbb{1}(0,0)$ induced by $F$ is injective. Thus,
+	$F$ is faithful.  Let $\func{!}{0}{1}$ be the unique arrow from $0$ to $1$.
+	Since $F! = 1_{0}$ and $!$ is not an isomorphism, then $F$ does not reflect
+	isomorphisms. Thus faithful functors need not reflect isomorphisms.
+\end{proof}
+
+\end{document}

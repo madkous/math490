@@ -1,0 +1,37 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\setexercise{1}{4}{4}
+\begin{exercise}
+	In the notation of Example 1.4.7, prove that distinct parallel morphisms
+	$f,g: c\rightrightarrows d$ define distinct natural transformations
+	\begin{align*}
+		f_*,g_*: C(-,c) \Rightarrow C(d,-) \\
+		f^*,g^*: C(c,-) \Rightarrow C(d,-)
+	\end{align*}
+\end{exercise}
+
+\begin{proof}
+	These being natural transformations is shown in Example 1.4.7, so the
+	primary concern of this problem is whether they are distinct.  First, we
+	consider $f_*,g_*$ as natural transformations from $C(-,c) \Rightarrow
+	C(-,d)$.  To differentiate, consider the natural transformation defined by
+	$f_*$ to be $\alpha$ and $g_*$ to be $\beta$.  We need to show the
+	transformations are different in at least some component.  For a natural
+	transformation, we can choose arbitrary $h: c_1 \rightarrow c_2$ in $C$ to
+	look at the functions for.  In this case, take $h = 1_c$.  We thus in our
+	diagram have $h^*$ as our $Fh$ and $Gh$, which is precomposition by $1_c$.
+	This must be the case as a functor preserves identities.  We then consider
+	what this transformation does to the morphism $j =1_c \in C(c,c)$ to see
+	what would happen to it if we put it trough the transformation.  Both
+	directions take us to $fj1_c = fj = f$.  Similarly, constructing the same
+	diagram except with $g$, we get $gj1_c = gj = g$.  Each takes us to a
+	different morphism in $C(c,d)$ and thus the two transformations are
+	different.  Essentially the same construction works with $f^*$ and $g^*$.
+	\begin{equation*}
+		\xymatrix{C(c,c) \ar[d]^{f_*} \ar[r]^{1_c^*} & C(c,c) \ar[d]_{f_*} \\
+		C(c,d) \ar[r]^{1_c^*} & C(c,d) }
+	\end{equation*}
+\end{proof}
+\end{document}

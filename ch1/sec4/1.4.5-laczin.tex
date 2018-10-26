@@ -1,0 +1,63 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\setexercise{1}{3}{6}
+\begin{exercise}(For Reference.)
+	Given functors $\func{F}{\cat{D}}{\cat{C}}$ and
+	$\func{G}{\cat{E}}{\cat{C}}$, show that there is a category called the
+	\textbf{comma category} $F\downarrow G$, which has\\
+	\begin{itemize}
+		\item as objects, triples $(d\in\cat{D}, e\in\cat{E},
+			\func{f}{Fd}{Ge}\in\cat{C})$, and
+
+		\item as morphisms $(d,e,f)\rightarrow(d',e',f')$, a pair of morphisms
+			$(\func{h}{d}{d'},\func{k}{e}{e'})$ so that the following square
+			commutes in $\cat{C}$, i.e., so that $f'\cdot Fh = Gk\cdot f$.
+			\[\xymatrix{ Fd\ar[r]^f\ar[d]_{Fh} & Ge\ar[d]^{Gk}\\
+					Fd'\ar[r]_{f'} & Ge' }\]
+			Define a pair of projection functors $\func{\dom}{F\downarrow G}{D}$
+			and $\func{\cod}{F\downarrow G}{E}$.
+	\end{itemize}
+\end{exercise}
+
+\setexercise{1}{4}{5}
+\begin{exercise}
+	Recall the construction of the comma category for any pair of functors
+	$\func{F}{\cat{D}}{\cat{C}}$ and $\func{G}{\cat{E}}{\cat{C}}$ described in
+	Exercise 1.3.vi. From this data, construct a canonical natural
+	transformation $\Func{\alpha}{F\dom}{G\cod}$ between the functors that form
+	the boundary of the square
+	\[\xymatrix{
+			F\downarrow G\ar[r]^{\cod} \ar[d]_{\dom}& E\ar[d]^G\\
+			D\ar[r]_{F}\ar@{=>}[ur]^{\alpha}& C
+		}\]
+\end{exercise}
+
+\begin{proof}	
+	Letting $c=(d,e,\func{f}{d}{e}\in C)$ as above, and a morphism
+	$m=(\func{h}{d}{d'},\func{k}{e}{e'})$, we can describe the actions of the
+	functors $F\dom$ and $G\cod$ on objects:
+	\begin{itemize}
+		\item $F\dom c = Fd$
+		\item $G\cod c = Ge$
+	\end{itemize}
+	And their actions on morphisms:
+	\begin{itemize}
+		\item $F\dom m = Fh$
+		\item $G\cod m = Gk$
+	\end{itemize}
+	From the definition of a natural transformation, we need an
+	$\func{\alpha}{\ob F\downarrow G}{\mor\cat{C}}$, and we can get this by
+	taking $(d,e,f)\mapsto f\in \cat{C}$. Then, $\func{\alpha_c}{Fd}{Ge}$ in
+	$\cat{C}$. From this, we can construct the following diagram:
+	\[\xymatrix{
+		Fd\ar[r]^{\alpha_c}\ar[d]_{Fh} & Ge\ar[d]^{Gk}\\
+		Fd'\ar[r]_{\alpha_{c'}} & Ge'
+	}\]
+	Which is precisely the diagram of the comma category with $f=\alpha_c$ and
+	$f'=\alpha_{c'}$, and from the condition that $f'\cdot Fh = Gk\cdot f$, we
+	have that this diagram commutes. Thus, $\alpha$ is a natural
+	transformation.
+\end{proof}
+\end{document}

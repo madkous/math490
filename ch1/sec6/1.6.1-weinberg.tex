@@ -1,0 +1,31 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+%
+%\settheorem{1}{2}{3}
+%\begin{lemma}
+	%Recall that a group as a category has a single object $x$, and that each element of the group is a morphism in the category.  All domains and codomains are that object $x$.  There is one identity morphism $1_x$, which is the identity element in the group.  Composition is the same as multiplication in this context.
+%\end{lemma}
+%\popthm
+
+\paragraph{}
+\setexercise{1}{6}{1}
+\begin{exercise}
+	Show that any map from a terminal object in a category to an initial one is
+	an isomorphism.  An object that is both initial and terminal is called a
+	zero object.
+\end{exercise}
+
+\begin{proof}
+	Let $f: t \rightarrow i$, where $t$ is terminal and $i$ is initial.  As $i$
+	is initial, there exists exactly one morphism $g: i \rightarrow t$.  We must
+	show this $g$ is the inverse of $f$ such that $fg = 1_i$ and $gf = 1_t$.  We
+	know that $f$ and $g$ are composable, and we know $fg: i \rightarrow i$ and
+	$gf: t \rightarrow t$ based on the composition law.    As $i$ is initial,
+	there exists exactly one morphism $i \rightarrow c$ for any object $c$, and
+	thus there exists only one morphism $i \rightarrow i$, the identity morphism
+	$1_i$.  Thus, $fg$ must be $1_i$.  Similarly, as $t$ is terminal there
+	exists exactly one morphism $c \rightarrow t$, and thus there exists only
+	one morphism $t \rightarrow t$, the identity morphism $1_t$.  Thus $gf$ must
+	be $1_t$.  Thus, $f$ is an isomorphism.
+\end{proof}
+\end{document}

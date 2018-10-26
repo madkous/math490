@@ -1,0 +1,44 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\setexercise{1}{6}{6}
+\begin{exercise}
+	A {\bf coalgebra} for an endofunctor $\func{T}{\sC}{\sC}$ is an object $C
+	\in \sC$ equipped with a map $\func{\gm}{C}{TC}$. A morphism
+	$\func{f}{\qty{C,\gm}}{\qty{C',\gm'}}$ of coalgebras is a map
+	$\func{f}{C}{C'}$ so that the following square commutes.
+	\[\xymatrix{ &C \ar[d]^{\gm} \ar[r]_{f} & C'\ar[d]^{\gm'}  \\  &
+	TC\ar[r]^{Tf} &TC'}\]
+	Prove that if $\qty{C,\gm}$ is a {\bf terminal coalgebra}, that is
+	a terminal object in the category of coalgebras, then the map
+	$\func{\gm}{C}{TC}$ is an isomorphism.
+\end{exercise}
+\begin{proof}
+	Suppose that $\func{T}{\sC}{\sC}$ is an endofunctor and $\qty{C,\gm}$ a
+	terminal coalgebra. Let $\func{\chi}{TC}{C}$ be the unique morphism so that
+	the following diagram commutes.
+	\[\xymatrix{ TC \ar[d]^{T\gm} \ar[r]_{\chi} & C\ar[d]^{\gm} \\
+	TTC\ar[r]^{T\chi} &TC}\]
+	Then we
+	have that: $$ \gm \cdot \chi = T\qty{\chi \cdot \gm}    $$ Now we will
+	to show that the diagram $$\xymatrix{ &C \ar[d]^{\gm} \ar[r]_{\chi \cdot
+	\gm} & C\ar[d]^{\gm}  \\  & TC\ar[r]^{T\qty{\chi \cdot \gm}} &TC   } $$
+	commutes. Since $ \gm \cdot \chi = T\qty{\chi \cdot \gm}    $, then
+	composing $\gm$ on the right will give $$ \gm \cdot \chi \cdot \gm =
+	T\qty{\chi \cdot \gm} \cdot \gm   $$ which shows that the diagram above
+	commutes. This means that the morphism $\chi \cdot \gm$ uniquely allows
+	the diagram above to commute. The identity morphism $1_C$ gives an
+	endomorphism of the terminal coalgebra $\qty{C,\gm}$ since $\gm \cdot \
+	1_{C} = T1_{C} \cdot \gm = 1_{TC} \cdot \gm$ by the properties of
+	identity morphisms, thus $\chi \cdot \gm = 1_{C}$. This will give us
+	$$\gm \cdot \chi = T\qty{\chi \cdot \gm}  = T1_{C} = 1_{TC} $$. Thus
+	$\chi$ and $\gm$ are inverses, therefore $\gm$ is an isomorphism.
+\end{proof}
+
+An example of a co-algebra is one defined by the endofunctor
+$\func{P_{fin}}{\Set}{\Set}$ where $P_{fin}$ is the functor mapping a set $X$ to
+the set of finite subsets of $X$, and maps a morphism $\func{f}{X}{Y}$ to
+$\func{P_{fin}f}{P_{fin}X}{P_{fin}Y}$ where for finite subset $S$ of $X$,
+$P_{fin}f(S) = f(S)$.
+\end{document}

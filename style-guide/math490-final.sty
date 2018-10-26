@@ -8,7 +8,7 @@
 \ProvidesPackage{math490}
 [2018/09/21 v0.01 LaTeX package for Dr. Pardue's math490 course at UMBC]
 
-\RequirePackage{mathtools,array,xspace,amssymb,xypic,mathrsfs,graphicx}
+\RequirePackage{mathtools,array,xspace,amssymb,xypic,mathrsfs,graphicx,braket}
 \RequirePackage{hyperref}
 \RequirePackage[shortlabels]{enumitem}
 \RequirePackage[margin=1.75in]{geometry}
@@ -16,7 +16,8 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage{newtxtext}
 \RequirePackage{newtxmath}
-\RequirePackage{bbold}
+\RequirePackage{mathbbol}
+\RequirePackage{color}
 % \RequirePackage{stix}
 % \usepackage[bitstream-charter]{mathdesign}
 % \usepackage{mathptmx}
@@ -131,7 +132,7 @@
 \newcommand*{\cat}[1]{\textsf{#1}\xspace}
 \newcommand{\Cat}{\textsf{Cat}\xspace}
 \newcommand{\CAT}{\textsf{CAT}\xspace}
-\newcommand{\Set}{\textsf{Set}\xspace}
+\renewcommand{\Set}{\textsf{Set}\xspace}
 \newcommand{\Fin}{\textsf{Fin}\xspace}
 \renewcommand{\Top}{\textsf{Top}\xspace} % replaced logical Top ⫪
 \newcommand{\Ring}{\textsf{Ring}\xspace}
@@ -157,6 +158,9 @@
 \newcommand{\eight}{\mbb{8}}
 \newcommand{\nine}{\mbb{9}}
 
+\newcommand{\Proj}{\text{\bf Proj}}
+\newcommand{\Affine}{\text{\bf Affine}}
+
 % this is to get the 'element of or equal to' relation symbol
 \DeclareFontEncoding{LS1}{}{\noaccents@}
 \DeclareFontSubstitution{LS1}{stix}{m}{n}
@@ -168,11 +172,13 @@
 
 % blackboard bold shortcuts
 \renewcommand{\AA}{\mathbb{A}} % replaced Angstrom symbol Å
+\newcommand{\BB}{\mathbb{B}}
 \newcommand{\CC}{\mathbb{C}}
 \newcommand{\DD}{\mathbb{D}}
 \newcommand{\FF}{\mathbb{F}}
 \newcommand{\KK}{\mathbb{K}}
 \newcommand{\NN}{\mathbb{N}}
+\newcommand{\PP}{\mathbb{P}}
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\RR}{\mathbb{R}}
 \renewcommand{\SS}{\mathbb{S}}
@@ -217,6 +223,9 @@
 \newcommand{\pp}{\mathfrak{p}}
 \newcommand{\qq}{\mathfrak{q}}
 \newcommand{\ee}{\mathfrak{e}}
+
+\newcommand{\bC}{{\bf C}}
+\newcommand{\bD}{{\bf D}}
 
 % shortcuts for various greek letters
 \newcommand{\al}{\alpha}

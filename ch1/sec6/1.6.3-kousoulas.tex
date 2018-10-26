@@ -1,0 +1,47 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\setexercise{1}{6}{3}
+\begin{exercise}
+	Show that any faithful functor reflects monomorphisms. That is, if
+	\(\func{F}{\sC}{\sD}\) is faithful, prove that if \(Ff\) is a monomorphism
+	in \(\sD\), then \(f\) is a monomorphism in \(\sC\). Argue by duality that
+	faithful functors also reflect epimorphisms. Conclude that in any concrete
+	category, any morphism that defines an injection of underlying sets is a
+	monomorphism and any morphism that defines a surjection of underlying sets
+	is an epimorphism.
+\end{exercise}
+\begin{proof}
+	Suppose that \(\func{Ff}{Fx}{Fy}\) is a monomorphism in \(\sD\), i.e. for
+	any object \(w\) in \(\sC\) and parallel morphisms \(\pfunc{h,k}{w}{x}\)
+	then \(FfFh=FfFk\) implies that \(Fh=Fk\). (Because the property holds over
+	all \(\sD\), it holds in particular over the image of \(F\) in \(\sD\).)
+	\[
+		\xymatrix{w\ar@2[d]_F\ar@<2pt>[r]^h\ar@<-2pt>[r]_k&x\ar[r]^f\ar@2[d]_F&y\ar@2[d]_F\\
+		Fw\ar@<2pt>[r]^{Fh}\ar@<-2pt>[r]_{Fk}&Fx\ar[r]_{Ff}&Fy}
+	\]
+	Now, supposing that \(fh=fk\) in \(\sC\), this implies that \(F(fh)=F(fk)\)
+	by elementary properties of equality. Then by the functoriality axioms we
+	have \(FfFh=FfFk\), and by the fact that \(Ff\) is a monomorphism \(Fh=Fk\).
+	Finally since \(F\) is faithful and thus injective on \(\sC(w,x)\), \(h=k\).
+	This argument amounts to pushing equality clockwise around the above
+	diagram.
+
+	Note that this also proves that a functor reflects epimorphisms, since an
+	epimorphisms is just a monomorphism in the opposite category. The argument
+	above will compose neatly with applying the \(\op\) functor at the beginning
+	and end to transport us to the right category.
+
+	Further, given a concrete category \(\sC\) we have a faithful functor from
+	\(\sC\) to \(\Set\). Since monomorphisms in \(\Set\) are completely
+	characterised by injectivity, this becomes sufficient condition for a map to
+	be a monomorphism in \(\sC\). Similarly, surjectivity in \(\Set\) will force
+	epic in \(\sC\). Frequently, the faithful functor in question is just the
+	forgetful functor and the maps in \(\sC\) are just functions defined on sets
+	with peculiar features. Thus it is sensible to talk about injectivity and
+	surjectivity in \(\sC\) itself, and we can say that injectivity and
+	surjectivity are sufficient---but not necessary---conditions for a map to
+	monic or epic respectively.
+\end{proof}
+\end{document}

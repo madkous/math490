@@ -1,0 +1,58 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\settheorem{1}{3}{8}
+\begin{lemma}
+	Functors preserve isomorphisms.
+\end{lemma}
+\settheorem{1}{5}{9}
+\begin{theorem} \textnormal{(characterizing equivalences of categories).}
+	A functor defining an equivalence of categories is full, faithful, and
+	essentially surjective on objects. Assuming the axiom of choice, any functor
+	with these properties defines an equivalence on categories.
+\end{theorem}
+\setexercise{1}{5}{6}
+\begin{exercise}\ \\
+	\begin{enumerate}[i]
+		\item Prove that the composite of a pair of full, faithful, or
+			essentially surjective functors again has the same properties.
+
+		\item Prove that if $\cat{C}\simeq\cat{D}$ and $\cat{D}\simeq\cat{E}$,
+			then $\cat{C}\simeq\cat{E}$. Conclude that the equivalence of
+			categories is an equivalence relation.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}\ \\
+	\begin{itemize}
+		\item Let $\func{F}{C}{D}$ and $\func{G}{D}{E}$ be functors. If $F$ and
+			$G$ are full, but $GF$ is not full, then there is some
+			$c\in\cat{C}(x,y)$, for some $x,y$ which make sense, such that
+			$GFc\notin \cat{E}(GFx, GFy)$. However, $GFc = G(Fc) = Gd \in
+			\cat{E}(GFx, GFy)$ by the fullness of $G$, so $GF$ is full.\\ To
+			show that $GF$ is faithful if $F$ and $G$ are faithful, by a similar
+			argument, if $GF$ were not faithful, then there would be a morphism
+			in $\cat{E}(GFx, GFy)$ mapped to by two morphisms of $\cat{C}(x,y)$.
+			However, $GFc = G(Fc) = Gd$ for a unique $d\in\cat{D}(Fx, Fy)$,
+			which is again injective by the faithfulness of $G$.\\ Finally, to
+			show that $GF$ is essentially surjective if $F$ and $G$ are
+			essentially surjective, we see from Lemma 1.3.8 that functors take
+			isomorphisms to isomorphisms. Since $G$ is essentially surjective,
+			for each $d\in\cat{D}$, there is some $e\in\cat{E}$ such that
+			$Gd\cong e$. Then, since $F$ has the same property, $d$ must be
+			isomorphic to some $Fc$, that is, $Fc\cong d$. So we have that $GFc
+			\cong Gd \cong e$, which is the requirement for $GF$ to be
+			essentially surjective.
+
+		\item If $\cat{C}\simeq\cat{D}$ and $\cat{D}\simeq\cat{E}$, then the
+			functors $F$ and $G$ are fully faithful and essentially surjective,
+			and by Theorem 1.5.9, $\cat{C}\simeq\cat{E}$. We also have that
+			$\cat{C}\simeq\cat{C}$ (reflexivity), if $\cat{C}\simeq\cat{D}$ then
+			$\cat{D}\simeq\cat{C}$ (symmetry), and from what we just showed we
+			get transitivity. Thus, equivalence of categories defines an
+			equivalence relation.
+	\end{itemize}
+\end{proof}
+
+\end{document}

@@ -1,0 +1,38 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	Find a example to show that a faithful functor need not preserve
+	epimorphisms. Argue by duality, or by another counterexample, that a
+	faithful functor need not preserve monomorphisms.
+\end{exercise}
+\begin{proof}
+	Consider the category $\Ring$ and the unique morphism $\phi: \ZZ \rightarrow
+	\QQ$. Exercise 1.2.v shows that $\phi$ is an epimorphism, however, it is
+	easy to see that $\phi$ is not surjective. Now, consider a functor $F: \Ring
+	\rightarrow \Group$ that takes a ring $R$ to it's additive group and a
+	morphism $f: R \rightarrow S$ to the corresponding group homomorphism on the
+	additive group. We see that this functor is faithful, because for fixed
+	rings $R$ and $S$ and morphisms $f,g : R \rightarrow S$, $Ff = Fg$ implies
+	that $Ff(x) = Fg(x)$ for all $x \in G_R$, the additive group of $R$, which
+	has the same elements as $R$. But since by our defintion $Ff(x) = f(x)$ and
+	$Fg(x) = g(x)$, this implies that $f = g(x)$ for all $x \in R$ and so $f =
+	g$. Therefore, for all $x,y \in \Ring$, there is a injection from
+	$\Ring(x,y) \rightarrow \Group (Fx,Fy)$ and therefore $F$ is faithful.  Now,
+	note that in $\Group$, epimorphisms correspond exactly to surjective
+	homomorphisms. But it is clear that $F\phi$ is not surjective, as its
+	behavior on the elements of $\ZZ$ and $\QQ$ is identical to that of $\phi$.
+	So $F\phi$ is not an epimorphism. Therefore, $F$ does not preserve
+	epimorphisms.
+
+	Now, we consider $F: \Ring^{op} \rightarrow \Group^{op}$, where $F$ acts on
+	objects and morphisms as before. By 1.3.v, there is no difference between a
+	functor from $\Ring$ to $\Group$ and a functor from $\Ring^{op}$ to
+	$\Group^{op}$, so $F$ is still faithful is this setting. Now, we note that
+	the epimorphisms in $\Ring$ and $\Group$ are precisely the monomorphisms in
+	$\Ring^{op}$ and $\Group^{op}$. So $\phi$ is a monomorphism in $\Ring^{op}$,
+	but not in $\Group^{op}$. Therefore, $F$ does not preserve monomorphisms. So
+	a faithful functor need not preserve monomorphisms.
+\end{proof}
+\end{document}

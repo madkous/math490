@@ -1,0 +1,49 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	Define functors to construct the slice categories $c/C$ and $C/c$ as special
+	cases of comma categories. What are the projection functors?
+\end{exercise}
+
+\begin{proof}
+	We want to choose functors in a comma category, so that the comma category
+	behaves like a slice category. Since the slice category treats morphisms
+	like objects within a single category, and comma categories are defined
+	generally with three categories in mind, we have some room to reduce the
+	structure of the comma category as we construct a slice category.
+
+	Using the notation in the text's definition of the comma category, let
+	F$\downarrow$G be our comma category. Also, let $D = C$ and let the functor
+	$F$ be the identity functor, $\bold 1_C$. With this choice of functor, the
+	square in the definition of F$\downarrow$G still commutes.
+
+	At this point, the objects of the comma category are $(d \in C, e\in E, f: d
+	\rightarrow Ge)$. The morphisms are $(h: d\rightarrow d', k: e\rightarrow
+	e')$, such that $(d,e,f) \rightarrow (d',e',f')$.
+
+	The above choice of the identity functor collapses the amount of data
+	represented. Yet there remain extra data at this point in the construction
+	to qualify as a slice category. We desire to keep one of the morphisms $h$
+	and $k$, while reducing the object-triple $(d \in C, e\in E, f: d
+	\rightarrow Ge$) to a suitable object-morphism pair, that allows us to fix
+	an element in C, and take morphisms as objects.
+
+	To this end, let E be the ordinal category, $\bold 1$, with one object
+	represented as $\emptyset$, and only the identity morphism. The objects in
+	the comma category now are the triples $(d \in C, \emptyset, f: d
+	\rightarrow c \in C)$. With the functor $G$ acting on the one object of
+	$\bold 1$, then $G$ sends $\emptyset$ to one object in $C$. Since, in $E =
+	\bold 1$, $k = id_{\bold 1}$, then $k$ can only send $\emptyset$ to
+	$\emptyset$. So the objects in the comma construction are rendered as pairs,
+	with the relevant data $c$ and $f$, represented as $(d \in C, f: d
+	\rightarrow c)$.
+
+	Letting the morphism $h$ take $d$ to $d'$, while the morphism $k = id_{\bold
+	1}$ sends $\emptyset$ to $\emptyset$, we have a codomain of the comma
+	morphism $(h,k)$ represented as $(d' \in C, f': d' \rightarrow c)$. This is
+	a class of morphisms of C taken as objects, and the comma category is
+	reduced to the $C/c$ slice category.
+\end{proof}
+\end{document}

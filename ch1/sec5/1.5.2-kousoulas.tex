@@ -1,0 +1,213 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\setexercise{1}{5}{2}
+\begin{exercise}
+	Segal defined a category \(\Gm\) as follows:
+	\begin{quote}
+		\(\Gm\) is the category whose objects are all finite sets, and whose
+		morphisms from \(S\) to \(T\) are the maps \(\func{\th}{S}{P(T)}\) such
+		that \(\th(\al)\) and \(\th(\be)\) are disjoint when \(\al\ne\be\). The
+		composite of \(\func{\th}{S}{P(T)}\) and \(\func{\phi}{T}{P(U)}\) is
+		\(\func{\psi}{S}{P(U)}\), where
+		\(\psi(\al)=\bigcup\limits_{\be\in\th(\al)}\phi(\be)\).
+	\end{quote}
+	Prove that \(\Gm\) is equivalent to the opposite of the category \(\Finp\)
+	of finite pointed sets. In particular, the functors introduced in Example
+	1.3.2(xi) define presheaves on \(\Gm\).
+\end{exercise}
+\begin{proof}
+	As a preliminary matter, it is worth checking that \(\Gm\) is indeed a
+	category. The definition above makes clear that an arrow
+	\(\func{\th}{S}{P(T)}\) has domain \(S\) and codomain \(T\), as well as
+	telling us how to compose two morphisms. What is less obvious is what
+	morphisms are the identities, and that composition is associative. For
+	identities, let us first note that the identity on \(S\) in \(\Gm\) is a
+	function \(\func{\id_S}{S}{P(S)}\) meaning the usual identity on the set
+	\(S\) is not a possibility. However, there is a natural embedding of \(S\)
+	in \(P(S)\) which takes every element \(\al\) to the singleton \(\{\al\}\).
+	Checking composition of \(\id_S\) and \(\id_T\) thus defined with an
+	arbitrary map \(\func{\th}{S}{P(T)}\) gives:
+	\begin{alignat*}{4}
+		\th\id_S(\al)&=
+		\bigcup_{\be\in\id_S(\al)}\th(\be)&=
+		\bigcup_{\be\in\{\al\}}\th(\be)&=
+		\th(\al) \\
+		\id_T\th(\al)&=
+		\bigcup_{\be\in\th(\al)}\id_T(\be)&=
+		\bigcup_{\be\in\th(\al)}\{\be\}&=
+		\th(\al)
+	\end{alignat*} verifying that we have defined the identities properly.
+	Finally, we have to check that the composition law is associative. Let
+	\(\th\) be as above along with \(\func{\phi}{T}{P(U)}\) and
+	\(\func{\psi}{U}{P(V)}\) be valid morphisms in \(\Gm\). Then
+	\begin{alignat*}{3}
+		((\psi\phi)\th)(\al)=&&
+		\bigcup_{\be\in\th(\al)}\phi\psi(\be)=&
+		\bigcup_{\be\in\th(\al)}\qty{\bigcup_{\gm\in\phi(\be)}\psi(\gm)},\\
+		\intertext{and}
+		(\psi(\phi\th))(\al)=&&
+		\bigcup_{\gm\in\phi\th(\al)}\psi(\gm)=&
+		\bigcup_{\gm\in\qty{\bigcup\limits_{\be\in\th(\gm)}\phi(\be)}}\psi(\gm).
+	\end{alignat*}
+	At first appearance it is not at all clear that these ought to be the same
+	set, but unpacking makes it clear they are in fact the same. Both assert
+	that for any \(\de\in(\psi(\phi\th))\) there exists some \(\be\in\th(\al)\)
+	and \(\gm\in\phi(\be)\) such that \(\de\in\psi(\gm)\). Thus our composition
+	law is associative and we have indeed defined a category.
+
+	\subparagraph{}
+	An equivalence of categories consists of two functors along with two natural
+	isomorphisms between their compositions and the identity functor on each
+	category. We will thus begin by defining two functors
+	\(\afunc{+}{\inv{(-)}}{\Gm}{\Finp^\op}\). We define \(+\) by the following
+	mappings:
+	\begin{align*}
+		S&\mapsto\qty{S\cup\set{S},S} \\
+		\func{\th}{S}{T}&\mapsto\func{+\th}{+T}{+S} \\
+		\intertext{where}
+		+\th(\be)&=\begin{cases}
+			S        & \IF\be=T \\
+			S        & \IF\be\notin\bigcup_{\al\in S}\th(\al) \\
+			\al\in S & \IF\be\in\th(\al) \\
+		\end{cases}.
+	\end{align*}
+	Note first that this is a valid map from \(+T\) to \(+S\) in \(\Finp\) (and
+	thus a map from \(+S\) to \(+T\) in \(\Finp^\op\)): it takes the base point
+	of \(+T\) to the base point of \(+S\), if \(\al\in\th(\gm)\) for some
+	\(\gm\in S\), then this \(\gm\) must be unique since the image of distinct
+	elements of \(S\) under \(\th\) must be disjoint. We must further check the
+	functoriality axioms. Recall that the identity map on an object \(S\) of
+	\(\Gm\) is \(\maps{\id_S}{\al}{\{\al\}}\). Applying this to the definition
+	above gives:
+	\[+\id_S(\al)=
+		\begin{cases}
+			S         & \IF\al=S \\
+			S         & \IF\al\notin\bigcup_{\al'\in S}\id_S(\al')=S\\
+			\al'\in S & \IF\al\in\id_S(\al')=\set{\al'} \\
+		\end{cases},
+	\qtext{which is clearly the identity.}\] So \(+\id_S=\id_{+S}\).
+
+	Further, given morphisms \(\func{\th}{S}{T}\) and \(\func{\phi}{T}{U}\)
+	between objects of \(\Gm\), we have that
+	\begin{align*}
+		+\phi(\gm)=
+		\begin{cases}
+			T        & \IF\gm=U \\
+			T        & \IF\gm\notin\bigcup_{\be\in T}\phi(\be) \\
+			\be\in T & \IF\gm\in\phi(\be) \\
+		\end{cases},
+		&&+\th(\be)=
+		\begin{cases}
+			S        & \IF\be=T \\
+			S        & \IF\be\notin\bigcup_{\al\in S}\th(\al) \\
+			\al\in S & \IF\be\in\th(\al) \\
+		\end{cases}, \\
+	\end{align*}\vskip-3em
+	\begin{align*}
+		\textq{and}+\phi\th(\gm)=
+		\begin{cases}
+			S        & \IF\gm=U \\
+			S        & \IF\gm\notin\bigcup_{\al\in S}\phi\th(\al)=\bigcup_{\al\in S}\bigcup_{\be\in\th(\gm)}\phi(\be) \\
+			\al\in S & \IF\gm\in\phi\th(\al)=\bigcup_{\be\in\th(\al)}\phi(\be) \\
+		\end{cases}.
+	\end{align*}
+	Letting \(\gm\in+U\) be arbitrary there are several cases. First, if
+	\(\gm=U\), then \(+\phi\th(\gm)=S\) and \(+\phi(\gm)=T\) so
+	\(+\th+\phi(\gm)=S\). Alternately, if \(\gm\neq U\) so \(\gm\in U\) we again
+	have two cases. If there exists \(\al\in S\) such that
+	\(\gm\in\phi\th(\al)\), then \(+\phi\th(\gm)=\al\) and there exists a
+	\(\be\in\th(\al)\) such that \(\gm\in\phi(\be)\) implying \(+\phi(\gm)=\be\)
+	and \(+\th(\be)=\al\) so \(+\th+\phi(\gm)=\al\). Finally, if there exists no
+	such \(\al\in S\), then \(+\phi\th(\gm)=S\). If there also exists no
+	\(\be\in T\) such that \(\gm\in\phi(\be)\) then \(+\phi(\gm)=T\) so
+	\(+\th+\phi(\gm)=S\). However, is such \(\be\in T\) does exist so that
+	\(+\phi(\gm)=\be\) then it must be the case that
+
+	\subparagraph{}
+	Next we define the functor \(\inv{(-)}\) by:
+	\begin{align*}
+		(S,s)&\mapsto S\setminus\set{s} \\
+		\func{f}{(T,t)}{(S,s)}&\mapsto\func{\inv{f}}{S\setminus\set{s}}{T\setminus\set{t}} \\
+		\intertext{where}
+		\inv{f}(\al)&=\set{\be\in T\mid f(\be)=\al}.
+	\end{align*}
+	% note T in the above should technically be T\{t}, but it doesn't matter
+	% because t cannot map to anything other than s which we removed
+	Note that if \(\inv{f}(\al)\cap\inv{f}(\al')\) is inhabited, then there is
+	some \(\be\in T\) such that \(f(\be)=\al\) and \(f(\be)=\al'\) implying that
+	\(\al=\al'\). Thus the map we have defined satisfies the disjointness
+	condition sufficient to be an morphism in \(\Gm\). Again we must check
+	functoriality axioms. The identity morphism on \((S,s)\) is merely the
+	identity function on \(S\), so
+	\begin{align*}
+		\inv{\id_S}(\al)
+		&=\set{\al'\in S\mid\id_S(\al')=\al} \\
+		&=\set{\al'\in S\mid\al'=\al}=\set{\al}=\id_{\inv{(-)}S}(\al).
+	\end{align*}
+	Given morphisms \(\func{f}{(T,t)}{(S,s)}\) and \(\func{g}{(U,u)}{(T,t)}\) we
+	have that
+	\begin{align*}
+		\inv{(fg)}(\al)&=\set{\gm\in U\mid fg(\gm)=\al} \\
+		&=\bigcup_{f(\be)=\al} \set{\gm\in U\mid g(\gm)=\be} \\
+		&=\bigcup_{\be\in\inv{f}(\al)}\inv{g}(\be)
+		=\inv{g}\inv{f}(\al).
+	\end{align*}
+
+	\subparagraph{}
+	We thus have two bona fide functors connecting \(\Gm\) and \(\Finp^\op\).
+	What remains is to construct natural isomorphisms
+	\(\isom{\eta}{\id_\Gm}{\inv{(-)}+}\) and
+	\(\isom{\ep}{+\inv{(-)}}{\id_{\Finp^\op}}\). Looking first at \(\eta\),
+	given an object \(S\) of \(\Gm\) we have that
+	\[\inv{(-)}+S=\inv{(-)}(S\cup\set{S},S)=(S\cup\set{S})\setminus\set{S}=S\]
+	meaning that the collection of maps which make up \(\eta\) will be
+	automorphisms. Further, given \(\func{\th}{S}{T}\) and
+	\(\al\in\inv{(-)}+S=S\), we have
+	\[\inv{(-)}+\th(\al)=\set{\be\in T|+\th(\be)=\al}.\] Now, recall that
+	\(+\th(\be)=\al\) precisely when \(\be\in\th(\al)\) and thus
+	\[\set{\be\in T|+\th(\be)=\al}=\th(\al)\] so that \(\inv{(-)}+\) is the
+	identity functor on \(\Gm\) and we may take our natural isomorphism to be
+	the collection of identity maps \(\id_S\) for each object \(S\) of
+	\(\Gamma\).
+
+	Now for \(\ep\), given an object \((S,s)\) of \(\Finp^\op\) we have that
+	\[+\inv{(-)}(S,s)=+S\setminus\set{s}=((S\setminus\set{s})
+	\cup\set{S\setminus\set{s}},S\setminus\set{s})\]
+	For sanity's sake we will use the notation \((S_*\cup\set{S_*},S_*)\) for
+	the above set. This grotesque looking object (which amounts to replacing
+	\(s\) with something more generic) is not \(S\). However, there is a based
+	isomorphism \(\ep_s\) from \(S\) to it which takes \(s\) to
+	\(S\setminus\set{s}\) and leaves the other elements of \(S\) be. The
+	collection of such isomorphisms will form \(\ep\). Similarly, given a map
+	\(\func{f}{(T,t)}{(S,s)}\) we have that
+	\[+(\inv{f})(\be)=\begin{cases}
+			S_* & \IF \be=T_* \\
+			S_* & \IF \be\notin\bigcup_{\al\in S_*}\inv{f}(\al)=
+			\bigcup_{\al\in S_*}\set{\be\in T|f(\be)=\al}\\
+			\al\in S_* & \IF \be\in\inv{f}(\al)=\set{\be\in T|f(\be)=\al}
+	\end{cases}.\]
+
+	To verify that these do constitute a natural isomorphism we must check that
+	the following diagram commutes:
+	\[\xymatrix{(S,s)\ar[d]_{\ep_S}&(T,t)\ar[l]_f\ar[d]^{\ep_T}\\
+	S_*&T_*\ar[l]_{+\qty{\inv{f}}}}\]
+	Let \(\be\) be an element of \(T,t\), there are two cases to consider. If
+	\(\be=t\), then
+	\[\ep_Sf(t)=\ep_S(s)=S_*\qtextq{and}
+	+\qty{\inv{f}}\ep_T(t)=+\qty{\inv{f}}T_*=S_*.\] If \(\be\neq t\), then
+	either \(f(\be)=s\) or \(f(\be)\neq s\). In the first case, there is no element
+	\(\al\in S\setminus\set{s}\) such that \(f(\be)=\al\). Since \(\be\) is not in
+	any of the fibers from \(S\setminus\set{s}\), by definition it is taken to
+	\(S_*\) by \(+\qty{\inv{f}}\), thus \[\ep_Sf(\be)=\ep_S(s)=S_*\qtextq{and}
+	+\qty{\inv{f}}\ep_T(\be)=+\qty{\inv{f}}(\be)=S_*.\] Finally, in the
+	interesting case where \(f(\be)\neq s\), we have \(f(\be)=\al\) for some
+	\(\al\in S\setminus\set{s}\), so \(\be\in\inv{f}(\al)\), and thus
+	\[\ep_Sf(\be)=\ep_S\al=\al\qtextq{and}
+	+\qty{\inv{f}}\ep_T(\be)=+\qty{\inv{f}}(\be)=\al.\] Thus we have defined a
+	natural isomorphism and we may conclude that \(\Gm\) is equivalent to
+	\(\Finp^\op\).
+\end{proof}
+\end{document}
+
