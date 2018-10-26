@@ -1,46 +1,38 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
+\maketitle
+
 
 \setexercise{1}{3}{3}
 \begin{exercise}
-Find an example to show that the objects and morphisms in the image of a functor
-\(\func{F}{\cat{C}}{\sD}\) do not necessarily define a subcategory of
-\(\cat{D}\).
+Find an example to show that the objects and morphisms in the image of a functor $F \colon \sC\to\sD$ do not necessarily define a subcategory of $\sD$.
 \end{exercise}
 
-At first, I was suspicious of this exercise since it seemed to me that the proof
-that the image of a group (or monoid, or ring, \dots) homomorphism is a subgroup
-(or submonoid, or subring, \dots) carries through without any change. Perhaps
-the author meant for the exercise to be something different?
+At first, I was suspicious of this exercise since it seemed to me that the proof that the image of a group (or monoid, or ring, \dots) homomorphism is a subgroup (or submonoid, or subring, \dots) carries through without any change. Perhaps the author meant for the exercise to be something different?
 
-So, I asked her, and she pointed out a straightforward example that also exposed
-the error in my reasoning. I will give below a simplification of the example
-that she sent me. First, here is the error in my original argument.
+So, I asked her, and she pointed out a straightforward example that also exposed the error in my reasoning. I will give below a simplification of the example that she sent me. First, here is the error in my original argument.
 
-Let \(a\) and \(b\) be morphisms in the image of \(F\) such that \(\dom a=\cod
-b\) so that we can form \(ab\) in \(\sD\). Since \(a\) and \(b\) are in the
-image of \(F\), there are morphisms \(f\) and \(g\) in \( bC\) such that
-\(a=Ff\) and \(b=Fg\). Then \[ab=FfFg=F(fg)\] so that \(ab\) is in the image of
-\(F\).
+Let $a$ and $b$ be morphisms in the image of $F$ such that $\dom a=\cod b$ so that we can form $ab$ in $\sD$. Since $a$ and $b$ are in the image of $F$, there are morphisms $f$ and $g$ in $
+\sC$ such that $a=Ff$ and $b=Fg$. Then 
+$$ab=FfFg=F(fg)$$
+so that $ab$ is in the image of $F$. 
 
-Right? Wrong!! In order to compose \(f\) and \(g\) we need that \(\dom f=\cod
-g\). All we know for sure is that \(\dom Ff=\cod Fg\). If \(F\) is injective on
-objects, then the argument above is valid. But perhaps \(F\) is not injective.
+Right? Wrong!! In order to compose $f$ and $g$ we need that $\dom f=\cod g$. All we know for sure is that $\dom Ff=\cod Fg$. If $F$ is injective on objects, then the argument above is valid. But perhaps $F$ is not injective.
 
-\begin{center}{\bf The Example.}\end{center} Now, I provide the example
-requested in this exercise. Let \(\sC={\mathbb 2}\) be the ordinal category
-pictured as so: \[\xymatrix{0\ar[r]^f&1.}\] Let \(g\) be an endomorphism of some
-object \(x\) in some category \(\sD\) such that \(gg\) is equal to neither
-\(1_x\) nor \(g\). For example, we could take \(x\) to be the unique object in
-\(B\NN\) and \(g=1\), so that \(gg=g+g=2\ne 1,0\).
+\begin{center}{\bf The Example.}\end{center}
+Now, I provide the example requested in this exercise. Let $\sC={\mathbb 2}$ be the ordinal category pictured as so:
+\[\xymatrix{0\ar[r]^f&1.}\]
+Let $g$ be an endomorphism of some object $x$ in some category $\sD$ such that 
+$gg$ is equal to neither $1_x$ nor $g$. For example, we could take $x$ to be 
+the unique object in $B\NN$ and $g=3$. Composition of morphisms in $B\NN$ is 
+addition in $\NN$  so that $gg=g+g=6\ne 3,0$.
 
-Then we have a functor \(F:{\mathbb 2}\rightarrow\sD\) given by \(F0=F1=x\),
-\(F1_0=F1_1=1_x\) and \(Ff=g\). There are only four possible compositions of the
-three morphisms in \({\mathbb 2}\), \(1_01_0\), \(f1_0\), \(1_1f\) and
-\(1_11_1\) and it is easy to see that \(F\) preserves all four of these
-compositions. Thus, \(F\) is a functor.
+Then we have a functor $F:{\mathbb 2}\rightarrow\sD$ given by $F0=F1=x$, 
+$F1_0=F1_1=1_x$ and $Ff=g$. There are only four possible compositions of the 
+three morphisms in ${\mathbb 2}$, $1_01_0$, $f1_0$, $1_1f$ and $1_11_1$ and it 
+is easy to see that $F$ preserves all four of these compositions. Thus, $F$ is 
+a functor.
 
-However, the image of \(F\) has only the two morphisms \(1_x\) and \(g\). Since
-\(gg\) is not in the image, the image of \(F\) is not a subcategory of \(\sD\).
+However, the image of $F$ has only the two morphisms $1_x$ and $g$. Since $gg$ is not in the image, the image of $F$ is not a subcategory of $\sD$.
 
 \end{document}

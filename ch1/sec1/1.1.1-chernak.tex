@@ -7,7 +7,7 @@
 		\item Show that a morphism can have at most one inverse isomorphism.
 			\begin{proof}
 				Let \(\func{f}{x}{y}\) be an arbitrary morphism, and let
-				\(\func{g}{y}{x}\) and \(\func{g}{y}{x}\) be two inverse
+				\(\func{g}{y}{x}\) and \(\func{h}{y}{x}\) be two inverse
 				isomorphisms of \(f\). That is to say, \(gf=hf=1_{x}\) and
 				\(fg=fh=1_{y}\). Consider the composition \(gfh\). This is a
 				valid composition, since the domain of \(g\) is equal to the
@@ -34,11 +34,11 @@
 			\(fh=1_{y}\), then \(g=h\) and \(f\) is an isomorphism.\\
 			\begin{proof}
 				Let \(\func{f}{x}{y}\) be an arbitrary morphism, and let
-				\(\func{g,h}{y}{x}\) be morphisms such that \(gf=1_{X}\) and
+				\(\func{g,h}{y}{x}\) be morphisms such that \(gf=1_{x}\) and
 				\(fh=1_{y}\). Similarly to above, evaluate the composition
 				\(gfh\) as \((gf)h=1_{x}h=h\) and as \(g(fh)=g1_{y}=g\). Due to
-				associativity, \((gf)h=g(fh)\), so we can conclude that \(g=h\).
-				\(fh=1_{y}\) was given, and using our previous conclusion, we can
+				associativity, we have \((gf)h=g(fh)\). So we can conclude that \(g=h\).
+				Since \(fh=1_{y}\) was given, using our previous conclusion, we can
 				substitute \(g\) for \(h\) to obtain \(fg=1_{y}\). Since we were
 				also given \(gf=1_{x}\), we can conclude that \(f\) is an
 				isomorphism.
