@@ -1,9 +1,5 @@
-\documentclass{article}
-\usepackage{math490}
-\title{Math 490}
-\author{Teddy Weinberg}
+\documentclass[main.tex]{subfiles}
 \begin{document}
-\maketitle
 %
 %\settheorem{1}{2}{3}
 %\begin{lemma}
@@ -23,7 +19,13 @@ For it to be full, we must confirm that for any groups $x,y \in Ab$ that for any
 also exists in the category of Abelian groups.  Thus, we have the desired surjectivity.
 
 
-However, our functor is not essentially surjective on objects.  We know that for $c \in Ab$, $Fc = c \in Group$.  For it to be essentially surjective, for any $d \in Group$, we would need to be able to find an $Fc$ isomorphic to it.  But this just means we need to find an Abelian group isomorphic to $d$.  That is impossible for any group $d$ that is not Abelian, as Abelian groups are only isomorphic to Abelian groups. It thus does not define an equivalence of categories, however the Abelian groups are a subcategory. 
+However, our functor is not essentially surjective on objects.  We know that for
+$c \in Ab$, $Fc = c \in Group$.  For it to be essentially surjective, for any $d
+\in Group$, we would need to be able to find an $Fc$ isomorphic to it.  But this
+just means we need to find an Abelian group isomorphic to $d$.  That is
+impossible for any group $d$ that is not Abelian, as Abelian groups are only
+isomorphic to Abelian groups. It thus does not define an equivalence of
+categories, however the Abelian groups are a subcategory. 
 \end{proof}
 
 

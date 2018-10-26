@@ -1,89 +1,26 @@
-\documentclass{article}
-\usepackage{mathtools,array,tikz,amsfonts,amsthm,amssymb,bm,mathrsfs,braket}
-\usepackage{xypic}
-\newcommand{\CC}{\mathbb{C}}
-\newcommand{\NN}{\mathbb{N}}
-\newcommand{\RR}{\mathbb{R}}
-\newcommand{\ZZ}{\mathbb{Z}}
-\newcommand{\cF}{\mathcal{F}}
-\newcommand{\cP}{\mathcal{P}}
-\newcommand{\op}{{op}}
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\begin{lemma}[1.5.xi Ring$\rightarrow$Rng]
+	Consider the functor Ring $\rightarrow$ Rng. Determine if it is full, faithful, and if it is essentially surjective. Does this functor define an equivalence of categories?
+
+\end{lemma}
 
 
+\begin{proof}
+	Before defining the functor Ring $\rightarrow$ Rng, first the category Rng needs some description. Since a rng, denoted here by $R^-$, is a non-unital ring, we note that $(R^-,+)$ is a commutative group and $(R^-,*)$ is a magma with associativity (or a monoid without the condition of identity). Thus every ring, $R$, is a rng by the fact that $R$ is a monoid under multiplication, and this monoid is certainly a magma with associativity. So the objects in the category Ring are included in the class of objects of Rng. 
 
-\DeclareMathOperator{\Hom}{Hom}
-\DeclareMathOperator{\id}{id}
-\DeclareMathOperator{\End}{End}
-\DeclareMathOperator{\Sym}{Sym}
-\DeclareMathOperator{\Aut}{Aut}
+	Let the functor in question be the inclusion functor $\iota: Ring\rightarrow Rng$ that maps rings in Ring to rings in Rng, and ring homomorphispms in Ring to rng homomorphisms between rings in Rng. The rng homomorphisms have all of the properties of ring homomorphisms, except the condition of mapping units in one rng to units in another. 
 
+	To test whether $\iota$ is a full functor, take $\bold 0$ and  $\bold Q$ in Ring. Then $\iota \bold 0, \iota \bold Q$ are rings included in Rng, and hence are the same $\bold 0$ and  $\bold Q$. Since there exists a rng homomorphism $\phi$ between $\bold 0$ and $\bold Q$, i.e., the homomorphism that maps $0$ to $0$,while there is no ring homomorphisms between the same two objects in $\bold {Ring}$, then $\phi$ is not mapped to by $\iota$ acting on any ring homomorphism in $\bold {Ring}$.  Thus, $\iota$ is not surjective between the morphisms fixed on any two objects in Ring. Hence $\iota$ is not full.
 
-\newtheorem{definition}{Definition}
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}{Exercise}
+	To test whether $\iota$ is faithful, for the objects $c \not= c'$ in Ring, take two homomorphisms $\phi_1$ and $\phi_2$ in Ring between $c, c'$. Applying $\iota$ to $\phi_1$ and $\phi_2$ yields $\iota \phi_1$ and $\iota \phi_2$, which remain unequal when applied to the objects $\iota c = c$ and $\iota c' = c'$. Thus $\iota$ is injective on morphisms between fixed objects in Ring. Thus $\iota$ is faithful.
 
-\def\addpunct#1{%
-	\relax\ifhmode
-	\ifnum\spacefactor>1000 \else#1\fi
-\fi}
-\renewenvironment{proof}[1][\proofname]{\par
-  \pushQED{\qed}%
-  \normalfont \topsep4pt plus 2pt\relax
-  \list{}{\leftmargin=1em
-          \rightmargin=1em%\leftmargin
-          \settowidth{\itemindent}{\itshape#1}%
-          \labelwidth=\itemindent
-          \parsep=9pt plus3pt minus2pt
-		  \listparindent=\parindent 
-  }
-  \item[\hskip\labelsep
-        \itshape
-    #1\addpunct{.}]\ignorespaces
-}{%
-  \popQED\endlist
-}
+	To test whether $\iota$ is essentially surjective, we can take the object in $\bold {Rng}$, $E$ of even integers. Since $1 \notin E$, then $E$ is not isomorphic to any ring that is also in $\bold {Rng}$. Thus $\iota$ is not essentially surjective.
+
+	From the theorem characterizing the equivalence of categories, since $\iota$ fails to be a full functor from Ring to Rng, then there is not an equivalence of categories between Ring and Rng. 
 
 
-
-	\begin{document}
-	
-\pagenumbering{gobble}
-
-	\begin{center}
-	
-{\bf\Large Math 490: Category Theory}\\
-\medskip
-{\bf Homework 4}\\ 
-\medskip
-{\bf Author: Bruce James}\\ 
-\medskip
-{\bf 10/25/2018}\\ 
-
-	\end{center}
-
-\medskip
-
-
-	\begin{lemma}[1.5.xi Ring$\rightarrow$Rng]
-Consider the functor Ring $\rightarrow$ Rng. Determine if it is full, faithful, and if it is essentially surjective. Does this functor define an equivalence of categories?
-
-	\end{lemma}
-
-
-	\begin{proof}
-Before defining the functor Ring $\rightarrow$ Rng, first the category Rng needs some description. Since a rng, denoted here by $R^-$, is a non-unital ring, we note that $(R^-,+)$ is a commutative group and $(R^-,*)$ is a magma with associativity (or a monoid without the condition of identity). Thus every ring, $R$, is a rng by the fact that $R$ is a monoid under multiplication, and this monoid is certainly a magma with associativity. So the objects in the category Ring are included in the class of objects of Rng. 
-
-Let the functor in question be the inclusion functor $\iota: Ring\rightarrow Rng$ that maps rings in Ring to rings in Rng, and ring homomorphispms in Ring to rng homomorphisms between rings in Rng. The rng homomorphisms have all of the properties of ring homomorphisms, except the condition of mapping units in one rng to units in another. 
-
-To test whether $\iota$ is a full functor, take $\bold 0$ and  $\bold Q$ in Ring. Then $\iota \bold 0, \iota \bold Q$ are rings included in Rng, and hence are the same $\bold 0$ and  $\bold Q$. Since there exists a rng homomorphism $\phi$ between $\bold 0$ and $\bold Q$, i.e., the homomorphism that maps $0$ to $0$,while there is no ring homomorphisms between the same two objects in $\bold {Ring}$, then $\phi$ is not mapped to by $\iota$ acting on any ring homomorphism in $\bold {Ring}$.  Thus, $\iota$ is not surjective between the morphisms fixed on any two objects in Ring. Hence $\iota$ is not full.
-
-To test whether $\iota$ is faithful, for the objects $c \not= c'$ in Ring, take two homomorphisms $\phi_1$ and $\phi_2$ in Ring between $c, c'$. Applying $\iota$ to $\phi_1$ and $\phi_2$ yields $\iota \phi_1$ and $\iota \phi_2$, which remain unequal when applied to the objects $\iota c = c$ and $\iota c' = c'$. Thus $\iota$ is injective on morphisms between fixed objects in Ring. Thus $\iota$ is faithful.
-
-To test whether $\iota$ is essentially surjective, we can take the object in $\bold {Rng}$, $E$ of even integers. Since $1 \notin E$, then $E$ is not isomorphic to any ring that is also in $\bold {Rng}$. Thus $\iota$ is not essentially surjective.
-
-From the theorem characterizing the equivalence of categories, since $\iota$ fails to be a full functor from Ring to Rng, then there is not an equivalence of categories between Ring and Rng. 
-
-	
 \end{proof}	
-	
-	\end{document}
+
+\end{document}

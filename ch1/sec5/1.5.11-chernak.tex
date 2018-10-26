@@ -1,35 +1,29 @@
-\documentclass[english]{article}
-\usepackage[T1]{fontenc}
-\usepackage[latin9]{inputenc}
-\usepackage{babel}
-
-\usepackage{xypic}
-
+\documentclass[main.tex]{subfiles}
 \begin{document}
-	\paragraph{Exercise 1.5.xi. (Ring->Ab case)} Determine whether the functor \(F \colon \textsf{Ring} \to \textsf{Ab}\) that forgets multiplication is full, faithful, and/or essentially surjective.
-	
-	\paragraph{Proof.} Let \(F\) be the functor described above. The additive group of any ring is already abelian, so \(F\)  takes the additive group of each \(r \in \textsf{Ring}\) (in other words, every \((r, +) \in \textsf{Ring}\)) to the same \((r, +) \in \textsf{Ab}\); and takes every ring homomorphism \(f \colon r \to s \in \textsf{Ring}\) to \(f_+ \colon (r, +) \to (s, +) \in \textsf{Ab}\),  where we define \(f_+\) as exactly the function \(f\), but applied only to the additive group of \(r\) (instead of to the whole ring.) 
-	
-	So, in a sense, \(F\) is an 'inclusion functor,' taking the additive groups of elements of \(\textsf{Ring}\) to those same groups in \(\textsf{Ab}\), and the ring homomorphisms between those additive group in \(\textsf{Ring}\) to the same homomorphisms in \(\textsf{Ring}\).
-	
-	\paragraph{F is faithful.}	
-	
-	When we say that \(F\) takes every morphism to 'itself', what we are really saying is the following: For any \(f \colon r \to s \in \textsf{Ring}\), if we define \(f_+ \colon (r, +) \to (s, +)\) as \(f\) applied to the additive group of \(r\), we can say that \(Ff = f_+\in \textsf{Ring}\). So it is trivial that for any \(f, g \colon r \to s\) such that \(Ff \neq Fg\), \(f_+ \neq g_+\). 
+\paragraph{Exercise 1.5.xi. (Ring->Ab case)} Determine whether the functor \(F \colon \textsf{Ring} \to \textsf{Ab}\) that forgets multiplication is full, faithful, and/or essentially surjective.
 
-	But the ring homomorphisms \(f, g \colon r \to s\) can be equal only if \(f(a+b) = g(a+b)\). In other words, \(f = g \) only if \(Ff = f_+ = g_+ = Fg\); so if \(Ff \neq Fg\), then of course \(f \neq g \)! So \(F(r, s)\) is injective by definition, and since this is the case for all \(r, s \in \textsf{Ring}\), we can conclude that F is faithful.
+\paragraph{Proof.} Let \(F\) be the functor described above. The additive group of any ring is already abelian, so \(F\)  takes the additive group of each \(r \in \textsf{Ring}\) (in other words, every \((r, +) \in \textsf{Ring}\)) to the same \((r, +) \in \textsf{Ab}\); and takes every ring homomorphism \(f \colon r \to s \in \textsf{Ring}\) to \(f_+ \colon (r, +) \to (s, +) \in \textsf{Ab}\),  where we define \(f_+\) as exactly the function \(f\), but applied only to the additive group of \(r\) (instead of to the whole ring.) 
 
-	\paragraph{F is not full.}	
-	
-	On the other hand, consider that there are no morphisms from the zero ring, \(\{0\}\), to any nonzero \(r \in \textsf{Ring}\). \(F\{0\}\) is simply \((\{0\}, +)\); that is, the trivial group. But there is automatically a group homomorphism from the trivial group to any group, which means that the set of morphisms from \(F\{0\}\) to \(Fr\) is \textit{not} empty for any \(r \in \textsf{Ring}\). So \(F\) cannot be surjective over \(\{f : F\{0\} \to Fr\}\), which means \(F\) is not full.
-	
-	\paragraph{F is not essentially surjective.}	
-	
-	Suppose to the contrary that \(F\) is essentially surjective. This means that, for example, there must be some \(r \in \textsf{Ring}\) such that \(Fr = (r, +) \simeq \textbf{Q/Z} \in \textsf{Ab}\). Consider that elements of \(\textbf{Q/Z}\) take the form \(\frac{a}{b} + \textbf{Z} | a, b \in \textbf{Z}\); which means that for every \(n \in \textbf{Q/Z}\), there is some positive integer \(b\) such that if you 'multiply' \(n\) by \(b\) (using the definition we mentioned earlier of "adding n to itself b times") you obtain that \(b*n = a + \textbf{Z} = \textbf{Z} = 0_{Q/Z}\).
-	
-	So since \((r, +) \simeq \textbf{Q/Z}\), for each \(f(n) \in (r, +)\) there must be a \(b_r \in (r, +)\) such that \(f(b)*f(n) = 0_{(r, +)}\) (where \(f\) is the isomorphism from \(\textbf{Q/Z}\) to \((r,+)\)). But \((r, +)\) is simply the additive group of some ring \(r\), and in any ring, the definition of the \(*\) operator is exactly the same as the definition we used earlier for 'multiplication' in groups with only a \(+\) operator. So \(f(b)*^{(r,+)}f(n) = f(b)*^rf(n)\); which means we can further state that for each \(f(n) \in r\) there must be an \(f(b) \in r\) such that \(f(b)*f(n) = 0_r\).
-	
-	But consider the case where \(n = 1_r\). We have just determined that there must be some positive integer \(b\) such that \(b*1 = 0\). This means that \((r, +)\) must have characteristic \(b\), which itself means that every element of \((r, +)\) must have order \(\leq b\). So since \((r, +) \simeq \textbf{Q/Z}\), every element of \(\textbf{Q/Z}\) must also have order \(\leq b\). But we know that there is some element of \(\textbf{Q/Z}\) with order \(n\) for \textit{any} positive n; there cannot be a finite \(b\) such that every element of \(\textbf{Q/Z}\) has order \(\leq b\). This brings us to a contradiction, which means that our assumption must be false -- \(F\) must not be essentially surjective.
-	
-	
-	
-	\end{document}
+So, in a sense, \(F\) is an 'inclusion functor,' taking the additive groups of elements of \(\textsf{Ring}\) to those same groups in \(\textsf{Ab}\), and the ring homomorphisms between those additive group in \(\textsf{Ring}\) to the same homomorphisms in \(\textsf{Ring}\).
+
+\paragraph{F is faithful.}	
+
+When we say that \(F\) takes every morphism to 'itself', what we are really saying is the following: For any \(f \colon r \to s \in \textsf{Ring}\), if we define \(f_+ \colon (r, +) \to (s, +)\) as \(f\) applied to the additive group of \(r\), we can say that \(Ff = f_+\in \textsf{Ring}\). So it is trivial that for any \(f, g \colon r \to s\) such that \(Ff \neq Fg\), \(f_+ \neq g_+\). 
+
+But the ring homomorphisms \(f, g \colon r \to s\) can be equal only if \(f(a+b) = g(a+b)\). In other words, \(f = g \) only if \(Ff = f_+ = g_+ = Fg\); so if \(Ff \neq Fg\), then of course \(f \neq g \)! So \(F(r, s)\) is injective by definition, and since this is the case for all \(r, s \in \textsf{Ring}\), we can conclude that F is faithful.
+
+\paragraph{F is not full.}	
+
+On the other hand, consider that there are no morphisms from the zero ring, \(\{0\}\), to any nonzero \(r \in \textsf{Ring}\). \(F\{0\}\) is simply \((\{0\}, +)\); that is, the trivial group. But there is automatically a group homomorphism from the trivial group to any group, which means that the set of morphisms from \(F\{0\}\) to \(Fr\) is \textit{not} empty for any \(r \in \textsf{Ring}\). So \(F\) cannot be surjective over \(\{f : F\{0\} \to Fr\}\), which means \(F\) is not full.
+
+\paragraph{F is not essentially surjective.}	
+
+Suppose to the contrary that \(F\) is essentially surjective. This means that, for example, there must be some \(r \in \textsf{Ring}\) such that \(Fr = (r, +) \simeq \textbf{Q/Z} \in \textsf{Ab}\). Consider that elements of \(\textbf{Q/Z}\) take the form \(\frac{a}{b} + \textbf{Z} | a, b \in \textbf{Z}\); which means that for every \(n \in \textbf{Q/Z}\), there is some positive integer \(b\) such that if you 'multiply' \(n\) by \(b\) (using the definition we mentioned earlier of "adding n to itself b times") you obtain that \(b*n = a + \textbf{Z} = \textbf{Z} = 0_{Q/Z}\).
+
+So since \((r, +) \simeq \textbf{Q/Z}\), for each \(f(n) \in (r, +)\) there must be a \(b_r \in (r, +)\) such that \(f(b)*f(n) = 0_{(r, +)}\) (where \(f\) is the isomorphism from \(\textbf{Q/Z}\) to \((r,+)\)). But \((r, +)\) is simply the additive group of some ring \(r\), and in any ring, the definition of the \(*\) operator is exactly the same as the definition we used earlier for 'multiplication' in groups with only a \(+\) operator. So \(f(b)*^{(r,+)}f(n) = f(b)*^rf(n)\); which means we can further state that for each \(f(n) \in r\) there must be an \(f(b) \in r\) such that \(f(b)*f(n) = 0_r\).
+
+But consider the case where \(n = 1_r\). We have just determined that there must be some positive integer \(b\) such that \(b*1 = 0\). This means that \((r, +)\) must have characteristic \(b\), which itself means that every element of \((r, +)\) must have order \(\leq b\). So since \((r, +) \simeq \textbf{Q/Z}\), every element of \(\textbf{Q/Z}\) must also have order \(\leq b\). But we know that there is some element of \(\textbf{Q/Z}\) with order \(n\) for \textit{any} positive n; there cannot be a finite \(b\) such that every element of \(\textbf{Q/Z}\) has order \(\leq b\). This brings us to a contradiction, which means that our assumption must be false -- \(F\) must not be essentially surjective.
+
+
+
+\end{document}
