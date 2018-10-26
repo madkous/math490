@@ -8,7 +8,7 @@
 \ProvidesPackage{math490}
 [2018/09/21 v0.01 LaTeX package for Dr. Pardue's math490 course at UMBC]
 
-\RequirePackage{mathtools,array,xspace,amssymb,xypic,mathrsfs,graphicx}
+\RequirePackage{mathtools,array,xspace,amssymb,xypic,mathrsfs,graphicx,braket}
 \RequirePackage[shortlabels]{enumitem}
 \RequirePackage[margin=1.75in]{geometry}
 \RequirePackage[thmmarks,amsmath]{ntheorem}
@@ -16,6 +16,8 @@
 \RequirePackage{newtxtext}
 \RequirePackage{newtxmath}
 \RequirePackage[bbgreekl]{mathbbol}
+\RequirePackage{tikz}
+\usetikzlibrary{cd}
 % \RequirePackage{stix}
 % \usepackage[bitstream-charter]{mathdesign}
 % \usepackage{mathptmx}
@@ -106,13 +108,15 @@
 \newcommand*{\cat}[1]{\textsf{#1}\xspace}
 \newcommand{\Cat}{\textsf{Cat}\xspace}
 \newcommand{\CAT}{\textsf{CAT}\xspace}
-\newcommand{\Set}{\textsf{Set}\xspace}
+\renewcommand{\Set}{\textsf{Set}\xspace}
 \newcommand{\Fin}{\textsf{Fin}\xspace}
 \renewcommand{\Top}{\textsf{Top}\xspace} % replaced logical Top ⫪
 \newcommand{\Ring}{\textsf{Ring}\xspace}
 \newcommand{\Field}{\textsf{Field}\xspace}
 \newcommand{\Group}{\textsf{Group}\xspace}
 \newcommand{\Monoid}{\textsf{Monoid}\xspace}
+\newcommand{\Ab}{\textsf{Ab}\xspace}
+\newcommand{\Rng}{\textsf{Rng}\xspace}
 % these can only be used in math mode
 % if you can come up with a macro that works in both tell me
 \newcommand{\Setp}{\textsf{Set}_*}
@@ -121,6 +125,7 @@
 \newcommand*{\Mod}[1]{\textsf{Mod}_{#1}}
 \newcommand*{\Mat}[1]{\textsf{Mat}_{#1}}
 \newcommand*{\Vect}[1]{\textsf{Vect}_{#1}}
+
 \newcommand{\zero}{\mbb{0}}
 \newcommand{\one}{\mbb{1}}
 \newcommand{\two}{\mbb{2}}
@@ -131,6 +136,9 @@
 \newcommand{\seven}{\mbb{7}}
 \newcommand{\eight}{\mbb{8}}
 \newcommand{\nine}{\mbb{9}}
+
+\newcommand{\Proj}{\text{\bf Proj}}
+\newcommand{\Affine}{\text{\bf Affine}}
 
 % this is to get the 'element of or equal to' relation symbol
 \DeclareFontEncoding{LS1}{}{\noaccents@}
@@ -143,11 +151,13 @@
 
 % blackboard bold shortcuts
 \renewcommand{\AA}{\mathbb{A}} % replaced Angstrom symbol Å
+\newcommand{\BB}{\mathbb{B}}
 \newcommand{\CC}{\mathbb{C}}
 \newcommand{\DD}{\mathbb{D}}
 \newcommand{\FF}{\mathbb{F}}
 \newcommand{\KK}{\mathbb{K}}
 \newcommand{\NN}{\mathbb{N}}
+\newcommand{\PP}{\mathbb{P}}
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\RR}{\mathbb{R}}
 \renewcommand{\SS}{\mathbb{S}}
@@ -193,6 +203,9 @@
 \newcommand{\qq}{\mathfrak{q}}
 \newcommand{\ee}{\mathfrak{e}}
 
+\newcommand{\bC}{{\bf C}}
+\newcommand{\bD}{{\bf D}}
+
 % shortcuts for various greek letters
 \newcommand{\al}{\alpha}
 \newcommand{\be}{\beta}
@@ -230,6 +243,7 @@
 
 \newcommand{\id}{1}
 \newcommand{\op}{\textrm{op}}
+\newcommand{\iso}{\textrm{iso}}
 \newcommand{\nil}{\emptyset}
 \newcommand{\by}{\times}
 \newcommand{\emb}{\hookrightarrow}

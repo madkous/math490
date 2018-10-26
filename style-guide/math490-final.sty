@@ -16,7 +16,9 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage{newtxtext}
 \RequirePackage{newtxmath}
-\RequirePackage{mathbbol}
+\RequirePackage[bbgreekl]{mathbbol}
+\usepackage{tikz}
+\usetikzlibrary{cd}
 \RequirePackage{color}
 % \RequirePackage{stix}
 % \usepackage[bitstream-charter]{mathdesign}
@@ -139,6 +141,8 @@
 \newcommand{\Field}{\textsf{Field}\xspace}
 \newcommand{\Group}{\textsf{Group}\xspace}
 \newcommand{\Monoid}{\textsf{Monoid}\xspace}
+\newcommand{\Ab}{\textsf{Ab}\xspace}
+\newcommand{\Rng}{\textsf{Rng}\xspace}
 % these can only be used in math mode
 % if you can come up with a macro that works in both tell me
 \newcommand{\Setp}{\textsf{Set}_*}
@@ -147,6 +151,7 @@
 \newcommand*{\Mod}[1]{\textsf{Mod}_{#1}}
 \newcommand*{\Mat}[1]{\textsf{Mat}_{#1}}
 \newcommand*{\Vect}[1]{\textsf{Vect}_{#1}}
+
 \newcommand{\zero}{\mbb{0}}
 \newcommand{\one}{\mbb{1}}
 \newcommand{\two}{\mbb{2}}
@@ -257,7 +262,6 @@
 \newcommand{\ST}{\text{ such that }}
 \newcommand{\IF}{\text{ if }}
 
-
 % 1/<stuff> seems to be the most common fraction
 \newcommand*{\recip}[1]{\frac{1}{#1}}
 \newcommand*{\trecip}[1]{\tfrac{1}{#1}}
@@ -266,8 +270,12 @@
 \newcommand{\id}{1}
 \newcommand{\op}{\textrm{op}}
 \newcommand{\iso}{\textrm{iso}}
+<<<<<<< HEAD
 \newcommand{\epi}{\textrm{epi}}
 \newcommand{\nil}{\varnothing}
+=======
+\newcommand{\nil}{\emptyset}
+>>>>>>> ae5e8f4d1bee9123c59bc96921add074150770ec
 \newcommand{\by}{\times}
 \newcommand{\emb}{\hookrightarrow}
 \newcommand{\wto}{\rightharpoonup}
@@ -330,7 +338,10 @@
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Spec}{Spec}
 \DeclareMathOperator{\Gal}{Gal}
+<<<<<<< HEAD
 \newcommand{\Ciso}{\sC_{\iso}}
+=======
+>>>>>>> ae5e8f4d1bee9123c59bc96921add074150770ec
 
 % \DeclareMathOperator{\diam}{diam}
 % \DeclareMathOperator{\diag}{diag}
