@@ -149,6 +149,29 @@
 \newcommand{\noloc}{\nobreak\mskip5muplus1mu\mathpunct{}\nonscript
   \mkern-\thinmuskip{:}\mskip3mu\relax}
 
+\DeclareFontFamily{U} {MnSymbolA}{}
+\DeclareFontShape{U}{MnSymbolA}{m}{n}{
+  <-6> MnSymbolA5
+  <6-7> MnSymbolA6
+  <7-8> MnSymbolA7
+  <8-9> MnSymbolA8
+  <9-10> MnSymbolA9
+  <10-12> MnSymbolA10
+  <12-> MnSymbolA12}{}
+\DeclareFontShape{U}{MnSymbolA}{b}{n}{
+  <-6> MnSymbolA-Bold5
+  <6-7> MnSymbolA-Bold6
+  <7-8> MnSymbolA-Bold7
+  <8-9> MnSymbolA-Bold8
+  <9-10> MnSymbolA-Bold9
+  <10-12> MnSymbolA-Bold10
+  <12-> MnSymbolA-Bold12}{}
+
+\DeclareSymbolFont{MnSyA} {U} {MnSymbolA}{m}{n}
+
+% \DeclareMathSymbol{\rightlsquigarrow}{\mathrel}{MnSyA}{160}
+\DeclareMathSymbol{\downmapsto}{\mathrel}{MnSyA}{"2B}
+
 % blackboard bold shortcuts
 \renewcommand{\AA}{\mathbb{A}} % replaced Angstrom symbol Å
 \newcommand{\BB}{\mathbb{B}}
