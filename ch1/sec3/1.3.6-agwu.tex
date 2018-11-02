@@ -2,8 +2,6 @@
 \begin{document}
 
 \paragraph{}
-\setexercise{1}{3}{6}
-
 \begin{exercise}
 	Given functors $\func{F}{\sD}{\sC}$ and $\func{G}{\sE}{\sC}$, show that
 	there is a category, called the {\bf comma category} $F\downarrow G$, which
@@ -71,7 +69,7 @@
 		$1_e$, and the uniquely specified $f$.
 
 	Now let us define morphism composition between two morphisms.
-	$$\qty{\func{h}{d}{d_1},\func{k}{e}{e_1}} \qty{f,f_1} \AND 
+	$$\qty{\func{h}{d}{d_1},\func{k}{e}{e_1}} \qty{f,f_1} \AND
 	\qty{\func{h}{d_1}{d_2},\func{k}{e_1}{e_2}} \qty{f_1,f_2}$$ which we will
 	denote $$\func{\al}{(d,e,f)}{(d_1,e_1,f_1)} \AND
 	\func{\be}{(d_1,e_1,f_1)}{(d_2,e_2,f_2)}.$$
@@ -114,7 +112,7 @@
 	1_{c' } \al &= \qty{1_{d'} h, 1_{e'} k}\qty{f,f'}\\
 	&= \qty{h,k}\qty{f,f'}\\
 	&= \al.
-	\end{align*} 
+	\end{align*}
 	Thus we have shown
 	that $1_{c' } \al = \al = \al 1_{c}$. Therefore the identity
 	morphism is left and right cancellable.
@@ -128,26 +126,25 @@
 	\begin{align*}
 	(\gm\be)\al&=((h_2h_1),(k_2 k_1))(f_1,f_3) \al\\
 	&=((h_2 h_1) h,(k_2 k_1) k)(f,f_3)\\
-	&=(h_2(h_1 h),k_2(k_1 k))(f,f_3)\\	
+	&=(h_2(h_1 h),k_2(k_1 k))(f,f_3)\\
 	&=\gm((h_1 h),(k_1 k))(f,f_2)\\
 	&=\gm(\be \al).
 	\end{align*}
-	 
-	Thus thecomposition of morphisms is associative, and we have shown
+	Thus the composition of morphisms is associative, and we have shown
 	that $F \downarrow G$ is a category.
 
 	Now we will define the functors $\func{\dom}{F \downarrow G}{\sD}$ and
 	$\func{\cod}{F \downarrow G}{\sE}$ for object $\qty{d,e,f}$ and morphism
-	$\qty{\func{h}{d}{d'},\func{k}{e}{e'}} \qty{f,f'}$ as follows: 
+	$\qty{\func{h}{d}{d'},\func{k}{e}{e'}} \qty{f,f'}$ as follows:
 	\begin{align*}
 	\dom\qty{d,e,f} &= d, \dom\qty{h,k}\qty{f,f'} \;\;= h \\
-	\cod\qty{d,e,f} &= e, \cod\qty{h,k}\qty{f,f'} \quad= k. 
+	\cod\qty{d,e,f} &= e, \cod\qty{h,k}\qty{f,f'} \quad= k.
 	\end{align*}
-	
+
 	Now we will verify that both $\dom$ and $\cod$ are indeed functors.
 
 	Now let us take the morphism $\qty{\func{h}{d}{d_1},\func{k}{e}{e_1}}
-	\qty{f,f_1}$  denoted $\func{\al}{\qty{d,e,f}}{\qty{d_1,e_1,f_1}}.$ 
+	\qty{f,f_1}$  denoted $\func{\al}{\qty{d,e,f}}{\qty{d_1,e_1,f_1}}.$
 	Applying $\dom$ to $\al$ gives us $\func{h}{d}{d_{1}}$ where $\dom\qty{d,e,f}
 	= d$ and $\dom\qty{d_1,e_1,f_1} = d_1$. Applying $\cod$ to $\al$ gives
 	$\func{k}{e}{e_{1}}$ where $\cod\qty{d,e,f} = e$ and $\cod\qty{d_1,e_1,f_1} =

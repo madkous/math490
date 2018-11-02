@@ -15,9 +15,9 @@
 	structure of the comma category as we construct a slice category.
 
 	Using the notation in the text's definition of the comma category, let
-	F$\downarrow$G be our comma category. Also, let $\sD = \sC$ and let the functor
+	$F\downarrow G$ be our comma category. Also, let $\sD = \sC$ and let the functor
 	$F$ be the identity functor, $\id_\sC$. With this choice of functor, the
-	square in the definition of F$\downarrow$G still commutes.
+	square in the definition of $F\downarrow G$ still commutes.
 
 	At this point, the objects of the comma category are $(d \in \sC, e\in E, f\colon d
 	\rightarrow Ge)$. The morphisms are $(h\colon d\rightarrow d', k\colon e\rightarrow
@@ -28,21 +28,22 @@
 	to qualify as a slice category. We desire to keep one of the morphisms $h$
 	and $k$, while reducing the object-triple $(d \in \sC, e\in E, f\colon d
 	\rightarrow Ge$) to a suitable object-morphism pair, that allows us to fix
-	an element in C, and take morphisms as objects.
+	an element in \(\sC\), and take morphisms as objects.
 
-	To this end, let E be the ordinal category, $\one$, with one object
+	To this end, let \(\sE\) be the ordinal category, $\one$, with one object
 	represented as $\emptyset$, and only the identity morphism. The objects in
 	the comma category now are the triples $(d \in \sC, \emptyset, f\colon d
 	\rightarrow c \in \sC)$. With the functor $G$ acting on the one object of
-	$\one$, then $G$ sends $\emptyset$ to $ c $ in $\sC$. Since, in $E =
+	$\one$, then $G$ sends $\emptyset$ to $ c $ in $\sC$. Since, in $\sE =
 	\one$, $k = \id_{\one}$, then $k$ can only send $\emptyset$ to
 	$\emptyset$. So the objects in the comma construction are rendered as pairs,
 	with the relevant data $c$ and $f$, represented as $(d \in \sC, f\colon d
 	\rightarrow c)$.
 
-	Letting the morphism $h$ take $d$ to $d'$, while the morphism $k = \id_{\one}$ sends $\emptyset$ to $\emptyset$, we have a codomain of the comma
-	morphism $(h,k)$ represented as $(d' \in \sC, f'\colon d' \rightarrow c)$. This is
-	a class of morphisms of C taken as objects, and the comma category is
-	reduced to the $C/c$ slice category.
+	Letting the morphism $h$ take $d$ to $d'$, while the morphism $k =
+	\id_{\one}$ sends $\emptyset$ to $\emptyset$, we have a codomain of the
+	comma morphism $(h,k)$ represented as $(d' \in \sC, f'\colon d' \rightarrow
+	c)$. This is a class of morphisms of \(\sC\) taken as objects, and the comma
+	category is reduced to the $\sC/c$ slice category.
 \end{proof}
 \end{document}

@@ -7,32 +7,31 @@
 	A morphism \(\func{f}{x}{y}\) in a category is
 	\begin{enumerate}[(i)]
 		\item a \emph{monomorphism} if for any parallel morphisms
-		\(\pfunc{h,k}{w}{x}\), \(fh=fk\) implies that \(h=k\); or
+			\(\pfunc{h,k}{w}{x}\), \(fh=fk\) implies that \(h=k\); or
 		\item an \emph{epimorphism} if for any parallel morphisms
-		\(\pfunc{h,k}{y}{z}\), \(hf=kf\) implies that \(h=k\).
+			\(\pfunc{h,k}{y}{z}\), \(hf=kf\) implies that \(h=k\).
 	\end{enumerate}
 \end{definition}
 \popthm
 
-\setexercise{1}{2}{4}
 \begin{exercise}
 	What are the monomorphisms in the category of fields?
 \end{exercise}
 \begin{proof}
-In the category of fields, morphisms are field homomorphisms. Let
-\(\func{f}{A}{B}\) be a morphism in \Field. As \(f\) is a field homomorphism,
-its kernel is an ideal in \(B\). Since \(B\) is a field, there are only two
-ideals: \(\{0\}\) and \(B\) itself. The kernel of \(f\) cannot be the whole
-field, since this would be the zero morphism which is not a field homomorphism.
-So \(\ker f = \{0\}\) and from this, \(f\) is injective, and in particular it is
-left cancellable.
+	In the category of fields, morphisms are field homomorphisms. Let
+	\(\func{f}{A}{B}\) be a morphism in \Field. As \(f\) is a field homomorphism,
+	its kernel is an ideal in \(B\). Since \(B\) is a field, there are only two
+	ideals: \(\{0\}\) and \(B\) itself. The kernel of \(f\) cannot be the whole
+	field, since this would be the zero morphism which is not a field homomorphism.
+	So \(\ker f = \{0\}\) and from this, \(f\) is injective, and in particular it is
+	left cancellable.
 
-Let \(h\) and \(k\) be morphisms in \Field for which composition with \(f\)
-makes sense and say that \[fh = fk.\] Since \(f\) is left cancellable, this
-implies that \[h = k,\] and \(f\) is a monomorphism by Definition 1.2.7(i) above.
-(In fact, injections are monomorphisms in any category in which the objects have
-``underlying sets''.)
+	Let \(h\) and \(k\) be morphisms in \Field for which composition with \(f\)
+	makes sense and say that \[fh = fk.\] Since \(f\) is left cancellable, this
+	implies that \[h = k,\] and \(f\) is a monomorphism by Definition 1.2.7(i) above.
+	(In fact, injections are monomorphisms in any category in which the objects have
+	``underlying sets''.)
 
-Thus, all of the morphisms in \Field are monomorphisms.
+	Thus, all of the morphisms in \Field are monomorphisms.
 \end{proof}
 \end{document}
