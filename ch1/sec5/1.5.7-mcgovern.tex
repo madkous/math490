@@ -16,17 +16,17 @@
 	essentially surjective. We define our functor $F$ on the objects of
 	\textsf{G} by sending any object of \textsf{G} to the one object of
 	$\textsf{B}G$. Before defining our functor on morphisms, we first show that
-	For every trio of objects $x,y,z \in \textsf{G}$, there exists a bijection
+	for every trio of objects $x,y,z \in \textsf{G}$, there exists a bijection
 	from $G = \textsf{G}(x,x) $ to $\textsf{G}(y,z)$.
 
 	First, we define a class of reference morphisms for our groupoid in the
 	following manner: Because $\textsf{G}$ is connected, we have at least one
 	morphism in $\textsf{G} (x,y)$ for any $y \in \ob\textsf{G}$. By the Axiom of
-	Choice, for each $y$, we can choose a morphism $f_y$. Note that if
-	$\textsf{G}$ is not small, we must apply the Axiom of Choice in a larger
-	universe. Since $\textsf{G}$ is a groupoid, we also have a morphism
-	$f_y^{-1}$ for each $y$. We also note that if $x = y$, we choose $f_y =
-	1_y$.
+	Choice, for each $y$, we can choose a morphism $f_y$.\footnote{Note that if
+		$\textsf{G}$ is not small, we must apply the Axiom of Choice in a larger
+		universe. Since $\textsf{G}$ is a groupoid, we also have a morphism
+		$f_y^{-1}$ for each $y$. We also note that if $x = y$, we choose $f_y =
+	1_y$.}
 
 	Now, we use this subclass of morphisms to first determine a bijection $\rho$
 	between $\textsf{G}(x,x) \rightarrow \textsf{G}(x,y)$. We define this
@@ -69,10 +69,10 @@
 	Now, call the functor defined in 1.5.12  $\iota\colon \textsf{B}G \rightarrow
 	\textsf{G}$. We must now define natural transformations $\tau\colon F\iota
 	\Rightarrow 1_{\textsf{B}G} $ and $\eta\colon 1_{\textsf{G}}\Rightarrow \iota F$.
-	For all $\gamma \in mor\textsf{B}G$, we have that $F\iota(\gamma) =
+	For all $\gamma \in\mor\textsf{B}G$, we have that $F\iota(\gamma) =
 	F(\gamma) = \gamma$ and that $F\iota(\emptyset) = Fx = \emptyset$ so $F\iota
 	= 1_{\textsf{B}G}$, and the natural transformation is the identity
-	transformation. Now, for each $y \in ob\textsf{G}$, we must find $\eta_y$,
+	transformation. Now, for each $y \in\ob\textsf{G}$, we must find $\eta_y$,
 	so that the following diagram commutes for every $f\colon y \rightarrow z$.
 	\[\xymatrix{
 			\iota Fy = x

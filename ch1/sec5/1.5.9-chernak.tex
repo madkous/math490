@@ -15,12 +15,20 @@
 
 \begin{quotation}
 	\(F \colon \textsf{C} \to \textsf{D}\) is faithful, so for any \(x, y \in
-	\textsf{C}\), the map \(F_x,_y \colon \textsf{C}(x, y) \to \textsf{D}(Fx,
+	\textsf{C}\), the map \(F_{x,y} \colon \textsf{C}(x, y) \to \textsf{D}(Fx,
 	Fy)\) is injective. And since there is an injective function \(F_x,_y\) from
 	\(\textsf{C}(x, y) \to \textsf{D}(Fx, Fy),\) there must be a surjective
 	function \(g \colon \textsf{D}(Fx, Fy) \to \textsf{C}(x,
-	y)\)\footnotemark[1].
-	
+	y)\)\footnote{The principle that ``For two sets $A$ and $B$, if there is a
+		surjection from $A$ to $B$, then there is an injection from $B$ to $A$,
+		and vice versa''
+		is called the Partition Principle. While the principle has been known to be a
+		consequence of the Axiom of Choice for quite awhile, it's an open question
+		whether or not it \textit{implies} the Axiom of Choice---in other words,
+		whether it is equivalent to the axiom. Bertrand Russell claimed it did, but he
+		never provided a proof; and while set theorists as a whole have come incredibly
+	close to one since then, they've never quite gotten there.}
+
 	Per the Axiom of Replacement, the image of a function whose domain is a set
 	must be a set, so the image of \(g\) is a set. But we just said that \(g\)
 	is surjective over \(\textsf{C}(x, y)\), so its image is simply
@@ -33,15 +41,6 @@ In the particular case specified by the exercise, wherein \(\textsf{C} \simeq
 \textsf{D}\), there is by definition a faithful functor \(F \colon \textsf{C}
 \to \textsf{D}\). So this is a special case of the general statement proven
 above; meaning we can immediately conclude that \(\textsf{C}\) is locally small.
-
-\footnotetext[1]{The principle that "For two sets A and B, if there is a
-surjection from A to B, then there is an injection from B to A, and vice versa"
-is called the Partition Principle. While the principle has been known to be a
-consequence of the Axiom of Choice for quite awhile, it's an open question
-whether or not it \textit{implies} the Axiom of Choice -- in other words,
-whether it is equivalent to the axiom. Bertrand Russell claimed it did, but he
-never provided a proof; and while set theorists as a whole have come incredibly
-close to one since then, they've never quite gotten there.}
 \end{proof}
 
 \end{document}
