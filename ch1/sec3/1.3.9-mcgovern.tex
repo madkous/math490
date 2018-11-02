@@ -11,14 +11,14 @@ For any group $G$, we may define other groups:
 Trivially, all three constructions define a functor from the discrete category of groups (with only indentity morphsims) to \Group. Are these constructions functorial in 
 \begin{itemize}
     \item the isomorphisms of groups? That is, do they extend to functors $\Group_{\iso} \rightarrow \Group$?
-    \item the epimorphisms of groups? That is, do they extend to functors $\Group_{\Epi} \rightarrow \Group$?
+    \item the epimorphisms of groups? That is, do they extend to functors $\Group_{\epi} \rightarrow \Group$?
     \item the homomorphisms of groups? That is, do they extend to functors $\Group \rightarrow \Group$?
 \end{itemize}
 \end{exercise}
 \begin{proof}
 
 
-First, consider the functor $F_Z\colon \Group_{\ID}\rightarrow \Group$, where $G \rightarrow Z(G)$. We will now show that there exists a similar functor $F_Z\colon \Group_{\Epi} \rightarrow \Group$. We define $F_Z$ as the following: $F_Z(G) = Z(G)$ and if $f\colon G \rightarrow H$, then $F_{Z} f = f|_{Z(G)}$. We must show that this functor satisfies the properties of a functor.
+First, consider the functor $F_Z\colon \Group_{\ID}\rightarrow \Group$, where $G \rightarrow Z(G)$. We will now show that there exists a similar functor $F_Z\colon \Group_{\epi} \rightarrow \Group$. We define $F_Z$ as the following: $F_Z(G) = Z(G)$ and if $f\colon G \rightarrow H$, then $F_{Z} f = f|_{Z(G)}$. We must show that this functor satisfies the properties of a functor.
 \begin{enumerate}
     \item Because each group has a unique center and each morphism $f$ with $\dom(f) = G$ has a unique restriction to $Z(G)$, this functor is well defined and satisfies the first two properties (0 and 1).
     \item We see that $F_{Z} 1_{G} = 1_{G}|_{Z(G)} = 1_{Z(G)} = 1_{F_{Z}G}$, so the functor preserves identities. 
@@ -38,7 +38,7 @@ Now consider the functor $F_C\colon  \Group_{\ID} \rightarrow \Group$. We will s
     \item If $f\colon G \rightarrow H$ and $G\colon H \rightarrow K$, we see that $F_C(gf) = gf|_{C(G)}$. By the property we proved in the previous part \[gf|_{C(G)} = g|_{C(H)}f|_{C(G)} = F_CgF_Cf.\] So this functor also preserves morphism composition.
 \end{enumerate}
 
-So we have shown that this is a functor for $\Group \rightarrow \Group$, and we note that this implies that it is also a functor for $\Group_{\iso} \rightarrow \Group$ and $\Group _{\Epi} \rightarrow \Group$. 
+So we have shown that this is a functor for $\Group \rightarrow \Group$, and we note that this implies that it is also a functor for $\Group_{\iso} \rightarrow \Group$ and $\Group _{\epi} \rightarrow \Group$. 
 
 Next, we show that there is a functor $F_A\colon \Group_{\iso} \rightarrow \Group$, defined as follows: If $G$ is a group, then $F_AG = \Aut(G)$ and if $\phi$ is a morphism between two groups $G$ and $H$, then $(F_A\phi)(f) = \phi f \phi^{-1}$. We now show that this definition satisfies the properties of a functor. 
 \begin{enumerate}
@@ -51,6 +51,6 @@ Next, we show that there is a functor $F_A\colon \Group_{\iso} \rightarrow \Grou
 \end{enumerate}
 So $F_A$ satisfies all the properties of a functor, and there exists a functor from $\Group_{\iso} \rightarrow \Group$ of the desired form. 
 
-It is unclear whether or not there is a functor from  $\Group_{\Epi}$ to $\Group$ and from $\Group$ to $\Group$ defined in the manner, but I believe that this is not the case, although I am having trouble finding a counterexample. 
+It is unclear whether or not there is a functor from  $\Group_{\epi}$ to $\Group$ and from $\Group$ to $\Group$ defined in the manner, but I believe that this is not the case, although I am having trouble finding a counterexample. 
 \end{proof}
 \end{document}
