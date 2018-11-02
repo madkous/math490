@@ -2,13 +2,12 @@
 \begin{document}
 
 \paragraph{}
-\setexercise{1}{4}{6}
 \begin{exercise}
 	Given a pair of functors $ F\colon\sA\times\sB\times\sB^\op \to \sD\AND
 	G:\sA\times\sC\times\sC^\op\to \sD $ a family of morphisms
 	\[\al_{a,b,c}\colon F(a,b,b)\to G(a,c,c)\]
 	in $ \sD $ defines the components
-	of an \tbf{extranatural transformation} $ \al:F\implies G $ if for any $
+	of an \tbf{extranatural transformation} $ \al:F\To G $ if for any $
 	\func{f}{a}{a'},\;\func{h}{c}{c'} $ the following diagrams commute in $
 	\sD$:
 \begin{center}
@@ -24,16 +23,16 @@
 }\]
 \end{center}
 The left-hand square asserts the at the components $\al_{-,b,b}\colon
-F(-,b,b)\implies G(-,c,c) $ define a natural transformation in $ a $ for each $
+F(-,b,b)\To G(-,c,c) $ define a natural transformation in $ a $ for each $
 b\in\sB $ and $ c\in\sC.$ The remaining squares assert that the components $
-\al_{\al_{a,-,-}}\colon F(a,-,-)\implies G(a,c,c) $ and $
-\al_{a,b,-}\colon F(a,b,b)\implies G(a,-,-) $ define transformations that
+\al_{\al_{a,-,-}}\colon F(a,-,-)\To G(a,c,c) $ and $
+\al_{a,b,-}\colon F(a,b,b)\To G(a,-,-) $ define transformations that
 are respectively extranatural in $ b $ and in $ c. $ Explain why functors $
 F $ and $ G $ must have a common target category for this this definition
 to make sense.
 \end{exercise}
 
-Notice that the definition of natural transformation does not actually have
+Notice that the definition of extranatural transformation does not actually have
 anything to do with the question. This exercise is nothing more than a sanity
 check. If $ F\AND G $ do not have the same target category, when we try to
 write down any of the three above diagrams, we will see that they are simply

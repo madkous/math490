@@ -1,12 +1,6 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
-\setexercise{1}{5}{10}
-\begin{exercise}
-	Consider the forgetful functor $ \func{U}{\Mod{R}}{\msf{Ab}}, $ which
-	forgets the scalar multiplication structure of $ \Mod{R} $ and treats
-	it like an Abelian group under addition. Is this functor full, faithful,
-	or essentially surjective?
-\end{exercise}
+\subparagraph{\(\Mod{R}\to\Ab\)}
 \begin{proof}
 	This functor is not always essentially surjective. If we let $ R=\{0\}, $
 	then the only object $ \Mod{0}$ is the zero module. Thus $ F0 $ only goes to
@@ -29,26 +23,22 @@
 	one vector space over itself we have the following addition and
 	multiplication tables.
 	\begin{center}
-		\begin{tabular}{|c|c c c c| }
-			\hline
-			+&0&1&\(\al\)&\(\al+1\)\\
-			\hline
-			0&0&1&\(\al\)&\(\al+1\)\\
-			1&1&0&\(\al+1\)&\(\al\)\\
-			\(\al\)&\(\al\)&\(\al+1\)&0&1\\
-			\(\al+1\)&\(\al+1\)&\(\al\)&1&0\\
-			\hline
-		\end{tabular}
-		\begin{tabular}{|c|c c c c|}
-			\hline
-			*&0&1&\(\al\)&\(\al+1\)\\
-			\hline
-			0&0&0&0&0\\
-			1&0&1&\(\al\)&\(\al+1\)\\
-			\(\al\)&0&\(\al\)&\(\al+1\)&1\\
-			\(\al+1\)&0&\(\al+1\)&1&\(\al\)\\
-			\hline
-		\end{tabular}
+			\begin{tabular}{c|c c c c }
+				+&0&1&\(\al\)&\(\al+1\)\\
+				\hline
+				0&0&1&\(\al\)&\(\al+1\)\\
+				1&1&0&\(\al+1\)&\(\al\)\\
+				\(\al\)&\(\al\)&\(\al+1\)&0&1\\
+				\(\al+1\)&\(\al+1\)&\(\al\)&1&0\\
+			\end{tabular} \hspace{2em}
+			\begin{tabular}{c|c c c c}
+				*&0&1&\(\al\)&\(\al+1\)\\
+				\hline
+				0&0&0&0&0\\
+				1&0&1&\(\al\)&\(\al+1\)\\
+				\(\al\)&0&\(\al\)&\(\al+1\)&1\\
+				\(\al+1\)&0&\(\al+1\)&1&\(\al\)\\
+			\end{tabular}
 	\end{center}
 	Since $ R $ is rank one free module, every endomorphism on $ R $ is defined
 	by scalar multiplication. Now forget the scalar multiplication on $ R,$ and

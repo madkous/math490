@@ -1,9 +1,7 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
-\paragraph{Exercise 1.5.xi. (Ring$ \to $Ab case)} Determine whether the functor
-\(F \colon \textsf{Ring} \to \textsf{Ab}\) that forgets multiplication is full,
-faithful, and/or essentially surjective.
 
+\subparagraph{\(\Ring\to\Ab\)}
 \begin{proof}
 	Let \(F\) be the functor described above. The additive group of any ring is
 	already abelian, so \(F\)  takes the additive group of each \(r \in
@@ -18,8 +16,9 @@ faithful, and/or essentially surjective.
 	ring homomorphisms between those additive group in \(\textsf{Ring}\) to the same
 	homomorphisms in \(\textsf{Ab}\).
 
-	\paragraph{F is faithful.}
+	% \paragraph{F is faithful.}
 
+	\subparagraph{}
 	When we say that \(F\) takes every morphism to 'itself', what we are really
 	saying is the following: For any \(f \colon r \to s \in \textsf{Ring}\), if
 	we define \(f_+ \colon (r, +) \to (s, +)\) as \(f\) applied to the additive
@@ -33,8 +32,9 @@ faithful, and/or essentially surjective.
 	injective by definition, and since this is the case for all \(r, s \in
 	\textsf{Ring}\), we can conclude that F is faithful.
 
-	\paragraph{F is not full.}
+	% \paragraph{F is not full.}
 
+	\subparagraph{}
 	On the other hand, consider that there are no morphisms from the zero ring,
 	\(\{0\}\), to any nonzero \(r \in \textsf{Ring}\). \(F\{0\}\) is simply
 	\((\{0\}, +)\); that is, the trivial group. But there is automatically a
@@ -43,8 +43,9 @@ faithful, and/or essentially surjective.
 	\in \textsf{Ring}\). So \(F\) cannot be surjective over \(\{f : F\{0\} \to
 	Fr\}\), which means \(F\) is not full.
 
-	\paragraph{F is not essentially surjective.}
+	% \paragraph{F is not essentially surjective.}
 
+	\subparagraph{}
 	Suppose to the contrary that \(F\) is essentially surjective. This means
 	that, for example, there must be some \(r \in \textsf{Ring}\) such that \(Fr
 	= (r, +) \simeq \QQ/\ZZ \in \textsf{Ab}\). Consider that elements of

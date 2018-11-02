@@ -17,7 +17,7 @@ concerning two and three dimensional vector spaces, such as properties of
 cross-product. If you do not recall these, then you may ignore the examples and
 concentrate on the rest.
 
-\begin{definition} An \emph{affine plane} is a triple of sets $\AA=(A,L,I)$ with
+\begin{mdefinition} An \emph{affine plane} is a triple of sets $\AA=(A,L,I)$ with
 	$A\cap L=\emptyset$ where the elements of $A$ are called \emph{points} and
 	the elements of $L$ are called \emph{lines} satisfying the following
 	additional requirements. $I\subseteq A\times L$ is a relation where $sI\ell$
@@ -38,9 +38,9 @@ concentrate on the rest.
 			$\ell\in L$ and $s\in A$, there is a unique $m\in L$ such that $s\in
 			m$ and $\ell\parallel m$.
 	\end{enumerate}
-\end{definition}
+\end{mdefinition}
 
-\begin{definition} A \emph{projective plane} is a triple of sets $\PP=(P,L,I)$
+\begin{mdefinition} A \emph{projective plane} is a triple of sets $\PP=(P,L,I)$
 	with $P\cap L=\emptyset$ where the elements of $P$ are called \emph{points}
 	and the elements of $L$ are called \emph{lines} satisfying the following
 	additional requirements. $I\subseteq P\times L$ is a relation where $sI\ell$
@@ -58,23 +58,23 @@ concentrate on the rest.
 		\item For every $\ell,m\in L$ there is an $s\in P$ that lies on both
 			$\ell$ and $m$.
 	\end{enumerate}
-\end{definition}
+\end{mdefinition}
 
 Here are two easy lemmas and then two standard examples.
 
-\begin{lemma}
+\begin{mlemma}
 	Let $\ell$ and $m$ be two lines in an affine or projective plane and let
 	$s,t$ be distinct points that lie on both $\ell$ and $m$. Then $\ell =m$.
-\end{lemma}
+\end{mlemma}
 
 \begin{proof}
 	The first property in each definition is that there is a unique line
 	containing $s$ and $t$, so $\ell =m$.
 \end{proof}
 
-\begin{lemma}
+\begin{mlemma}
 	In an affine plane $(A,L,I)$, $\parallel$ is an equivalence relation.
-\end{lemma}
+\end{mlemma}
 
 \begin{proof}
 	$\parallel$ is clearly reflexive and symmetric. To see that it is
@@ -85,7 +85,7 @@ Here are two easy lemmas and then two standard examples.
 	is no point lying on both $\ell$ and $n$. Either way, $\ell\parallel n$.
 \end{proof}
 
-\begin{example}
+\begin{mexample}
 	Let $k$ be a field. Then ${\mathbb A}^2(k)=(k^2,L,\in)$ where the lines are
 	solution sets to equations $ax+by+c=0$ where $a,b,c\in k$ and at least one
 	of $a$ and $b$ is not zero. Note that if $\lambda\in k^*$, then $ax+by+c=0$
@@ -101,14 +101,14 @@ Here are two easy lemmas and then two standard examples.
 	solution to $ax+by+d=0$ and $d\ne c$. The lines defined by these two
 	equations have empty intersection. So, ${\mathbb A}^2(k)$ satisfies all
 	requirements of an affine plane.
-\end{example}
+\end{mexample}
 
 Note that this example shows a way to construct finite affine planes. If
 $k=\FF_q$, then ${\mathbb A}^2(\FF_q)$ has $q^2$ points and
 $\frac{q(q^2-1)}{q-1}=q(q+1)$ lines. In fact, ${\mathbb A}^2(\FF_2)$ with $4$
 points and $6$ lines is the smallest possible affine plane.
 
-\begin{example}
+\begin{mexample}
 	Let $k$ be a field. We will construct a projective plane for which the
 	"points" are lines through the origin in $k^3$, while the "lines" are planes
 	through the origin in $k^3$. More specifically, consider the equivalence
@@ -153,7 +153,7 @@ points and $6$ lines is the smallest possible affine plane.
 	Finally, $(1:0:0),(0:1:0)$ and $(0:0:1)$ are not collinear since they are
 	all solutions to $ax+by+cz=0$ then $a=b=c=0$. So, ${\mathbb P}^2(k)$ is a
 	projective plane.
-\end{example}
+\end{mexample}
 
 As in the previous example, this gives us a way to construct to finite
 projective planes as ${\mathbb P}^2(\FF_q)$ for finite fields $\FF_q$, having
@@ -161,12 +161,12 @@ $\frac{q^3-1}{q-1}=q^2+q+1$ points and also $q^2+q+1$ lines. The smallest
 possible projective plane is ${\mathbb P}^2(\FF_2)$, which has $7$ points and
 $7$ lines. This projective plane is also known as the \emph{Fano plane}.
 
-\begin{proposition}
+\begin{mproposition}
 	Let $\PP=(P,L,I)$ be a projective plane and let $\ell_\infty\in L$. Let
 	\[A=P\backslash\{s\in P|sI\ell_\infty\},\,\,\,
 		L^\prime=L\backslash\{\ell_\infty\}\text{, and }I^\prime=I\cap(A\times
 	L^\prime).\] Then $(A,L^\prime,I^\prime)$ is an affine plane.
-\end{proposition}
+\end{mproposition}
 
 \begin{proof}
 	For any two distinct $s,t\in A$ we also have that $s,t\in P$, so that there
@@ -200,7 +200,6 @@ $7$ lines. This projective plane is also known as the \emph{Fano plane}.
 	share any points in $A$. In  either case, $\ell\parallel m$ in $\AA$.
 \end{proof}
 
-\setexercise{1}{5}{8}
 \begin{exercise}
 	Klein's Erlangen program studies groupoids of geometric spaces of various
 	kinds. Prove that the groupoid {\bf Affine} of affine planes is equivalent

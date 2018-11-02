@@ -3,32 +3,41 @@
 
 \paragraph{}
 \begin{center}
-	\textit{{\small For legibility, I use \(\alpha\) to denote the isomorphism
-	\(\cong\colon a'\to a\) (with \(\alpha^{-1}\) denoting its inverse) and
-	\(\beta\) to denote the isomorphism \(\cong\colon b'\to b\) (with
-	\(\beta^{-1}\) denoting its inverse.) Furthermore, I refer to the
-	'first/second/third/fourth' diagrams, counting from the left.}}
 \end{center}
 
 \begin{exercise}
 	Finish the following proof of Lemma 1.5.10:
 \end{exercise}
 
+\settheorem{1}{5}{10}
+\begin{lemma}
 	Any morphism \(f\colon a\to b\) and fixed isomorphisms \(a \cong a'\) and
 	\(b \cong b'\) determine a unique morphism \(f'\colon a'\to b'\) so that any
-	of the following four diagrams commute.
-
+	of---or, equivalently, all of---the following four diagrams commute:
 	\[\xymatrix{
-	& a\ar[d]_{f} & a'\ar[l]_{\alpha}\ar[d]^{f'} & a\ar[d]_{f}\ar[r]^{\alpha^{-1}} & a'\ar[d]^{f'} & a\ar[d]_{f} & a'\ar[l]_{\alpha}\ar[d]^{f'} & a\ar[d]_{f}\ar[r]^{\alpha^{-1}} & a'\ar[d]^{f'}\\
-	& b\ar[r]_{\beta} & b' & b\ar[r]_{\beta} & b' & b & b'\ar[l]^{\beta^{-1}} & b & b'\ar[l]^{\beta^{-1}}
+	a\ar[d]_{f} & a'\ar[l]_{\cong}\ar[d]^{f'} &
+	a\ar[d]_{f}\ar[r]^{\cong} & a'\ar[d]^{f'} &
+	a\ar[d]_{f} & a'\ar[l]_{\cong}\ar[d]^{f'} &
+	a\ar[d]_{f}\ar[r]^{\cong} & a'\ar[d]^{f'} \\
+	b\ar[r]_{\cong} & b' &
+	b\ar[r]_{\cong} & b' &
+	b & b'\ar[l]^{\cong} &
+	b & b'\ar[l]^{\cong}
 	}\]
+	% The first diagram defines \(f'\). The commutativity of the remaining diagrams
+	% will be proven below.
+\end{lemma}
+\popthm
 
-The first diagram defines \(f'\). The commutativity of the remaining diagrams
-will be proven below.
+For legibility, I use \(\alpha\) to denote the isomorphism
+\(\cong\colon a'\to a\) (with \(\alpha^{-1}\) denoting its inverse) and
+\(\beta\) to denote the isomorphism \(\cong\colon b'\to b\) (with
+\(\beta^{-1}\) denoting its inverse.) Furthermore, I refer to the
+first, second, third, and fourth diagrams, counting from the left.
 
 \begin{proof}
- The prompt implies that the first diagram, at least, is
-commutative; so we know that \(f' = \beta f \alpha \).
+	The prompt implies that the first diagram, at least, is
+	commutative; so we know that \(f' = \beta f \alpha \).
 
 	At this point, it might be tempting to immediately right-compose both sides
 	of that expression with \(\alpha^{-1}\), to obtain \(f'(\alpha^{-1}) = \beta
@@ -42,33 +51,33 @@ commutative; so we know that \(f' = \beta f \alpha \).
 	\(\beta f \alpha (\alpha^{-1})\) is trivial. But the validity of \(f'
 	(\alpha^{-1})\) is decidedly non-trivial, and this must be proven before the
 	logic above can be applied.
-	
-First, it will be useful to explicitly identify the domains and codomains of the
-morphisms included in each diagram, to make further references more concise.
-These can easily be inferred from the diagrams: \(f \colon a \to b; f' \colon a'
-\to b'; \alpha \colon a' \to a;\) and \(\beta \colon b \to b';\) while the
-inverses of each morphism go between the same objects, but with the domain and
-codomain reversed. Now the remainder of the proof becomes almost trivial:
 
-As stated above, \(\cod(\alpha^{-1}) = \dom(\alpha) = a' = \dom (f')\). So
-\(\dom(f') = \cod(\alpha^{-1})\), which means \(f' \alpha^{-1}\) is a valid
-composition. With that in mind, we are now able to apply the logic quoted in the
-note above to show that \(f' \alpha^{-1} = \beta f\); and this is sufficient to
-show that the second diagram commutes.
+	First, it will be useful to explicitly identify the domains and codomains of the
+	morphisms included in each diagram, to make further references more concise.
+	These can easily be inferred from the diagrams: \(f \colon a \to b; f' \colon a'
+	\to b'; \alpha \colon a' \to a;\) and \(\beta \colon b \to b';\) while the
+	inverses of each morphism go between the same objects, but with the domain and
+	codomain reversed. Now the remainder of the proof becomes almost trivial:
 
-To show that the remaining diagrams commute, we must prove that \(\beta^{-1} f'
-= f \alpha\) and that \(\beta^{-1} f' \alpha^{-1} = f\), for the third and
-fourth diagrams respectively. Again, it is easy to obtain these expressions by
-composing \(\beta^{-1}\) with the expressions we have already determined --
-specifically, by taking the compositions \((\beta^{-1})f' = (\beta^{-1})\beta f
-\alpha = f \alpha\) for the third diagram and \((\beta^{-1})f' \alpha^{-1} =
-(\beta^{-1})\beta f = f\) for the fourth. The 'difficult' part is to show that
-these compositions are valid.
+	As stated above, \(\cod(\alpha^{-1}) = \dom(\alpha) = a' = \dom (f')\). So
+	\(\dom(f') = \cod(\alpha^{-1})\), which means \(f' \alpha^{-1}\) is a valid
+	composition. With that in mind, we are now able to apply the logic quoted in the
+	note above to show that \(f' \alpha^{-1} = \beta f\); and this is sufficient to
+	show that the second diagram commutes.
 
-Fortunately, this is still fairly easy: the validity of \(\beta^{-1} \beta\) is
-trivial, and \(\dom(\beta^{-1}) = \cod(\beta) = b' = \cod(f')\), so \(\beta^{-1}
-f'\) is valid. This means that the compositions mentioned in the previous
-paragraph are valid, and therefore that \(\beta^{-1} f' = f \alpha\) and
-\(\beta^{-1} f' \alpha^{-1} = f\). So the third and fourth diagrams commute.
+	To show that the remaining diagrams commute, we must prove that \(\beta^{-1} f'
+	= f \alpha\) and that \(\beta^{-1} f' \alpha^{-1} = f\), for the third and
+	fourth diagrams respectively. Again, it is easy to obtain these expressions by
+	composing \(\beta^{-1}\) with the expressions we have already determined --
+	specifically, by taking the compositions \((\beta^{-1})f' = (\beta^{-1})\beta f
+	\alpha = f \alpha\) for the third diagram and \((\beta^{-1})f' \alpha^{-1} =
+	(\beta^{-1})\beta f = f\) for the fourth. The 'difficult' part is to show that
+	these compositions are valid.
+
+	Fortunately, this is still fairly easy: the validity of \(\beta^{-1} \beta\) is
+	trivial, and \(\dom(\beta^{-1}) = \cod(\beta) = b' = \cod(f')\), so \(\beta^{-1}
+	f'\) is valid. This means that the compositions mentioned in the previous
+	paragraph are valid, and therefore that \(\beta^{-1} f' = f \alpha\) and
+	\(\beta^{-1} f' \alpha^{-1} = f\). So the third and fourth diagrams commute.
 \end{proof}
 \end{document}

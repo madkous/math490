@@ -1,53 +1,48 @@
 \documentclass[main.tex]{subfiles}
-\DeclareFontFamily{U}{skulls}{}
-\DeclareFontShape{U}{skulls}{m}{n}{ <-> skull }{}
-\newcommand{\skull}{\text{\usefont{U}{skulls}{m}{n}\symbol{'101}}}
 \begin{document}
-	\setexercise{1}{5}{10}
-	 \begin{exercise}
-	 	Characterize the categories that are equivalent to 
-	 	discrete categories. A category that is connected and essentially 
-	 	discrete is 
-	 	called \textbf{chaotic}.
-	 \end{exercise}
-	 \begin{proof}
-	 	We will show that a category $ \sC $ is equivalent to a discrete category $ \sD $ if and only $ \sC $ is preorder and a groupoid.
-	 	Consider any category $ \sC $ that is equivalent to a discrete category 
-	 	$ \sD $. By theorem 1.5.9 we have a full, faithful, and essentially 
-	 	surjective functor $ F $ from $ \sC $ to $\sD. $ Since $ F $ is both 
-	 	full and 
-	 	faithful, we have for each $ x,y\IN\ob\sC $ the map $ 
-	 	\sC(x,y)\to\sD(Fx,Fy) $ is a bijection. Because $ \sD $ is a discrete 
-	 	category we know that $ \sD(Fx,Fy) $ is empty if $ Fx\AND Fy $ 
-	 	are distinct or, if they are the same, consists of only the identity 
-	 	map. Since $ \sC(x,x)\to \sD(Fx,Fx) $ is a bijection and $ \sD(Fx,Fx) $ 
-	 	only contains the identity map we can conclude that $ \sC(x,x) $ also  
-	 	only consists of the identity map. Now let $\sC(x,y)$ be inhabited by $ 
-	 	f, $ so $ \sD(Fx,Fy) $ is inhabited as well and we must have $ Fx=Fy.$  
-	 	Hence there must be exactly one morphism between $ x\AND y\IN C. $ 
-	 	Using similar reasoning we can conclude $ \sC(y,x) $ has at most one 
-	 	element. Since both $ \sC(x,y) \AND \sC(y,x)$ are mapped to the 
-	 	identity of $ Fx $ we must have $fg=gf=1_x .$ Hence between any objects 
-	 	$ x\AND y\IN\sC $ $ \sC(x,y) $ has exactly one member or is empty. Since 
-	 	every morphism in $ \sC $ is invertible for any two objects $ x\AND 
-	 	y\IN\sC $ there is at most one element in the $ \sC(x,y),$ $ \sC $ is 
-	 	a groupoid and preorder as desired.
-	 	
-	 	Conversely consider any category $ \sC $ that is both a groupoid and a 
-	 	preorder. For insurance reasons we will work in a universe $ V, $ 
-	 	where $ \sC $ is a small category.  
-	 	Now look at the skeleton category of $\sC, $ the category whose 
-	 	objects are exactly one element from each isomorphism classes (which we obtain by using the axiom of choice, and hence the reason for the insurance policy) of $ \sC,$ denoted 
-	 	as  \skull. By definition we know that $ \skull\simeq \sC.$ Because 
-	 	$ \sC $ is a groupoid, if $ \sC(x,y) $ is nonempty for any two objects 
-	 	$ x\AND y\IN\sC,$ we must have that $ x $ is isomorphic to $ y$ and 
-	 	therefore in the same isomorphism class. Also since $ \sC $ is a 
-	 	preorder there is at most one element in $ \sC(x,y).$ So all the 
-	 	morphisms of $ \sC $ are collapsed into the identity morphisms of the 
-	 	appropriate isomorphism classes. Hence the only morphisms of $ \skull $ 
-	 	are the identities of each isomorphism class, so $ \skull $ is discrete 
-	 	category. There for $ \sC $ is equivalent to a discrete category and 
-	 	this completes the proof.
-	 \end{proof}
- 
- \end{document}
+\begin{exercise}
+	Characterize the categories that are equivalent to
+	discrete categories. A category that is connected and essentially
+	discrete is called \textbf{chaotic}.
+\end{exercise}
+\begin{proof}
+	We will show that a category $ \sC $ is equivalent to a discrete category $ \sD $ if and only $ \sC $ is preorder and a groupoid.
+	Consider any category $ \sC $ that is equivalent to a discrete category
+	$ \sD $. By theorem 1.5.9 we have a full, faithful, and essentially
+	surjective functor $ F $ from $ \sC $ to $\sD. $ Since $ F $ is both
+	full and
+	faithful, we have for each $ x,y\IN\ob\sC $ the map $
+	\sC(x,y)\to\sD(Fx,Fy) $ is a bijection. Because $ \sD $ is a discrete
+	category we know that $ \sD(Fx,Fy) $ is empty if $ Fx\AND Fy $
+	are distinct or, if they are the same, consists of only the identity
+	map. Since $ \sC(x,x)\to \sD(Fx,Fx) $ is a bijection and $ \sD(Fx,Fx) $
+	only contains the identity map we can conclude that $ \sC(x,x) $ also
+	only consists of the identity map. Now let $\sC(x,y)$ be inhabited by $
+	f, $ so $ \sD(Fx,Fy) $ is inhabited as well and we must have $ Fx=Fy.$
+	Hence there must be exactly one morphism between $ x\AND y\IN C. $
+	Using similar reasoning we can conclude $ \sC(y,x) $ has at most one
+	element. Since both $ \sC(x,y) \AND \sC(y,x)$ are mapped to the
+	identity of $ Fx $ we must have $fg=gf=1_x .$ Hence between any objects
+	$ x\AND y\IN\sC $ $ \sC(x,y) $ has exactly one member or is empty. Since
+	every morphism in $ \sC $ is invertible for any two objects $ x\AND
+	y\IN\sC $ there is at most one element in the $ \sC(x,y),$ $ \sC $ is
+	a groupoid and preorder as desired.
+
+	Conversely consider any category $ \sC $ that is both a groupoid and a
+	preorder. For insurance reasons we will work in a universe $ V, $
+	where $ \sC $ is a small category.
+	Now look at the skeleton category of $\sC, $ the category whose
+	objects are exactly one element from each isomorphism classes (which we obtain by using the axiom of choice, and hence the reason for the insurance policy) of $ \sC,$ denoted
+	as  \skull. By definition we know that $ \skull\simeq \sC.$ Because
+	$ \sC $ is a groupoid, if $ \sC(x,y) $ is nonempty for any two objects
+	$ x\AND y\IN\sC,$ we must have that $ x $ is isomorphic to $ y$ and
+	therefore in the same isomorphism class. Also since $ \sC $ is a
+	preorder there is at most one element in $ \sC(x,y).$ So all the
+	morphisms of $ \sC $ are collapsed into the identity morphisms of the
+	appropriate isomorphism classes. Hence the only morphisms of $ \skull $
+	are the identities of each isomorphism class, so $ \skull $ is discrete
+	category. There for $ \sC $ is equivalent to a discrete category and
+	this completes the proof.
+\end{proof}
+
+\end{document}

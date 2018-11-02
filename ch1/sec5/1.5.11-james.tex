@@ -1,11 +1,7 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
-\begin{lemma}[1.5.xi $\Ring\rightarrow \Rng$]
-	Consider the functor $\Ring\rightarrow \Rng.$ Determine if it is full, faithful, and if it is essentially surjective. Does this functor define an equivalence of categories?
 
-\end{lemma}
-
-
+\subparagraph{\(\Ring\to\Rng\)}
 \begin{proof}
 	Before defining the functor $\Ring\rightarrow \Rng$, first the category \Rng 
 	needs some description. Since a rng, denoted here by $R^-$, is a non-unital 
@@ -17,10 +13,10 @@
 
 	Let the functor in question be the inclusion functor $\iota\colon \Ring\rightarrow \Rng$ that maps rings in \Ring to rings in \Rng, and ring homomorphispms in \Ring to rng homomorphisms between rings in \Rng. The rng homomorphisms have all of the properties of ring homomorphisms, except the condition of mapping units in one rng to units in another. 
 
-	To test whether $\iota$ is a full functor, take $\bold 0$ and  $\QQ$ in 
-	Ring. Then $\iota \bold 0, \iota \QQ$ are rings included in \Rng, and hence 
-	are the same $\bold 0$ and  $\QQ$. Since there exists a rng homomorphism 
-	$\phi$ between $\bold 0$ and $\QQ$, i.e., the homomorphism that maps $0$ to 
+	To test whether $\iota$ is a full functor, take $\mathbf{0}$ and  $\QQ$ in 
+	Ring. Then $\iota \mathbf{0}, \iota \QQ$ are rings included in \Rng, and hence 
+	are the same $\mathbf{0}$ and  $\QQ$. Since there exists a rng homomorphism 
+	$\phi$ between $\mathbf{0}$ and $\QQ$, i.e., the homomorphism that maps $0$ to 
 	$0$,while there is no ring homomorphisms between the same two objects in $\Ring$, then $\phi$ is not mapped to by $\iota$ acting on any ring 
 	homomorphism in $\Ring$.  Thus, $\iota$ is not surjective between the 
 	morphisms fixed on any two objects in \Ring. Hence $\iota$ is not full.

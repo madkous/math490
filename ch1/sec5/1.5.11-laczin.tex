@@ -1,29 +1,7 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
 
-\settheorem{1}{5}{7}
-\begin{definition}
-	A functor $\func{F}{C}{D}$ is
-	\begin{itemize}
-		\item \textbf{full} if for each $x,y\in \cat{C}$, the map
-			$\cat{C}(x,y)\rightarrow\cat{D}(Fx,Fy)$ is surjective;
-
-		\item \textbf{faithful} if for each $x,y\in \cat{C}$, the map
-			$\cat{C}(x,y)\rightarrow\cat{D}(Fx,Fy)$ is injective;
-
-		\item and \textbf{essentially surjective on objects} if for every object
-			$d\in\cat{D}$, there is some $c\in\cat{C}$ such that $d$ is
-			isomorphic to $Fc$.
-	\end{itemize}
-\end{definition}
-
-\setexercise{1}{5}{11}
-\begin{exercise}(For $\Field\mapsto\Ring$)
-	Consider the functor $\Field\mapsto\Ring$ (inclusion). Determine whether or
-	not this functor is full, faithful, or essentially surjective. Does it
-	define an equivalence of categories?
-\end{exercise}
-
+\subparagraph{\(\Field\to\Ring\)}
 \begin{proof}
 	The inclusion functor $\func{\iota}{\Field}{\Ring}$ is faithful: it must
 	take each morphism in the domain to itself in the codomain and is thus
@@ -35,11 +13,11 @@
 	0_{\iota x}$ and $\iota f(1_x) = 1_{\iota y}$ (and respect the rest of the
 	ring homomorphism requirements). But then $\iota f$ must be a field
 	homomorphism, and is thus included in $\Field$.
-	
-	The incusion functor is not essentially surjective on objects however. There
+
+	The inclusion functor is not essentially surjective on objects however. There
 	is no object in $\Field$ that this functor takes to the zero ring (and the
 	zero ring is unique up to isomorphism). So, the inclusion map from
-	$\Field\mapsto\Ring$ does not define an equivalence of categories.
+	$\Field\to\Ring$ does not define an equivalence of categories.
 \end{proof}
 
 \end{document}

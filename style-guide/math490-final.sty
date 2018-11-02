@@ -8,7 +8,7 @@
 \ProvidesPackage{math490}
 [2018/09/21 v0.01 LaTeX package for Dr. Pardue's math490 course at UMBC]
 
-\RequirePackage{mathtools,array,xspace,amssymb,xypic,mathrsfs,graphicx,braket}
+\RequirePackage{mathtools,array,xspace,amssymb,xypic,mathrsfs,graphicx,braket}%,minipage}
 \RequirePackage{hyperref}
 \RequirePackage[shortlabels]{enumitem}
 \RequirePackage[margin=1.75in]{geometry}
@@ -62,13 +62,20 @@
 \theoremheaderfont{\upshape\scshape}
 \theorembodyfont{\itshape}
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem*{mtheorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{mlemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{mcorollary}[theorem]{Corollary}
 \newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{mproposition}[theorem]{Proposition}
 \theorembodyfont{\normalfont}
 \newtheorem{example}[theorem]{Example}
+\newtheorem*{mexample}[theorem]{Example}
 \newtheorem{definition}[theorem]{Definition}
+\newtheorem*{mdefinition}[theorem]{Definition}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem*{mremark}[theorem]{Remark}
 \theoremnumbering{roman}
 \theoremsymbol{\(\square\)}
 \newtheorem*{proof}{\indent Proof}
@@ -172,8 +179,15 @@
 \DeclareSymbolFont{foo}{LS1}{stixscr}{m}{n}
 \DeclareMathSymbol{\is@invb}{\mathrel}{foo}{"3E}
 \newcommand{\isinvb}{\mathrel{\raisebox{1pt}{\scalebox{.85}{\(\is@invb\)}}}}
+
+% backward colon
 \newcommand{\noloc}{\nobreak\mskip5muplus1mu\mathpunct{}\nonscript
   \mkern-\thinmuskip{:}\mskip3mu\relax}
+
+% Skull symbol
+\DeclareFontFamily{U}{skulls}{}
+\DeclareFontShape{U}{skulls}{m}{n}{ <-> skull }{}
+\newcommand{\skull}{\text{\usefont{U}{skulls}{m}{n}\symbol{'101}}}
 
 % blackboard bold shortcuts
 \renewcommand{\AA}{\mathbb{A}} % replaced Angstrom symbol Å
