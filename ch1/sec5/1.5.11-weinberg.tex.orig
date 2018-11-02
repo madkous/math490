@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage{math490}
+\title{Math 490}
+\author{Teddy Weinberg}
+\begin{document}
+\maketitle
+%
+%\settheorem{1}{2}{3}
+%\begin{lemma}
+	%Recall that a group as a category has a single object $x$, and that each element of the group is a morphism in the category.  All domains and codomains are that object $x$.  There is one identity morphism $1_x$, which is the identity element in the group.  Composition is the same as multiplication in this context.
+%\end{lemma}
+%\popthm
+
+\setexercise{1}{5}{11}
+\begin{exercise}
+	Consider the functor $F: Ab \rightarrow Group$ (inclusion).  Determine whether it is full, faithful, and/or essentially surjective.  Does it define an equivalence of categories?
+\end{exercise}
+
+\begin{proof}
+	This is a fully faithful functor. For any two groups $x$ and $y$, the functor maps the group homomorphisms $f: x \rightarrow y$ to themselves.  In other words $Ff = f$.  This immediately gives us that the functor is faithful, as if $Ff = Fg$, then $f = g$.  
+%$Ab(x,y) \rightarrow Group(Fx,Fy)$ is simply $Ab(x,y) \rightarrow Group(x,y)$ where $x, y \in Ab$. 
+For it to be full, we must confirm that for any groups $x,y \in Ab$ that for any $g: Fx \rightarrow Fy$ we can find $f: x \rightarrow y$ such that $Ff = g$.  But then we note that $g$ is of domain $x$ and codomain $y$ as $F$ is just inclusion, and that any homomorphism $g$ between two Abelian groups in the category of groups
+also exists in the category of Abelian groups.  Thus, we have the desired surjectivity.
+
+
+However, our functor is not essentially surjective on objects.  We know that for $c \in Ab$, $Fc = c \in Group$.  For it to be essentially surjective, for any $d \in Group$, we would need to be able to find an $Fc$ isomorphic to it.  But this just means we need to find an Abelian group isomorphic to $d$.  That is impossible for any group $d$ that is not Abelian, as Abelian groups are only isomorphic to Abelian groups. It thus does not define an equivalence of categories, however the Abelian groups are a subcategory. 
+\end{proof}
+
+
+\end{document}
