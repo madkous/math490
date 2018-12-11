@@ -1,56 +1,60 @@
-\documentclass{article}
-\usepackage{math490}
-\title{Solution to Problem 3.3.vi}
-\author{Anthony Agwu}
+\documentclass[main.tex]{subfiles}
 \begin{document}
-\maketitle
 
-	\setexercise{3}{3}{6}
-
+\paragraph{}
 \begin{exercise}
-	
-Prove that for any small category $\sA$, the functor category $\sC^{\sA}$ again has any limit or colimit that $\sC$ does, constructed objectwise. That is given a diagram $\func{F}{\sJ}{\sC^{\sA}}$ with $\sJ$ small show that whenever the limits of the diagram $$ \xymatrix{\sJ \ar[r]^{F } &\sC^{\sA} \ar[r]^{\text{ev}_{a}} &\sC} $$ exists in $\sC$ for all $a \in \sA$, then these values define the action on object of $\lim F \in \sC^{\sA}$, a limit of the diagram $F$. (Hint: See Proposition 3.6.1)
-	
+	Prove that for any small category $\sA$, the functor category $\sC^{\sA}$
+	again has any limit or colimit that $\sC$ does, constructed objectwise. That
+	is given a diagram $\func{F}{\sJ}{\sC^{\sA}}$ with $\sJ$ small show that
+	whenever the limits of the diagram $$ \xymatrix{\sJ \ar[r]^{F } &\sC^{\sA}
+	\ar[r]^{\text{ev}_{a}} &\sC} $$ exists in $\sC$ for all $a \in \sA$, then
+	these values define the action on object of $\lim F \in \sC^{\sA}$, a limit
+	of the diagram $F$. (Hint: See Proposition 3.6.1)
 \end{exercise}
 
-
 \begin{proof}
-	
-	Suppose $\sC$ has limits for each $a \in A$. For each $\text{ev}_{a} \cdot F$, call $\lim_{a} F \in \sC$ the limit of $\text{ev}_{a} \cdot F$. Now we will explicitly define an element of $\sC^{\sA}$ which we will call $\lim F$:
-	
-		\begin{enumerate}
+	Suppose $\sC$ has limits for each $a \in A$. For each $\text{ev}_{a} \cdot
+	F$, call $\lim_{a} F \in \sC$ the limit of $\text{ev}_{a} \cdot F$. Now we
+	will explicitly define an element of $\sC^{\sA}$ which we will call $\lim
+	F$:
+	\begin{enumerate}
 		\item $\lim F$ maps an object $a \in A$ to $\lim_{a} F$
-		\item suppose $\func{m_{a_2}}{\text{Cone}\qty{-,\text{ev}_{a_2} \cdot F}}{\sC\qty{-,\lim_{a_2} F}}$ is the canonical natural isomorphism induced by the limit cone of $\lim_{a_2} F$. Then $\lim F$ maps morphism $\func{f}{a_1}{a_2}$ onto $m_{a_2,\lim_{a_1} F}\qty{F_{-}f \cdot \lm_{a_1}}$ where $\lm_{a_1}$ is the limit cone of $\lim_{a_1} F$ and $F_{-}f$ is a natural transformation from $\text{ev}_{a_1} \cdot F $ to $\text{ev}_{a_2} \cdot F $ where the components are $F_{j}f$ for each $j$. The fact that $F_{-}f$ is a natural transformation follows from the fact that $F$ maps each morphism of $\sJ$ to a natural transformation and $ev_{a}$ simply maps a natural transformation to its component at $a$.
-	
-		
-		
+
+		\item suppose $\func{m_{a_2}}{\text{Cone}\qty{-,\text{ev}_{a_2} \cdot
+			F}}{\sC\qty{-,\lim_{a_2} F}}$ is the canonical natural isomorphism
+			induced by the limit cone of $\lim_{a_2} F$. Then $\lim F$ maps
+			morphism $\func{f}{a_1}{a_2}$ onto $m_{a_2,\lim_{a_1} F}\qty{F_{-}f
+			\cdot \lm_{a_1}}$ where $\lm_{a_1}$ is the limit cone of $\lim_{a_1}
+			F$ and $F_{-}f$ is a natural transformation from $\text{ev}_{a_1}
+			\cdot F $ to $\text{ev}_{a_2} \cdot F $ where the components are
+			$F_{j}f$ for each $j$. The fact that $F_{-}f$ is a natural
+			transformation follows from the fact that $F$ maps each morphism of
+			$\sJ$ to a natural transformation and $ev_{a}$ simply maps a natural
+			transformation to its component at $a$.
 	\end{enumerate}
 
-    To verify that $\lim F$ is a functor note that each identity morphism $1_{a}$ gets 
-    mapped to $m_{a,\lim_{a} F}\qty{\lm_{a}} = 1_{\lim_{a} F}$ since $F_{j}1_{a}$ is an identity 
-    morphism. Also, for morphisms $\func{f}{a_1}{a_2}$ and $\func{g}{a_2}{a_3}$ , $\lim 
-    F$ maps $g \cdot f$ to $m_{a_3,\lim_{a_1} F}\qty{F_{-}(g \cdot f) \cdot \lm_{a_1}} = 
-    m_{a_3,\lim_{a_1} F}\qty{ F_{-}g \cdot F_{-} f \cdot \lm_{a_1} } $. This induces the following 
-    commutative diagram $$\xymatrix{ \lim_{a_1} F \ar[d]_{m_{a_2,\lim_{a_1} F}\qty{F_{j}f 
-    \cdot \lm_{a_1}}} \ar[r]^{\lm_{a_1,j}} & \text{ev}_{a_1} Fj \ar[d]^{F_{j}f}  \\   \lim_{a_2} F 
-    \ar[d]_{m_{a_3,\lim_{a_2} F}\qty{F_{j}g \cdot \lm_{a_2}}}\ar[r]^{\lm_{a_2,j} } &\text{ev}_{a_2} 
-    Fj \ar[d]^{F_{j}g} \\ \lim_{a_3} F \ar[r]_{\lm_{a_3,j}} &\text{ev}_{a_3} Fj } $$ This shows 
-    that $m_{a_3,\lim_{a_1} F}\qty{F_{-}(g \cdot f) \cdot \lm_{a_1}}  = m_{a_3,\lim_{a_2} F}\qty{F_{j}g 
-    \cdot \lm_{a_2}} \cdot m_{a_2,\lim_{a_1} F}\qty{F_{j}f \cdot \lm_{a_1}} $, thus $\lim F(g \cdot 
-    f) = \lim Fg \cdot \lim Ff$. 
-    Now we must show that $$ \text{Cone}\qty{-, F} \cong \sC^{\sA}\qty{-,\lim F} $$ Let 
-    $\phi$ be our proposed natural isomorphism where for $G \in \sC^{\sA}$, 
-    $\func{\phi_{G}}{\text{Cone}\qty{G, F}}{\sC^{\sA}\qty{G,\lim F}}$ is defined as follows: 
-    $$ \phi_{G}\qty{\al} = \{m_{a,Ga}\qty{\text{ev}_{a}\al} | a \in A \} $$ To show that 
-    $\phi_{G}(\al)$ can be regarded as a natural transformation we must show that the 
-    following diagram commutes: $$\xymatrix{ Ga_1  \ar[d]_{m_{a_1,Ga_1} \qty{\text{ev}_{a_1}\al} } \ar[r]^{Gf} & Ga_2 \ar[d]^{m_{a_2,Ga_2}\qty{\text{ev}_{a_2}\al} }  \\    \lim Fa_1 \ar[r]_{\lim Ff} &\lim Fa_2  } $$ First thing to 
-    note is that  $m_{a_2,Ga_1}\qty{F_{-}f \cdot \text{ev}_{a_1}\al} =   \lim Ff \cdot 
-    m_{a_1,Ga_1}\qty{\text{ev}_{a_1}\al}$ since $m_{a_2,\lim Fa_1} = \lim Ff$ . As for $m_{a_2,\lim_{a_2} 
-    F}\qty{\text{ev}_{a_2}\al} \cdot Gf$, consider the cone $\be$ whose components are $\be_{j} =  \text{ev}_{a_2}\al_{j} \cdot Gf$. Then $m_{a_2,Ga_1}\qty{\be}$ must be equal to $m_{a_2,Ga_2}\qty{\text{ev}_{a_2}\al} \cdot Gf$. We get that $\be = F_{-}f \cdot \text{ev}_{a_1}\al$ since for each $a \in A$, $\text{ev}_{a}\al_{j}$ is the component of $\al_{j}$ at $a$, so we get that the following diagram commutes by naturality of $\al_{j}$: $$\xymatrix{ Ga_1  \ar[d]_{\text{ev}_{a_1}\al_{j} } \ar[r]^{Gf} & Ga_2 \ar[d]^{\text{ev}_{a_2}\al_{j} }  \\   \text{ev}_{a_1} Fj \ar[r]_{F_{j}f} &\text{ev}_{a_2} Fj  } $$. Thus the diagram for $\phi_{G}(\al)$ commutes confirming $\phi_{G}(\al)$ as a natural transformation. We must now show that $\phi_{G}$ is a bijection. First for injectivity, suppose $\nu,\mu \in \text{Cone}\qty{G, F}$ such that $\phi_{G}\qty{\nu} = \phi_{G}\qty{\mu}$. Then for all $a \in A$, $\text{ev}_{a}\nu = \text{ev}_{a}\mu  $ by bijectivity of $m_{a,Ga}$.Then, $\text{ev}_{a}\nu_{j} = \text{ev}_{a}\mu_{j} $ which are the components of $\nu_{j}$ and $\mu_{j}$ at $a$, thus $\nu_{j} = \mu_{j}$. But these are the components of $\nu$ and $\mu$ at $j$. Thus $\nu = \mu$. For surjectivity, suppose $\de  \in \sC^{\sA}\qty{G,\lim F} $. By bijectivity of $m_{a,Ga}$, we can map each component of $\de$ to a natural transformation $\Func{\de_{a}^{*}}{Ga}{\text{ev}_{a}F}$ whose components are $\func{\de_{a,j}^{*}} {Ga}{\text{ev}_{a}Fj}$, but one can form a natural transformation $\func{\de_{j}^{*}}{G}{Fj}$ from each $\de_{a}^{*}$ by taking the $j$-component of each of the $\de_{a}^{*}$. To verify that $\de_{j}^{*}$ is a natural transformation, see that diagram $$\xymatrix{ Ga_1 \ar[d]_{\de_{a_1}} \ar[r]^{Gf} & Ga_2 \ar[d]^{\de_{a_2}}  \\   \lim_{a_1} F 
- 	\ar[d]_{\lm_{a_1,j}} \ar[r]^{\lim Ff } & \lim_{a_2} F \ar[d]^{\lm_{a_2,j}} \\ \text{ev}_{a_1} Fj \ar[r]_{F_{j}f} &\text{ev}_{a_2} Fj } $$ commutes since the top square is the commutative diagram for $\de$ and the bottom square is the commutative diagram for defining $\lim Ff$. Furthermore $\de_{a,j}^{*} = \lm_{a,j} \cdot \de_{a}$ since $m_{a}$ is the natural isomorphism induced by the limit cone $\lm_{a}$. We can make each $\de_{j}^{*}$ a component of a cone $\Func{\de^{*}}{G}{F}$. The fact that $\de^{*}$ is a natural transformation follows from the fact that $\de_{a}^{*}$ is a natural transformation. Furthermore , $\phi_{G}\qty{\de^{*}} = \{m_{a,Ga}\qty{\text{ev}_{a} \de^{*}} | a \in A \} = \{m_{a,Ga}\qty{ \de_{a}^{*}} | a \in A \} = \{\de_{a} | a \in A \} = \de$. Thus $\phi_{G}$ is surjective, making $\phi_{G}$ a bijection, and by extension $\phi$ an isomorphism. To confirm naturality of $\phi$ consider the following diagram for natural transformation $\Func{\ep}{G}{H}$ in $\sC^{\sA}$: $$\xymatrix{ \text{Cone}\qty{G, F}  \ar[d]_{\phi_{G}} \ar[r]^{\Delta\ep \cdot_{-}} & \text{Cone}\qty{H, F} \ar[d]^{\phi_{H}}  \\   \sC^{\sA}\qty{G,\lim F}  \ar[r]_{\ep \cdot_{-}} &\sC^{\sA}\qty{H,\lim F} } $$ where $\Delta\ep$ is the natural transformation whose components are  $\ep$ for each $j \in J$. Take $\al \in \text{Cone}\qty{G, F} $, we get the natural transformations $\ep \cdot \phi_{G}\qty{\al}$ and $\phi_{H}\qty{\Delta\ep \cdot \al}$. To show that they are equal notice that $\phi_{H}\qty{\Delta\ep \cdot \al} = \{m_{a,Ha}\qty{\text{ev}_{a}\qty{\Delta\ep \cdot \al}} | a \in A \} = \{m_{a,Ha}\qty{\Delta\ep_{-,a} \cdot\text{ev}_{a} \al} | a \in A \} $. Every component of $\Delta\ep_{-,a}$ is simply the component of $\ep$ at $a$ so $\phi_{H}\qty{ \Delta\ep \cdot \al}  = \{   \ep_{a} \cdot m_{a,Ga}\qty{\text{ev}_{a} \al}| a \in A \} = \{   \ep_{a} \cdot \phi_{G}\qty{\al}_{a} | a \in A \} = \ep \cdot \phi_{G}\qty{\al}$. Thus $\phi$ is a natural transformation confirming that $\text{Cone}\qty{-, F} \cong \sC^{\sA}\qty{-,\lim F} $ and $\lim F$ is the limit of $F$. Since the objects of $\lim F$ are the limits of $\text{ev}_{a} F$ for all $a$,  thus the limits of $\text{ev}_{a} F$ define an action on objects of $\lim F$. The corresponding result for colimits follow from duality. 
-	
-	
-	
+	To verify that $\lim F$ is a functor note that each identity morphism $1_{a}$ gets
+	mapped to $m_{a,\lim_{a} F}\qty{\lm_{a}} = 1_{\lim_{a} F}$ since $F_{j}1_{a}$ is an identity
+	morphism. Also, for morphisms $\func{f}{a_1}{a_2}$ and $\func{g}{a_2}{a_3}$ , $\lim
+	F$ maps $g \cdot f$ to $m_{a_3,\lim_{a_1} F}\qty{F_{-}(g \cdot f) \cdot \lm_{a_1}} =
+	m_{a_3,\lim_{a_1} F}\qty{ F_{-}g \cdot F_{-} f \cdot \lm_{a_1} } $. This induces the following
+	commutative diagram $$\xymatrix{ \lim_{a_1} F \ar[d]_{m_{a_2,\lim_{a_1} F}\qty{F_{j}f
+		\cdot \lm_{a_1}}} \ar[r]^{\lm_{a_1,j}} & \text{ev}_{a_1} Fj \ar[d]^{F_{j}f}  \\   \lim_{a_2} F
+		\ar[d]_{m_{a_3,\lim_{a_2} F}\qty{F_{j}g \cdot \lm_{a_2}}}\ar[r]^{\lm_{a_2,j} } &\text{ev}_{a_2}
+	Fj \ar[d]^{F_{j}g} \\ \lim_{a_3} F \ar[r]_{\lm_{a_3,j}} &\text{ev}_{a_3} Fj } $$ This shows
+	that $m_{a_3,\lim_{a_1} F}\qty{F_{-}(g \cdot f) \cdot \lm_{a_1}}  = m_{a_3,\lim_{a_2} F}\qty{F_{j}g
+	\cdot \lm_{a_2}} \cdot m_{a_2,\lim_{a_1} F}\qty{F_{j}f \cdot \lm_{a_1}} $, thus $\lim F(g \cdot
+	f) = \lim Fg \cdot \lim Ff$.
+	Now we must show that $$ \text{Cone}\qty{-, F} \cong \sC^{\sA}\qty{-,\lim F} $$ Let
+	$\phi$ be our proposed natural isomorphism where for $G \in \sC^{\sA}$,
+	$\func{\phi_{G}}{\text{Cone}\qty{G, F}}{\sC^{\sA}\qty{G,\lim F}}$ is defined as follows:
+	$$ \phi_{G}\qty{\al} = \{m_{a,Ga}\qty{\text{ev}_{a}\al} | a \in A \} $$ To show that
+	$\phi_{G}(\al)$ can be regarded as a natural transformation we must show that the
+	following diagram commutes: $$\xymatrix{ Ga_1  \ar[d]_{m_{a_1,Ga_1} \qty{\text{ev}_{a_1}\al} } \ar[r]^{Gf} & Ga_2 \ar[d]^{m_{a_2,Ga_2}\qty{\text{ev}_{a_2}\al} }  \\    \lim Fa_1 \ar[r]_{\lim Ff} &\lim Fa_2  } $$ First thing to
+	note is that  $m_{a_2,Ga_1}\qty{F_{-}f \cdot \text{ev}_{a_1}\al} =   \lim Ff \cdot
+	m_{a_1,Ga_1}\qty{\text{ev}_{a_1}\al}$ since $m_{a_2,\lim Fa_1} = \lim Ff$ . As for $m_{a_2,\lim_{a_2}
+		F}\qty{\text{ev}_{a_2}\al} \cdot Gf$, consider the cone $\be$ whose components are $\be_{j} =  \text{ev}_{a_2}\al_{j} \cdot Gf$. Then $m_{a_2,Ga_1}\qty{\be}$ must be equal to $m_{a_2,Ga_2}\qty{\text{ev}_{a_2}\al} \cdot Gf$. We get that $\be = F_{-}f \cdot \text{ev}_{a_1}\al$ since for each $a \in A$, $\text{ev}_{a}\al_{j}$ is the component of $\al_{j}$ at $a$, so we get that the following diagram commutes by naturality of $\al_{j}$: $$\xymatrix{ Ga_1  \ar[d]_{\text{ev}_{a_1}\al_{j} } \ar[r]^{Gf} & Ga_2 \ar[d]^{\text{ev}_{a_2}\al_{j} }  \\   \text{ev}_{a_1} Fj \ar[r]_{F_{j}f} &\text{ev}_{a_2} Fj  } $$. Thus the diagram for $\phi_{G}(\al)$ commutes confirming $\phi_{G}(\al)$ as a natural transformation. We must now show that $\phi_{G}$ is a bijection. First for injectivity, suppose $\nu,\mu \in \text{Cone}\qty{G, F}$ such that $\phi_{G}\qty{\nu} = \phi_{G}\qty{\mu}$. Then for all $a \in A$, $\text{ev}_{a}\nu = \text{ev}_{a}\mu  $ by bijectivity of $m_{a,Ga}$.Then, $\text{ev}_{a}\nu_{j} = \text{ev}_{a}\mu_{j} $ which are the components of $\nu_{j}$ and $\mu_{j}$ at $a$, thus $\nu_{j} = \mu_{j}$. But these are the components of $\nu$ and $\mu$ at $j$. Thus $\nu = \mu$. For surjectivity, suppose $\de  \in \sC^{\sA}\qty{G,\lim F} $. By bijectivity of $m_{a,Ga}$, we can map each component of $\de$ to a natural transformation $\Func{\de_{a}^{*}}{Ga}{\text{ev}_{a}F}$ whose components are $\func{\de_{a,j}^{*}} {Ga}{\text{ev}_{a}Fj}$, but one can form a natural transformation $\func{\de_{j}^{*}}{G}{Fj}$ from each $\de_{a}^{*}$ by taking the $j$-component of each of the $\de_{a}^{*}$. To verify that $\de_{j}^{*}$ is a natural transformation, see that diagram $$\xymatrix{ Ga_1 \ar[d]_{\de_{a_1}} \ar[r]^{Gf} & Ga_2 \ar[d]^{\de_{a_2}}  \\   \lim_{a_1} F
+	\ar[d]_{\lm_{a_1,j}} \ar[r]^{\lim Ff } & \lim_{a_2} F \ar[d]^{\lm_{a_2,j}} \\ \text{ev}_{a_1} Fj \ar[r]_{F_{j}f} &\text{ev}_{a_2} Fj } $$ commutes since the top square is the commutative diagram for $\de$ and the bottom square is the commutative diagram for defining $\lim Ff$. Furthermore $\de_{a,j}^{*} = \lm_{a,j} \cdot \de_{a}$ since $m_{a}$ is the natural isomorphism induced by the limit cone $\lm_{a}$. We can make each $\de_{j}^{*}$ a component of a cone $\Func{\de^{*}}{G}{F}$. The fact that $\de^{*}$ is a natural transformation follows from the fact that $\de_{a}^{*}$ is a natural transformation. Furthermore , $\phi_{G}\qty{\de^{*}} = \{m_{a,Ga}\qty{\text{ev}_{a} \de^{*}} | a \in A \} = \{m_{a,Ga}\qty{ \de_{a}^{*}} | a \in A \} = \{\de_{a} | a \in A \} = \de$. Thus $\phi_{G}$ is surjective, making $\phi_{G}$ a bijection, and by extension $\phi$ an isomorphism. To confirm naturality of $\phi$ consider the following diagram for natural transformation $\Func{\ep}{G}{H}$ in $\sC^{\sA}$: $$\xymatrix{ \text{Cone}\qty{G, F}  \ar[d]_{\phi_{G}} \ar[r]^{\Delta\ep \cdot_{-}} & \text{Cone}\qty{H, F} \ar[d]^{\phi_{H}}  \\   \sC^{\sA}\qty{G,\lim F}  \ar[r]_{\ep \cdot_{-}} &\sC^{\sA}\qty{H,\lim F} } $$ where $\Delta\ep$ is the natural transformation whose components are  $\ep$ for each $j \in J$. Take $\al \in \text{Cone}\qty{G, F} $, we get the natural transformations $\ep \cdot \phi_{G}\qty{\al}$ and $\phi_{H}\qty{\Delta\ep \cdot \al}$. To show that they are equal notice that $\phi_{H}\qty{\Delta\ep \cdot \al} = \{m_{a,Ha}\qty{\text{ev}_{a}\qty{\Delta\ep \cdot \al}} | a \in A \} = \{m_{a,Ha}\qty{\Delta\ep_{-,a} \cdot\text{ev}_{a} \al} | a \in A \} $. Every component of $\Delta\ep_{-,a}$ is simply the component of $\ep$ at $a$ so $\phi_{H}\qty{ \Delta\ep \cdot \al}  = \{   \ep_{a} \cdot m_{a,Ga}\qty{\text{ev}_{a} \al}| a \in A \} = \{   \ep_{a} \cdot \phi_{G}\qty{\al}_{a} | a \in A \} = \ep \cdot \phi_{G}\qty{\al}$. Thus $\phi$ is a natural transformation confirming that $\text{Cone}\qty{-, F} \cong \sC^{\sA}\qty{-,\lim F} $ and $\lim F$ is the limit of $F$. Since the objects of $\lim F$ are the limits of $\text{ev}_{a} F$ for all $a$,  thus the limits of $\text{ev}_{a} F$ define an action on objects of $\lim F$. The corresponding result for colimits follow from duality.
 \end{proof}
 
 \end{document}

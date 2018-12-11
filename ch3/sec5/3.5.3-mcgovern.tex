@@ -38,7 +38,7 @@ homomorphism, we have that this is equal to $(\sigma_{i_{vert}}(s'(e)))_{i\in
 I}$ which equals $\phi_{vert}s'(e)$. So we have the equality we desire, and by
 a similar method we have $t \phi_{edge} = \phi_{vert}t'$ and we have the graph
 homomoprhism we desire. So our defintion of the product is universal, and we
-have products in $\cat{DirGraph}$.  
+have products in $\cat{DirGraph}$.
 
 \textbf{Equalizers:} Suppose we have
 graphs $A$ and $B$ and parallel morphisms $f$ and $g$. We will show that the
@@ -62,7 +62,7 @@ We have products and equalizers and therefore we have all limits and $\cat{DirGr
 I} G_i$ as the disjoint union of the vertex sets and the edge set to be the
 disjoint union of the edge sets. Now $s((e,i) = s_i(e)$ and $t((e,i) = t_i(e)$.
 Note that we have inclusion maps $\iota_i$ and so this is a cone under our
-diagram, now we show that this cone is universal. 
+diagram, now we show that this cone is universal.
 
 Suppose we have a graph $H = (F,W,s',t')$ with morphisms $\sigma_i$ from each
 $G_i$ to $H$. Since for each $G_i$, $\iota_i(a) = (a,i)$, and if we want to
@@ -71,26 +71,24 @@ we must have that $k_{vert}((a,i)) = \sigma_{i_{vert}}(a)$ for all vertices $a
 \in G_i$ and that $k_{edge}((e, i)) = \sigma_{i_{edge}}(e)$. We now see that
 this is indeed a graph homomorphism. To do this, we must show that $s'k_{vert}
 = k_{edge}s$. Consider an edge $(e,i)$ in the coproduct. $k_{vert} s ((e,i)) =
-k_{vert}(s_i(e)) = \sigma_i_{vert}(s_i(e))$. Also, $s'k_{edge}((e,i)) =
-s'\sigma_i_{edge}(e)$. But by our defintion of graph homomorphism, we see that
-$\sigma_i_{vert}(s_i(e)) = s'\sigma_i_{edge}(e)$ because $\sigma_i$ is a graph
+k_{vert}(s_i(e)) = \sigma_{i_{vert}}(s_i(e))$. Also, $s'k_{edge}((e,i)) =
+s'\sigma_{i_{edge}}(e)$. But by our defintion of graph homomorphism, we see that
+$\sigma_{i_{vert}}(s_i(e)) = s'\sigma_{i_{edge}}(e)$ because $\sigma_i$ is a graph
 homormorphism, so we have that $s'k_{vert} = k_{edge}s$ and we can easily show
 $t'k_{vert} = k_{edge}t$ similarly. So $k$ is a graph homomorphism and
 therefore our definition of the coproduct is universal. Therefore
-$\cat{DirGraph}$ has coproducts. 
+$\cat{DirGraph}$ has coproducts.
 
 
 \textbf{Co-equalizers:} Now, consider two parallel morphisms $f,g\colon G
 \rightarrow H$. We construct a graph $coeq(f,g) = (coeq(f_{vert},g_{vert}),
 coeq(f_{edge},g_{edge}), s_{eq},t_{eq})$. We see what $s_{eq}$ is through the
 following diagram.
-\[
-\xymatrix{
-E \ar@<->[r]^{f_{edge}} \ar@<.5ex>[r]_{g_{edge}} & F \ar[r]^{s'} \ar[dr] & W \ar[r] & coeq(f_{vert}, g_{vert})
-\\
-&&coeq(f_{edge}, g_{edge}) \ar@{-->}[ur]^{s_{eq}}
-}
-\]
+% \[\xymatrix{
+% E \ar@<->[r]^{f_{edge}} \ar@<.5ex>[r]_{g_{edge}} & F \ar[r]^{s'} \ar[dr] & W \ar[r] & coeq(f_{vert}, g_{vert})
+% \\
+% &&coeq(f_{edge}, g_{edge}) \ar@{-->}[ur]^{s_{eq}}
+% }\]
 
 We must now show the existence of $s_{eq}$. First, we see that since $s'f_{edge}=f_{vert}s $ and $s'g_{edge}=g_{vert}s$, we have a morphism $k$ where $kf_{edge} = kg_{edge}$, namely $qs'$, where $q$ is the map from $W \rightarrow coeq(f_{vert}, g_{vert})$. So this morphism factors uniquely though $coeq(f_{edge}, g_{edge})$ and $s_{eq}$ is the unique morphism from $coeq(f_{edge}, g_{edge})$ to $coeq(f_{vert}, g_{vert})$ that allow for this factorization. A similar process gives us a formula for $t_{eq}$.
 

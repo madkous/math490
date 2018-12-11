@@ -1,29 +1,42 @@
 \documentclass[main.tex]{subfiles}
 
 \begin{document}
-	
-	\paragraph{} 
+
+\paragraph{}
 \begin{exercise}
-	Let $ G $ be regarded as a 1-object category $ \mathsf{B}G $. Describe the colimit of a diagram $ \mathsf{B}G \to \mathsf{Set} $ in group-theoretic terms, as was done for the limit in Example 3.2.12.
+	Let $ G $ be regarded as a 1-object category $ \mathsf{B}G $. Describe the
+	colimit of a diagram $ \mathsf{B}G \to \mathsf{Set} $ in group-theoretic
+	terms, as was done for the limit in Example 3.2.12.
 \end{exercise}
-	\paragraph{Proof.} 
-	
-	For a diagram $ D: \mathsf{B}G \to \mathsf{Set} $, note that 
-	\[\mathrm{colim}\ D = {\large {\nicefrac{ \underset{k \in \mathsf{B}G}{\coprod} Dk}{\sim}}} \]
-	where $ \sim $ is the smallest equivalence relation on the coproduct such that for every $ g: i \to j \in \mathsf{B}G $ and $ n \in Di $, $ \iota_{Dj} Dg(n) \sim \iota_{Di} n $. So, for example, the following diagram illustrates a part of the diagram $ D $:
-	
-	\begin{center}	\begin{tikzcd}
-		Di \arrow[rr, "g"] \arrow[rd, "\iota_{Di}"] &  & Dj \arrow[ld, "\iota_{Dj}"'] \\
-		& \underset{k \in \mathsf{B}G}{\coprod} Dk & 
-	\end{tikzcd} \end{center}
+\paragraph{Proof.}
 
-	But in this case, the only object in our diagram is a set $ X $, and the morphisms in our diagram are simply the left actions of elements of $ G $ applied to a set $ X. $ The following specializes the above diagram to this specific case: 
+For a diagram $ D: \mathsf{B}G \to \mathsf{Set} $, note that
+\[\mathrm{colim}\ D = {\frac{ \underset{k \in \mathsf{B}G}{\coprod} Dk}{\sim}} \]
+where $ \sim $ is the smallest equivalence relation on the coproduct such that
+for every $ g: i \to j \in \mathsf{B}G $ and $ n \in Di $, $ \iota_{Dj} Dg(n)
+\sim \iota_{Di} n $. So, for example, the following diagram illustrates a part
+of the diagram $ D $:
+\[\begin{tikzcd}
+		Di \arrow[rr, "g"] \arrow[rd, "\iota_{Di}"] &  & Dj \arrow[ld, "\iota_{Dj}"'] \\ &
+		\underset{k \in \mathsf{B}G}{\coprod} Dk &
+\end{tikzcd}\]
 
-	\begin{center}\begin{tikzcd}
-		X \arrow[rr, "g"] \arrow[rd, "\iota_{X}"] &  & X \arrow[ld, "\iota_{X}"'] \\
-		& X & 
-	\end{tikzcd}\end{center}
+But in this case, the only object in our diagram is a set $ X $, and the
+morphisms in our diagram are simply the left actions of elements of $ G $
+applied to a set $ X. $ The following specializes the above diagram to this
+specific case:
 
-	Of course, the inclusion map $ \iota_X: X \to X $ is simply the identity, so we need to have that $ g(x) \sim x $ in colim $ D $. This means each equivalence class must consist of an element $ x \in X $, along with $ g(x) $ for every $ g \in G $. In other words, $ [x] = \{x, g(x) | g \in G\}, $ also known as the orbit of $ x $. So the set of all equivalence classes (that is, the colimit we are looking for) is simply the orbit space (that is, the set of all orbits) of the action of $ G $ on $ X $.
-		
+\[\begin{tikzcd}
+	X \arrow[rr, "g"] \arrow[rd, "\iota_{X}"] &  &
+	X \arrow[ld, "\iota_{X}"'] \\ & X &
+\end{tikzcd}\]
+
+Of course, the inclusion map $ \iota_X: X \to X $ is simply the identity, so we
+need to have that $ g(x) \sim x $ in colim $ D $. This means each equivalence
+class must consist of an element $ x \in X $, along with $ g(x) $ for every $ g
+\in G $. In other words, $ [x] = \{x, g(x) | g \in G\}, $ also known as the
+orbit of $ x $. So the set of all equivalence classes (that is, the colimit we
+are looking for) is simply the orbit space (that is, the set of all orbits) of
+the action of $ G $ on $ X $.
+
 \end{document}
