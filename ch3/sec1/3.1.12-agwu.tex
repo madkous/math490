@@ -1,115 +1,100 @@
-\documentclass{article}
-\usepackage{math490}
-\title{Solution to Problem 3.1.xii}
-\author{Anthony Agwu}
+\documentclass[main.tex]{subfiles}
 \begin{document}
-	\maketitle
-	
-		\setexercise{3}{1}{12}
-	
-	\begin{exercise}
-		Suppose $\func{E}{\mathsf{I}}{\sJ}$ defines an equivalence between 
-		small categories and consider a diagram $\func{F}{\mathsf{J}}{\sC}$. 
-		Show that the category of $\sJ$-shaped cones equivalent to the category 
-		of $\mathsf{I}$-shaped cones over $FE$, and use this equivalence to 
-		describe the relationship between limits of $F$ and limits of $FE$.
-	
-		
-	\end{exercise}
-	
-	
-	\begin{proof}
-		
-	We will denote the category of cones over some diagram $\func{G}{\sJ}{\sC}$ 
+
+\begin{exercise}
+	Suppose $\func{E}{\mathsf{I}}{\sJ}$ defines an equivalence between
+	small categories and consider a diagram $\func{F}{\mathsf{J}}{\sC}$.
+	Show that the category of $\sJ$-shaped cones equivalent to the category
+	of $\mathsf{I}$-shaped cones over $FE$, and use this equivalence to
+	describe the relationship between limits of $F$ and limits of $FE$.
+\end{exercise}
+
+\begin{proof}
+	We will denote the category of cones over some diagram $\func{G}{\sJ}{\sC}$
 	as $\mathsf{Cone_{G}}$  Recall the following facts for $\mathsf{Cone_{G}}$ :
-	
 	\begin{enumerate}
-		\item Objects of $\mathsf{Cone_{G}}$ are natural transformations 
-		$\Func{\al}{c_{\sJ} }{G}$ where $c_{\sJ}$ is the constant functor 
-		mapping every object in $J$ to $c$ and every morphism to $1_{c}$.
-		
-		\item A morphism $\func{f}{\al}{\be}$ between cones $\Func{\al}{c_{\sJ} 
-		}{G}$ and $\Func{\be}{d_{\sJ} }{G}$ is the natural transformation 
-	$\Func{ f_{\sJ} }{d_{\sJ}}{c_{\sJ}}$ where every component of $f_{\sJ}$ is 
-	$f$ and $\al \cdot f_{\sJ} = \be$.
-	
-	\item The identity morphism of $\al$ is simply $1_{c_J}$ where $c_{J}$ is 
-	the domain of $\al$.
-	\item Composition of morphisms is composition of natural transformations.	
+		\item Objects of $\mathsf{Cone_{G}}$ are natural transformations
+			$\Func{\al}{c_{\sJ} }{G}$ where $c_{\sJ}$ is the constant functor
+			mapping every object in $J$ to $c$ and every morphism to $1_{c}$.
+
+		\item A morphism $\func{f}{\al}{\be}$ between cones $\Func{\al}{c_{\sJ}
+			}{G}$ and $\Func{\be}{d_{\sJ} }{G}$ is the natural transformation
+			$\Func{ f_{\sJ} }{d_{\sJ}}{c_{\sJ}}$ where every component of $f_{\sJ}$ is
+			$f$ and $\al \cdot f_{\sJ} = \be$.
+
+		\item The identity morphism of $\al$ is simply $1_{c_J}$ where $c_{J}$ is
+			the domain of $\al$.
+		\item Composition of morphisms is composition of natural transformations.
 	\end{enumerate}
-		
-		Now we will define the functor 
-		$\func{RW_{E}}{\mathsf{Cone_{F}}}{\mathsf{Cone_{FE}}}$ as follows:
-		
-			
-		\begin{enumerate}
-			
-			\item $RW_{E}$ maps cone $\al$ to $\al E$ where for $i \in 
-			\ob\mathsf{I} $ the corresponding component is 
-			$\func{\al_{Ei}}{c}{FEi}$, in other words, $\al E$ is a restriction 
+
+	Now we will define the functor
+	$\func{RW_{E}}{\mathsf{Cone_{F}}}{\mathsf{Cone_{FE}}}$ as follows:
+	\begin{enumerate}
+		\item $RW_{E}$ maps cone $\al$ to $\al E$ where for $i \in
+			\ob\mathsf{I} $ the corresponding component is
+			$\func{\al_{Ei}}{c}{FEi}$, in other words, $\al E$ is a restriction
 			of $\al$ to the image of the functor $E$.
-			\item $RW_{E}$ maps morphism $f_{J}$ to $f_{I}$.
-			
-			\item $RW_{E}$ performs a right whiskering of $E$ onto natural 
+		\item $RW_{E}$ maps morphism $f_{J}$ to $f_{I}$.
+
+		\item $RW_{E}$ performs a right whiskering of $E$ onto natural
 			transformations.
-			
-		\end{enumerate}
-	    
-	   $RW_{E}$ is clearly a functor since the composition $g_{J} \cdot f_{J}$ 
-	   gets
-	   mapped to $g_{I} \cdot f_{I}$ and $1_{c_{J}}$ gets mapped onto 
-	   $1_{c_{I}}$. Now we will show that $RW_{E}$ is an equivalence. First we 
-	   will show essential surjectivity. Suppose $\gm$ is an object in 
-	   $\mathsf{Cone}_{FE}$, we will construct a  natural transformation 
-	   $\gm^{F}$ such that $ \gm^{F}_{j} = F\phi_{j} \cdot \gm_{i}$ where $i$ 
-	   is an object in $\mathsf{I}$ such that $Ei \cong j$. and 
-	   $\func{\phi_{j}}{Ei}{j}$ is an isomorphism. When $Ei = j$, we will let 
-	   $\phi_{j} = 1_{j}$. Our construction is well-defined since $E$ is 
-	   essentially surjective. To show that $\gm^{F}$ is a natural 
-	   transformation, take a morphism $\func{a}{j}{j'}$ in $\sJ$. We can show 
-	   that $a = \phi_{j'}b\inv\phi_{j}$ for a unique $b$ in $\sJ\qty{Ei,Ei'},$ 
-	   where $Ei \cong j$ and $Ei' \cong j'.$ We can form a bijection from 	 
-	   $\sJ\qty{Ei,Ei'}$ to $\sJ\qty{j,j'}$ by pre-composing $\inv\phi_{j}$ and 
-	   post-composing $\phi_{j'}$. Furthermore since $E$ is full and faithful, 
-	   there exist a 
-	   unique $c \in \mathsf{I}\qty{i,i'}$ such that $b = Ec$. We can 
-	   claim that $a = \phi_{j'}Ec\inv\phi_{j}$ for a unique $c \in 
-	   \mathsf{I}\qty{i,i'}$. Now we must show that $Fa \cdot \gm^{F}_{j} = 
-	   \gm_{j'}^{F}$, but this is equivalent to $FEc \cdot \gm_{i} = \gm_{i'}$ 
-	   which follows from naturality of $\gm$. Thus $\gm^{F}$ is natural and is 
-	   a cone over $F$. Applying $RW_{E}$ to $\gm^{F}$ gives us $\gm$ since 
-	   each $\phi_{Ei}$ for $i \in \ob\mathsf{I}$ is the identity. Thus 
-	   $RW_{E}$ is essentially surjective. 
-	   
-	   
-	   To show full and faithful take cones $\al$ and $\be$ and suppose $f_{J}$ 
-	   and $g_{J}$ are morphisms from $\al$ to $\be$ such that $RW_{E}f_{J} = 
-	   RW_{E}g_{J}$. Then $f_{I} = g_{I}$ which means that $f = g$. Thus $f_{J} 
-	   = g_{J}$. Now take a morphism $h_{I}$ from $\al E$ to $\be E$, we must 
-	   show that $h_{J}$ is a morphism from $\al$ to $\be$. Since we already 
-	   have that $\al_{Ei} \cdot h = \be_{Ei}$ for all $i \in \ob\mathsf{I}$, 
-	   by naturality, for each $\func{k}{Ei}{j}$ in $\sJ$, we have that $Fk 
-	   \cdot \al_{Ei} = \al_{j}$ and $Fk \cdot \be_{Ei} = \be_{j}$. Since, $E$ 
-	   is essentially surjective, for any $j \in \ob\sJ$, we have an 
-	   isomorphism $\func{\phi_{j}}{Ei}{j}$ for some $i$ allowing the equality 
-	   $F\phi_{j} \cdot \al_{Ei} \cdot h = F\phi_{j} \cdot \be_{Ei}$ which 
-	   gives us $\al_{j} \cdot h= \be_{j}$ for all $j$. Thus $h_{J}$ is a 
-	   morphism from $\al$ to $\be$.
-	   
-	   Thus $RW_{E}$ is full, faithful, and essentially surjective. Therefore, 
-	   $\mathsf{Cone}_{F}$ is equivalent to  $\mathsf{Cone}_{FE}$. 
-	   
-	   Suppose $F$ had a limit cone $\om_{F}$, then by the universal property 
-	   of limits, $\om_{F}$ is terminal in $\mathsf{Cone}_{FE}$. Since $RW_{E}$ 
-	   is full, faithful, and essentially surjective then for all cones $\be$ 
-	   over $FE$, there exist a cone $\al$ of $F$ such that 
-	   $\mathsf{Cone}_{F}\qty{\al,\om_{F}} \cong \mathsf{Cone}_{FE}\qty{\al E, 
-	   	\om_{F} E}  \cong \mathsf{Cone}_{FE}\qty{\be,\om_{F}E}$. Then 
-   	$\om_{F}E$ is the terminal object of $\mathsf{Cone}_{FE}$. Thus $\om_{F}E$ 
-   	is the limit cone of $FE$. The components of $\om_{F}$ and $\om_{F}E$ have 
-   	the same domain since $\om_{F}E$ is a restriction of the components of 
-   	$\om_{F}$. Therefore $F$ and $FE$ have the same limit.
-	  	
-	\end{proof}
+	\end{enumerate}
+
+	$RW_{E}$ is clearly a functor since the composition $g_{J} \cdot f_{J}$
+	gets
+	mapped to $g_{I} \cdot f_{I}$ and $1_{c_{J}}$ gets mapped onto
+	$1_{c_{I}}$. Now we will show that $RW_{E}$ is an equivalence. First we
+	will show essential surjectivity. Suppose $\gm$ is an object in
+	$\mathsf{Cone}_{FE}$, we will construct a  natural transformation
+	$\gm^{F}$ such that $ \gm^{F}_{j} = F\phi_{j} \cdot \gm_{i}$ where $i$
+	is an object in $\mathsf{I}$ such that $Ei \cong j$. and
+	$\func{\phi_{j}}{Ei}{j}$ is an isomorphism. When $Ei = j$, we will let
+	$\phi_{j} = 1_{j}$. Our construction is well-defined since $E$ is
+	essentially surjective. To show that $\gm^{F}$ is a natural
+	transformation, take a morphism $\func{a}{j}{j'}$ in $\sJ$. We can show
+	that $a = \phi_{j'}b\inv\phi_{j}$ for a unique $b$ in $\sJ\qty{Ei,Ei'},$
+	where $Ei \cong j$ and $Ei' \cong j'.$ We can form a bijection from
+	$\sJ\qty{Ei,Ei'}$ to $\sJ\qty{j,j'}$ by pre-composing $\inv\phi_{j}$ and
+	post-composing $\phi_{j'}$. Furthermore since $E$ is full and faithful,
+	there exist a
+	unique $c \in \mathsf{I}\qty{i,i'}$ such that $b = Ec$. We can
+	claim that $a = \phi_{j'}Ec\inv\phi_{j}$ for a unique $c \in
+	\mathsf{I}\qty{i,i'}$. Now we must show that $Fa \cdot \gm^{F}_{j} =
+	\gm_{j'}^{F}$, but this is equivalent to $FEc \cdot \gm_{i} = \gm_{i'}$
+	which follows from naturality of $\gm$. Thus $\gm^{F}$ is natural and is
+	a cone over $F$. Applying $RW_{E}$ to $\gm^{F}$ gives us $\gm$ since
+	each $\phi_{Ei}$ for $i \in \ob\mathsf{I}$ is the identity. Thus
+	$RW_{E}$ is essentially surjective.
+
+
+	To show full and faithful take cones $\al$ and $\be$ and suppose $f_{J}$
+	and $g_{J}$ are morphisms from $\al$ to $\be$ such that $RW_{E}f_{J} =
+	RW_{E}g_{J}$. Then $f_{I} = g_{I}$ which means that $f = g$. Thus $f_{J}
+	= g_{J}$. Now take a morphism $h_{I}$ from $\al E$ to $\be E$, we must
+	show that $h_{J}$ is a morphism from $\al$ to $\be$. Since we already
+	have that $\al_{Ei} \cdot h = \be_{Ei}$ for all $i \in \ob\mathsf{I}$,
+	by naturality, for each $\func{k}{Ei}{j}$ in $\sJ$, we have that $Fk
+	\cdot \al_{Ei} = \al_{j}$ and $Fk \cdot \be_{Ei} = \be_{j}$. Since, $E$
+	is essentially surjective, for any $j \in \ob\sJ$, we have an
+	isomorphism $\func{\phi_{j}}{Ei}{j}$ for some $i$ allowing the equality
+	$F\phi_{j} \cdot \al_{Ei} \cdot h = F\phi_{j} \cdot \be_{Ei}$ which
+	gives us $\al_{j} \cdot h= \be_{j}$ for all $j$. Thus $h_{J}$ is a
+	morphism from $\al$ to $\be$.
+
+	Thus $RW_{E}$ is full, faithful, and essentially surjective. Therefore,
+	$\mathsf{Cone}_{F}$ is equivalent to  $\mathsf{Cone}_{FE}$.
+
+	Suppose $F$ had a limit cone $\om_{F}$, then by the universal property
+	of limits, $\om_{F}$ is terminal in $\mathsf{Cone}_{FE}$. Since $RW_{E}$
+	is full, faithful, and essentially surjective then for all cones $\be$
+	over $FE$, there exist a cone $\al$ of $F$ such that
+	$\mathsf{Cone}_{F}\qty{\al,\om_{F}} \cong \mathsf{Cone}_{FE}\qty{\al E,
+	\om_{F} E}  \cong \mathsf{Cone}_{FE}\qty{\be,\om_{F}E}$. Then
+	$\om_{F}E$ is the terminal object of $\mathsf{Cone}_{FE}$. Thus $\om_{F}E$
+	is the limit cone of $FE$. The components of $\om_{F}$ and $\om_{F}E$ have
+	the same domain since $\om_{F}E$ is a restriction of the components of
+	$\om_{F}$. Therefore $F$ and $FE$ have the same limit.
+
+\end{proof}
 
 \end{document}

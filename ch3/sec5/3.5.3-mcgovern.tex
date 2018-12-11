@@ -1,7 +1,6 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
 
-
 \paragraph{}
 \begin{exercise}
 Prove that the category \cat{DirGraph} of directed graphs is complete and
@@ -84,11 +83,11 @@ $\cat{DirGraph}$ has coproducts.
 \rightarrow H$. We construct a graph $coeq(f,g) = (coeq(f_{vert},g_{vert}),
 coeq(f_{edge},g_{edge}), s_{eq},t_{eq})$. We see what $s_{eq}$ is through the
 following diagram.
-% \[\xymatrix{
-% E \ar@<->[r]^{f_{edge}} \ar@<.5ex>[r]_{g_{edge}} & F \ar[r]^{s'} \ar[dr] & W \ar[r] & coeq(f_{vert}, g_{vert})
-% \\
-% &&coeq(f_{edge}, g_{edge}) \ar@{-->}[ur]^{s_{eq}}
-% }\]
+\[\xymatrix{
+E \ar[r]^{f_{edge}} \ar@<.5ex>[r]_{g_{edge}} & F \ar[r]^{s'} \ar[dr] &
+W \ar[r] & coeq(f_{vert}, g_{vert}) \\
+&&coeq(f_{edge}, g_{edge}) \ar@{-->}[ur]^{s_{eq}}
+}\]
 
 We must now show the existence of $s_{eq}$. First, we see that since $s'f_{edge}=f_{vert}s $ and $s'g_{edge}=g_{vert}s$, we have a morphism $k$ where $kf_{edge} = kg_{edge}$, namely $qs'$, where $q$ is the map from $W \rightarrow coeq(f_{vert}, g_{vert})$. So this morphism factors uniquely though $coeq(f_{edge}, g_{edge})$ and $s_{eq}$ is the unique morphism from $coeq(f_{edge}, g_{edge})$ to $coeq(f_{vert}, g_{vert})$ that allow for this factorization. A similar process gives us a formula for $t_{eq}$.
 
