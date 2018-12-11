@@ -1,0 +1,60 @@
+\documentclass[main.tex]{subfiles}
+
+\newcommand{\pullbackcorner}[1][dr]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+
+\begin{document}
+
+\paragraph{}
+\settheorem{3}{1}{10}
+\begin{example}
+	The product of a pair of spaces $X$ and $Y$ is a space $X\times Y$ equipped with continuous projection functions
+	$$
+	\xymatrix{
+		X & X\times Y\ar[l]_{\pi_X}\ar[r]^{\pi_Y} & Y
+	}
+	$$
+	satisfying the universal property: for any other space $A$ with continuous maps $\func{f}{A}{X}$ and $\func{g}{A}{Y}$, there is a unique continuous function $\func{h}{A}{X\times Y}$ so that the following diagram commutes:
+	$$
+	\xymatrix{
+		&A\ar[dl]_f\ar@{-->}[d]|{\exists \ \ !h}\ar[dr]^g \\
+		X & X\times Y\ar[l]^{\pi_X}\ar[r]_{\pi_Y} & Y
+	}
+	$$
+\end{example}
+\settheorem{3}{4}{16}
+\begin{lemma}
+	In any category with a terminal object $1$, the pullback diagram
+	$$
+	\xymatrix{
+		A\times B\ar[r]^{\pi_B}\ar[d]_{\pi_A} \pullbackcorner & B\ar[d]^{!} \\
+		A\ar[r]_{!} & 1
+	}
+	$$
+	defines the product of $A\times B$ of $A$ and $B$.
+\end{lemma}
+\setexercise{3}{4}{4}
+\begin{exercise}
+	Prove Lemma 3.4.16.
+\end{exercise}
+\begin{proof}
+	As is suggested in the text below the lemma, ``It is straightforward to use the universal property of the displayed pullback to verify that the diagram $\xymatrix{A&A\times B\ar[l]_{\pi_A}\ar[r]^{\pi_B}&B}$ has the universal property that defines a product.'' We will argue in this manner.
+	
+	Consider an object $D$ having continuous morphisms to $A$ and $B$:
+	$$
+	\xymatrix{
+		D \ar@{-->}[dr]^{h}\ar@/_1pc/[ddr]_{f}\ar@/^1pc/[drr]^{g} & & \\
+		& A\times B\ar[r]^{\pi_B}\ar[d]_{\pi_A} \pullbackcorner & B\ar[d]^{!_b} \\
+		& A\ar[r]_{!_a} & 1
+	}
+	$$
+	If this diagram commutes, then $h$ exists and is unique. To see that it commutes, examine the following diagram, where $\func{k}{D}{1}$ is the unique morphism from $D$ to $1$ (since $1$ is a final object).
+	$$
+	\xymatrix{
+		&D\ar[dl]_f\ar[dr]^g\ar[d]^k & \\
+		A\ar[r]_{!_a} & 1 & B\ar[l]^{!_b}
+	}
+	$$
+	We know that this must commute, since $k$ is unique. So we have that $!_af = k = !_bg$. Since we have that $!_af = !_bg$, the pullback above commutes, and $h$ exists and is unique. Then, forgetting about the $!$ morphisms, we have precisely the definition of the product from Example 3.1.10.
+\end{proof}
+
+\end{document}

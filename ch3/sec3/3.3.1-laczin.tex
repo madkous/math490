@@ -1,0 +1,61 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	For any diagram $\func{K}{\cat{J}}{\cat{C}}$ and any functor $\func{F}{\cat{C}}{\cat{D}}$:
+	\begin{enumerate}[(i)]
+		\item Define a canonical map $\text{colim}FK\rightarrow F\text{colim}K$, assuming both colimits exist.
+		\item Show that the functor $F$ preserves the colimit of $K$ just when this map is an isomorphism.
+	\end{enumerate}
+\end{exercise}
+\begin{proof}[i]
+	Let $\Func{\alpha}{FK}{\colim FK}$ be the colimit cone under $FK$. We also have following diagram for $K$ and $F$:
+	$$
+	\xymatrix{
+		\cat{J}\ar@/^1pc/[r]^{K}="a"\ar@/_1pc/[r]_{\text{colim}K}="c" & \cat{C}\ar[r]^F & \cat{D} \\
+		\ar@{=>}"a"+<-0.5ex,-3ex>;"c"+<-0.5ex,3ex>^{\ \mu}
+	} = 
+	\xymatrix{
+		\cat{J}\ar@/^1pc/[r]^{FK}="a"\ar@/_1pc/[r]_{F\text{colim}K}="b" & \cat{D} \\
+		\ar@{=>}"a"+<-1ex,-3ex>;"b"+<-1ex,3ex>^{\ F\mu}
+		& \\
+	}
+	$$
+	This diagram gives us another cone $F\mu$ under $FK$. Then, the universal property tells us that since $F\mu$ is a cone with nadir $F\colim K$, there must be a unique morphism $\func{f}{\colim FK}{F\colim K}$ such that $F\mu = f \alpha$.
+\end{proof}
+\begin{proof}[ii]
+	To see that $F$ preserving colimits implies $f$ is an isormorphism,
+	note that for any cone $\Func{\beta}{FK}{z}$, there is a unique
+	morphism $\func{k}{F\colim K}{z}$ such that $\beta = kF\mu$ and that we
+	also have a unique $\func{j}{\colim FK}{z}$ such that $\beta =
+	j\alpha$. Since $F\mu$ is a cone $FK\Rightarrow F\colim K$, then
+	$k=1_{F\colim K}$ satisfies $F\mu = kF\mu$ and is the only such $k$.
+	Similarly, $j=1_{\colim FK}$ is the only morphism such that $\alpha =
+	j\alpha$. Then, if $\beta=\alpha$ (that is, it is the colimit cone
+	under $FK$), then there must be some morphism $\func{m}{F\colim
+	K}{\colim FK}$ where $\alpha = mF\mu$. Similarly, $\beta=F\mu$ implies
+	that there is some morphism $\func{n}{\colim FK}{F\colim K}$ where
+	$F\mu = n\alpha$. So, $F\mu = nmF\mu$ and $mn\alpha = \alpha$. Since we
+	already know which morphisms these are ($j$ and $k$), we have $mn = j =
+	1_{\colim FK}$ and $nm = k = 1_{F\colim K}$ and so $m$ and $n$ are
+	inverses of each other. Thus, $f$ is an isomorphism (with $f=n$ and
+	$f^{-1}=m$).
+	
+	Conversely, we need to show that $F\colim K$ satisfies the universal
+	property if $f^{-1}$ exists. That is, for any cone
+	$\Func{\beta}{FK}{a}$, there exists a unique morphism $\func{m}{F\colim
+	K}{a}$, so the following diagram gives us a construction for a morphism
+	$F\colim K\rightarrow a$:
+	$$
+	\xymatrix{
+		FK\ar@{=>}[r]^\beta\ar@{=>}[dr]_{F\mu} & a \\
+		& \colim FK\ar[u]^m\ar@/^.5pc/[r]^f & F\colim
+		K\ar@/^.5pc/[l]^{f^{-1}}\ar@/_1pc/[ul]_{m\circ f^{-1}}
+	}
+	$$
+	The universal morphism is $m\circ f^{-1}$, which is unique since $m$ and $f^{-1}$ are both unique, and so $F$ preserves colimits.
+\end{proof}
+
+\end{document}

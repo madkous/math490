@@ -1,0 +1,38 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\begin{theorem}[Yoneda Lemma]
+For any functor $F\colon\sC\rightarrow\Set$, whose domain $\sC$ is locally small and any object $c\in\sC$, there is a bijection
+\[\Hom(\sC(c,-),F)\cong Fc\]
+that associates a natural transformation $\alpha\colon\sC(c,-)\Rightarrow F$ to the element $\alpha_c(1_c)\in Fc$. Moreover, this correspondence is natural in both $c$ and $F$.
+\end{theorem}
+\popthm
+
+In the theorem above, $\Hom(\sC(c,-),F)$ is the collection of natural transformations from $\sC(c,-)$ to $F$ -- a set if $\sC$ is small, and a set in a larger universe if $\sC$ is large.
+
+\setexercise{2}{2}{1}
+\begin{exercise}
+State and prove the dual to Theorem 2.2.4, characterizing natural transformations $\sC(-,c)\Rightarrow F$ for a contravariant functor $F\colon\sC^\op\rightarrow\Set$.
+\end{exercise}
+
+Here is the dual statement:
+\begin{quote}
+For any contravariant functor $F\colon\sC^\op\rightarrow\Set$, whose domain $\sC$ is locally small and any object $c\in\sC$, there is a bijection
+\[\Hom(\sC(-,c),F)\cong Fc\]
+that associates a natural transformation $\alpha\colon\sC(-,c)\Rightarrow F$ to the element $\alpha_c(1_c)\in Fc$. Moreover, this correspondence is natural in both $c$ and $F$.
+\end{quote}
+
+\begin{proof}
+To prove this, first note that if $\sC$ is locally small, then so is $\sC^\op$ since then $\sC^\op(x,y)=\sC(y,x)$ is a set for all $x,y\in\ob\sC$. So, we may apply Theorem 2.2.4 to $F\colon\sC^\op\rightarrow\Set$. This gives us a natural bijection 
+\[\Hom(\sC^\op(c,-),F)\cong Fc\]
+via the same formula. All that is left to note is that $\sC^\op(c,-)=\sC(-,c)$, proving the statement above.
+\end{proof}
+
+Actually, this corresponds to the version of the Yoneda Lemma that we proved in class. We showed in class that if $\sC$ is a locally small $U$-category for some universe $U$ and $V$ is a universe such that $U=V$ if $\sC$ is small and $U\in V$ if $\sC$ is large, then the functors
+\[\sC^\op\times U\mbox{-}\Set^{\sC^\op}\rightarrow V\mbox{-}\Set\]
+taking an object $(c,F)$ to $\Hom(\sC(-,c),F)$ in one case or to $Fc$ in the other are isomorphic functors. Arguing as above, we could replace $\sC$ by $\sC^\op$ and use that $(\sC^\op)^\op=\sC$ and that $\sC^\op(-,c)=\sC(c,-)$ to obtain that the functors
+\[\sC\times U\mbox{-}\Set^\sC\rightarrow V\mbox{-}\Set\]
+taking an object $(c,F)$ to $\Hom(\sC(c,-),F)$ and to $Fc$ respectively are isomorphic. This corresponds to the statement in Theorem 2.2.4.
+
+\end{document}

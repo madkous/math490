@@ -1,0 +1,125 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	A \textbf{small category} can be redefined to be a particular diagram in
+	\Set. The data is given by a pair of suggestively-named sets with functions
+	\[\begin{tikzcd}[cramped]
+			\mor\sC \ar[r, shift left=2, "\dom"]
+			\ar[r,shift right=2, "\cod" below] &
+			\ob\sC \ar[l, "\ID" description, inner sep=0.1ex]
+	\end{tikzcd}\]
+	together with a ``composition function'' yet to be defined. Use a pullback
+	to define the set of composable pairs of morphisms, which serves as the
+	domain for the composition function, and formulate the axioms for a category
+	using commutative diagrams in \Set. When \Set is replace by a category
+	\(\sE\) with pullbacks, this defines a \textbf{category internal to
+	\(\sE\)}.
+\end{exercise}
+
+\subparagraph{}
+For the sake of concision we introduce the aliases: \(\cO=\ob\sC\) and
+\(\cM=\mor\sC\).
+Pullbacks in \Set are realized by subsets of the Cartesian product on which
+two functions agree. In this case we have
+\[\begin{tikzcd}
+		\cM\by_\cO\cM \ar[d, "\pi_1" left] \ar[r, "\pi_2"]
+		\ar[d, phantom, shift left=4, "\lrcorner", very near start] &
+		\cM \ar[d, "\dom"] \\
+		\cM \ar[r, "\cod"] &
+		\cO
+\end{tikzcd}\]
+where \[\cM\by_\cO\cM=\set{(f,g)\in\mor\sC^2|\cod(f)=\dom(g)},\] and
+\(\pi_1\) and \(\pi_2\) are the expected projection maps out of
+\(\cM\by_\cO\cM\). This set contains precisely the ordered pairs \((f,g)\) for
+which the composition \(gf\) is defined. Composition is thus rendered as a
+function \(\func{\mu}{\cM\by_\cO\cM}{\cM}\). We can then describe the axioms
+of a category as commutative diagrams involving \(\mu\), cod, dom, id, and
+products thereof.
+
+First, given composable morphisms \(f\) and \(g\) as above, we have
+\(\dom(f)=\dom(gf)\) and \(\cod(g)=\cod(gf)\). In other words \({\dom\pi_1=\dom\mu}\) and
+\({\cod\pi_2=\cod\mu}\).
+\[\begin{tikzcd}
+		\cM\by_\cO\cM \ar[r, shift left, "\pi_1"]
+		\ar[r, shift right, "\mu" below] &
+		\cM \ar[r, "\dom"]  &
+		\cO
+	\end{tikzcd}
+	\qtextq{and}
+	\begin{tikzcd}
+		\cM\by_\cO\cM \ar[r, shift left, "\pi_2"]
+		\ar[r, shift right, "\mu" below] &
+		\cM \ar[r, "\cod"] &
+		\cO
+\end{tikzcd}\]
+
+Similarly, given an object \(c\), the identity \(\id_c\) must satisfy
+\(\dom(\id_c)=c=\cod(\id_c)\), i.e. \(\dom\ID=\id_\cO=\cod\ID\).
+\[\begin{tikzcd}
+		\cO \ar[dr, "\ID"] \ar[rr, "\id_\cO"] && \cO \\ &
+		\cM \ar[ur, shift right, "\cod" below] \ar[ur, shift left, "\dom"]
+\end{tikzcd}\]
+
+To state the next two axioms we require more sophisticated pullbacks. First,
+we need ternary pullbacks. Let
+\[\cM\by_\cO\cM\by_\cO\cM=\set{(f,g,h)|\cod(f)=\dom(g)\AND\cod(g)=\dom(h)},\]
+i.e. sets of composable triples, with projections \(\pi_1\), \(\pi_2\), and
+\(\pi_3\) into \(\cM\). It is easily seen that this is the pullback in two
+different diagrams.
+\[\begin{tikzcd}
+		\cM\by_\cO\cM\by_\cO\cM \ar[d, "\pi_1\by\pi_2" left] \ar[r, "\pi_3"]
+		\ar[d, phantom, shift left=4, "\lrcorner", very near start] &
+		\cM \ar[d, "\dom"] \\
+		\cM\by_\cO\cM \ar[r, "\cod\pi_2"] &
+		\cO
+	\end{tikzcd}\qtextq{and}
+	\begin{tikzcd}
+		\cM\by_\cO\cM\by_\cO\cM \ar[d, "\pi_1" left] \ar[r, "\pi_2\by\pi_3"]
+		\ar[d, phantom, shift left=4, "\lrcorner", very near start] &
+		\cM\by_\cO\cM \ar[d, "\dom\pi_1"] \\
+		\cM \ar[r, "\cod"] &
+		\cO
+\end{tikzcd}\]
+Because of our restriction the composite projections \(\pi_1\by\pi_2\) and
+\(\pi_2\by\pi_3\) give us valid composable pairs, so each is a legitimate map
+onto \(\cM\by_\cO\cM\).
+
+The condition of associativity states that \(h(gf)=(hg)f\) for any composable
+triple \((f,g,h)\), which we can now express diagrammatically.
+\[\begin{tikzcd}
+		\cM\by_\cO\cM\by_\cO\cM \ar[d, "\mu\by\pi_3" left]
+		\ar[r, "\pi_1\by\mu"] &
+		\cM\by_\cO\cM \ar[d, "\mu"] \\
+		\cM\by_\cO\cM \ar[r, "\mu"] &
+		\cM
+\end{tikzcd}\]
+
+Finally, given any morphism \(f\) we have \(\ID(\cod(f))f=f=f\ID(\dom(f))\).
+For this law we must consider the composable pairs containing identity
+morphisms. These can be isolated as the image of the following two pullbacks
+inside \(\cM\by_\cO\cM\).
+\[\begin{tikzcd}
+		\cM\by_\cO\cO \ar[d, "\pi_1" left] \ar[r, "\pi_2"]
+		\ar[d, phantom, shift left=4, "\lrcorner", very near start] &
+		\cO \ar[d, "\id_\cO"] \\
+		\cM \ar[r, "\cod"] &
+		\cO
+	\end{tikzcd}\qtextq{and}
+	\begin{tikzcd}
+		\cO\by_\cO\cM \ar[d, "\pi_1" left] \ar[r, "\pi_2"]
+		\ar[d, phantom, shift left=4, "\lrcorner", very near start] &
+		\cM \ar[d, "\dom"] \\
+		\cO \ar[r, "\id_\cO"] &
+		\cO
+\end{tikzcd}\]
+Equipped with these objects, we can express the identity law by the following
+commutative diagram.
+\[\begin{tikzcd}
+		\cM\by_\cO\cO \ar[r, "\pi_1\by\ID"] \ar[dr, "\pi_1" below] &
+		\cM\by_\cO\cM \ar[d, "\mu"] &
+		\cO\by_\cO\cM \ar[l, "\ID\by\pi_2" above] \ar[dl, "\pi_2"] \\ &
+		\cM
+\end{tikzcd}\]
+\end{document}

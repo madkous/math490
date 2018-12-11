@@ -1,0 +1,29 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+
+\paragraph{}
+\begin{exercise}
+	Prove that the colimit of any small functor $ \func{F}{\sC}{\Set} $ is
+	isomorphic to the set $ \pi_0(\int F) $ of connected components of the 
+	category of elements of $ F. $ What is the colimit cone?
+\end{exercise}
+	
+\begin{proof}
+Since $ F $ is a small functor by assumption, we can construct the colimit of
+$ F $ in the usual way. Define $ \func{\io_c}{Fc}{\coprod_{c\in 
+\ob\sC}Fc/\sim},$ where $\sim $ is the smallest equivalence relation 
+such that for all $\func{f}{c}{c'} $ in $ \sC $ and $ x\IN Fc,$ we have 
+$\io_c\sim\io_{c'}Ff(x).$  
+Recall that $\int F$ is defined a $(c,x),$ where $c$ is in $ \sC \AND 
+x$ is in $ Fc, $ and morphisms are $ \func{f}{c}{c'} \IN \sC$ so that 
+$ Ff(x)=x'. $ If we look at the set of connected components of $ \int F, $
+we get $ \pi_0(\int F). $
+The isomorphism between the colimit of $ F\AND\pi_0(\int 
+F)$ is simply an ismorphism between sets
+$ [(c,x)]\mapsto [\io_c(x)]. $ The colimit cone is exactly $ 
+F\To\pi_0(\smallint F).$
+
+\end{proof}
+
+\end{document}

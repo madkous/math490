@@ -1,0 +1,17 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+	
+\paragraph{} 
+\begin{exercise}
+Prove that a full and faithful functor reflects both limits and colimits.
+\end{exercise}
+
+\paragraph{Proof.} 
+
+Let $ F: C \to D $ be fully faithful, and let $ \lambda: c \Rightarrow K $ be a cone over some diagram $ K: \mathsf{J} \to \mathsf{C} $ such that $ F\lambda: Fc \Rightarrow FK $ is a limit cone in $ \mathsf{D} $. Finally, let $ \gamma: d \Rightarrow K $ be an arbitrary cone over $ K $ in $ \mathsf{C} $. $ F\gamma: Fd \Rightarrow FK $ is necessarily a cone in $ \mathsf{D} $, so there must be a unique morphism $ g: Fd \to Fc $ such that $ F\gamma = F\lambda g $. Since $ F $ is fully faithful, there must be a unique $ f \in \mathsf{C} $ such that $ Ff = g $.
+
+Furthermore, for any morphism $ h: d \to c $ such that $ \gamma = \lambda h $, $ F\gamma = F\lambda Fh $. But recall that $ g $ is the unique morphism such that $ F\lambda g = F\gamma $, so $ g = Fh $. Finally recall that since $ F $ is fully faithful, $ f $ is the unique morphism such that $ g = Ff, $ so $ f = h. $ So the $ f: d \to c $ constructed earlier is unique for each cone $ \gamma $ over $ K $ in $ \mathsf{C} $, which means $ \lambda $ must be a limit cone. So $ F $ reflects limits.
+
+Similarly, if we let $ F\lambda: FK \Rightarrow Fc $ be a colimit cone under $ FK $ and $ \gamma: K \Rightarrow d $ be a cone under $ K $, we can use the dual of the above procedure to construct a unique $ f \in \mathsf{C} $ such that $ F\gamma = FfF\lambda = F(f\lambda) $ and therefore that $ \gamma = f\lambda $, making $ \lambda $ a colimit cone under $ K $. So $ F $ also reflects colimits.
+
+\end{document}

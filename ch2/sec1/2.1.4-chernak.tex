@@ -1,0 +1,70 @@
+\documentclass[main,tex]{subfiles}
+
+\begin{document}
+
+\paragraph{}
+	\begin{exercise}
+		 A functor \(F\) defines a \textbf{subfunctor} of \(G\) if there is a 
+		 natural transformation \(\alpha \colon F \Rightarrow G \) whose 
+		 components are monomorphisms. In the case of \(G \colon \sC^{\op} \to 
+		 \msf{Set}\), a subfunctor is given by a collection of subsets \(Fc 
+		 \subseteq Gc\) so that each \(Gf \colon Gc \to Gc'\) restricts to a 
+		 function \(Ff \colon Fc \to Fc'\). Characterize those subsets that 
+		 assemble into a subfunctor of the representable functor 
+		 \(\msf{C}(-,c)\).
+	\end{exercise}
+	\begin{proof}
+		First let us clarify what the exercise is actually 
+		asking us to do. For some \(c \in \ob\sC\), we want to choose subsets 
+		\(Fd \subseteq \msf{C}(d,c)\) for every \(d \in \ob\sC\), such that:
+		\begin{itemize}
+			\item \(F\) is a subfunctor of \(\msf{C}(-,c)\); that is, for every \(f \colon d' \to d \in \sC\), the following commutes for some monomorphisms \(\iota', \iota\).
+			$$
+			\xymatrix{
+			 Fd\ar[d]_{Ff}\ar[r]^{\iota} & \msf{C}(d, c)\ar[d]^{- \circ f}\\
+			Fd'\ar[r]_{\iota'} & \msf{C}(d', c)
+			}
+			$$
+			\item The function \(- \circ f: \msf{C}(d, c) \to \msf{C}(d', c)\) restricts to \(Ff\); that is, \((- \circ f)(g) = Ff(g)\) for all \(g \in Fd\).
+			
+		\end{itemize}
+		Notice that since every \(Fd \subseteq \msf{C}(d,c)\), we automatically 
+		have an inclusion morphism from \(Fd\) to \(\msf{C}(d,c)\). Since every 
+		\(Fd\) and \(\msf{C}(d,c)\) are sets, this morphism is trivially monic. 
+		So let \(\iota \colon Fd \to \msf{C}(d,c)\) in the diagram be the 
+		inclusion of \(Fd\) into \(\msf{C}(d,c)\) (and define \(\iota'\) 
+		similarly.)		
+		
+		In order for this diagram to commute, for any \(g \in Fd\), \((- \circ 
+		f)\iota g\) (going along the top) must be equal to \(\iota'Ffg\) (going 
+		along the bottom). But \(\iota\) and \(\iota'\) represent inclusion, so 
+		\(\iota' Ffg = Ffg\) and \(\iota g = g\). So for the diagram to 
+		commute, it must be the case that \((- \circ f)g = Ffg\) for any \(g 
+		\in Fd\); in other words \(Ff\) must equal \((- \circ f)\) when applied 
+		to elements of \(Fd\). But this is the same as saying that \((- \circ 
+		f)\) restricts to \(Ff\)! So the first and second conditions are 
+		equivalent -- in order for \(F\) to be a subfunctor of 
+		\(\msf{C}(-,c)\), for any \(f \colon d' \to d \in C\), \(Ff \colon Fd 
+		\to Fd'\) must be exactly the restriction of \((- \circ f)\) to \(Fd\). 
+		
+		Therefore it must be the case that for every \(g \colon d 
+		\to c \in Fd, f \colon d' \to d \in \msf{C}\), \(Ff(g) = (- \circ f)g = 
+		gf\). But in order for this to be possible, \(gf\) must always be in 
+		\(Fd'\) independent of the choice of \(g\) and \(f\). On the other 
+		hand, if 
+		that is the case, than obviously \((- \circ f)\) is defined in 
+		\(Fd'\) for all \(f \colon d' \to d\); so the restriction of \((- \circ 
+		f)\) to \(Fd\) -- that is to say, \(Ff\) -- is defined for every \(f\)! 
+		So we can always create a subfunctor \(F\) if \(Fd\) and \(Fd'\) 
+		fulfill this condition (for every \(Fd'\),) and we cannot create a 
+		subfunctor if they do not.  More formally:
+		
+		A family of subsets \(\{Fd \subseteq \msf{C}(d, c) \ | \ d \in 
+		\ob\msf{C}\}\) can be assembled into a subfunctor \(F\) of 
+		\(\msf{C}(-,c)\) if and only if: For every \(d' \in \msf{C}\), every 
+		\(f \colon d' \to d \in \msf{C}\) and every \(g \colon d \to c \in 
+		Fd\), \(gf \in Fd'\). So this condition characterizes all of the 
+		subsets \(Fd\) requested by the exercise.
+	\end{proof}
+	
+\end{document}

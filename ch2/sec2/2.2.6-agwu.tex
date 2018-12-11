@@ -1,0 +1,238 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	
+Do there exist any non-identity natural endomorphisms of the category of spaces? That is, does there exist any family of continuous maps $X\rightarrow X$, defined for all spaces $X$ and not all of which are identities, that are natural in all maps in the category $\Top$?
+	
+	
+\end{exercise}
+
+
+First we will show the minimal conditions for which the identity functor of some category $\sC$ has only the trivial endomorphism. First we need to define some terms.
+
+\begin{definition}
+	
+	Suppose some $\sC$ has a terminal object $\om$, we definition the following three terms.
+	\begin{enumerate}
+		\item Any morphism $\func{f}{\om}{c}$ for $c \in \ob \sC$ is
+			called a {\bf global element} of $c.$
+		\item $\sC$ is {\bf well-pointed} if and only if for any two
+			morphisms 
+		$\func{f,g}{c}{d}$ of $\sC$, if $f \cdot h = g \cdot h$ for
+		every 
+		global element $h$ of $c$, then $f = g.$
+		\item We will call an object $\al_{s}$ {\bf super-initial} if
+			and only 
+		if $\sC\qty{\al_{s},c}$ contains at most one morphism for all
+		objects 
+		$c.$
+	\end{enumerate}
+
+\end{definition}	
+
+Now we will prove the following lemma.
+\begin{lemma}
+	If $\sC$ has a terminal object $\om$ which is non super-initial, is well 
+	pointed and all of its non-super-initial objects have global elements, then 
+	the functor $1_{\sC}$ only has the identity natural endomorphism.
+\end{lemma}
+
+\begin{proof}
+	
+	Suppose $\be$ is a natural endomorphism of $1_{\sC}$. Apply the natural 
+	endomorphism to $\func{f}{\om}{c}$ where $c$ is a non-super-initial object. 
+	This results in the following diagram. 
+	$$\xymatrix{ & \om \ar[d]_{\be_{\om}} 
+	\ar[r]^{f} & c\ar[d]^{\be_{c}}  \\   &\om \ar[r]_{f} &c  } 
+	$$ 
+	Thus $f \cdot \be_{\om} = \be_{c} \cdot f$.
+	Since $\om$ has a unique endomorphism, $\be_{\om} = 1_{\om},$ so we get 
+	$1_{c} \cdot f  = \be_{c} \cdot f.$ This holds for every global element of 
+	$c$ due to naturality. Because 
+	$\sC$ is well-pointed, $\be_{c} = 1_{c}.$ Since every non-super-initial 
+	object $c$ has a global element, $\be_{c} = 1_{c}$. For super initial 
+	object $\al_{s}$, it has a unique endomorphism by definition. So, 
+	$\be_{\al_{s}} = 1_{\al_{s}}$. Thus $\be$ is the identity natural 
+	endomorphism on $1_{\sC}$. Therefore, $1_{\sC}$ has only the identity 
+	natural endomorphism.
+	
+\end{proof}
+
+From now on we will be working with a concrete category $\sC$ with terminal 
+object $\om$, which is not super-initial, where $\func{U}{\sC}{\Set}$ is a 
+faithful functor. We will generalize the last two properties in the definition 
+above using the following lemma.
+
+\begin{lemma}
+	
+	Suppose we have concrete category $\sC$ with corresponding faithful functor $U$, then the following holds.
+
+	\begin{enumerate}
+		
+		\item If $U$ is a subfunctor of $\sC\qty{\om,-}$ then $\sC\qty{\om,-} \cong U.$
+		\item If $\sC\qty{\om,-} \cong U$ then $\sC$ is well-pointed, all non-super-initial objects of $\sC$ have global elements.
+		
+	\end{enumerate}
+	
+	 
+	
+\end{lemma}
+
+Before we prove this, we will prove another lemma.
+
+\begin{lemma}
+	
+	Suppose $\al_{s}$ is super-initial. Then we have the following properties:
+	
+	\begin{enumerate}
+		\item $U$ reflects super-initial objects,
+		\item $\sC\qty{\omega,\al_{s}} = \emptyset,$
+		\item $\Set\qty{\{x\},A } \cong A$ for all sets $A,$
+		\item $\Set$ is well-pointed, and
+		\item $\sC\qty{\om,-}$ has a unique endofunctor.
+	\end{enumerate}
+	
+\end{lemma}
+
+\begin{proof}
+	Part 1 follows from $U$ being faithful. The only super-initial set is the 
+	empty set. If there exist some object $c$ in $\sC$ such that $Uc = 
+	\emptyset$, then for any object $d$ in $\sC$, there is an injection between 
+	$\sC\qty{c,d}$ and $\Set\qty{\emptyset,Ud}$. Since $\Set\qty{\emptyset,Ud}$ 
+	has exactly one element, then $\sC\qty{c,d}$ has at most one element. Thus 
+	$c$ is super-initial. 
+	
+	 For part 2, suppose $f \in \sC\qty{\omega,\al_{s}} $, then $f$ is an 
+	 isomorphism since $\om$ and $\al_{s}$ have unique endomorphisms. Then 
+	 $\sC\qty{\omega,-} \cong \sC\qty{\al_{s},-}$ making $\om$ a super-initial 
+	 object, which is a contradiction. Therefore, $\sC\qty{\omega,\al_{s}}$ is 
+	 empty.	 
+	
+	For part 3,  we can define a function from $\Set\qty{\{x\},A }$ to $A$ by 
+	taking a function $g$ from $\Set\qty{\{x\},A}$ and mapping it to 
+	$g\qty{x}$. This function is clearly injective since each function in 
+	$\Set\qty{\{x\},A }$ only has one element in its domain, and is clearly 
+	surjective since each element $y$ in $A$ corresponds to the function 
+	mapping $x$ to $y$. Thus we have a bijection, therefore $\Set\qty{\{x\},A } 
+	\cong A$. 
+	
+	For part 4, take functions $\func{f,g}{A}{B}$ and suppose $f \cdot h = g 
+	\cdot h$ for every global element $h$ of $A$. By the proof in part 3, this 
+	means that $f\qty{x} = g\qty{x}$ for all $x$ in $A$. Thus $f = g$. 
+	Therefore, $\Set$ is well-pointed.
+	
+	For part 5 consider an endofunctor $\gm$ of $\sC\qty{\om,-}$, which gives 
+	the following commutative diagram for global element $f$ of 
+	non-super-initial object $c.$
+	$$\xymatrix{ & \sC\qty{\om,\om} 
+	\ar[d]_{\gm_{\om}} \ar[r]^{f_{*}} & \sC\qty{\om,c}\ar[d]^{\gm_{c}}  \\   
+	&\sC\qty{\om,\om}\ar[r]_{f_{*}} &\sC\qty{\om,c}  } $$ 
+	Taking the unique endomorphism of $\om$ one gets that $f = \gm_{c}\qty{f}$. 
+	Thus $\gm_{c}$ is the identity morphism.  
+	Since $\al_{s}$ is a super-initial object, $\sC\qty{\om,\al_{s}} = 
+	\emptyset$, therefore $\gm_{\al_{s}} = 1_{\emptyset},$ which implies that 
+	$\gm$ is the 
+	identity natural endomorphism. Therefore, $\sC\qty{\om,-}$ has a unique 
+	natural endomorphism.
+	
+\end{proof}
+
+Now we will prove lemma 2.2.3
+
+\begin{proof}
+	
+	Part 1:
+	By Yoneda lemma, $\Hom\qty{\sC\qty{\om,-},U} \cong U\om$. Since $U$ 
+	reflects super-initial objects, there is at least one natural 
+	transformation $\de$ from $\sC\qty{\om,-}$ to $U$. By our assumption, there 
+	is a monic natural transformation $\be$ from $U$ to $\sC\qty{\om,-}$. Since 
+	$\sC\qty{\om,-}$ has a unique endomorphism, $\be \cdot \de = 
+	1_{\sC\qty{\om,-}}$. This means that $\be$ is also epic. Thus every 
+	morphism $\be_{c}$ for $c \in \ob \sC$ is injective and surjective, and 
+	thus bijective. So $\be$ is a natural isomorphism. Therefore, 
+	$\sC\qty{\om,-} \cong U$.
+	
+	Part 2: Suppose for $\func{f,g}{c}{d} \in \mor \sC$ we have that $f \cdot h 
+	= g \cdot h$ for every global element $h$ of $c$. Then $Uf \cdot Uh = Ug 
+	\cdot Uh.$ Because $U \cong \sC\qty{\om,-}$, $U\om$ has only one element. 
+	Therefore $Uh$ is a global element of $Uc$. Since we have that $\sC\qty{\om,c} 
+	\cong Uc \cong \Set\qty{U\om,Uc}$, $Uh$ ranges over every global 
+	element of $Uc$. $\Set$ is well pointed, so $Uf = Ug$. Since $U$ is 
+	faithful, $f = g,$ and therefore, $\sC$ is well-pointed.
+	
+	For any non-super-initial object $c$ of $\sC$, $Uc$ is non-empty since $U$ 
+	reflects super-initial objects. Thus $\sC\qty{\om,c}$ is non empty, thus 
+	every non-super-initial object $c$ has a global element.
+	
+	
+\end{proof}
+
+Now let us take an equivalence of categories $\func{T}{\sC}{\sC}$. This is our main result:
+
+\begin{theorem}
+	
+If $U $ is a subfunctor of  $\sC\qty{\om,-}$ then $\Hom\qty{T,T} \cong 
+\Hom\qty{C\qty{\om,-},U }$	
+	
+\end{theorem}	
+
+\begin{proof}
+	 
+	 Since $U$ is a subfunctor of $\sC\qty{\om,-}$, $U \cong \sC\qty{\om,-}$. 
+	 By Yoneda 
+	 Lemma and since $U$ preserves terminal objects, there is a unique natural 
+	 isomorphism $\be$ from $\sC\qty{\om,-}$ to $U$. Take a natural 
+	 endomorphism 
+	 $\de$ from $\Hom \qty{T,T}$. Since $T$ is an equivalence of categories, 
+	 there exist a 
+	 functor $T_{0}$ such that $T_{0}\cdot T \cong 1_{C}$. Define the natural 
+	 transformation $T_{0}\de$ 
+	 where its components are the functor $T_{0}$ applied to the components of 
+	 $\de$. The 
+	 fact that $T_{0}\de$ is a natural transformation follows from the 
+	 naturality of $\de$ and 
+	 the fact that $T*$ is full and faithful. Thus $T_{0}\de$ is a natural 
+	 endomorphism of 
+	 $T_{0}\cdot T$. Since $T_{0}\cdot T \cong 1_{C}$, there exist an natural 
+	 isomorphism $\gm$ from 
+	 $T_{0}\cdot T$ to $1_{C}$. composing $\gm$ and $\inv{\gm}$ to $T_{0}\de$ 
+	 gives us $\gm \cdot T_{0}\de \cdot \inv{\gm}$ which is an endomorphism of 
+	 $1_{C}$ We shall refer to $\gm \cdot T_{0}\de \cdot \inv{\gm}$ as $\ep$. 
+	 We will horizontal composition on $\be$ and $\ep$ to obtain $\be * \ep$. 
+	 The diagram for the horizontal composition is a follows.
+	  $$\xymatrix{ 
+	 &\sC\qty{\omega,c} \ar@{-->}[dr]^{\qty{\be * \ep}_{c}} \ar[d]_{\be_{c}} 
+	 \ar[r]^{\sC\qty{\omega,\epsilon_{c}}} & 
+	\sC\qty{\omega,c}\ar[d]^{\be_{c}}  \\   &Uc \ar[r]_{U\ep_{c}} &Uc  } 
+	$$ 
+	This shows us that $\qty{\be * \ep}_{c} = U\ep_{c} \cdot \be_{c}$. Define a 
+	function $\func{t}{\Hom\qty{T,T}}{\Hom\qty{\sC\qty{\omega,-},U}}$ taking 
+	$\de$ to $\be * \ep$. We will show that $t$ is injective. Suppose that 
+	there was a $\de '$ such that $\ep ' = \gm \cdot T_{0}\de ' \cdot 
+	\inv{\gm}$ and $\be * \ep = \be * \ep'$. Then, $U\ep_{c} \cdot \be_{c} = 
+	U\ep_{c}' \cdot \be_{c}$. Since $\be_{c}$ is an isomorphism, it is also 
+	epic. Hence $U\ep_{c} = U\ep_{c}'$ and also $\ep_{c} = \ep_{c}'$ since $U$ 
+	is faithful. Thus $\ep = \ep'$. Since $\gm$ and $\inv{\gm}$ are isomorphic, 
+	they are both monic and epic, so $T_{0}\de = T_{0}\de'$. Since $T_{0}$ is 
+	faithful, $\de_{c} = \de_{c}'$ for every $c \in \ob \sC$. Therefore $\de = 
+	\de'$. So $t$ is an injection from $\Hom \qty{T,T}$ to 
+	$\Hom\qty{C\qty{\om,-},U }$. Since $\Hom\qty{C\qty{\om,-},U }$ has only one 
+	element and $\Hom \qty{T,T}$ has at least one element (the identity natural 
+	transformation), $t$ is also surjective. Therefore, $\Hom\qty{T,T} \cong 
+	\Hom\qty{C\qty{\om,-},U }$. 
+	 
+\end{proof}
+	
+An immediate consequence of the theorem is that every equivalence $T$ has only 
+the identity natural transformation. 
+
+Let $\sC = \Top$, $\om$ the one element topological space and $U$ the forgetful 
+functor from $\Top$ to $\Set$. Since $U$ is represented by $\om$, then every 
+endofunctor on $\Top$ that is also an equivalence only has the identity natural 
+transformation. Thus $1_{\Top}$ only has the identity natural transformation. 
+To answer the question directly: There are no non-identity natural 
+endomorphisms of the category of spaces.
+
+\end{document}

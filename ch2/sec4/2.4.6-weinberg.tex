@@ -1,0 +1,38 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\paragraph{}
+
+\begin{exercise}
+For a locally small category $\sC$, regard the two-sided represented functor
+$\Hom(-,-)\colon \sC^{op} \times \sC \rightarrow \Set$ as a covariant functor of its
+domain $\sC^{\op} \times \sC$.  The category of elements of Hom is called the
+twisted arrow category.  Justify this name by describing its objects and
+morphisms.
+\end{exercise}
+
+\begin{proof}
+We begin by describing the objects of the category of elements.  As in the
+definition, the objects are pairs $(c,x)$.  In this case, $c$ is an object in
+$\sC^{op} \times \sC$, which in this context is a pair of elements in $\sC$,
+$(c_1,c_2)$.  We also know $x \in \Hom(c_1,c_2)$, and thus $x$ is a morphism
+between $c_1$ and $c_2$.  But we note that the objects can be described by just
+$x$, as $c$ is merely the domain and range of $x$.  Thus, the objects are
+morphisms, or "arrows."
+
+Next, we consider the morphisms.  A morphism h in $\Hom(-,-)$ will take
+$(f,g)$, where $f\colon c_1 \rightarrow c_2$ and $g\colon c_3 \rightarrow c_4$ are
+morphisms in $\C$, to a function that takes morphism $x\colon c_2 \rightarrow c_3$
+to $gxf$.  This can be more clearly seen below:
+
+$\xymatrix{ c_2\ar[r]^{x} & c_3 \ar[d]_{g} \\ c_1 \ar[u]^{f}  & c_4 }\\$ 
+
+Then we note that the requirement that $Fh(x) = x'$ for morphisms in the category of elements.  Thus we are given that $gxf = x'$, and get the following diagram.
+
+$\xymatrix{ c_2\ar[r]^{x} & c_3 \ar[d]_{g} \\ c_1 \ar[u]^{f} \ar[r]^{x'}  & c_4 }\\$ 
+
+Note how the arrows for $f$ and $g$ face opposite directions.  This is the "twisted" part of the twisted arrow diagram.
+\end{proof}
+
+\end{document}

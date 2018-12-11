@@ -1,0 +1,121 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+
+\paragraph{}
+\begin{exercise}
+Prove that the category \cat{DirGraph} of directed graphs is complete and
+cocomplete and explain how to construct its limits and colimits.
+\end{exercise}
+\begin{proof}
+We will show that \cat{DirGraph} has products, equalizers, co-products and
+co-equalizers. We begin by defining an element of \cat{DirGraph}. We say
+that a graph $G$ consists of a vertex set $V$, an edge set $E$ and two function
+$s,t: E \rightarrow V$, where $s$ sends an edge to its source and $t$ sends an
+edge to its target. In this setting, we say that a graph homomorphism from $G =
+(V,E,s,t) \rightarrow H = (W,F, s',t')$ is a pair of functions $f_{vert}: V
+\rightarrow W$ and $f_{edge}: E \rightarrow F$ such that $f_{vert}s =
+s'f_{edge}$ and $f_{vert}t = t'f_{edge}$.
+
+\textbf{Products:} We will show that for a collection $I$ of graphs, the
+product $\prod_{i \in I}G_i = (V_i, E_i, s_i, t_i)$ is defined as the graph
+where the vertex set is the Cartesian product of the $V_i$'s, the edge set is
+the Cartesian product of the $E_i$'s, the source function is defined by  $s (e)
+= (s_i(e_i))_{i \in I}$ and the target function is defined by $t (e) =
+(t_i(e_i))_{i \in I}$  . We see that there are obvious projection maps
+$\pi_{i}$ taking a product graph to the $i^{th}$ component and we now must show
+it's universality.
+
+Suppose there is another graph $H$, with morphisms $\sigma_i$ to every $G_i$.
+If these morphisms factor through $\prod_{i\in I}G_i$, then the morphism $\phi
+\colon H \rightarrow \prod_{i\in I}G_i$ must be composed of $\phi_{vert}$ and
+$\phi_{edge}$ where $\phi_{vert}(h) = (\sigma_{i_{vert}}(h)))_{i\in I}$ and
+$\phi_{edge}(h) = (\sigma_{i_{edge}}(h)))_{i\in I}$. We must show that this a
+graph homomorphism, mainly that $s \phi_{edge} = \phi_{vert}s'$. For an edge
+$w$ in $E(H)$, we see that $s\phi_{edge}(w) = s((\sigma_{i_{edge}}(h)))_{i\in
+I}) = (s_i((\sigma_{i_{edge}}(h)))_{i\in I}$. Because $\sigma_i$ is a graph
+homomorphism, we have that this is equal to $(\sigma_{i_{vert}}(s'(e)))_{i\in
+I}$ which equals $\phi_{vert}s'(e)$. So we have the equality we desire, and by
+a similar method we have $t \phi_{edge} = \phi_{vert}t'$ and we have the graph
+homomoprhism we desire. So our defintion of the product is universal, and we
+have products in $\cat{DirGraph}$.  
+
+\textbf{Equalizers:} Suppose we have
+graphs $A$ and $B$ and parallel morphisms $f$ and $g$. We will show that the
+equalizer of this diagram is $E$, the subgraph of $A$ which includes all edges
+$e$ where $s'f_{edge}(e) = s'g_{edge}(e)$ and $t'f_{edge}(e) = t'g_{edge}(e)$
+and all vertices $v$ where $f_{vert}(v) = g_{vert}(v)$. The inclusion mapping
+$\iota\colon E \rightarrow A$ clearly makes this a cone over our diagram and also
+$f\iota = g\iota$. We now show the universality of $E$.
+
+Suppose we have a $C$ that has a map $k$ to $A$ such that $fk = gk$. Since $E$
+is a subgraph of $A$, if this map factors through $E$, the map from $C$ to $E$,
+must  take $c$ to $k(c)$.  We see that if $fk  = gk$, we have that $f_{vert}
+(k(c)) = g_{vert}(k(c))$ for all vertices $c \in C$ and that $s'f_{edge}(k(d))
+= s'g_{edge}(k(d))$ and $t'f_{edge}(k(d)) = t'g_{edge}(k(d))$ for all edges $d$
+in $C$. So we see that $k(C) \subset E$ and so this construction is valid.
+Because of this, we see that $E$ is universal and so we have equalizers.
+
+We have products and equalizers and therefore we have all limits and $\cat{DirGraph}$ is complete.
+
+\textbf{Co-products:} We define the vertex set of the coproduct $\coprod_{i\in
+I} G_i$ as the disjoint union of the vertex sets and the edge set to be the
+disjoint union of the edge sets. Now $s((e,i) = s_i(e)$ and $t((e,i) = t_i(e)$.
+Note that we have inclusion maps $\iota_i$ and so this is a cone under our
+diagram, now we show that this cone is universal. 
+
+Suppose we have a graph $H = (F,W,s',t')$ with morphisms $\sigma_i$ from each
+$G_i$ to $H$. Since for each $G_i$, $\iota_i(a) = (a,i)$, and if we want to
+find a $k\colon \coprod_{i\in I}G_i \rightarrow H$ such that $\sigma_i = k\iota_i$,
+we must have that $k_{vert}((a,i)) = \sigma_{i_{vert}}(a)$ for all vertices $a
+\in G_i$ and that $k_{edge}((e, i)) = \sigma_{i_{edge}}(e)$. We now see that
+this is indeed a graph homomorphism. To do this, we must show that $s'k_{vert}
+= k_{edge}s$. Consider an edge $(e,i)$ in the coproduct. $k_{vert} s ((e,i)) =
+k_{vert}(s_i(e)) = \sigma_i_{vert}(s_i(e))$. Also, $s'k_{edge}((e,i)) =
+s'\sigma_i_{edge}(e)$. But by our defintion of graph homomorphism, we see that
+$\sigma_i_{vert}(s_i(e)) = s'\sigma_i_{edge}(e)$ because $\sigma_i$ is a graph
+homormorphism, so we have that $s'k_{vert} = k_{edge}s$ and we can easily show
+$t'k_{vert} = k_{edge}t$ similarly. So $k$ is a graph homomorphism and
+therefore our definition of the coproduct is universal. Therefore
+$\cat{DirGraph}$ has coproducts. 
+
+
+\textbf{Co-equalizers:} Now, consider two parallel morphisms $f,g\colon G
+\rightarrow H$. We construct a graph $coeq(f,g) = (coeq(f_{vert},g_{vert}),
+coeq(f_{edge},g_{edge}), s_{eq},t_{eq})$. We see what $s_{eq}$ is through the
+following diagram.
+\[
+\xymatrix{
+E \ar@<->[r]^{f_{edge}} \ar@<.5ex>[r]_{g_{edge}} & F \ar[r]^{s'} \ar[dr] & W \ar[r] & coeq(f_{vert}, g_{vert})
+\\
+&&coeq(f_{edge}, g_{edge}) \ar@{-->}[ur]^{s_{eq}}
+}
+\]
+
+We must now show the existence of $s_{eq}$. First, we see that since $s'f_{edge}=f_{vert}s $ and $s'g_{edge}=g_{vert}s$, we have a morphism $k$ where $kf_{edge} = kg_{edge}$, namely $qs'$, where $q$ is the map from $W \rightarrow coeq(f_{vert}, g_{vert})$. So this morphism factors uniquely though $coeq(f_{edge}, g_{edge})$ and $s_{eq}$ is the unique morphism from $coeq(f_{edge}, g_{edge})$ to $coeq(f_{vert}, g_{vert})$ that allow for this factorization. A similar process gives us a formula for $t_{eq}$.
+
+To show that this construction of $coeq(f,g)$ is universal, we see that for any
+graph $K = (X, I, s_*, t_*)$, with morphism $h$ from $H \rightarrow K$, that
+$h$ factors uniquely through the coequalizer because $h_{vert}$ and $h_{edge}$
+uniquely factor through the coequalizer of the vertex maps and edge maps
+respectively. So $coeq(f,g)$ is indeed universal and we have coequalizers.
+
+So $\cat{DirGraph}$ has coproducts and coequalizers and is therefore cocomplete.
+
+Now, we construct limits and colimits in \textsf{DirGraph}, in particular for a
+diagram $F\colon J \rightarrow \cat{DirGraph}$. First, we note that there are
+functors $V,E\colon \cat{DirGraph} \rightarrow \Set$ that takes a graph to its
+vertex and edge sets respectively. So we construct $\lim F$ as $(\lim VF, \lim
+EF, s,t)$. We define $s$ and $t$ in the following manner. We know that we have
+maps from $\lim EF \rightarrow EFj$ for all $j \in J$ and that we have a map
+$s_j: EFj \rightarrow Vfj$. So we have collection of mappings from $\lim EF$ to
+$VFj$ and so we have a map from $\lim EF \rightarrow \lim VF$ that these maps
+uniquely factor through. This map is our $s$, and $t$ is similarly constructed.
+We define $\colim F = (\colim VF, \colim EF, s',t')$, where we define $s'$ as
+follows. We know that we have maps $s_j\colon EFj \rightarrow VFj$ and maps from
+$VFj \rightarrow \colim F$. So the compositions of these maps are maps from
+$EFj \rightarrow \colim VF$ for all $j \in J$. So these maps factor uniquely
+through some map from $\colim EF \rightarrow \colim VF$ and $s'$ is exactly
+this morphism. We define $t'$ in a similar manner.
+\end{proof}
+\end{document}

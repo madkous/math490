@@ -1,0 +1,73 @@
+\documentclass[main.tex]{subfiles}
+\author{Mark Laczin}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	Show that for any category $\cat{C}$, the collection of natural endomorphisms of the identity functor $1_\cat{C}$ defines a commutative monoid, called the \textbf{center of the category}. The proof of Proposition $1.4.4$ demonstrates that the center of $\cat{Ab}_{fg}$ is the multiplicative monoid $(\ZZ,\times, 1)$.
+\end{exercise}
+
+\begin{proof}
+	The identity functor $1_\cat{C}$ is a functor taking the objects and morphisms of $\cat{C}$ to themselves. A natural endomorphism is a natural transformation in which every component $\alpha_c$ is an endomorphism of $c$. We will construct an argument using the horizontal and vertical composition of natural transformations. Let $\pfunc{\alpha,\beta}{1_\cat{C}}{1_\cat{C}}$ be natural endomorphisms of $1_\cat{C}$. We have the following diagram (with equality by horizontal composition):
+	$$
+	\xymatrix{
+		\cat{C}\ar@/^1pc/[r]^{1_\cat{C}}="a"\ar@/_1pc/[r]_{1_\cat{C}}="c" & \cat{C}\ar@/^1pc/[r]^{1_\cat{C}}="b"\ar@/_1pc/[r]_{1_\cat{C}}="d" & \cat{C} \\
+		\ar@{=>}"a"+<-0.5ex,-3ex>;"c"+<-0.5ex,3ex>^{\ \alpha}
+		\ar@{=>}"b"+<-0.5ex,-3ex>;"d"+<-0.5ex,3ex>^{\ \beta}
+	} = 
+	\xymatrix{
+		\cat{C}\ar@/^1pc/[rr]^{1_\cat{C}1_\cat{C}}="a"\ar@/_1pc/[rr]_{1_\cat{C}1_\cat{C}}="b" & & \cat{C} \\
+		\ar@{=>}"a"+<-2ex,-3ex>;"b"+<-2ex,3ex>^{\ (\beta\ast\alpha)}
+		& & \\
+	}
+	$$
+	From this we get the following commutative diagram:
+	$$
+	\xymatrix{
+	1_\cat{C}1_\cat{C}c\ar[r]^{\beta_{1_\cat{C}c}} \ar[d]_{1_\cat{C}\alpha_c}\ar@{-->}[rd]|{(\beta\ast\alpha)_c} & 1_\cat{C}1_\cat{C}c\ar[d]^{1_\cat{C}\alpha_c} \\
+	1_\cat{C}1_\cat{C}c\ar[r]_{\beta_{1_\cat{C}c}} & 1_\cat{C}1_\cat{C}c 
+	}$$
+	Which can be simplified to:
+	$$
+	\xymatrix{
+	c\ar[r]^{\beta_{c}} \ar[d]_{\alpha_c}\ar@{-->}[rd]|{(\beta\ast\alpha)_c} & c\ar[d]^{\alpha_c} \\
+	c\ar[r]_{\beta_{c}} & c \\
+	}
+	$$
+	Where we can see that $\func{(\beta\ast\alpha)_c}{c}{c}$, and that $(\beta\ast\alpha)_c = \alpha_c\beta_c = \beta_c\alpha_c = (\beta\cdot\alpha)_c$. This shows that in this case, horizontal and vertical composition are equivalent and commutative. It remains to show that they are associative. To show this, we will perform vertical composition with three functors $\Func{\alpha,\beta,\delta}{1_\cat{C}}{1_\cat{C}}$ by performing the composition of the bottom pair first, then the top pair first, and comparing the result.
+	
+	$$
+	\xymatrix{
+		\cat{C}\ar@/^3pc/[r]^{1_\cat{C}}="a" \ar@/^1pc/[r]|{1_\cat{C}}="b" \ar@/_1pc/[r]|{1_\cat{C}}="c" \ar@/_3pc/[r]_{1_\cat{C}}="d" & \cat{C}\\
+		\ar@{=>}"a"+<-0.5ex,-3ex>;"b"+<-0.5ex,2ex>^{\ \alpha}
+		\ar@{=>}"b"+<-0.5ex,-2ex>;"c"+<-0.5ex,2ex>^{\ \beta}
+		\ar@{=>}"c"+<-0.5ex,-2ex>;"d"+<-0.5ex,3ex>^{\ \delta}
+	} = \xymatrix{
+	\cat{C}\ar@/^2pc/[rr]^{1_\cat{C}}="a" \ar[rr]|{1_\cat{C}}="b" \ar@/_2pc/[rr]_{1_\cat{C}}="c" & & \cat{C}\\
+	\ar@{=>}"a"+<-0.5ex,-3ex>;"b"+<-0.5ex,2ex>^{\ \alpha}
+	\ar@{=>}"b"+<-0.5ex,-2ex>;"c"+<-0.5ex,3ex>^{\ (\delta\cdot\beta)}
+	} = \xymatrix{
+		\cat{C}\ar@/^2pc/[rr]^{1_\cat{C}} \ar@/_2pc/[rr]_{1_\cat{C}} & \Downarrow (\delta\cdot\beta)\cdot\alpha & \cat{C}\\
+	}
+	$$
+	
+	$$
+	\xymatrix{
+		\cat{C}\ar@/^3pc/[r]^{1_\cat{C}}="a" \ar@/^1pc/[r]|{1_\cat{C}}="b" \ar@/_1pc/[r]|{1_\cat{C}}="c" \ar@/_3pc/[r]_{1_\cat{C}}="d" & \cat{C}\\
+		\ar@{=>}"a"+<-0.5ex,-3ex>;"b"+<-0.5ex,2ex>^{\ \alpha}
+		\ar@{=>}"b"+<-0.5ex,-2ex>;"c"+<-0.5ex,2ex>^{\ \beta}
+		\ar@{=>}"c"+<-0.5ex,-2ex>;"d"+<-0.5ex,3ex>^{\ \delta}
+	} = \xymatrix{
+		\cat{C}\ar@/^2pc/[rr]^{1_\cat{C}}="a" \ar[rr]|{1_\cat{C}}="b" \ar@/_2pc/[rr]_{1_\cat{C}}="c" & & \cat{C}\\
+		\ar@{=>}"a"+<-0.5ex,-3ex>;"b"+<-0.5ex,2ex>^{\ (\beta\cdot\alpha)}
+		\ar@{=>}"b"+<-0.5ex,-2ex>;"c"+<-0.5ex,3ex>^{\ \delta}
+	} = \xymatrix{
+		\cat{C}\ar@/^2pc/[rr]^{1_\cat{C}} \ar@/_2pc/[rr]_{1_\cat{C}} & \Downarrow \delta\cdot(\beta\cdot\alpha) & \cat{C}\\
+	}
+	$$
+	So, $(\delta\cdot\beta)\cdot\alpha = \delta\cdot(\beta\cdot\alpha)$, giving us associativity.
+		
+	These functors have components for all $c\in\cat{C}$, their composition is commutative, associative, and closed over $\cat{C}$. Finally, there is an identity natural endomorphism which takes $c\in\ob\cat{C}$ to $\text{id}_c\in\mor\cat{C}$. So we have the requirements to say that the natural endomorphisms of the identity functor on a category $\cat{C}$ form a commutative monoid.
+\end{proof}
+
+\end{document}

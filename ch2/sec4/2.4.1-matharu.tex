@@ -1,0 +1,32 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+
+\begin{exercise}
+Given $ \func{F}{\sC}{\Set},$ show that $ \int F $ is isomorphic to the comma 
+category $ \star\downarrow F $ of the singleton set $ 
+\func{\star}{\mbb{1}}{\Set} $ over the functor $ \func{F}{\sC}{\Set}. $
+\end{exercise}
+\begin{proof}
+	First recall from exercise 1.3.vi the definition of a comma category. In 
+	this case objects of $ \star\downarrow F $ are triples of the form $ (0\in 
+	\mbb{1},c\in 
+	\sC,\func{h}{\star}{Fc}\in \Set) $ and the morphisms are $ (0,c,h)\to(0,c',h'),$ 
+	a pair of morphisms $ (\func{\id_\star}{\star}{\star},\func{k}{c}{c'}) $ such that the
+	following diagram commutes.
+	\[
+	\xymatrix{\star\ar[r]^h\ar[d]_{\id_\star}&z\ar[d]^{Fk}\\\star\ar[r]_{h'}&z'
+	}
+	\]
+	This gives us that $ h'=(Fk)h.$
+	Define the functor $ \func{G}{\star\downarrow F}{\int F} $ as $ (0,c,h)\mapsto 
+	(c,h) $ and $ (\func{\id_\star}{\star}{\star},\func{k}{c}{c'})\mapsto \func{k}{c}{c'} $ 
+	(note the $ k $ is in fact a morphism of $ \int F $ as the above diagram 
+	commutes so $ (Fk)h=h' $ as needed). Notice that $ G $ perseveres 
+	composition in the obvious way and
+	 is invertible as $(1_\star,k)\mapsto k$ and  $ (0,c,h)\mapsto  (c,h) $ 
+	 have the inverses $ k\mapsto (1_\star,k) $ and $ (c,h)\mapsto (0,c,h)$ 
+	 respectively, which also preserve composition in a similar fashion. This defines an isomorphism of categories, hence $ \star\downarrow F $ is isomorphic to $ \int F. $
+\end{proof}
+\end{document}

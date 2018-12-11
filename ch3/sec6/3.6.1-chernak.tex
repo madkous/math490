@@ -1,0 +1,107 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+	
+	\paragraph{} 
+	
+	\begin{exercise}
+	In a category \textsf{C} with pullbacks, prove that the mapping $ \lim: \mathsf{C}^{\bullet\rightarrow\bullet\leftarrow\bullet} \to \mathsf{C} $ defined in Proposition 3.6.1 is functorial. 
+\end{exercise}
+	
+	\paragraph{Proof.} 
+	
+	First, we will define the category $ \mathsf{C} ^{\bullet\rightarrow\bullet\leftarrow\bullet} $ and the mapping $ \lim: \mathsf{C}^{\bullet\rightarrow\bullet\leftarrow\bullet} \to \mathsf{C} $ more clearly. The following diagram describes an object $ x \in \mathsf{C}^{\bullet\rightarrow\bullet\leftarrow\bullet}: $
+	
+	\begin{center}\begin{tikzcd}
+		x_1 \arrow[r, "x_\alpha"] & x_2 & x_3 \arrow[l, "x_\beta"']
+	\end{tikzcd}\end{center}
+
+	\noindent where $ x_1, x_2, x_3 $ are objects in $ \mathsf{C} $ and $ x_\alpha: x_1 \to x_2, x_\beta: x_3 \to x_2 $ are morphisms in $ \mathsf{C} $. The next commutative diagram defines a morphism $ f: x \to y \in \mathsf{C}^{\bullet\rightarrow\bullet\leftarrow\bullet}: $
+	
+	\begin{center}\begin{tikzcd}
+			x_1 \arrow[r, "x_\alpha"] \arrow[d, "f_1"'] & x_2 \arrow[d, "f_2"'] & x_3 \arrow[l, "x_\beta"'] \arrow[d, "f_3"'] \\
+			y_1 \arrow[r, "y_\alpha"] & y_2 & y_3 \arrow[l, "y_\beta"']
+	\end{tikzcd}\end{center}
+
+	\noindent Finally, the following diagram defines the mapping $ \lim: \mathsf{C}^{\bullet\rightarrow\bullet\leftarrow\bullet} \to \mathsf{C} $ described in Proposition 3.6.1 by its actions on objects and morphisms:
+	 
+	\begin{center}\begin{tikzcd}
+				&  & \lim x \arrow[llddd, "\pi_{x_1}" description, dashed] \arrow[rrddd, "\pi_{x_3}" description, dashed] \arrow[dd, "\lim f" description, dotted] &  &  \\
+				&  &  &  &  \\
+				&  & \lim y \arrow[llddd, "\pi_{y_1}" description, dashed] \arrow[rrddd, "\pi_{y_3}" description, dashed] &  &  \\
+				x_1 \arrow[rr, "x_\alpha"] \arrow[dd, "f_1"'] &  & x_2 \arrow[dd, "f_2"'] &  & x_3 \arrow[ll, "x_\beta"'] \arrow[dd, "f_3"'] \\
+				&  &  &  &  \\
+				y_1 \arrow[rr, "y_\alpha"] &  & y_2 &  & y_3 \arrow[ll, "y_\beta"']
+	\end{tikzcd}\end{center}
+
+	\noindent where $ \pi_{x_1}, \pi_{x_3} $ and $ \pi_{y_1}, \pi_{y_3} $ are the legs of pullbacks from $ x $ and $ y, $ respectively.
+	
+
+	
+	Suppose $ f $ is the identity of $ x, I_x. $ Then we have
+	
+	\begin{center}\begin{tikzcd}
+			&  & \lim x \arrow[llddd, "\pi_{x_1}" description, dashed] \arrow[rrddd, "\pi_{x_3}" description, dashed] \arrow[dd, "\lim f" description, dotted] &  &  \\
+			&  &  &  &  \\
+			&  & \lim x \arrow[llddd, "\pi_{x_1}" description, dashed] \arrow[rrddd, "\pi_{x_3}" description, dashed] &  &  \\
+			x_1 \arrow[rr, "x_\alpha"] \arrow[dd, "I_{x_1}"'] &  & x_2 \arrow[dd, "I_{x_2}"'] &  & x_3 \arrow[ll, "x_\beta"'] \arrow[dd, "I_{x_3}"'] \\
+			&  &  &  &  \\
+			x_1 \arrow[rr, "x_\alpha"] &  & x_2 &  & x_3 \arrow[ll, "x_\beta"']
+	\end{tikzcd}\end{center}
+
+	\noindent or more succinctly,
+
+	\begin{center}\begin{tikzcd}
+			& \lim x \arrow[ldd, "\pi_{x_1}" description, dashed, bend right] \arrow[rdd, "\pi_{x_3}" description, dashed, bend left] \arrow[d, "\lim f" description, dotted] &  \\
+			& \lim x \arrow[ld, "\pi_{x_1}"', dashed] \arrow[rd, "\pi_{x_3}", dashed] &  \\
+			x_1 \arrow[r, "x_\alpha"] & x_2 & x_3 \arrow[l, "x_\beta"']
+	\end{tikzcd}\end{center}
+
+	\noindent So in this case, $ (\pi_{x_1})(\lim f) = \pi_{x_1} $, which means $ \lim I_x = I_{\lim x}.$  So $ \lim $ takes identities to identities.
+
+	Let $ f: x \to y, g: y \to z, gf: x \to z $ be composable morphisms in $ \mathsf{C}^{\bullet\rightarrow\bullet\leftarrow\bullet} $. This composition is described by the following diagram:
+
+	\begin{center}\begin{tikzcd}
+				&  & \lim x \arrow[llddd, "\pi_{x_1}" description, dashed] \arrow[rrddd, "\pi_{x_3}" description, dashed] \arrow[d, "\lim f" description, dotted] &  &  \\
+				&  & \lim y \arrow[llddd, "\pi_{y_1}" description, dashed] \arrow[rrddd, "\pi_{y_3}" description, dashed] \arrow[d, "\lim g" description, dotted] &  &  \\
+				&  & \lim z \arrow[llddd, "\pi_{z_1}" description, dashed] \arrow[rrddd, "\pi_{z_3}" description, dashed] &  &  \\
+				x_1 \arrow[rr, "x_\alpha"] \arrow[d, "f_1"'] &  & x_2 \arrow[d, "f_2"'] &  & x_3 \arrow[ll, "x_\beta"'] \arrow[d, "f_3"'] \\
+				y_1 \arrow[rr, "y_\alpha"] \arrow[d, "g_1"'] &  & y_2 \arrow[d, "g_2"'] &  & y_3 \arrow[ll, "y_\beta"'] \arrow[d, "g_3"'] \\
+				z_1 \arrow[rr, "z_\alpha"] &  & z_2 &  & z_3 \arrow[ll, "z_\beta"']
+	\end{tikzcd}\end{center}
+
+	\noindent And by composing the $ \lim g $ and $ \lim f $ arrows in this diagram we can obtain:
+
+	\begin{center}\begin{tikzcd}
+			&  & \lim x \arrow[llddd, "\pi_{x_1}" description, dashed] \arrow[rrddd, "\pi_{x_3}" description, dashed] \arrow[dd, "\lim g \lim f" description, dotted] &  &  \\
+			&  &  &  &  \\
+			&  & \lim z \arrow[llddd, "\pi_{z_1}" description, dashed] \arrow[rrddd, "\pi_{z_3}" description, dashed] &  &  \\
+			x_1 \arrow[rr, "x_\alpha"] \arrow[dd, "g_1f_1"] &  & x_2 \arrow[dd, "g_2f_2"] &  & x_3 \arrow[ll, "x_\beta"'] \arrow[dd, "g_3f_3"] \\
+			&  &  &  &  \\
+			z_1 \arrow[rr, "z_\alpha"] &  & z_2 &  & z_3 \arrow[ll, "z_\beta"']
+	\end{tikzcd}\end{center}
+
+	\noindent and since $ \lim z $ is a limit, $ \lim g \lim f $ must be the unique morphism $ \lim x \to \lim z $ such that this diagram composes (for a given $ \pi_{x_1}, \pi_{x_3}, \pi_{z_1}, \pi_{z_3}. $) But the following diagram describes $ \lim gf: $
+	
+	\begin{center}\begin{tikzcd}
+			&  & \lim x \arrow[llddd, "\pi_{x_1}" description, dashed] \arrow[rrddd, "\pi_{x_3}" description, dashed] \arrow[dd, "\lim gf" description, dotted] &  &  \\
+			&  &  &  &  \\
+			&  & \lim z \arrow[llddd, "\pi_{z_1}" description, dashed] \arrow[rrddd, "\pi_{z_3}" description, dashed] &  &  \\
+			x_1 \arrow[rr, "x_\alpha"] \arrow[dd, "g_1f_1"] &  & x_2 \arrow[dd, "g_2f_2"] &  & x_3 \arrow[ll, "x_\beta"'] \arrow[dd, "g_2f_3"] \\
+			&  &  &  &  \\
+			z_1 \arrow[rr, "z_\alpha"] &  & z_2 &  & z_3 \arrow[ll, "z_\beta"']
+	\end{tikzcd}\end{center}
+
+	\noindent and again, since $ \lim z $ is a limit, $ \lim g \lim f $ must be the unique morphism $ \lim x \to \lim z $ such that this diagram composes (for a given $ \pi_{x_1}, \pi_{x_3}, \pi_{z_1}, \pi_{z_3}. $) But $ \pi_{x_1}, \pi_{x_3}, \pi_{z_1}, \pi_{z_3} $ are the same in both diagrams, so both 'unique morphisms' must be the same morphism --- which is to say, $\lim gf = \lim g \lim f. $
+	
+	
+	Finally, we were given that $ \mathsf{C} $ has pullbacks, so there exist a $ \lim x, \lim y, \lim f $ for all $ x, y \in ob \mathsf{C}^{\bullet\rightarrow\bullet\leftarrow\bullet}; f: x \to y \in mor \mathsf{C}^{\bullet\rightarrow\bullet\leftarrow\bullet}. $ So lim is well-defined. 
+	
+	In conclusion, the mapping $ \lim: \mathsf{C}^{\bullet\rightarrow\bullet\leftarrow\bullet} \to \mathsf{C} $ fulfills all the necessary conditions to be functorial, so it is a functor. $ \Box $
+
+
+
+	
+	
+		
+\end{document}

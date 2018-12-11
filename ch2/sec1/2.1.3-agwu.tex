@@ -1,0 +1,95 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	
+Suppose $\func{F}{\sC}{\Set}$ is equivalent to $\func{G}{\sD}{\Set}$ in the sense that there is an equivalence of categories $\func{H}{\sC}{\sD}$ so that $GH$ and $F$ are naturally isomorphic. 
+\begin{enumerate}  
+
+\item[(i)] If $G$ is representable, then is $F$ representable?
+\item[(ii)] If $F$ is representable, then is $G$ representable?
+
+ \end{enumerate}
+	
+	
+	
+\end{exercise}
+
+Before we begin the main proof, we must proof a lemma:
+
+\begin{lemma}
+	Suppose we have isomorphic pairs of functors $\func{F,G}{\sC}{\sD}$, $\func{H_{0}, H_{1}}{\sD}{\sE} $, and $\func{K_{0},K_{1}}{\sB}{\sC}$ then $$ H_{0}F \cong H_{1}G\AND FK_{0} \cong GK_{1}.$$
+	
+\end{lemma}
+
+To prove this consider an object $c \in \ob \sC$, then we have the isomorphism 
+$\func{\al_{c}}{Fc}{Gc}$ such that $\al$ is the natural transformation between 
+$F$ and $G$. Let $\func{\be}{H_{0}}{H_{1}}$ be a natural isomorphism. Then we 
+have the commutative diagram.
+$$\xymatrix{ &H_{0}Fc \ar@{-->}[dr]^{\gm_{c}} \ar[d]_{\be_{Fc}} 
+\ar[r]^{H_{0}\al_{c}} & H_{0}Gc\ar[d]^{\be_{Gc}}  \\   &H_{1}Fc 
+\ar[r]_{H_{1}\al_{c}} &H_{1}Gc  } 
+$$ Since functors preserve isomorphisms and 
+$\be$ is a natural isomorphism, then every morphism in the diagram is an 
+isomorphism. Thus $H_{0}Fc \cong H_{1}Gc$ for all $c \in \ob \sC$. Setting 
+$\gm_{c}  =  \be_{Gc} \cdot H_{0}\al_{c}$, we can construct the natural 
+isomorphism $\func{\gm}{H_{0}F}{H_{1}G}$, and therefore $H_{0}F \cong H_{1}G$. 
+The second part of the lemma follows from duality.
+
+
+\begin{proof}
+	Now we prove that the answer to part (i) is indeed yes. If $G$ is 
+	representable, then $G \cong D\qty{d,-}$ for $d \in \ob \sD$. By our lemma, 
+	$F \cong GH \cong D\qty{d,-}H $. Since $H$ is an equivalence of categories, 
+	$H$ is essentially surjective, meaning there is a $c \in \ob \sC$ such that 
+	$Hc \cong d$. For such a $c$ we want to show that 
+	$$D\qty{d,-}H \cong C\qty{c,-}. $$
+	For any $c' \in \ob \sC$, we  want to show that a function 
+	$\func{f_{c'}}{C\qty{c,c'}}{D\qty{d,Hc'}}$  defined as 
+	$$f_{c'}(h) = Hh\cdot\pi,$$ 
+	where $\func{\pi}{d}{Hc}$ is an isomorphism, is a bijection. 
+	To show injectivity,  suppose for $h,k \in C\qty{c,c'}$, $f_{c'}(h) = 
+	f_{c'}(k)$. Then, $Hh\cdot\pi = Hk\cdot\pi$. Since $\pi$ is isomorphic, we 
+	have that $Hh = Hk$. Since $H$ is an equivalence of categories, $H$ is a 
+	fully faithful functor, thus $h = k$. To show surjectivity, take $l \in 
+	D\qty{d,Hc'}$ and compose on the right with $\inv{\pi}$. Then we get 
+	morphism $\func{l \cdot \inv{\pi}}{Hc}{H'c}$. Since $H$ is full, there 
+	exists $m \in C\qty{c,c'}$ such that $Hm = l \cdot \inv{\pi}$. Right 
+	composing with $\pi$ results in 
+	$Hm\cdot\pi = l $, thus confirming surjectivity. A function $f_{c'}$ for 
+	all $c' \in \ob \sC$ is a bijection. All of the functions $f_{c'}$ form a 
+	natural isomorphism $\func{f}{C\qty{c,-}}{D\qty{d,-}H}$ showing that 
+	$D\qty{d,-}H \cong C\qty{c,-} $. Thus $F \cong C\qty{c,-}$, showing that 
+	$F$ is representable.
+	
+	Now we prove that the answer to part (ii) is also yes. If $F$ is 
+	representable, then $F \cong C\qty{c,-}$ for $c \in \ob \sC$. Thus, 
+	$C\qty{c,-} \cong F \cong GH  $. Since $H$ is an equivalence of categories, 
+	there exists a functor $\func{H'}{\sD}{\sC}$ such that $HH' \cong 1_{\sD}$ 
+	and $H'H \cong 1_{\sC}$. By our lemma, $C\qty{c,-}H' \cong FH' \cong GHH' 
+	\cong G  $ Since $H'$ is an equivalence of categories, $H'$ is essentially 
+	surjective, meaning there is a $d \in \ob \sD$ such that $H'd \cong c$. For 
+	such a $d$ we want to show that $$C\qty{c,-}H' \cong D\qty{d,-}. $$ For any 
+	$d' \in \ob \sD$, we  want to show that a function 
+	$\func{g_{d'}}{D\qty{d,d'}}{C\qty{c,H'd'}}$  defined as $$g_{d'}(h) = 
+	H'h\cdot\phi $$ where $\func{\phi}{c}{H'd}$ is an isomorphism, is a 
+	bijection. To show injectivity,  suppose for $h,k \in D\qty{d,d'}$, 
+	$g_{d'}(h) = g_{d'}(k)$. Then, $H'h\cdot\phi = H'k\cdot\phi$. Since $\phi$ 
+	is isomorphic, we have that $H'h = H'k$. Since $H'$ is an equivalence of 
+	categories, $H'$ is a fully faithful functor, thus $h = k$. To show 
+	surjectivity, take $l \in C\qty{c,H'd'}$ and compose on the right with 
+	$\inv{\phi}$. Then we get morphism $\func{l \cdot \inv{\phi}}{H'd}{H'd'}$. 
+	Since $H'$ is full, there exists $m \in D\qty{d,d'}$ such that $H'm = l 
+	\cdot \inv{\phi}$. Right composing with $\phi$ results in 
+	$H'm\cdot\phi = l $, hence $ f_{c'} $ is surjective. A function $g_{d'}$ for 
+	all $d' \in \ob \sD$ is a bijection. All of the functions $g_{d'}$ form a 
+	natural isomorphism $\func{g}{D\qty{d,-}}{C\qty{c,-}H'}$ showing that 
+	$C\qty{c,-}H' \cong D\qty{d,-} $. Therefore since $G \cong D\qty{d,-},$ 
+	$G$ is representable.
+	
+	The dual cases of (i) and (ii) follow from changing $\sC$ and $\sD$ to their respective opposite category. 
+	
+\end{proof}
+
+\end{document}

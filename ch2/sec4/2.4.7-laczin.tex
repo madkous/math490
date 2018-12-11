@@ -1,0 +1,36 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	Prove that the construction of the category of elements defines the action on objects of a functor
+	$$
+	\func{\int(-)}{\Set^{\cat{C}}}{\cat{CAT}/\cat{C}}.
+	$$
+	Conclude that if $\func{F,G}{\cat{C}}{\Set}$ are naturally isomorphic, then $\int F \cong \int G$ over $\cat{C}$.
+\end{exercise}
+\begin{proof}
+	$\Set^\cat{C}$ is the category where objects are functors from
+	$\cat{C}$ to $\Set$. The category $\cat{CAT}/\cat{C} =
+	\int\cat{CAT}(-,\cat{C})$ has as objects functors with codomain
+	$\cat{C}$. So, the functor $\int(-)$ takes a functor from
+	$\cat{C}\rightarrow\Set$ to a functor with codomain $\cat{C}$.
+	
+	The construction of the category of elements of a functor
+	$\func{F}{\cat{C}}{\Set}$ creates pairs $(c,x)$ where $c\in\cat{C}$ and
+	$x\in Fc$. Letting $\int(-)$ take objects to objects by
+	$Fc\mapsto(c,Fc)$, we can see that the pair can be viewed as part of
+	the data of a functor from $\cat{CAT}\rightarrow\cat{C}$. So, $\int(-)$
+	acts on objects by taking the functor $F$ to its data viewed as pairs.
+	
+	If $\func{F,G}{\cat{C}}{\Set}$ are naturally isomorphic, then there is
+	an isomorphism between $Fc$ and $Gc$ for all $c\in\cat{C}$, and in
+	their respective categories of elements, we would have that
+	$(c,Fc)\cong(c,Gc)$ by the aforementioned isomorphism on the second
+	component. Since these pairs are  the contents of $\int F$ and $\int G$
+	over $\cat{C}$, we have that $\int F\cong \int G$ over $\cat{C}$.
+	
+\end{proof}
+
+\end{document}

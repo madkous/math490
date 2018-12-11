@@ -1,0 +1,30 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+For a fixed diagram $F \in \sC^\sJ$, describe the actions of the cone functors $
+\Cone(-,F)\colon \sC^{op} \rightarrow \Set$ and $ \Cone(F,-)\colon \sC
+\rightarrow \Set$ on morphisms in $\sC$.
+\end{exercise}
+
+\begin{proof}
+In the contravariant case, the domain of the cone functor $ \Cone(-,F)$
+on morphisms $f\colon c \rightarrow c'$ in $\sC^{op}$, is a morphism that takes the
+constant functor $c$ to $c'$, and thus is a natural transformation $f\colon c
+\To c'$. The contravariant cone funtor then sends $f$ to the mapping
+$f^\colon
+\Cone(c',F)\rightarrow \Cone(c,F)$. From this mapping, for a cone
+in the domain of $f^*$, which is a natural transformation $\lambda\colon c' \To
+F$, the cone functor results in the precomposition of $f$ with $\lambda$,
+namely, $\lambda f$.
+
+Likewise for the covariant case, the cone functor $ \Cone(F,-)\colon \sC
+\rightarrow \Set$ sends morphisms from $c$ to $c'$ to postcomposition of
+the natural transfomations comprising the sets cones under $c$ with $f$,
+namely, $f\lambda$.
+
+\end{proof}	
+	
+\end{document}

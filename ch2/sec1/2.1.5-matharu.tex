@@ -1,0 +1,39 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	The functor of Example 2.1.5(xi) that sends a category to its collection of 
+	isomorphisms is a subfunctor of the functor of Example 2.1.5(x) that sends 
+	a category to its collection of morphisms. Define a functor between the 
+	representing categories $ \mbb{I} $ and $ \mbb{2} $ that induces the 
+	corresponding monic natural transformation between these representable 
+	functors. 
+\end{exercise}
+	
+\begin{proof}
+	Recall that $ \mbb{2} $ and $ \mbb{I} $ are define defined as
+	$$
+	\xymatrix{
+		&A\ar@(ru,lu)  \ar@<1ex>[r]^f
+		&B \ar@<1ex>[l]^g\ar@(ul,ur)}
+	$$
+	
+	$$
+	\xymatrix{&0\ar@(ur,ul)  \ar@<1ex>[r]^h
+		&1 \ar@(ul,ur)}
+	$$
+	respectively.
+We need to construct a functor $ \func{F}{\mbb{2}}{\mbb{I}}.$
+Since functors must preserve isomorphisms, there are only a few reasonable 
+options. Define $ F $ as: $ F(0)=A,F(1)=B, F(1_0)=1_A,F(1_1)=1_B,\AND F(h)= 
+f.$ Let $\Func{\io}{\iso}{\mor}$ be defined by precomposition by $F,$ that is $ 
+F\mapsto F\iota. $ This map is a subfunctor of the functor of the functor we 
+get from the yoneda lemma
+$$
+\iso \simeq \xymatrix{\Cat(\mbb{I},-)\ar@{=>}[r]^{\io_*}&\Cat(\mbb{2},-)} \simeq \mor.
+$$
+Also $ \iota $ is clearly monic since it is an inclusion map.
+\end{proof}
+
+\end{document}

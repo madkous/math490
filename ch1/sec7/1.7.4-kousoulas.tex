@@ -1,0 +1,150 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	Prove Lemma 1.7.7.
+\end{exercise}
+
+\tikzcdset{
+	arrow style=math font
+}
+
+\settheorem{1}{7}{7}
+\begin{lemma}[middle four interchange]
+	Given functors and natural transformation
+	\[\begin{tikzcd}
+			\sC \ar[r, "G"{name=G, description}]
+			\ar[r, out=55, in=125, looseness=1.6, "F"{name=F}]
+			\ar[r, out=-55, in=-125, looseness=1.6, "H"{name=H, below}] &
+			\sD \ar[r, "K"{name=K, description, scale=1.3}]
+			\ar[r, out=55, in=125, looseness=1.6, "J"{name=J, scale=1.3}]
+			\ar[r, out=-55, in=-125, looseness=1.6, "L"{name=L, below}] & \sE
+			\ar[phantom, from=F, to=G, "\DTo\al"]
+			\ar[phantom, from=G, to=H, "\DTo\be"]
+			\ar[phantom, from=J, to=K, "\DTo\gm"]
+			\ar[phantom, from=K, to=L, "\DTo\de"]
+	\end{tikzcd}\]
+	the natural transformation \(JF\To LH\) defined by first composing
+	vertically and then composing horizontally equals the natural transformation
+	defined by first composing horizontally and then composing vertically:
+	\[\begin{tikzcd}
+			\sC \ar[r, out=55, in=125, looseness=1.6, "F"{name=J}]
+			\ar[r, out=-55, in=-125, looseness=1.6, "H"{name=L, below}]
+			\ar[r, phantom, "\DTo\be\cdot\al"] &
+			\sD \ar[r, out=55, in=125, looseness=1.6, "J"{name=J}]
+			\ar[r, out=-55, in=-125, looseness=1.6, "L"{name=L, below}]
+			\ar[r, phantom, "\DTo\de\cdot\gm"] &
+			\sE \ar[r, phantom, "="{description, scale=1.3}] &
+			\sC \ar[rr, "KG"{name=KG, description}]
+			\ar[rr, out=45, in=135, looseness=1.2, "JF"{name=JF}]
+			\ar[rr, out=-45, in=-135, looseness=1.2, "LH"{name=LH, below}] &&
+			\sE
+			\ar[phantom, from=JF, to=KG, "\DTo\gm*\al"{scale=0.9}]
+			\ar[phantom, from=KG, to=LH, "\DTo\de*\be"{scale=0.9}]
+	\end{tikzcd}\]
+\end{lemma}
+\popthm
+
+Before proceeding with the proof, let us elaborate on exactly how horizontal and
+vertical composition work. Vertical composition is the simpler of the two since
+it is just composition of morphisms in the target category of our functors.
+Precisely, given parallel functors and accompanying natural transformations
+we can compose the component maps \(\al_c\) and \(\be_c\) for any object \(c\)
+in \(\sC\). That this defines defines a new natural transformation
+\(\Func{\be\cdot\al}{F}{H}\) follows immediately.
+\[\begin{tikzcd}
+		\sC \ar[r, "G"{name=G, description}]
+		\ar[r, out=55, in=125, looseness=1.6, "F"{name=F}]
+		\ar[r, out=-55, in=-125, looseness=1.6, "H"{name=H, below}] & \sD
+		\ar[phantom, from=F, to=G, "\DTo\al"]
+		\ar[phantom, from=G, to=H, "\DTo\be"]
+		\end{tikzcd}\quad\leadsto\quad\begin{tikzcd}
+		Fc \ar[r, "\al_c"] \ar[d, "Ff"] \ar[dr, dashrightarrow]  &
+		Gc \ar[r, "\be_c"] \ar[d, "Gf"] \ar[dr, dashrightarrow]  &
+		Hc \ar[d, "Hf"] \\
+		Fd \ar[r, "\al_d"] &
+		Gd \ar[r, "\be_d"] &
+		Hd
+\end{tikzcd}\]
+
+Horizontal composition is more involved. Note that one way to think of natural
+transformations is as mapping objects to morphisms and morphisms to commutative
+squares in the target category. Given \(\Func{\al}{F}{G}\)
+where \(\pfunc{F,G}{\sC}{\sD}\) and \(\func{f}{c}{d}\), the object \(c\) is
+taken to a morphism \(\al_c\) and the arrow \(f\) is taking to a square of
+morphisms connecting \(Fc\) to \(Gd\). Because this square commutes there is a
+unique composite arrow from \(Fc\) to \(Gd\). Horizontal composition is then
+applying the natural transformation \(\gm\) to \(Fc\), \(Gc\), and the map
+\(\al_c\) between them. Given \(\Func{\gm}{J}{K}\) and \(\pfunc{J,K}{\sD}{\sE}\)
+By naturality, there is again a unique composite arrow denoted \((\gm*\al)_c\)
+which will form the \(c\) component of the new natural transformation.
+\[\begin{tikzcd}
+		c \ar[d, phantom, "\downmapsto"] &
+		c \ar[r, "f", ""{below, phantom, name=f}] &
+		d \\
+		Fc \ar[d, "\al_c"{left}] &
+		Fc \ar[r, "Ff"{name=Ff}] \ar[dr, dashrightarrow] \ar[d, "\al_c"{left}] &
+		Fd \ar[d, "\al_d"] \\
+		Gc &
+		Gc \ar[r, "Gf"{below}] &
+		Gd
+		\ar[d, phantom, from=f, to=Ff, "\downmapsto"]
+		\end{tikzcd}\quad\leadsto\quad\begin{tikzcd}
+		Fc \ar[r, phantom, "\mapsto"] &
+		JFc \ar[r, "\gm_{Fc}"] &
+		KFc \\
+		Fc \ar[d, "\al_c"{left}, ""{name=f}] &
+		JFc \ar[r, "\gm_{Fc}"] \ar[dr, "(\gm*\al)_c"{description}]
+		\ar[d, "J\al_c"{left, name=Ff}] &
+		KFc \ar[d, "J\al_c"] \\
+		Gc &
+		JGc \ar[r, "\gm_{Gc}"{below}] &
+		KGc
+		\ar[d, phantom, from=f, to=Ff, "\mapsto"]
+\end{tikzcd}\]
+
+\begin{proof}
+	At a first pass this lemma is telling us that
+	\((\de\cdot\gm)*(\be\cdot\al)=(\gm*\al)\cdot(\de*\be)\). For a specific
+	object \(c\) in \(\sC\) this means the following diagrams are equivalent:
+	\[\xymatrix{
+			JFc \ar[r]^{\gm_{Fc}} \ar[d]_{J\al_c} \ar@{-->}[dr]|{(\gm*\al)_c} &
+			KFc \ar[d]^{K\al_c} \\
+			JGc \ar[r]_{\gm_{Gc}} &
+			KGc \ar[r]^{\de_{Gc}} \ar[d]_{K\be_c} \ar@{-->}[dr]|{(\de*\be)_c} &
+			LGc \ar[d]^{L\be_c} \\ &
+		KHc \ar[r]_{\de_{Hc}} & LHc }
+		\xymatrix{ \\ = }
+		\xymatrix{ % & Jd \ar[r]^{\gm_d} & Kd \ar[r]^{\de_d} & Ld \\
+			% Fc \ar[d]_{\al_c} &
+			JFc \ar[r]^{\gm_{Fc}} \ar[d]^{J\al_c}
+			\ar@{-->}@/_2em/[dd]_{J(\be\cdot\al)_c}
+			\ar@{-->}@/^2em/[rr]^{(\de\cdot\gm)_{Fc}}
+			\ar@{-->}[ddrr]|{(\de\cdot\gm)*(\be\cdot\al)} &
+			KFc \ar[r]^{\de_{Fc}} &
+			LFc \ar[d]_{L\al_c} \ar@{-->}@/^2em/[dd]^{L(\be\cdot\al)_c} \\
+			% Gc \ar[d]_{\be_c} &
+			JGc \ar[d]^{J\be_c} &&
+			% KGc &
+			LGc \ar[d]_{L\be_c} \\
+			% Hc &
+			JHc \ar[r]_{\gm_{Hc}} \ar@{-->}@/_2em/[rr]_{(\de\cdot\gm)_{c}} &
+	KHc \ar[r]_{\de_{Hc}} & LHc \\}\]
+	We may extend the left diagram to the following without disturbing
+	commutativity, implying that the diagonal map in each case is the same.
+	\begin{equation*}\xymatrix{
+			JFc \ar[r]^{\gm_{Fc}} \ar[d]_{J\al_c} \ar@{-->}[dr]|{(\gm*\al)_c} &
+			KFc \ar[r]^{\de_{Fc}} \ar[d]^{K\al_c} &
+			LFc \ar[d]^{L\al_c} \\
+			JGc \ar[r]_{\gm_{Gc}} \ar[d]_{J\be_c} &
+			KGc \ar[r]^{\de_{Gc}} \ar[d]_{K\be_c} \ar@{-->}[dr]|{(\de*\be)_c} &
+			LGc \ar[d]^{L\be_c} \\
+			JHc \ar[r]_{\gm_{Hc}} &
+	KHc \ar[r]_{\de_{Hc}} & LHc }\end{equation*}
+	In particular note that the top right and bottom left quadrants themselves
+	are the diagram associated with the horizontal compositions \(\de*\al\) and
+	\(\gm*\be\) and for the object \(c\), which thus must commute, making the
+	entire diagram commute.
+\end{proof}
+\end{document}

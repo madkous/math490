@@ -1,0 +1,21 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+	
+\paragraph{}
+\begin{exercise}
+Formulate the dual definition of a discrete right fibration satisfied by the
+canonical functor $\prod \colon \int F \rightarrow \sC$ associated to a covariant
+functor $F \colon \sC^{op} \rightarrow \Set$.
+\end{exercise}
+
+\begin{proof}
+For the $\bold{discrete \ right \ fibration}$, take any $F\colon\sC^{\op}\rightarrow
+\Set$. Now providing the forgetful fuctor $\prod : \int F \rightarrow\sC$
+with the conditions that for any morphism $f\colon c \rightarrow d$ in $\sC$, and any
+object $(c, x)$ in the fiber over $d$, there exists a unique lift of the
+morphism $f$ to a morphism in $\int F$ with domain $(d,x')$. Namely, $\prod \colon(c,x) \rightarrow (d, Ff(x')) = f\colon c \rightarrow d$. This lifted morphism in
+$\int F$ will project along $\prod$ to $f$, such that $Ff(x') = x$. 
+
+\end{proof}	
+\end{document}

@@ -1,0 +1,26 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+Show that the isomorphism (3.4.1) is natural.
+\end{exercise}
+
+
+\begin{proof}
+Take an object $X$ fixed in a category $\sC$ and a fixed diagram $\sJ$. Then
+the isomorphism $lim_\sJ\sC(X,F-)\cong \Cone (X,F)$ defines a morphism $\alpha_X
+\colon \lim_\sJ \sC(X,F) \rightarrow \Cone(X,F)$ for each fixed $X$. With $X$ fixed,
+the legs of the cone over $F$ with summit $X$ are the tuples of morphisms
+$(\lambda_j \colon X \rightarrow Fj)_{j \in \sJ}$. 
+
+Now, taking a morphism $f\colon X \rightarrow Y$ in $\sC$, there is a morphism
+$\alpha_Y\colon \lim_\sJ\sC(Y,F) \rightarrow \Cone(Y,F)$ and morphisms $Ff \colon \lim_\sJ \sC(Y, F)
+\rightarrow \lim_\sJ \sC(X,F)$, and $\lambda_j \colon \Cone(Y,F) \rightarrow \Cone(X,F)$,
+such that $f\lambda_j\alpha_Y = \alpha_xFf$. The corresponding naturality
+square commutes, and thus the isomorphism in 3.4.1 is natural. 
+
+	
+\end{proof}	
+	
+\end{document}

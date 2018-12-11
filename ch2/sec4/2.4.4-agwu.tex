@@ -1,0 +1,39 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+	
+\paragraph{}
+
+	\begin{exercise}
+		
+	Explain the sense in which the Sierpinski space is the universal topological
+	space with an open subset.
+		
+	\end{exercise}
+	
+	
+	\begin{proof}
+		
+		Let $\func{\mathcal{O}}{\Top^{\op} }{\Set}$ be a functor that
+		maps each topological spaces to its set of open sets and each
+		continuous function $\func{f}{A}{B}$ to function
+		$\func{g}{\mathcal{O}B}{\mathcal{O}A}$ where $g(U) = \inv
+		f(U)$. Let $\cS$ be the Sierpinski space and $\{x\}$ be the
+		only non-trivial open set of $\cS$. Since $\cS$ represents
+		$\mathcal{O}$, then for each topological space $T$, each
+		continuous function from $T$ to $\cS$ corresponds bijectively
+		with each open set of $T$. In fact the bijection would be
+		defined by mapping each continuous function $\func{f}{T}{\cS}$
+		to $\inv f\qty{\{x\}} = \mathcal{O}f\qty{\{x\}}$. In the
+		category of elements $\int \mathcal{O} $, this means that for
+		object $\qty{T,U}$, there exists a unique morphism with domain
+		$\qty{T,U}$ and codomain $\qty{\cS, \{x\}}$ since there is only
+		one continuous function $\func{f}{T}{\cS}$ such that
+		$\mathcal{O}f\qty{\{x\}} = U$. Thus the Sierpinski space is the
+		universal topological space with an open subset in the sense
+		that $\qty{\cS,\{x\}}$ is terminal in $\int \mathcal{O} $.
+	
+		
+	\end{proof}
+
+\end{document}

@@ -1,0 +1,41 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+\paragraph{}
+\begin{exercise}
+	Explain in your own words why the Yoneda embedding
+	\({\sC}\hookrightarrow{\Set^{\sC^\op}}\) preserves and reflects but does not
+	create limits.
+\end{exercise}
+
+Recall that the Yoneda embedding of a category \(\sC\) takes each object to the
+presheaf which it represents and maps to natural transformations between these
+presheaves. Explicitly, an object \(c\) becomes the hom-functor \(\sC(-,c)\),
+and a map \(f\) becomes the natural transformation of post-composition with
+\(f\). The Yoneda lemma states that this functor is fully faithful, and thus
+\(\sC\) is realised as a full subcategory of \(\Set^{\sC^\op}\). Recall that
+this means \(\Set^{\sC^\op}\) may contain objects not in \(\sC\), but if the
+domain and codomain of a morphism are present in both categories then the
+morphism must be as well. For the sake of brevity we will treat \(\sC\) as being
+part of \(\Set^{\sC^\op}\) and ignore the renaming implicit in the isomorphism.
+Correspondingly, a functor \(\func{F}{\sJ}{\sC}\) is also a functor
+\(\func{F}{\sJ}{\Set^{\sC^\op}}\).
+
+This makes it immediately clear why the Yoneda embedding reflects limits. Given
+a cone over the diagram \(\func{F}{\sJ}{\Set^{\sC^\op}}\) with an apex
+\(c\), first, this cone will exist in \(\sC\) if and only if \(c\) and \(Fj\)
+where \(j\in\ob J\) are objects in \(\sC\). Second, if this is a limit cone in
+\(\Set^{\sC^\op}\), then there is a unique map from any other cone over \(F\)
+subject to naturality conditions. If the apex of this cone is in \(\sC\), then
+so must be the unique map by the condition that the \(\sC\) is a full
+subcategory. Thus \(K\) will still be a limit cone considering only the objects
+and morphisms in \(\sC\).
+
+Now, suppose that \(c\) is the limit of a functor \(\func{F}{\sJ}{\sC}\). \dots
+
+However, given an arbitrary object \(c\) in \(\Set^{\sC^\op}\) there is no
+guarantee that there is an object in \(\sC\) isomorphic to \(c\). Thus if \(c\)
+happens to be the apex of a limit cone, it is impossible for that cone to have a
+limit in \(\sC\) even if the base of that cone is entirely in \(\sC\).
+
+\end{document}

@@ -1,0 +1,40 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+
+\begin{exercise}
+	Characterize the terminal objects of $\sC/c$.
+\end{exercise}
+
+\begin{proof}
+We claim that one terminal object in $\sC/c$ is the identity morphism $1_c$.
+To see this, we look at the diagram for a morphism in $\sC/c$.
+
+\xymatrix{x \ar[rr]^h\ar[dr]_g && c\ar[dl]^{1_c}\\ &c & }
+
+We must show that there is a unique $h$ for any given object $g\colon x \rightarrow c$.  But by the commutative diagram above, we see $g = 1_c \circ h = h$.
+
+Thus, this $h$ is uniquely defined, and there is a unique morphism that takes us from $f$ to $1_c$. This makes $1_c$ a terminal object.
+
+ By corollary 2.3.2, any two terminal objects in $\sC/c$ are uniquely isomorphic.  
+
+Suppose $f\colon x\rightarrow c$ is isomorphic to $1_c$.  We look at the composition diagram:
+
+\xymatrix{x\ar[r]^f\ar[dr]_f &c\ar[d]^{1_c}\ar[r]^j&x\ar[dl]^f\\ &c & }
+
+We can see that this diagram requires $fj = 1_c$ and the top row requires that $jf = 1_x$ for the composition to be the identity.  Similarly, these criteria make the composition hold in the other order:
+
+\xymatrix{c\ar[r]^j\ar[dr]_{1_c} &x\ar[d]^{f}\ar[r]^f&c\ar[dl]^{1_c}\\ &c & }
+
+Thus, for an isomorphism to exist between $1_c$ and arbitrary $f$, we must have
+that $f$ is an isomorphism $x \rightarrow c$.  Thus, the terminal objects are
+the isomorphisms $x \rightarrow c$ in $\sC$.  This can be seen in the diagram
+below.
+
+\xymatrix{x \ar[rr]^h\ar[dr]_g && c\ar[dl]^{f}\\ &c & }
+
+Note that if $f$ is an isomorphism, we can let $h = jg$, where $j$ is the unique inverse of $f$.  Thus, $fh = fjg = g$, and the diagram commutes.
+\end{proof}
+
+\end{document}

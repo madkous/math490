@@ -1,0 +1,35 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	Consider a diagram $\func{F}{\cat{J}}{\cat{P}}$ valued in a poset $(\cat{P},\le)$. Use order-theoretic language to characterize the limit and the colimit.
+\end{exercise}
+
+\begin{proof}
+	Consider a cone over $F$ where in $\cat{P}$, $x\le y\le z$:
+	$$
+	\xymatrix{
+	& & p\ar[dl]|{\lambda_x} \ar[d]|{\lambda_y}\ar[dr]|{\lambda_z}& & \\
+	\cdots\ar[r]_{\le} & F(x)\ar[r]_{\le} & F(y)\ar[r]_{\le} & F(z)\ar[r]_{\le} & \cdots
+	}
+	$$
+	Where $\lambda = (\func{\lambda_n}{p}{Fn})_{n\in\cat{P}}$, the family
+	of order preserving morphisms from $p$ to $F$. We know that $\lim F$ is
+	a terminal object in the category of cones over $F$. If $p$ is a limit
+	of $F$ (as in the diagram above), then any other cone $q$ with
+	morphisms $\func{\gamma_n}{q}{Fn}$ (for all $Fn$) must have that
+	$\gamma_n$ factors through $\lambda_n$. So there must exist some
+	morphism from $q\rightarrow p$, which would imply that $q\le p$ in
+	$(\cat{P},\le)$. Moreover, this morphism is unique, since in a poset
+	category there can be at most one morphism between any two objects.
+	Given that $q\le p$ for all $q$, and that $p$ has morphisms to all
+	$Fn$, we have that $p$ is an infimum of $\{Fn\mid n\in\ob\cat{J}\}$, if
+	it exists. Dually, the colimit would be a supremum, if it exists. In
+	both cases, limits and colimits are unique up to isomorphism
+	(Proposition 3.1.7), and similarly, the infimum and supremum are
+	unique.
+\end{proof}
+
+\end{document}

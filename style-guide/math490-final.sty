@@ -20,6 +20,7 @@
 \usepackage{tikz}
 \usetikzlibrary{cd}
 \RequirePackage{color}
+\usepackage[cmtip]{xy}
 % \RequirePackage{stix}
 % \usepackage[bitstream-charter]{mathdesign}
 % \usepackage{mathptmx}
@@ -88,6 +89,7 @@
 %   \addcontentsline{toc}{bsection}
 %     {\protect\tocsection{}{\theexer}{Exercise\if\relax\detokenize{#1}\relax\else\ (#1)\fi}}%
 %  }
+
 %  {\endexer}
 % \renewcommand*{\theexercise}{\thechapter.\thesection.\roman{exercise}}
 % \renewcommand*{\thetheorem}{\thechapter.\thesection.\arabic{theorem}}
@@ -143,11 +145,13 @@
 \newcommand{\CAT}{\textsf{CAT}\xspace}
 \renewcommand{\Set}{\textsf{Set}\xspace}
 \newcommand{\Fin}{\textsf{Fin}\xspace}
+\newcommand{\Path}{\textsf{Path}\xspace}
 \renewcommand{\Top}{\textsf{Top}\xspace} % replaced logical Top ⫪
 \newcommand{\Ring}{\textsf{Ring}\xspace}
 \newcommand{\Field}{\textsf{Field}\xspace}
 \newcommand{\Group}{\textsf{Group}\xspace}
 \newcommand{\Monoid}{\textsf{Monoid}\xspace}
+\newcommand{\Cone}{\textsf{Cone}\xspace}
 \newcommand{\Ab}{\textsf{Ab}\xspace}
 \newcommand{\Rng}{\textsf{Rng}\xspace}
 % these can only be used in math mode
@@ -188,6 +192,27 @@
 \DeclareFontFamily{U}{skulls}{}
 \DeclareFontShape{U}{skulls}{m}{n}{ <-> skull }{}
 \newcommand{\skull}{\text{\usefont{U}{skulls}{m}{n}\symbol{'101}}}
+% Symbols for Problem 1.7.7
+\newcommand{\DTo}{\Downarrow}
+\DeclareFontFamily{U} {MnSymbolA}{}
+\DeclareFontShape{U}{MnSymbolA}{m}{n}{
+   <-6> MnSymbolA5
+   <6-7> MnSymbolA6
+   <7-8> MnSymbolA7
+   <8-9> MnSymbolA8
+   <9-10> MnSymbolA9
+   <10-12> MnSymbolA10
+   <12-> MnSymbolA12}{}
+ \DeclareFontShape{U}{MnSymbolA}{b}{n}{
+   <-6> MnSymbolA-Bold5
+   <6-7> MnSymbolA-Bold6
+   <7-8> MnSymbolA-Bold7
+   <8-9> MnSymbolA-Bold8
+   <9-10> MnSymbolA-Bold9
+   <10-12> MnSymbolA-Bold10
+   <12-> MnSymbolA-Bold12}{}
+\DeclareSymbolFont{MnSyA} {U} {MnSymbolA}{m}{n}
+\DeclareMathSymbol{\downmapsto}{\mathrel}{MnSyA}{"2B}  
 
 % blackboard bold shortcuts
 \renewcommand{\AA}{\mathbb{A}} % replaced Angstrom symbol Å
@@ -366,3 +391,4 @@
 \endinput
 %%
 %% End of file `mathutils.sty'.
+\newcommand{\DTo}{\Downarrow}

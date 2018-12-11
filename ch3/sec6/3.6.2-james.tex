@@ -1,0 +1,21 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+\paragraph{}
+\begin{exercise}
+Prove lemma 3.6.6. For any triple of objects $X, Y, Z$ in a category with binary products, there is a unique natural isomorphism $X \times (Y \times Z) \cong (X \times Y) \times Z$ commuting with the projections to $X, Y,$ and $Z$.
+\end{exercise}
+
+	
+\begin{proof}
+Take the product of the three objects $X, Y, Z$, $X \times Y \times Z$, with the projections $\pi_X : X \times Y \times Z \rightarrow X$, $\pi_Y : X \times Y \times Z \rightarrow Y$, $\pi_Z : X \times Y \times Z \rightarrow Z$. For an object $W$ such that for morphisms $f: W \rightarrow X$, $g: W \rightarrow Y$, and $h: W \rightarrow Z$, there is a unique morphism $k: W \rightarrow X \times Y \times Z$, with $f = \pi_Xk, g = \pi_Yk$, and $h = \pi_ZK$.
+
+Now, for the product $X \times (Y \times Z)$, with the projections $\gamma_Y : Y \times Z \rightarrow Y$ and $\gamma_Z : Y \times Z \rightarrow Z$, there is a unique morphism $k: W \rightarrow Y \times Z$ such that $\gamma_Y k = g$, and $\gamma_Z k = h$. Also, for the projections $\sigma_X : X \times (Y \times Z) \rightarrow X$, and $\sigma_{Y \times Z} : \rightarrow Y \times Z$, there is a unique morphism $l: W \rightarrow X \times (Y \times Z)$ such that $\sigma_x l = f$ and $\sigma_{Y \times Z}l = k$. Then $f = \sigma_Xl$, $g = \gamma_Y \sigma_{Y \times Z} l$, and $h = \gamma_Z \sigma_{Y \times Z} l$. So there exists a morphism $l$ with domain $W$, that factors through $X \times (Y \times Z)$, through the composite projections to each object $X$, $Y$, and $Z$.
+
+Now to show the uniqueness of $l$, let $m$ be another such morphism as $l$. Then $f = \sigma_X m$, $g = \gamma_Y \sigma_{Y \times Z} m$, and $h = \gamma_Z \sigma_{Y \times Z} m$. So from the uniqueness of $k$, since $g = \gamma_Y (\sigma_{Y \times Z} m)$, and $h = \gamma_Z (\sigma_{Y \times Z} m)$, then $\sigma_{Y \times Z} m = k$, and thus $m = l$. So $l$ is the unique morphism factoring through $X \times (Y \times Z)$. From the universal property of products, then there is a unique isomorphism $X \times (Y \times Z) \cong X \times Y \times Z$.
+
+Likewise, a similar argument shows that there is a unique isomorphism from $(X \times Y) \times Z$ to $X \times Y \times Z$, and so $X \times (Y \times Z) \cong (X \times Y) \times Z$.
+
+\end{proof}	
+	
+	\end{document}

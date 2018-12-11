@@ -1,0 +1,100 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+What are the universal elements for the representations:
+\begin{enumerate}
+\item defining the category $\two$ in Example 2.1.5(x)?
+\item defining the Sierpinski space in Example 2.1.6(ii)?
+\item defining the Sierpinski space in Example 2.1.6.(iii)?
+\end{enumerate}
+\end{exercise}
+
+\begin{quote}
+Definition 2.3.3: A \emph{universal property} of an object $c\in\sC$ is 
+expressed by a representable functor $F$ together with a \emph{universal 
+element} $x\in Fc$ that defines a natural isomorphism $\sC(c,-)\cong F$ or 
+$\sC(-,c)\cong F$, as appropriate, via the Yoneda lemma.
+\end{quote}
+
+Note that if $\eta$ is the natural isomorphism from $\sC(c,-)$ or $\sC(-,c)$ to 
+$F$, then $x=\eta_c(1_c)$.
+
+\begin{enumerate}
+\item 
+\begin{quote}
+Example 2.1.5: The following covariant functors are representable.\\
+(x) The functor $\mor\colon \Cat\rightarrow\Set$ that takes a small category to its set of morphisms is represented by the category $\two$: a functor $\two\rightarrow\sC$ is no more and no less than a choice of morphism in $C$. In this sense, the category $\two$ is the \emph{free} or \emph{walking arrow}.
+\end{quote}
+
+In this case, let $f$ be the unique nonidentity morphism in $\two$. Then the 
+isomorphism $\eta\colon \Cat(\two,-)\Rightarrow\mor$ is given on an object 
+$\sD$ of $\Cat$ by $\eta_\sD\colon \Cat(\two,\sD)\rightarrow\mor\sD$ defined by 
+$\eta_\sD F=Ff$. Thus, the universal element is $\eta_\two(1_\two)=1_\two f=f$.
+
+\item 
+\begin{quote}
+Example 2.1.6: The following contravariant functors are representable.\\
+(ii) The functor ${\mathcal O}\colon \Top^\op\rightarrow\Set$ that sends a 
+space to its set of open subsets is represented by the \emph{Sierpinski space} 
+$S$, the topological space with two points, one closed and one open. The 
+natural bijection $\Top(X,S)\cong{\mathcal O}(X)$ associates a continuous 
+function $X\rightarrow S$ to the preimage of the open point. This bijection is 
+natural because a composite function $Y\rightarrow X\rightarrow S$ classifies 
+the preimage of the open subset of $X$ under the function $Y\rightarrow X$.
+\end{quote}
+
+To provide a little more detail, say that $S=\{0,1\}$ and that the open sets in 
+$S$ are $\emptyset,\{0\},$ and $S$. Note that these open sets satisfy the axioms 
+of a topology: $\emptyset$ and $S$ are open, the union of any family of open 
+sets is open, and the intersection of any two open sets is open. The closed 
+sets are the complements of the open sets: $\emptyset, \{1\},S$. By the open 
+point we mean $0$, since the singleton set $\{0\}$ is open, and by the closed 
+point we mean $1$, since the singleton set $\{1\}$ is closed.
+
+Recall that for two topological space $Y$ and $X$, $f\colon Y\rightarrow X$ is continuous (i.e. a morphism in $\Top$) if for every open set $U$ in $X$, $f^{-1}(U)$ is open in $Y$. 
+
+In particular, for any continuous function $f\colon Y\rightarrow S$, 
+$f^{-1}(0)=f^{-1}(\{0\})$ is open in $Y$. Note that $f$ is completely 
+determined by $f^{-1}(0)$ for any element of $y\in Y$ that is not in 
+$f^{-1}(0)$ we must have that $f(y)=1$, the only element of $S$ other than $0$. 
+Conversely, if $V$ is an open subset of $Y$, then we have a continuous function 
+$f_V\colon Y\rightarrow S$ given by 
+\[f_V(y)=\begin{cases}0 &\text{if }y\in V\\1 &\text{if }y\notin V.\end{cases}\]
+This gives a natural bijection between $\Top(Y,S)$ and $\mathcal{O}(Y)$. That 
+is, we have a natural isomorphism $\eta\colon \Top(-,S)\Rightarrow\mathcal O$ 
+defined by $\eta_Y\colon \Top(Y,S)\Rightarrow{\mathcal O}(Y)$ defined by 
+$\eta_Y(f)=f^{-1}(\{0\})$. 
+
+Now, to the question at hand. We have that the natural isomorphism $\eta$ maps 
+to $\eta_S(1_S)=1_S^{-1}(\{0\})=\{0\}$, the open point of $S$ or, more 
+precisely, the singleton set consisting of the open point of $S$.
+\item 
+\begin{quote}
+(iii) The Sierpinski space also represents the functor ${\mathcal C}\colon 
+\Top^\op\rightarrow\Set$ that sends a space to its set of closed subsets. 
+Composing the natural isomorphisms ${\mathcal O}\cong\Top{(-,S)}\cong{\mathcal 
+C}$ we see that the closed set and open set functors are naturally 
+isomorphic. The composite natural isomorphism carries an open subset to its 
+complement, which is closed. This recovers the natural isomorphism described in 
+Example 1.4.3(v).
+\end{quote}
+The solution to this problem is essentially the same as the last part. It is 
+worth noting that for topological spaces $Y$ and $X$, a function $f\colon 
+Y\rightarrow X$ is continuous if and only if for every closed set $A$ in $X$, 
+$f^{-1}(A)$ is closed in $Y$. Indeed, $Y$ is the disjoint union of the inverse 
+image of $A$ and the inverse image of the complement $A^c$ of $A$, which is 
+open. If $f$ is continuous, then $f^{-1}(A^c)$ is open in $Y$ so that 
+$f^{-1}(A)$ is closed in $Y$. Conversely, if $f^{-1}(A)$ is closed in $Y$ for 
+every closed set $A$ of $X$, then for every open set $U$ of $X$, $f^{-1}(U^c)$ 
+is closed so that $f^{-1}(U)$ is open and $f$ is continuous.
+
+Just as above, we make a natural isomorphism from $\Top(-,S)$ to $\mathcal C$ 
+by defining $\epsilon_Y\colon \Top(Y,S)\rightarrow{\mathcal C}(Y)$ by 
+$\epsilon_Y(f)=f^{-1}(1)=f^{-1}(\{1\})$. Then under the Yoneda correspondence, 
+$\epsilon$ maps to $\epsilon_S(1_S)=1_S^{-1}(\{1\})=\{1\}$, the closed point of 
+$S$ or, more precisely, the singleton set consisting of the closed point of $S$.
+\end{enumerate}
+
+\end{document}

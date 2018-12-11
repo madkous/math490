@@ -1,0 +1,37 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	Define a contravariant functor $ \cat{Fin}_{\textrm{mono}}^\op \to
+	\Top$ from 
+	the	category of finite sets and injections to the category of
+	topological 
+	spaces that sends a set with $ n $ elements to the space $
+	\cat{PConf}_n(X) $ 
+	constructed in Example 3.5.4. Explain why the functor does not induce a 
+	similar functor sending an $ n $-element set to the space $ \cat{Conf}_n(X). $
+\end{exercise}
+	
+\begin{proof}
+Recall that
+$$
+\cat{PConf}_n(X)=\{(x_1,\dots,x_n)\mid x_i\neq x_j \forall i\neq j
+\}.
+$$
+Define $ F\colon\msf{Fin}_{\textrm{mono}}^\op \to \Top $ on objects by 
+$|A|=n\mapsto \msf{Conf}_n(X)$ and on morphisms $ (x_1,\dots,x_n)\mapsto 
+(x_{f(1)},\dots, x_{f(m)}) $ with $ m\leq n. $ Note that this functor is contravaraiant as
+we have $ f $ in the subscripts not $ f\inv.$ We also needed that $ f $ was 
+injective else we could land on the ''fat diagonal." If we try and induce a 
+similar functor, but allowed for permutation we could have for a fixed 
+injective map $ f$ that takes order tuples in the same equivalence class to
+tuples in different equivalence classes. Consider the ordered triples
+ $ (x_1,x_2,x_3) \AND (x_2,x_3,x_1)$ and the map $ f(1)=1\AND f(2)=2. $ 
+ If we apply the functor we defined earlier we have 
+ $ (x_1,x_2,x_3)\mapsto (x_1,x_2) \AND (x_2,x_3,x_1)\mapsto (x_2,x_3). $
+ Even though $ (x_1,x_2,x_3) \AND (x_2,x_3,x_1)$ were in the same equivalence
+ class $ (x_1,x_2)\AND (x_2,x_3) $ are not.
+\end{proof}
+
+\end{document}

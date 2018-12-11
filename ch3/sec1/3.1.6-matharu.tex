@@ -1,0 +1,44 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	Prove that if
+	$$
+	\xymatrix{
+		E\ar[r]^h&
+		A  \ar@<1ex>[r]^f
+		\ar@<-1ex>[r]_g
+		& B  }
+	$$
+	is an equalizer diagram, then $ h $ is a monomorphism.
+\end{exercise}
+\begin{proof}
+	By the universal property for an $ \func{a}{C}{A},$ there exists a unique
+	factorization $ \func{k}{C}{E} $ of $ a $ through $ h. $ This implies that if $ fa=ga $ then the following diagram commutes.
+	$$
+	\xymatrix{
+		C\ar@{-->}[d]_{\exists! k}\ar[dr]^a  \\
+		E\ar[r]_h&A  \ar@<1ex>[r]^f
+		\ar@<-1ex>[r]_g
+		& B }
+	$$
+	To show $ h $ is a monomorphism define another morphism $\func{b}{C}{E} $
+	such we get a commutative diagram.
+	$$
+	\xymatrix{
+		C\ar@{-->}[d]^{\exists! k}\ar[dr]^a \ar@/_/[d]_b  \\
+		E\ar[r]_h&A  \ar@<1ex>[r]^f
+		\ar@<-1ex>[r]_g
+		& B }
+	$$
+	Because the above diagram commutes we get see that $ ghb=fhb. $ Since $ 
+	\func{hb}{C}{A} $ and $ ghb=fhb, $ the universal property tells us that we 
+	can factor $ hb $ through $ h $ by $ k. $ So $ hb=hk, $ but since $ k $ is 
+	unique we must have $ b=k. $ Thus $ h $ is left cancellable and therefore a 
+	monomorphism.
+	
+\end{proof}
+
+\end{document}

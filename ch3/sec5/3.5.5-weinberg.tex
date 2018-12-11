@@ -1,0 +1,35 @@
+\documentclass[main.tex]{subfiles}
+\author{Teddy Weinberg}
+\begin{document}
+\paragraph{}
+\begin{exercise}
+Describe the limits and colimits in the poset of natural numbers with the order
+relation $k \le n$ if and only if $k$ divides $n$.
+\end{exercise}
+
+\begin{proof}
+Recall that when considering a poset as a category, a morphism $f\colon c
+\rightarrow d$ exists if and only if $c \le d$, and that $f$ is unique for the
+given domain and codomain.  In this case, $c \le d$ means $c$ divides $d$.  The
+limit of the diagram must be able to divide everything in the diagram.  Because
+of the structure of the morphisms, commutativity and uniqueness are not issues.
+We need to find an element that divides everything in the diagram, but also is
+universal in the sense that anything else that divides everything in the
+diagram also divides our limit.  Thus, we choose the greatest common divisor of
+the objects in the diagram.  The greatest common divisor is divisible by any
+smaller divisor, and thus will be our limit. 
+
+
+Similarly, for colimits we need to find an object that is divided by every
+object in the diagram.  It also must divide any natural number that is divided
+by everything in the diagram.  Thus, we must choose our colimit as the least
+common multiple, which divides any other multiple.  
+
+Now we consider the empty diagram as a special case, as the concepts of GCD and
+LCM would not apply.  In the case of the empty diagram, the limit would be $0$,
+which can be divided by every other natural number, and thus is a terminal
+object. The colimit would be $1$, as it divides everything, and is our initial
+object.
+\end{proof}
+
+\end{document}

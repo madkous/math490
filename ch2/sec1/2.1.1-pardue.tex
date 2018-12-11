@@ -1,0 +1,24 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+For each of the three functors
+\[
+\xymatrix{\one\ar@<1ex>[r]^0\ar@<-1ex>[r]_1 & \two\ar[l]|-{!}}
+\]
+between the categories $\one$ and $\two$, describe the corresponding natural transformations between the covariant functors $\Cat\rightrightarrows\Set$ represented by the categories $\one$ and $\two$.
+\end{exercise}
+
+\begin{proof}
+Recall that $\Cat(\one,-)\cong\ob$ and $\Cat(\two,-)\cong\mor$. That is, $\one$ represents the functor taking a small category to its set of objects, while $\two$ represents the functor taking a small category to its set of morphisms.
+
+The functor $0\colon\one\rightarrow\two$ selects the object $0\in\ob\two$. The induced natural transformation $\Cat(\two,-)\Rightarrow\Cat(\one,-)$ is given by precomposition with $0$. Interpreting $f\in\Cat(\two,\sC)$ as a morphism in $\sC$, this precomposition takes $f$ to its domain. That is, precomposition with $0$ corresponds to the natural transformation $\dom\colon\mor\Rightarrow\ob$ that takes morphisms to their domains.
+
+In an analogous way, the functor $1\colon\one\rightarrow\two$ corresponds to the natural transformation $\cod\colon\mor\Rightarrow\ob$ that takes morphisms to their codomains. 
+
+The unique functor $!\colon\two\rightarrow\one$ corresponds to the natural transformation $\Cat(\one,-)\Rightarrow\Cat(\two,-)$ given by precomposition with this functor. This induces the natural transformation $\id\colon\ob\Rightarrow\mor$ taking objects $c$ to their identity morphisms $1_c$.
+
+\end{proof}
+
+\end{document}

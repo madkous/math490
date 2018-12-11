@@ -8,7 +8,7 @@
 	\[\al_{a,b,c}\colon F(a,b,b)\to G(a,c,c)\]
 	in $ \sD $ defines the components
 	of an \tbf{extranatural transformation} $ \al:F\To G $ if for any $
-	\func{f}{a}{a'},\;\func{h}{c}{c'} $ the following diagrams commute in $
+	\func{f}{a}{a'},\;\func{g}{b}{b'},\AND\func{h}{c}{c'} $ the following diagrams commute in $
 	\sD$:
 \begin{center}
 \[
@@ -18,8 +18,8 @@
 \xymatrix{ F(a,b,b')\ar[r]^{F(1_a,1_b,g)}\ar[d]_{F(1_a,g,1_{b'})}& F(a,b,b)\ar[d]^{\al_{a,b,c}}\\
 	F(a,b',b')\ar[r]_{\al_{a,b',c}}&G(a,c,c)
 }
-\xymatrix{ F(a,b,b)\ar[r]^{\al_{a,b,c'}}\ar[d]_{G(1_a,1_{c'},1_h)}& G(a,c',c')\ar[d]^{G(f,1_c,1_c)}\\
-	G(a,c,c)\ar[r]_{\al_{a',b,c}}&G(a,c',c)
+	\xymatrix{ F(a,b,b)\ar[r]^{\al_{a,b,c'}}\ar[d]_{G(\al_{a,b,c})}& G(a,c',c')\ar[d]^{G(1_a,1_{c'},h)}\\
+		G(a,c,c)\ar[r]_{G(1_a,h,1_c}&G(a,c',c)
 }\]
 \end{center}
 The left-hand square asserts the at the components $\al_{-,b,b}\colon

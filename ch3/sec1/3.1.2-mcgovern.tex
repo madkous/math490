@@ -1,0 +1,72 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+
+\begin{exercise}
+For a fixed diagram $F \in \sC^{\sJ}$, show that the cone functor $\Cone(-,F)$
+is naturally isomorphic to $\Hom(\Delta(-), F)$, the retriction of the hom
+functor for the category $\sC^{\sJ}$ along the constant functor embedding
+defined in 3.1.1.
+\end{exercise}
+
+\begin{proof}
+First, we note what we must show that we can define for each $c \in \sC$, a
+function $\eta_c: \Cone(c,F) \rightarrow \Hom(\Delta(c), F)$ that causes the
+following diagram to commute for $f\colon c \rightarrow c'$.
+\begin{align}
+   \xymatrix{ 
+\msf{Cone}(c', F)
+\ar[r]^{\Cone(-,F)(f)} 
+\ar[d]_{\eta_c'} 
+& \msf{Cone}(c,F)
+\ar[d]^{\eta_c} 
+\\ 
+\Hom(\Delta(c'),F) 
+\ar[r]_{\Hom(\Delta(-), F)(f)} 
+& \Hom(\Delta(c),F)
+\\
+}   
+\end{align}
+  
+Now, we note definition 3.1.2, which defines a cone over $F$ with apex $c$ as a
+natural transformation $\lambda\colon \Delta(c) \rightarrow F$. We also see
+that $\epsilon \in \Hom(\Delta(c),F)$ is defined by the following commutative
+diagram for a morphism $f\colon d \rightarrow e$. 
+\begin{align}
+    \xymatrix{
+    c
+    \ar[r]^{1_c} 
+    \ar[d]_{\epsilon_d}
+    & c \ar[d]^{\epsilon_e}
+    \\
+    Fd \ar[r]_{Ff}
+    & Fe
+    }
+\end{align}
+We can condense this diagram into the triangular diagram 
+\begin{align}
+   \xymatrix
+   { & c \ar[dl]_{\epsilon_d} \ar[dr]^{\epsilon_e}  & \\
+     Fd \ar[rr]_{Ff} & & Fe
+   }
+\end{align}
+Since we have a diagram like this for every $f \in \mor\sC$, we see that 
+$\epsilon$ defines a cone in $\Cone(c,F)$. So we see that elements $\Cone(c,F)$ 
+and $\Hom( \Delta(c), F)$ describe the same class of natural transformations. So 
+the image of $c$ under the functors $\Cone(-,F)$ and $\Hom(\Delta(-), F)$ is 
+identical. So these functors behave identically on objects. 
+
+We know by exercise 3.1.i that $\Cone(-,F)(f)\colon \Cone(c',F)
+\rightarrow \sC(c,F)$ takes a $\lambda_i\colon c' \rightarrow Fi$ to $\lambda_i
+f\colon c \rightarrow F$. We also see that by definition 3.1.1, that  for an
+$\epsilon \in \Hom(\Delta(c'),F)$ and $f\colon c \rightarrow c'$, that
+$\Hom(\Delta(-), F)(f) = \epsilon * \Delta(f)$, where $\Delta(f)$ is the
+constant natural transformation defined by $f$ between the functors
+$\Delta(c')$ and $\Delta(c)$. Since we are vertically composing these natural
+transformations, we see that $(\epsilon * f)_i = \epsilon_i f_i = \epsilon_i
+f$. So these functors also behave identically on morphisms and so they are
+identical and have a trivial natural isomorphims between them.
+\end{proof}
+
+\end{document}

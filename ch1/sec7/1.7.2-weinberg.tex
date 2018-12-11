@@ -1,0 +1,37 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+%
+%\settheorem{1}{2}{3}
+%\begin{lemma}
+	%Recall that a group as a category has a single object $x$, and that each element of the group is a morphism in the category.  All domains and codomains are that object $x$.  There is one identity morphism $1_x$, which is the identity element in the group.  Composition is the same as multiplication in this context.
+%\end{lemma}
+%\popthm
+
+\paragraph{}
+
+\begin{exercise}
+	Given a natural transformation $\beta: H \Rightarrow K$ and functors $F$ and $L$, define a natural transformation $L\beta F: LHF \Rightarrow LKF$ by $(L\beta F)_c = L\beta_{Fc}$.  This is the whiskered composite of $\beta$ with $L$ and $F$.  Prove that $L\beta F$ is natural.
+\end{exercise}
+
+\begin{proof}
+By $\beta$ being natural, we have for $g: d \rightarrow d'$ where $d,d' \in \sD$, 
+\begin{equation*}
+(Kg)\beta_d = \beta_{d'} (Hg).
+\end{equation*}
+But if instead we take $Ff\colon Fc \rightarrow Fc'$ for $c, c' \in \sC$ we can get
+\begin{equation*}
+(KFf)\beta_{Fc} = \beta_{Fc'} (HFf).
+\end{equation*}
+Now by Lemma 1.6.5, applying the functor \(L\) preserves the commutative diagram
+\begin{equation*}
+(LKFf)(L\beta_{Fc}) = (L\beta_{Fc'}) (LHFf).
+\end{equation*}
+$$\xymatrix{Hd \ar[d]_{\beta_d} \ar[r]^{Hf} & Hd' \ar[d]^{\beta_{d'}} \\ Kd \ar[r]_{Kf} & Kd'} 
+\xymatrix{HFc \ar[d]_{\beta_{Fc}} \ar[r]^{HFf} & HFc' \ar[d]^{\beta_{Fc'}} \\ KFc \ar[r]_{KFf} & KFc'} 
+\xymatrix{LHFc \ar[d]_{L\beta_{Fc}} \ar[r]^{LHFf} & LHFc' \ar[d]^{L\beta_{Fc'}} \\ LKFc \ar[r]_{LKFf} & LKFc' }$$ 
+
+
+\end{proof}
+
+
+\end{document}

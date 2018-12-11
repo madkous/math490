@@ -1,0 +1,67 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\maketitle
+
+\paragraph{}
+\begin{exercise}
+	As discussed in Section 2.2, diagrams of shape \(\com\) are determined
+	by a countably infinite family of objects and a countable infinite sequence
+	of morphisms. Describe the Yoneda embedding
+	\(\incl{y}{\com}{\Set^{\com^\op}}\) in this manner (as a family of
+	\(\com^\op\)-indexed functors and natural transformations). Prove
+	directly, without appealing to the Yoneda lemma, that \(y\) is full and
+	faithful.
+\end{exercise}
+
+\begin{proof}
+	It is reasonable to identify the category \(\com\) with the ordinal \(\om\).
+	Hence the objects of \(\com\) are the elements of \(\om\) and the morphisms
+	of \(\com\) are ordered pairs of objects where the second element is greater
+	than or equal to the first. For example, we have elements \(n\) and \(m\)
+	with a morphism \(n\le m\).
+
+	Now we describe the action of \(y\) on objects of \(\com\). In this light,
+	for a given \(n\) in \(\om\), the functor \(\com(-,n)\) takes an object
+	\(m\) and maps it to \(\set{m\le n}\) if this is a true statement, and the
+	empty set otherwise. Similarly, given an arrow \(p\le q\), \(\com(-,n)\)
+	re-imagines this as a function that pre-composes with \(q\le n\) to give
+	\(p\le n\). This is just the unique function between the singleton sets
+	\(\set{q\le n}\) and \(\set{p\le n}\). Note that if \(p\) is greater than
+	\(n\) (along with \(q\) by transitivity), then both \(p\) and \(q\) have
+	been mapped to the empty set and rather than an arrows \(p\le q\), \(q\le
+	n\), and \(p\le n\) we have the empty map, which all compose as we want
+	them. If only \(q\) is greater than \(n\), then \(p\le n\) becomes a
+	nontrivial map under our functor while \(q\le n\) is still the empty map.
+	This is not a problem because the empty map is absorbing with respect to
+	pre-composition.
+	\[\begin{tikzcd}
+			0\le n & 1\le n \ar[l] & 2\le n \ar[l] & \cdots \ar[l] &
+			n\le n \ar[l] & \nil \ar[l] & \cdots \ar[l]
+	\end{tikzcd}\]
+
+	Similarly, \(y\) takes a morphism \(m\le n\) to a map from \(\com(-,m)\) to
+	\(\com(-,n)\)
+	defined as follows. As shown above, an object of \(\com(-,m)\) is
+	\(\set{p\le m}\) or the empty set. This time we post-compose \(p\le m\) with
+	\(m\le n\) to get \(p\le n\) (or the empty set analogously to the above
+	argument). Concretely \(m\le n\) is a collection of maps of the form
+	\(\set{(p\le m),(p\le n)}\) where either the second or both symbols may be
+	the empty set.
+	\[\begin{tikzcd}
+			0\le n & 1\le n \ar[l] & \cdots \ar[l] & m \le n \ar[l] &
+			\cdots \ar [l] & n\le n \ar[l] & \nil \ar[l] & \cdots \ar[l] \\
+			0\le m \ar[u, "(m\le n)(0\le m)"] &
+			1\le m \ar[l] \ar[u, "(m\le n)(1\le m)"] & \cdots \ar[l] &
+			m\le m \ar[l] \ar[u, "(m\le n)(m\le m)"] & \cdots \ar[l] &
+			\nil \ar[l] \ar[u, "(m\le n)\nil"] &
+			\cdots \ar[l]
+	\end{tikzcd}\]
+
+	Note that this functor is immediately faithful because our domain category
+	is a preorder. To see that it is full, note that every object in \Set that
+	objects of \(\com\) map on to are either singleton sets or the empty set.
+	Cardinal arithmetic gives us three cases to consider \(1^1\), \(1^0\), and
+	\(0^0\). In no case is it possible for there to be a map in the homset that
+	our functor missed.
+\end{proof}
+\end{document}

@@ -1,0 +1,49 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+Suppose the functors and natural transformations
+\[\begin{array}{ccccc}
+\xymatrix{\sC\ar@<.5ex>[r]^F & \sD\ar@<.5ex>[l]^G} && \eta\colon1_\sC\cong GF&& \ep\colon FG\cong 1_\sD\\
+\xymatrix{\sD\ar@<.5ex>[r]^{F^\prime} & \sE\ar@<.5ex>[l]^{G^\prime}} && \eta^\prime\colon1_\sD\cong G^\prime F^\prime&& \ep^\prime\colon F^\prime G^\prime\cong 1_\sE\\
+\end{array}
+\]
+define equivalences of categories $\sC\simeq\sD$ and $\sD\simeq\sE$. Prove (again) that there is a composite equivalence of categories $\sC\simeq\sE$ by defining composite natural isomorphisms $1_\sC\cong GG^\prime F^\prime F$ and $F^\prime FGG^\prime\cong 1_\sE$. 
+\end{exercise}
+
+\begin{proof}
+First, we would like to make an additional remark on Exercise 1.7.ii. In that 
+exercise, given functors $F\colon\sC\rightarrow\sD$, 
+$H\colon\sD\rightarrow\sE$, $K\colon\sD\rightarrow\sE$ and 
+$L\colon\sE\rightarrow\sF$ and a natural transformation $\beta\colon 
+H\Rightarrow K$, we obtained a natural transformation $L\beta F\colon 
+LHF\Rightarrow LKF$, the \emph{whiskered composite} of $\beta$ with $L$ and 
+$F$, given by $(L\beta F)_c=L\beta_{Fc}$.
+
+We claim that if $\beta$ is a natural isomorphism, then so is $L\beta F$. 
+Indeed, if $\beta$ is a natural isomorphism then $\beta_d$ is an isomorphism 
+for every object $d$ of $\sD$. So, $\beta_{Fc}$ is an isomorphism for every 
+object $c$ of $\sC$. By Lemma 1.3.8, $L\beta_{Fc}$ is an isomorphism as well, 
+showing that $L\beta F$ is a natural isomorphism as claimed.
+
+Similarly, note that the vertical composition $\alpha\cdot\beta$ of two natural isomorphisms is a natural isomorphism since its component morphisms $(\alpha\cdot\beta)_c=\alpha_c\beta_c$ are compositions of isomorphisms.
+
+Now to the exercise at hand. From
+\[\xymatrix{\sC\ar[r]^F &\sD\ar@/^1pc/[rr]^{1_\sD}\ar@/_1pc/[rr]_{G^\prime F^\prime}&\Downarrow\eta^\prime & \sD\ar[r]^G & \sC}\]
+we obtain the natural isomorphism $G\eta^\prime F\colon GF\Rightarrow GG^\prime 
+F^\prime F$. Thus, we have a natural isomorphism $(G\eta^\prime 
+F)\cdot\eta\colon1_\sC\Rightarrow GG^\prime F^\prime F$.
+
+For the other direction, we consider the whiskered composite
+\[\xymatrix{\sE\ar[r]^{G^\prime} &\sD\ar@/^1pc/[rr]^{FG}\ar@/_1pc/[rr]_{1_\sD}&\Downarrow\ep & \sD\ar[r]^{F^\prime} & \sE}\]
+giving the natural isomorphism $F^\prime\ep G^\prime\colon F^\prime 
+FGG^\prime\Rightarrow F^\prime G^\prime$. Vertical composition with 
+$\ep^\prime$ gives the natural isomorphism $\ep^\prime\cdot(F^\prime\ep 
+G^\prime)\colon F^\prime FGG^\prime\Rightarrow 1_\sE$ as required.
+\end{proof}
+
+%
+%\ar@/_1pc
+
+\end{document}

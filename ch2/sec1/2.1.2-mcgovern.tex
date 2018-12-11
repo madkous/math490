@@ -1,0 +1,53 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	 Prove that if $F\colon \sC \rightarrow \Set$ is representable, the $F$ 
+	 preserves monomorphisms, i.e., sends every monomorphism in $\sC$ to 
+	 an injective function. Use the contrapositive to find a covariant 
+	 set-valued function defined on your favorite concrete category that is not 
+	 representable. 
+\end{exercise}
+
+\begin{proof}
+
+If $F \colon \sC \rightarrow  \Set$ is representable, we have, for some object 
+$c \in \sC$, a natural isomorphism $\eta\colon F \Rightarrow \sC(c,-)$. We can 
+represent $\eta$ by the following commutative diagram, for a morphism $f\colon 
+x\rightarrow y$. We note that $\sC(c,-)(f) = f_*$, where $f_*$ is 
+post-composition with $f$.
+$$
+\xymatrix{ 
+Fx 
+\ar[r]^{Ff} 
+\ar[d]_{\eta_x} 
+& Fy
+\ar[d]^{\eta_y} 
+\\ 
+\sC(c,x) 
+\ar[r]_{f_*} 
+&\sC(c,y)
+}  
+$$
+Since this diagram commutes, we have that $\eta_yFf = f_* \eta_x$.  Also, since 
+$\eta_y$ is an isomorphism, we know that $Ff = \eta_y^{-1}f_*\eta_x$. Now, 
+suppose $f$ is a monomorphism. This means that $f_*$ is injective. We know that 
+$\eta_x$ and $\eta_y^{-1}$ are injective by the defintion of natural 
+isomorphism. So $Ff$ is in injective, as it is a composition of injective 
+morphisms. So we see that $F$ preserves monomorphisms. 
+
+Now, we note that the contrapostive of this statement says that for a functor 
+$F\colon \sC \rightarrow \Set$, if $Ff$ is not injective for a monomorphism 
+$f$, then 
+$F$ is not representable. Consider the category $\sC_*$ whose objects and 
+morphisms are $ A =\{0,1\} \AND B = \{0,1,2\} $  and $\{1_A, 1_B, f\}$ respectively, where $f 
+ \colon A \rightarrow B$ is defined by $f(0)=f(1)= 1.$ (This category and 
+morphism was previously presented and discussed in exercise 1.6.v.) Because of 
+the size of our category, we know that $fh = fk$ implies that $h = k = 1_A$, so 
+$f$ is a monomorphism. But if we consider the functor $F_*\colon \sC_* \rightarrow 
+\Set$ that includes $\sC_*$ in $\Set$, we see that $Ff = f$ is not injective. So 
+by the contrapositive of the statement previously proven, $F_*$ is not 
+representable. 
+\end{proof}
+\end{document}

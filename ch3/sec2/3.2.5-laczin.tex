@@ -1,0 +1,70 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\paragraph{}
+
+\begin{exercise}
+	Show that for any small category $\cat{J}$, any locally small category
+	$\cat{C}$, and any parallel pair of functors
+	$\pfunc{F,G}{\cat{J}}{\cat{C}}$, there is an equalizer diagram
+	$$
+	\xymatrix{
+		& \cat{C}(Fj',Gj') \ar[r]^{Ff^\ast} & \cat{C}(Fj,Gj') \\
+		\text{Hom}(F,G)\ \ar@{>->}[r] &
+		\prod\limits_{j\in\ob\cat{J}}\cat{C}(Fj,Gj) \ar@<-.5ex>[r]
+		\ar@<.5ex>[r]\ar[u]^{\pi_{j'}}\ar[d]_{\pi_{j}} &
+		\prod\limits_{\func{f}{j}{j'\in\mor\cat{J}}}\cat{C}(Fj,Gj')\ar[u]_{\pi_{f}}
+		\ar[d]^{\pi_{f}} \\
+		& \cat{C}(Fj,Gj)\ar[r]_{Gf_\ast}&\cat{C}(Fj,Gj')
+	}
+	$$
+	Note that this is not the equalizer diagram obtained by applying
+	Theorem 3.2.13 to the diagram constructed in Exercise 3.2.vi. Rather,
+	this construction gives a second formula for $\Hom(F,G)$ as a
+	limit in $\Set$.
+\end{exercise}
+
+\begin{proof}
+	Our strategy will be to determine the parallel morphisms in the middle of the diagram, and then use those to determine an equalizer. From there, we will show that this equalizer is isomorphic to $\Hom(F,G)$, and thus the diagram is an equalizer diagram.
+	
+	Let $a,b$ be the parallel functions from the above diagram. We have
+	that $\pi_f a = Ff^\ast\pi_{j'}$ and $\pi_f b = Gf_\ast \pi_j$. We can
+	describe the action of the top half of the diagram as taking the $j'$
+	component of the product into a morphism $\func{m_{j'}}{Fj'}{Gj'}$, and
+	then precomposing $m$ with $f$. Similarly, the bottom of the diagram
+	post-composes $f$ with $\func{n_j}{Fj}{Gj}$. We then have that $\pi_f a
+	= (m_{j'}\circ f)\pi_{j'}$ and $\pi_f b = (f\circ n_j)\pi_j$. So $a$
+	and $b$ take products of morphisms indexed by $j$ to products of
+	morphisms that have been pre and post-composed (respectively) with the
+	morphisms $\func{f}{j}{j'}\in\cat{J}$. The equalizer in this case would
+	be the products of morphisms the components of which are the same under
+	both pre and post-composition with $f$:
+	
+	$$\bigg\{p\in\prod\limits_{j\in\ob\cat{J}}\cat{C}(Fj,Gj)\mid f\circ g_i
+	= g_i\circ f \text{ for all } g_i\in p\bigg\}$$
+	
+	Where $\func{g_i}{Fj}{Gj}$ is the $i$-th component of $p$.
+	
+	Note that this is similar to the condition of naturality, that the
+	following diagram commutes for a natural transformation $\alpha$ with
+	componenets $\alpha_j$:
+	$$
+	\xymatrix{
+		Fj\ar[r]^{Ff}\ar[d]_{\alpha_j} & Fj'\ar[d]^{\alpha_{j'}}\\
+		Gj\ar[r]^{Gf} & Gj'
+	}
+	$$
+	Where we can see that $Gf\circ \alpha_j = \alpha_{j'}\circ Ff$. An
+	element $p$ of the equalizer is a product of morphisms between $Fj$ and
+	$Gj$, similar to $\alpha_j$. Additionally, since there are as many
+	products $p$ as their are functions $f$, we can form a bijection
+	between the equalizer and $\Hom(F,G)$ by taking each product $p$ to the
+	natural transformation $\alpha$ for which $p_i = \alpha_i$. A morphism
+	doing so is clearly injective and surjective, and thus we have a
+	bijection (and since we are talking about sets, an isomorphism) between
+	the equalizer and $\Hom(F,G)$. So, the diagram is an equalizer diagram.
+
+\end{proof}
+
+\end{document}

@@ -1,0 +1,34 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+Complete the proof of Lemma 3.7.1 by showing that an initial object defines a
+limit of the identity functor $1_\sC: \sC \rightarrow \sC$.
+\end{exercise}
+
+\begin{proof}
+Call the initial object we are considering $i$.  We are looking for a universal
+cone, $\alpha\colon i \Rightarrow 1_\sC$.  We note that $i$ has unique morphisms to
+arbitrary elements $c,d$ in $\sC$ as it is initial.  Let $f: i \rightarrow c$,
+$g\colon i \rightarrow d$ be the unique morphisms, and let $h\colon c \rightarrow d$ be
+arbitrary.  We note then that $g = hf$, as there is only one morphism from $i$
+to $d$ in $\sC$.  This establishes that we have a cone over $1_\sC$.  
+
+
+Now we must show it is universal.  We consider another object $n$ as the apex
+that forms a valid cone $\beta\colon n \Rightarrow 1_\sC$.  Because $i$ is initial, we
+know there exists a unique morphism $h: i \rightarrow n$.  Considering $h$ as a
+natural transformation between constant functors, we now must show that $\alpha
+= \beta\cdot h$ (vertical composition), noting that both sides are $i
+\Rightarrow 1_\sC$.
+We look at any leg $t$ of the cone.  We see that $(\beta \cdot h)_t = \beta_t *
+h$ is a morphism with domain $i$ that shares a codomain with $\alpha_t$, and
+thus must be the same as $\alpha_t$ because $i$ is initial and morphisms from
+$i$ are unique.  Thus, as all of the legs are the same, $\alpha$ must equal
+$\beta \cdot h$, which guarantees that every cone $\beta$ factors through
+$\alpha$.  
+
+\end{proof}
+
+\end{document}

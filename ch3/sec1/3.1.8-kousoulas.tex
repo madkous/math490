@@ -1,0 +1,67 @@
+\documentclass[main.tex]{subfiles}
+
+\newcommand{\com}{\bbomega}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	Consider a commutative rectangle
+	\[\begin{tikzcd}[cramped]
+			\bullet \ar[r] \ar[d] &
+			\bullet \ar[r] \ar[d] \ar[dr, phantom, "\lrcorner", very near start] &
+			\bullet \ar[d] \\[0.6em]
+			\bullet \ar[r] &
+			\bullet \ar[r] &
+			\bullet
+	\end{tikzcd}\]
+	whose right-hand square is a pullback. Show that the left-hand square is a
+	pullback if and only if the composite rectangle is a pullback.
+\end{exercise}
+
+\begin{proof}
+	For ease of reference we will give the objects in the above diagram names as
+	follows.
+	\[\begin{tikzcd}[cramped]
+			a \ar[r] \ar[d] &
+			b \ar[r] \ar[d] \ar[dr, phantom, "\lrcorner", very near start] &
+			w \ar[d] \\[0.6em]
+			x \ar[r] &
+			y \ar[r] &
+			z
+	\end{tikzcd}\]
+	Recall that a pullback is the limit of a functor from
+	\(\bullet\to\bullet\gets\bullet\), so we are dealing with three functors
+	from this category with the following images:
+	\[x\to z\gets y,\quad y\to z\gets w,\qtextq{and} x\to y\gets b .\] Note that
+	the map from \(x\) to \(z\) factors through \(y\).
+
+	Further note that because \(b\) is a pullback and \(a\) is the apex of cone
+	with \(y\to z\gets w\) as a base (with the composite maps \(a\to x\to y\)
+	and \(a\to b\to w\) as legs), the map \(a\to b\) is unique.
+
+	\[\begin{tikzcd}[cramped]
+			c \ar[dr, dashed] \ar[drr, dashed, bend left=15]
+			\ar[drrr, bend left=20] \ar[ddr, bend right=15] \\ &
+			a \ar[r] \ar[d] &
+			b \ar[r] \ar[d] &
+			w \ar[d] \\[0.5em] &
+			x \ar[r] &
+			y \ar[r] &
+			z
+	\end{tikzcd}\]
+	Suppose first that the left-hand square is a pullback along with the
+	right-hand square, and there is an apex \(c\) to the cone with
+	\(x\to z\gets w\) as a base.
+	By taking \(c\to x\to y\) as a leg, \(c\) is a cone over
+	\(y\to z\gets w\) and thus there is a unique map \(c\dashrightarrow b\)
+	making \(c\) also the apex of a cone over \(x\to y\gets b\). Thus there is a
+	unique map \(c\dashrightarrow a\) making the whole diagram commute. Thus
+	\(a\) is the limit of \(x\to z\gets w\).
+	
+	Conversely suppose that the whole diagram is a pullback and that \(c\) is a
+	cone over \(x\to y\gets b\). Then \(c\) is also a cone over
+	\(x\to z\gets w\) with \(a\to b\to w\) as a leg. Thus we again have a unique
+	map \(c\dashrightarrow a\) that makes the diagram commute, and \(a\) is also
+	the limit of \(x\to y\gets b\).
+\end{proof}
+\end{document}

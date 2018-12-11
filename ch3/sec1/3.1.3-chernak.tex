@@ -1,0 +1,76 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+	
+\paragraph{} 
+
+\begin{exercise}
+Prove that the category of cones over $ F \in \mathsf{C^J} $ (for which I will
+use the notation $ \Cone_F $) is isomorphic to the comma category $
+\Delta \downarrow F $ formed from the constant functor $ \Delta \colon
+\mathsf{C} \to \mathsf{C^J} $ and the functor $ F \colon \mathbb{1} \to
+\mathsf{C^J} $. Argue by duality that the category of cones under $ F $ is the
+comma category $ F \downarrow \Delta $.
+\end{exercise}
+\begin{quote}
+	{\small To clarify, the functor $ F \colon \mathbb{1} \to \mathsf{C^J}$ is the 'constant functor' taking every element of  $ \mathbb{1} $ (that is to say, the \textit{only} element of $ \mathbb{1} $) to the diagram $ F \in \mathsf{C^J} $.}
+\end{quote}
+
+\paragraph{Proof.} 
+\begin{proof}
+Every element of $ \Delta \downarrow F $ must be of the form $ (c, 0, m) $,
+where $ c \in \textsf{C} $, $ 0 \in \mathbb{1} $, and $ m \colon \Delta c \to 0
+\in \mathsf{C^J} $. Note that for any such tuple, $ \Delta c = c \in
+\mathsf{C^J}$ and $ 0 = F \in \mathsf{C^J}$. So $ m $ must be a natural
+transformation within $ \mathsf{C^J} $ from some constant functor to the
+functor whose codomain is the diagram $ F $. So a tuple $ (c, 0, m) \in \Delta
+\downarrow F $ corresponds to the diagram $ F $ (determined by whatever diagram
+we chose the functor $ F $ to 'point to,') an object $ c $ in $ \mathsf{C} $,
+and a natural transformation $ m \colon c \to F \in \mathsf{C}$. Since $ m $ is
+a natural transformation, all of its components must commute. But since $ c $
+was defined the as the codomain of a constant functor, its only endomorphism is
+the identity. So $ m $ can be described by the following diagram:
+\end{proof}
+
+\begin{tikzcd}
+	&  &  &  & c \arrow[dd, "m_x" description] \arrow[rdd, "m_y"'] \arrow[rrdd, "m_z" description] \arrow[ldd, "m_w"] \arrow[lldd, "m_v" description] \arrow[llldd] \arrow[rrrdd] &  &  &  \\
+	& &  &  &  &  &  &  \\
+	& ... & v \arrow[r, "\alpha"'] \arrow[l] & w \arrow[r, "\beta"'] & x & y \arrow[l, "\gamma"] & z \arrow[l, "\delta"] \arrow[r] & ...
+\end{tikzcd}
+
+\noindent where $ v, w, x, y, z $, etc. and $ \alpha, \beta, \gamma, \delta $, etc. are objects and morphisms in $ F $, respectively. But if this diagram commutes, it is simply the diagram of a cone over $ F $ with apex $ c $, whose legs are the components of $ m $! So each distinct tuple in  $ \Delta \downarrow F $ describes a unique cone over $ F $, with the first component of the tuple determining the apex of that cone and the second component determining its legs. So we can define a bijection $ \phi $ between $ \Delta \downarrow F $ and $ \mathsf{Cone}_F $ that associates each tuple $ (c, 0, m) \in \Delta \downarrow F $ with the unique cone $ (c, m) \in \mathsf{Cone}_F $ (where $ c $ is the apex of the cone and $ m $ is the natural transformation $ c \Rightarrow m $ whose components are the legs of the cone.)
+
+Furthermore, note that the morphisms in $ \Delta \downarrow F $ must be of the form $ (h,k) \colon (c, 0, m) \to (c', 0, m') $ such that the following commutes:
+
+\begin{tikzcd}
+	&&&&&\Delta c \arrow[r, "m"'] \arrow[d, "\Delta h"] & F0 \arrow[d, "Fk"'] \\
+	&&&&&\Delta c' \arrow[r, "m'"] & F0
+\end{tikzcd}
+
+But for any $ (h,k) \in \Delta \downarrow F, k \colon 0 \to 0 $ can only be $ 1_0 $, which means $ Fk $ can only be $ 1_F $, since functors preserve identities. Furthermore, for some $ h \colon c \to c',$ every leg of $\Delta h \colon c \to c'$ is the morphism $ h $. So the above diagram can be redrawn as
+
+\begin{tikzcd}
+	&&&&&c \arrow[r, "m"'] \arrow[d, "h"] & 0 \arrow[d, "1_0"'] \\
+	&&&&&c' \arrow[r, "m'"] & 0
+\end{tikzcd}
+
+\noindent and further simplified to
+
+\begin{tikzcd}
+	&&&&&c \arrow[r, "h"'] \arrow[d, "m"] &c' \arrow[ld, "m'"] \\
+	&&&&&F & 
+\end{tikzcd}
+
+
+Notice that since this diagram commutes, the morphism $ m \colon c \to x $ is equal to $ m'h $. So any morphism $ (h,k) \colon (c, 0, m) \to (c', 0, m) $ is uniquely defined by its component $ h \colon c \to c' $. So we can create a bijection $ \varphi_1 $ associating each $ (h,k) $ with the unique $ h \colon c \to c' \in \mathsf{C^J} $ that defines it. But recall that any natural transformation between cones is \textit{also} uniquely defined by the component that acts on the apexes of those cones. So we can create another bijection $ \varphi_2 $ that takes each morphism $ h \colon (c, m) \to (c', m') \in \mathsf{Cone}_F $ to the unique $ h \colon c \to c' \in \mathsf{C^J} $ that defines it. Finally, we can create a bijection $ \varphi = \varphi_1 \varphi_2 $ that takes each $ (h,k) \colon (c, 0, m) \to (c', 0, m) \in \Delta \downarrow F $ to the unique $ h \colon (c, m) \to (c', m') \in \mathsf{Cone}_F $ that is defined by the same $ h \colon c \to c' \in \mathsf{C^J} $. 
+
+So now we have a bijection $ \phi $ between the objects of $ \Delta \downarrow F $ and the objects of $ \mathsf{Cone}_F $ and a bijection $ \varphi $ between the morphisms of $ \Delta \downarrow F $ and the morphisms of $ \mathsf{Cone}_F $ that preserves those morphisms' domains and codomains. So we can finally say that there is an isomorphism $ \Xi $ between $ \Delta \downarrow F $ and $ \mathsf{Cone}_F $, where $ \Xi_{Obj} = \phi $ and $ \Xi_{Mor} = \varphi $. So $ \Delta \downarrow F $ is isomorphic to $ \mathsf{Cone}_F $. $ \Box $
+
+\bigskip %Duality:
+
+Furthermore, note that for every morphism going from an object $ x \in F $ to the nadir $ c $ of a cone under $ F $ in $ \mathsf{C^J} $, there is a corresponding morphism in $ \mathsf{{C^{op}}^{J^{op}}} $ going from $ c $ to $ x $. So every cone under $ F \in \mathsf{C^J} $ is also a cone over $ F \in \mathsf{{C^{op}}^{J^{op}}} $. We might be tempted to stop here, but recall that when creating the comma category $ \Delta \downarrow F $, we defined the third component of each tuple to be a morphism in $ \mathsf{C} $, not $ \mathsf{C^{op}} $. 
+
+So in order for our proof to still hold in the dual case, we must replace the third component in each tuple with its corresponding morphism in $ \mathsf{C^{op}} $. This morphism certainly exists, but in a comma category the third component of each tuple must be a morphism from the image of the first component to the image of the second. So if we "turn around" that third component of every tuple in the category, we must also switch the positions of the first and second components of every tuple in the category; which gives us the comma category $ F \downarrow \Delta $. Now the proof by duality in the previous paragraph is valid, which means the category of cones under $ F $ is in fact isomorphic to $ F \downarrow \Delta $. $ \Box $
+
+  
+\end{document}

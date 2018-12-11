@@ -1,0 +1,30 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	 Show that for any small diagram $ F\colon \sJ \to \Set $, the equalizer 
+	 diagram (3.2.14) can be modified to yield a slightly smaller equalizer 
+	 diagram:
+	$$ \textbf{Matt will add this diagram using TikZ}$$
+	in which these condproduct is indexed only by non-identity morphisms. 
+\end{exercise}
+
+\begin{proof}
+	To show that we can slightly shrink the equalizer diagram, we will review
+	the proof of Theorem 3.2.6 and notice that removing the objects from the 
+	second product does not lose any information. Recall that the objects of 
+	a category can be identified with their identity morphisms. Notice that
+	the cone over $ F $ is indexed by the non-identity elements. When $ f $
+	is an identity morphism the diagram
+	$$
+	\xymatrix{&1\ar[dr]^{\lm_{\dom f}}\ar[dl]_{\lm_{\cod f}}\\
+		F(\dom f)\ar[rr]_{Ff}&&F(\cod f)
+	}
+	$$
+	collapses into a single line. Thus when defining the parallel pair of 
+	morphisms of $ c\AND d $ if $ f $ is an identity morphism (an object of $ 
+	\sJ $) the legs of the cone are the same, so we do not lose any information excluding them.   
+\end{proof}
+
+\end{document}

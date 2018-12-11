@@ -1,0 +1,49 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+Prove the following strengthening of Lemma 1.2.3, demonstrating the equivalence between an isomorphism in a category and a representable isomorphism between the corresponding co- or contravariant functors: the following are equivalent:
+\end{exercise}
+
+\begin{enumerate}[(i)]
+\item $f\colon x \rightarrow y$ is an isomorphism in $\sC$.
+\item $f_*\colon \sC(-,x) \Rightarrow \sC(-,y)$ is a natural isomorphism. 
+\item $f^{*}\colon \sC(y,-) \Rightarrow \sC(x,-)$ is a natural isomorphism. 
+\end{enumerate}
+
+\begin{proof}
+We prove this as a consequence of the Yoneda embedding theorem. We note that by 
+the Yoneda embedding theorem, we have an a fully faithful functor from $\sC$ to 
+$\Set^{\sC^{\op}}$ and from 
+$\sC^{\op}$ to $\Set^{\sC}$ and that this means that there are bijections 
+between $\sC(x,y)$ and $\Set^{\sC^{\op}}(\sC(-,x),\sC(-,y))$ and between  
+$\sC^{\op}(x,y)$ and 
+$\Set^{\sC}(\sC(y,-),\sC(x,-))$. To see that (i) implies (ii) and (iii), we 
+note that if there exists an isomorphism $f\colon x \rightarrow y$, there 
+exists at least 
+one natural 
+transformation $\sC(-,x) \Rightarrow \sC(-,y)$ and $\sC(y,-) \Rightarrow 
+\sC(x,-)$ by the bijections previously noted. We also see that the components 
+of $f_*$ and 
+$f^{*}$ are 
+defined by post and pre-composition with $f$, repsectively, and that post and 
+pre composition by an isomorphism creates another isomorphism. So all 
+components of $f_*$ 
+and $f^{*}$ are isomorphisms and therefore $f_*$ and $f^{*}$ are natural 
+isomorphisms. 
+
+Now, we show that (ii) implies (i) and that (iii) implies (i). To do this, we 
+recall that full and faithful functors create isomorphisms. Since we have that 
+$\sC(-,x)$ 
+and $\sC(-,y)$ are isomorphic by $f_*$, we know that $x$ and $y$ are also 
+isomorphic by $f$, since $f_*$ is the image of $f$. Likewise, if $\sC(y,-)$ and 
+$\sC(x,-)$ are 
+isomorphic by $f^{*}$, than so are $x$ and $y$ by $f^{*}$, since $f^{*}$ is the 
+image of $f$. So we have show that both (ii) and (iii) independently imply (i) 
+and that shows the equivalence of all three statements.
+
+\end{proof}
+
+\end{document}

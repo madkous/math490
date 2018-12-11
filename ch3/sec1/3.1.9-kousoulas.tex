@@ -1,0 +1,81 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	Show that if \(\sJ\) has an initial object, then the limit of any functor
+	indexed by \(\sJ\) is the value of that functor at an initial object. Apply
+	the dual of this result to describe the colimit of a diagram indexed by a
+	successor ordinal.
+\end{exercise}
+
+\begin{proof}
+	We begin by showing that an initial object of \(\sJ\) gives a limit for any
+	functor \(\func{F}{\sJ}{\sC}\) where \(\sC\) is some category. Letting \(*\)
+	be an initial object of \(\sJ\), for any object \(j\) in \(\sJ\) there is
+	precisely one map \(\func{\lm_j}{*}{j}\). For \(*\) to form a cone over
+	\(F\) we need a family of morphisms from \(F*\) to \(Fj\) for each object
+	\(j\) in \(sJ\). An obvious (but not necessarily required) choice is to take
+	\(F\lm_j\). Now we need only check that for every morphism
+	\(\func{f}{j}{k}\) in \(\sJ\) the identity \(FfF\lm_j=F\lm_k\). Because
+	\(f\lm_j=\lm_k\) this is precisely the condition that \(F\) is
+	functorial.\footnote{Note that this is weaker than saying that any triangle
+		in the image of \(F\) must commute.
+		\(\begin{tikzcd}[ampersand replacement=\&, cramped, column sep=.5em]
+			\&F* \ar[dr] \ar[dl] \\ Fj \ar[rr] \&\& Fk
+		\end{tikzcd}\) It is entirely possible to create new composable pairs if
+		\(F\) is not injective on objects. Even if \(Fj=Fj'\), \(F\lm_j\) and
+		\(F\lm_{j'}\) may be distinct. Given a map \(\func{f}{j}{k}\), it need
+		not be true that \(FfF\lm_{j'}=F\lm_k\), but this is immaterial to the
+		naturality of the \(F\lm_j\).}
+
+	Now suppose that \(c\) is the apex of a cone over \(F\), so there is a
+	distinguished map \(\func{\rho_j}{c}{Fj}\) for each \(j\) in \(\sJ\)
+	satisfying the naturality condition of a cone. For \(F*\) to be the limit of
+	\(F\), there must be a unique map \(\func{\psi}{c}{F*}\) such that
+	\(\rho_j=F\lm_j\psi\). In particular we need that \(\rho_*=F\lm_*\psi\),
+	however, \(\lm_*\) is the identity on \(*\), so we have \(\rho_*=\psi\).
+	Thus the leg of the cone from \(c\) to \(F*\) gives us the unique map we
+	require.
+
+	\[\begin{tikzcd}
+			c \ar[d, "\rho_*" left] \ar[dr, "\rho_j"] \\
+			F* \ar[r, "F\lm_j" below] & Fj
+	\end{tikzcd}\]
+
+	Note that both limits and initial objects are unique up to a canonical
+	isomorphism, which conforms with our result. If \(\sJ\) had multiple initial
+	objects, by the argument above all of these would give limits of a cone
+	based on \(\sJ\), and the unique isomorphism between two initial objects
+	would transfer to \(\sC\) to give us the canonical isomorphism between
+	limits.
+
+	\subparagraph{}
+	Now consider the case of a successor ordinal category \(\mbb{n}\) and a
+	functor \(\func{F}{\mbb{n}}{\sC}\). Note first that a successor ordinal
+	\(n\) by definition is the successor of some other ordinal denoted
+	\(n-1\).\footnote{In contrast a limit ordinal
+		like \(\om\) or \(2\om\) is not the successor of any other ordinal and
+	is instead the least upper bound of an otherwise unbounded collection.}
+	Considered as a poset, any ordinal is a well-ordered chain:\footnote{This
+		chain need not be finite. The ordinal \(\om+1=\om\cup\set{\om}\) is a
+	successor ordinal with maximum element \(\om\).} the set of all strictly
+	smaller ordinals ordered under inclusion. If \(\mbb{n}\) is a successor
+	ordinal, then this poset has maximum element \(n-1\), i.e. \(m\subset n-1\)
+	for any \(m\in\mbb{n}\).
+
+	Considered as a category, a poset has as maps the elements of a relation, in
+	this case \(\subset\), and as objects the elements of the poset. Thus the
+	condition that \(n-1\) is a maximum element is precisely saying that \(n-1\)
+	is a terminal object in \(\mbb{n}\).
+
+	The dual of the above result gives precisely that the colimit of a functor
+	indexed by a diagram with a terminal object is the value of the functor at
+	the terminal object. Instead of considering an apex \(c\) with maps leading
+	into the image of our diagram we instead consider a nadir with maps leading
+	from our diagram to \(c\). It is clear that a terminal object will satisfy
+	the argument above with the arrows reversed. This means that the functor
+	\(\func{F}{\mbb{n}}{\sC}\) has as a colimit \(F(n-1)\).
+\end{proof}
+\end{document}

@@ -1,0 +1,35 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\maketitle
+
+\paragraph{}
+\begin{exercise}
+	Prove Lemma 3.3.6, that an equivalence of categories, reflects and creates 
+	any limits and colimits that are present in either its domain or codomain.
+\end{exercise}
+\begin{proof}
+	If two categories $ \sC\AND \sD $ are equivalent, then there is a full 
+	faithful and essentially surjective functor $ \func{F}{\sC}{\sD}. $ By the 
+	previous question $ F $ reflects limits. Let $ G $ be cone over a diagram
+	$ H\colon \sJ\to\sC $ with apex $ c $ in $ \sC.$ We need to show that 
+	$ FG $ is a cone in $ \sD.$ 
+	Since $ G $ is a cone we have the following commutative triangle 
+	$$
+	\xymatrix{&c\ar[dr]^{\lm_j}\ar[dl]_{\lm_k}\\Hj\ar[rr]_{Hf}&&Hk
+	}
+	$$
+	where $ (\func{\lm_j}{c}{Hj} )_{j\in\ob\sJ}$ and $ \func{f}{j}{k} $ is a 
+	morphism in $ \sJ. $ Since $ F $ is faithful, $ F $ uniquely maps 
+	$ f\IN\mor\sJ\AND \lm_j $ to $ Ff\AND F\lm_j,$ respectively. Since $ G $ is a cone in $ 
+	\sC $ and $ F $ respects composition we know that the following diagram 
+	commutes.
+	$$
+	\xymatrix{&Fc\ar[dr]^{F\lm_j}\ar[dl]_{F\lm_k}\\FHj\ar[rr]_{FHf}&&FHk
+	}
+	$$
+	Thus $ F $ preserves cones, and therefore preserves limits.  Because $ F $ 
+	is full and faithful, by exercise 1.5.iv $ F $ reflects isomorphisms. This 
+	fulfills the criteria to apply the next question 3.3.iv, 
+	so $ F $ creates limits. This completes the proof.
+\end{proof}
+\end{document}
