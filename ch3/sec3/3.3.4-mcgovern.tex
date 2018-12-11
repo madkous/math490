@@ -5,7 +5,7 @@
 Prove that $F\colon\sC \rightarrow \sD$ creates limits for a particular class of diagrams if both of the following hold:
 \begin{enumerate}
     \item $\sC$ has those limits and $F$ preserves them.
-    \item $F\colon \sC \rightarrow \sD$ reflects isomorphisms. 
+    \item $F\colon \sC \rightarrow \sD$ reflects isomorphisms.
 \end{enumerate}
 \end{exercise}
 
@@ -14,13 +14,15 @@ The first condition above means that for every $K\colon \sJ \rightarrow \sC$, $K
 limit whose limit cone is represented by $\lambda\colon\lim K \Rightarrow K$ and
 that $F\lambda\colon F\lim K \Rightarrow FK$ is a limit cone for FK. The second
 condition means that for every morphism $f$ in $\sC$, if $Ff$ is an isomorphism
-in $\sD$, then so is $F$. 
+in $\sD$, then so is $F$.
+
 We must show that whenever $FK\colon \sJ \rightarrow \sD$ has a limit in $\sD$, there is
 some limit cone over $FK$ that can be lifted to a limit cone over $K$ and that
 $F$ reflects all limits. To see the first requirement, we see that for any $K$,
 there exists a limit cone $F\lambda$ as defined before by condition 1 that can
 be lifted to a limit cone $\lambda$ over $K$. We now must show that $F$
-reflects all limits. 
+reflects all limits.
+
 Now suppose that $\nu\colon c \Rightarrow K$ is a cone over $K$ and that $F\nu\colon Fc
 \Rightarrow FK$ is a limit cone. Note that we also have the limit cone
 $F\lambda\colon F\lim K \Rightarrow FK$. Consider the unique morphism $f:Fc
@@ -29,11 +31,12 @@ isomorphism, becuause $F\nu$ is also a limit cone.  We must now show that this
 ismorphism is in the image of $F$, that is that $f = Fg$ for some $g: c
 \rightarrow \lim K$. We see that this morphism is the image of the unique
 morphism that factors the legs of $\nu$ through $\lambda$ by the uniqueness of
-$f$. 
+$f$.
+
 So we see that $Fg = f$ is an canonical isomorphism in $\sD$, and therefore by
 our second condition that $F$ reflect isomorphisms, $g$ is a canonical
-isomoprhism between $c$ and $\lim K$, so we see that $\nu$ is also a limit cone
+isomorphism between $c$ and $\lim K$, so we see that $\nu$ is also a limit cone
 over $K$. Therefore $F$ reflects limits and we have shown that $F$ creates
-limits. 
+limits.
 \end{proof}
 \end{document}

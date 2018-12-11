@@ -1,10 +1,7 @@
 \documentclass[main.tex]{subfiles}
-
 \begin{document}
 
 \paragraph{}
-\textbf{Exercise 2.4.iii}
-
 \begin{exercise}
 Use the principle of duality to convert the proof that a covariant functor is
 representable if and only if its category of elements has an initial object
@@ -20,7 +17,6 @@ an element $y \in Fd$. We know that we have a unique morphism $f\colon (d,y)
 so that $Ff(x) = y$.  Because of our definition of $\Psi(x)$, this means
 exactly that $\Psi(x)_d\colon \sC(d,c) \rightarrow Fd$ is an isomorphism. This means
 that $\Psi(x)$ is a natural isomorphism and represents $F$.
-\\
 
 In the other direction, we want to show that for a natural transformation
 $\alpha\colon \sC(-,c) \Rightarrow F$, the pair $(c,\alpha_c(1_c))$ defined by the
@@ -29,6 +25,6 @@ Because $\alpha_d$ is a bijection, we have for every $y \in Fd$, a unique
 morphism $f\colon d \rightarrow c$ where $Ff\colon Fc \rightarrow Fd$ is such that
 $Ff(\alpha_c(1_c)) = y$. But this defines a unique homorphism to $(c,
 \alpha_c(1_c))$ from every $(d,y)$ in the category of elements, and so $(c,
-\alpha_c(1_c))$ is terminal. 
+\alpha_c(1_c))$ is terminal.
 \end{proof}
 \end{document}

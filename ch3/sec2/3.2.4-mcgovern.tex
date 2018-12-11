@@ -4,65 +4,66 @@
 \paragraph{}
 
 \begin{exercise}
- Generalize Exercise 3.2.iii to show that for any small category $\sJ$, any
- locally small category $\sC$ and any paralell pair of functors $F,G\colon \sJ
- \rightarrow \sC$, the set $\Hom(F,G)$ of natural transformations can be defined
- as a small limit in $\Set$. (Hint: the diagram whose limit is $\Hom(F,G)$ is
- indexed by a category $\sJ^{\S}$ whose objects are morphisms in $\sJ$ and which
- had morphisms $1_x \rightarrow f$, $1_y \rightarrow f$ for every $f\colon
- x\rightarrow y$ in $\sJ$)
- \end{exercise}
+	Generalize Exercise 3.2.iii to show that for any small category $\sJ$, any
+	locally small category $\sC$ and any paralell pair of functors $F,G\colon
+	\sJ \rightarrow \sC$, the set $\Hom(F,G)$ of natural transformations can be
+	defined as a small limit in $\Set$. (Hint: the diagram whose limit is
+	$\Hom(F,G)$ is indexed by a category $\sJ^{\S}$ whose objects are morphisms
+	in $\sJ$ and which had morphisms $1_x \rightarrow f$, $1_y \rightarrow f$
+	for every $f\colon x\rightarrow y$ in $\sJ$)
+\end{exercise}
 
 \begin{proof}
-First, we note that the underlying shape of the diagram in $\Set$ will be based on the following diagram in $\sJ^{\S}$:
-\begin{align}
-    \xymatrix{
-    1_{x} \ar[r] & f & \ar[l] 1_y}
-\end{align}
-Now, we define a functor $H\colon \sJ^{\S} \rightarrow \sC$ as the following:
-\begin{itemize}
-    \item For $f \in ob\sJ^{\S}$ where $f\colon x \rightarrow y$, $Hf = \sC(Fx,Gy)$
-    \item For a morphism $\tau\colon 1_x \rightarrow f$ in $J{\S}$ where $f\colon
-	    \rightarrow y$, $H\tau\colon \sC(Fx,Gx) \rightarrow C(Fx, Gy)$ is defined
-	    as  post-compostion by $Gf$ and if $\tau: 1_y \rightarrow f$,
-	    $H\tau\colon \sC(Fy,Gy) \rightarrow \sC(Fx,Gy)$ is defined as precomposition
-	    by $Gf$.
-\end{itemize}
-We see that the image of $(1)$ under this functor is :
-\begin{align}
-    \xymatrix{
-    \sC(Fx,Gx) \ar[r]^{Gf \circ -} & \sC(Fx, Gy)  &\ar[l]^{- \circ Ff} \sC(Fy, Gy)
-    }
-\end{align}
+	First, we note that the underlying shape of the diagram in $\Set$ will be
+	based on the following diagram in $\sJ^{\S}$:
+	\begin{align}
+		\xymatrix{
+		1_{x} \ar[r] & f & \ar[l] 1_y}
+	\end{align}
+	Now, we define a functor $H\colon \sJ^{\S} \rightarrow \sC$ as the following:
+	\begin{itemize}
+		\item For $f \in ob\sJ^{\S}$ where $f\colon x \rightarrow y$, $Hf = \sC(Fx,Gy)$
+		\item For a morphism $\tau\colon 1_x \rightarrow f$ in $J{\S}$ where $f\colon
+			\rightarrow y$, $H\tau\colon \sC(Fx,Gx) \rightarrow C(Fx, Gy)$ is defined
+			as  post-compostion by $Gf$ and if $\tau: 1_y \rightarrow f$,
+			$H\tau\colon \sC(Fy,Gy) \rightarrow \sC(Fx,Gy)$ is defined as precomposition
+			by $Gf$.
+	\end{itemize}
+	We see that the image of $(1)$ under this functor is :
+	\begin{align}
+		\xymatrix{
+			\sC(Fx,Gx) \ar[r]^{Gf \circ -} & \sC(Fx, Gy)  &\ar[l]^{- \circ Ff} \sC(Fy, Gy)
+		}
+	\end{align}
 
-Now, we must show that $\Hom(F,G)$ is a cone over this diagram. To do this, we
-construct a family of functions $\phi_{xy}\colon \Hom(F,G) \rightarrow \sC(Fx,Gy)$
-where $\phi_{xy}(\eta) = \eta_x$, the corresponding component of the natural
-transformation (if this is the case, we denote it as $\phi_{x}$ if $x = y$ and
-$\phi_{xy}(\eta) = Gf\eta_x$ if $x \neq y$. Because we have that $\eta$ is a
-natural transformation and that $Gf\eta_x = \eta_yFf$, we see that we have
-commutativity of:
+	Now, we must show that $\Hom(F,G)$ is a cone over this diagram. To do this, we
+	construct a family of functions $\phi_{xy}\colon \Hom(F,G) \rightarrow \sC(Fx,Gy)$
+	where $\phi_{xy}(\eta) = \eta_x$, the corresponding component of the natural
+	transformation (if this is the case, we denote it as $\phi_{x}$ if $x = y$ and
+	$\phi_{xy}(\eta) = Gf\eta_x$ if $x \neq y$. Because we have that $\eta$ is a
+	natural transformation and that $Gf\eta_x = \eta_yFf$, we see that we have
+	commutativity of:
 
-\begin{align}
-   \xymatrix
-   { & \Hom(F,G) \ar[dl]_{\phi_x} \ar[dr]^{\phi_y} \ar[d]_{\phi_{xy}}  & \\
-     \sC(Fx,Gx) \ar[r]^{Gf \circ -} & \sC(Fx, Gy)  &\ar[l]^{- \circ Ff} \sC(Fy, Gy)
-   }
-\end{align}
+	\begin{align}
+		\xymatrix
+		{ & \Hom(F,G) \ar[dl]_{\phi_x} \ar[dr]^{\phi_y} \ar[d]_{\phi_{xy}}  & \\
+			\sC(Fx,Gx) \ar[r]^{Gf \circ -} & \sC(Fx, Gy)  &\ar[l]^{- \circ Ff} \sC(Fy, Gy)
+		}
+	\end{align}
 
-Now, we must show that $\Hom(F,G)$ is the limit for this diagram. Suppose that
-there is an object $X \in \Set$ that also forms a cone over our diagram. This
-means that for every object $f \in \sJ^{\S}$ and $Hf = \sC(Fx, Gy)$, we have a
-$\sigma_{x,y}\colon X \rightarrow \sC(Fx,Gy)$ so that $\sigma_{xy}(k)\colon Fx \rightarrow
-Gy$ and in particular, if $x=y$, then $\sigma_{x}(k)\colon Fx \rightarrow Gx$. Now,
-suppose we have a $r: X \rightarrow \Hom(F,G)$, such that $\sigma_{x} =
-\phi_{x}r$. So for $k \in X$ $\phi_{x}r(k)  = \sigma_{x}(k)$. Now, consider
-that $\phi_x$ is selecting the $x$ component of the natural transformation
-$r(k)$, so $(r(k))_x = \sigma_{x}(k)$. So, we see what the construction of $r$
-must be. This is the only possible construction that satisfies $\phi_{x}r =
-\sigma_x$. We can also easily see that $\phi_{xy}r = \sigma_{xy}$ with our
-construction of $r$. So we have shown that any cone with apex $X$ factors
-uniquely through $\Hom(F,G)$ and so $\Hom(F,G)$ is the limit of this diagram.
+	Now, we must show that $\Hom(F,G)$ is the limit for this diagram. Suppose that
+	there is an object $X \in \Set$ that also forms a cone over our diagram. This
+	means that for every object $f \in \sJ^{\S}$ and $Hf = \sC(Fx, Gy)$, we have a
+	$\sigma_{x,y}\colon X \rightarrow \sC(Fx,Gy)$ so that $\sigma_{xy}(k)\colon Fx \rightarrow
+	Gy$ and in particular, if $x=y$, then $\sigma_{x}(k)\colon Fx \rightarrow Gx$. Now,
+	suppose we have a $r: X \rightarrow \Hom(F,G)$, such that $\sigma_{x} =
+	\phi_{x}r$. So for $k \in X$ $\phi_{x}r(k)  = \sigma_{x}(k)$. Now, consider
+	that $\phi_x$ is selecting the $x$ component of the natural transformation
+	$r(k)$, so $(r(k))_x = \sigma_{x}(k)$. So, we see what the construction of $r$
+	must be. This is the only possible construction that satisfies $\phi_{x}r =
+	\sigma_x$. We can also easily see that $\phi_{xy}r = \sigma_{xy}$ with our
+	construction of $r$. So we have shown that any cone with apex $X$ factors
+	uniquely through $\Hom(F,G)$ and so $\Hom(F,G)$ is the limit of this diagram.
 
 \end{proof}
 \end{document}

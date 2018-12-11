@@ -5,9 +5,16 @@
 	What is the coproduct in the category of commutative rings?
 \end{exercise}
 
-The solution for this exercise requires tensor products of abelian groups. For the full solution, we will need to consider tensor products of arbitrary families of abelian groups. In writing this solution, I expand on ideas from the end of Chapter 2 of {\it Introduction to Commutative Algebra} by Atiyah and MacDonald, and Appendix A6.3 of {\it Commutative Algebra with a View Toward Algebraic Geometry} by Eisenbud.
+The solution for this exercise requires tensor products of abelian groups. For
+the full solution, we will need to consider tensor products of arbitrary
+families of abelian groups. In writing this solution, I expand on ideas from the
+end of Chapter 2 of {\it Introduction to Commutative Algebra} by Atiyah and
+MacDonald, and Appendix A6.3 of {\it Commutative Algebra with a View Toward
+Algebraic Geometry} by Eisenbud.
 
-In principal, we could just dive in and construct the coproduct of an arbitrary family of commutative rings. But, it is best to see how this works in the case of two commutative rings first.
+In principal, we could just dive in and construct the coproduct of an arbitrary
+family of commutative rings. But, it is best to see how this works in the case
+of two commutative rings first.
 
 So, in the first part of this solution we will  take the following steps:
 \begin{enumerate}
@@ -16,20 +23,31 @@ So, in the first part of this solution we will  take the following steps:
 	\item Describe ring homomorphisms from $R$ and  $S$ to $R\otimes S$ and show that they satisfy the universal property  for the coproduct in the category of commutative rings.
 \end{enumerate}
 
-After all that hard work, we will do it over again for arbitrary families of abelian groups and arbitrary families of commutative rings.
+After all that hard work, we will do it over again for arbitrary families of
+abelian groups and arbitrary families of commutative rings.
 
-Riehl introduces tensor products of $\mbb{k}$-vector spaces in Example 2.3.7 and continues their discussion through Remark 2.3.11 and Exercise 2.3.ii. Although she does not show that tensor products exist (they do), she does derive a number of basic properties.
+Riehl introduces tensor products of $\mbb{k}$-vector spaces in Example 2.3.7 and
+continues their discussion through Remark 2.3.11 and Exercise 2.3.ii. Although
+she does not show that tensor products exist (they do), she does derive a number
+of basic properties.
 
-The entire discussion remains the same if $\mbb{k}$-vector spaces are replaced by $R$-modules, where $R$ is a commutative ring.\footnote{Tensor products of modules for noncommutative rings are trickier and do not  exist in the generality that we will discuss  in the second half. See Jacobson's {\it Basic Algebra II} for basic information on tensor products of modules over noncommutative rings.} Since we are only concerned with abelian groups, and abelian groups are $\ZZ$-modules, we may take $R=\ZZ$. This simplifies a few points, though the general case is not much harder. 
+The entire discussion remains the same if $\mbb{k}$-vector spaces are replaced
+by $R$-modules, where $R$ is a commutative ring.\footnote{Tensor products of
+modules for noncommutative rings are trickier and do not  exist in the
+generality that we will discuss  in the second half. See Jacobson's {\it Basic
+Algebra II} for basic information on tensor products of modules over
+noncommutative rings.} Since we are only concerned with abelian groups, and
+abelian groups are $\ZZ$-modules, we may take $R=\ZZ$. This simplifies a few
+points, though the general case is not much harder.
 
 \subparagraph{}
 For convenience, we will write all abelian groups additively. If $C$ is a third abelian group, then a bilinear function
 \[f:A\times B\rightarrow C\]
 is as defined in Example 2.3.7 with "linear map" replaced by "group homomorphism". That is, we require that $f(a_1+a_2,b)=f(a_1,b)+f(a_2,b)$ and $f(a,b_1+b_2)=f(a,b_1)+f(a,b_2)$. It follows for any $n\in\ZZ$ that $f(na,b)=nf(a,b)=f(a,nb)$. If also $g:C\rightarrow D$ is a homomorphism of abelian groups, then it is easy to check that $gf:A\times B\rightarrow D$ is bilinear. So, we have a functor
 \[\text{Bilin}(A,B;-):\Ab\rightarrow\Set\]
-where $\text{Bilin}(A,B;C)$ is the set of bilinear functions $f:A\times B\rightarrow C$. If $g:C\rightarrow D$ is as above, then post-composition gives a function $g_*:\text{Bilin}(A,B;C)\rightarrow\text{Bilin}(A,B;D)$, making $\text{Bilin}(A,B;-)$ a functor. Any abelian group representing this functor is the \emph{tensor product} of $A$ and $B$ and has earned the right to be written as $A\otimes B$. 
+where $\text{Bilin}(A,B;C)$ is the set of bilinear functions $f:A\times B\rightarrow C$. If $g:C\rightarrow D$ is as above, then post-composition gives a function $g_*:\text{Bilin}(A,B;C)\rightarrow\text{Bilin}(A,B;D)$, making $\text{Bilin}(A,B;-)$ a functor. Any abelian group representing this functor is the \emph{tensor product} of $A$ and $B$ and has earned the right to be written as $A\otimes B$.
 
-We now give a standard construction of the tensor product of two abelian groups $A$ and $B$. Let $F$ be the free abelian group whose basis is the set $A\times B$. That is, each element of $F$ may be uniquely written as $\sum _{i=1}^nm_i(a_i,b_i)$ where $n\in\NN$, $m_i\in\ZZ$ and $(a_1,b_1),\dots ,(a_n,b_n)$ are distinct elements of $A\times B$. Let $K\subseteq F$ be the subgroup generated by 
+We now give a standard construction of the tensor product of two abelian groups $A$ and $B$. Let $F$ be the free abelian group whose basis is the set $A\times B$. That is, each element of $F$ may be uniquely written as $\sum _{i=1}^nm_i(a_i,b_i)$ where $n\in\NN$, $m_i\in\ZZ$ and $(a_1,b_1),\dots ,(a_n,b_n)$ are distinct elements of $A\times B$. Let $K\subseteq F$ be the subgroup generated by
 \[(a_1+a_2,b)-(a_1,b)-(a_2,b)\text{ and }(a,b_1+b_2)-(a,b_1)-(a,b_2)\]
 for $a_1,a_2,a\in A$ and $b_1,b_2,b\in B$. The generators are precisely what we need to guarantee that
 \[(a_1+a_2,b)\equiv(a_1,b)+(a_2,b)\text{ and } (a,b_1+b_2)\equiv(a,b_1)+(a,b_2)\]
@@ -76,14 +94,14 @@ taking $(r_2,s_2)\in R\times S$ to $r_1r_2\otimes s_1s_2$. Using the distributiv
 		\[\sum _{i=1}^m\sum _{j=1}^n\sum _{k=1}^pr_{1i}r_{2j}r_{3k}\otimes s_{1i}s_{2j}s_{3k}\]
 		no matter in what order the products are computed. The identity is $1=1\otimes 1$, so that $R\otimes S$ is a monoid under multiplication. This is enough to see that $R\otimes S$ is a ring. That $R\otimes S$ is a commutative ring then follows from $R$ and $S$ being commutative.
 
-		Now, we must see that $R\otimes S$ has the right property to be a coproduct of $R$ and $S$. First, consider the function $\iota_0:R\rightarrow R\otimes S$ given by $\iota_0(r)=r\otimes 1$. Then 
+		Now, we must see that $R\otimes S$ has the right property to be a coproduct of $R$ and $S$. First, consider the function $\iota_0:R\rightarrow R\otimes S$ given by $\iota_0(r)=r\otimes 1$. Then
 		\[\begin{array}{ll}
 				& \iota_0(r_1+r_2)=(r_1+r_2)\otimes 1=r_1\otimes 1+r_2\otimes 1=\iota_0(r_1)+\iota_0(r_2),\\
 				& \iota_0(r_1r_2)=(r_1r_2)\otimes 1=(r_1\otimes 1)(r_2\otimes 1)=\iota_0(r_1)\iota_0(r_2),\\
 				& \iota_0(1)=1\otimes 1=1.
 			\end{array}
 		\]
-		So, $\iota_0$ is a ring homomorphism. Similarly, we have a ring homomorphism $\iota_1:S\rightarrow R\otimes S$ given by $\iota_1(s)=1\otimes s$. 
+		So, $\iota_0$ is a ring homomorphism. Similarly, we have a ring homomorphism $\iota_1:S\rightarrow R\otimes S$ given by $\iota_1(s)=1\otimes s$.
 
 		\subparagraph{}
 		Finally, we must check the universal property. Let $T$ be a third commutative ring and let $f:R\rightarrow T$ and $g:S\rightarrow T$ be ring homomorphisms. Considering $R$, $S$ and $T$ under addition, the function $(f*g):R\times S\rightarrow T$ defined by $(f*g)(r,s)=f(r)g(s)$ is bilinear, as may be readily checked from the distributive law in $T$ and that $f$ and $g$ are homomorphisms for $+$. So, $f*g$ factors through a homomorphism $h:R\otimes S\rightarrow T$ on the additive groups given on simple tensors by $h(r\otimes s)=f(r)g(s)$.  It is readily seen from the commutativity of $T$ that this is also a homomorphism for multiplication, so that $h$ is a ring homomorphism. Since $h\iota_0(r)=h(r\otimes 1)=f(r)g(1)=f(r)$ and $h\iota_1(s)=h(1\otimes s)=f(1)g(s)=g(s)$, $R\otimes S$ satisfies the universal property of the coproduct in the category of commutative rings.
@@ -104,7 +122,7 @@ taking $(r_2,s_2)\in R\times S$ to $r_1r_2\otimes s_1s_2$. Using the distributiv
 		Before going on, let's check what happens when $J$ has no more than $2$ elements. If $J=\emptyset$, then $\prod_{j\in\emptyset}A_j$ is a singleton set -- a terminal object in $\Set$. The conditions above on $f$ are vacuous, so we simply require a function $f:\{*\}\rightarrow C$, which is determined by a choice of element $c\in C$. If $J$ is a singleton set, then our product is just an abelian group $A_i=A$. There are no other $j\in J$, so that the choice of fixed values $a_j\in A_j$ is vacuous so that the condition on $f:A\rightarrow C$ is that it is a group homomorphism. If $J$ has two elements, then the condition of being a $J$-linear function is the condition of being a bilinear function considered above.
 
 		\subparagraph{}
-		Just as for bilinear functions, we have for a $J$-linear function $f:\prod_{j\in J}A_j\rightarrow C$ and a group homomorphism $g:C\rightarrow D$ that $gf:\prod_{j\in J}A_j\rightarrow D$ is also $J$-linear. Thus, for a $J$-indexed family of abelian groups $(A_j)_{j\in J}$ we have a functor 
+		Just as for bilinear functions, we have for a $J$-linear function $f:\prod_{j\in J}A_j\rightarrow C$ and a group homomorphism $g:C\rightarrow D$ that $gf:\prod_{j\in J}A_j\rightarrow D$ is also $J$-linear. Thus, for a $J$-indexed family of abelian groups $(A_j)_{j\in J}$ we have a functor
 		\[J\text{-lin}((A_j)_{j\in J};-):\Ab\rightarrow\Set\]
 		taking $C$ to the set of $J$-linear functions from $\prod_{j\in J}A_j$ to $C$ and taking a group homomorphism $g:C\rightarrow D$ to postcomposition $g_*$. Any group representing this functor is the \emph{tensor product} of this family of groups $(A_j)_{j\in J}$ and is denoted
 		\[\bigotimes_{j\in J}A_j.\]
@@ -113,8 +131,8 @@ taking $(r_2,s_2)\in R\times S$ to $r_1r_2\otimes s_1s_2$. Using the distributiv
 		\subparagraph{}
 		Now, we imitate the construction of a tensor product of two abelian groups to give the tensor product of an arbitrary family of abelian groups. Given a family $(A_j)_{j\in J}$ of abelian groups, let $F$ be the free abelian group whose basis is the elements of $\prod_{j\in J}A_j$. Thus, each element of $F$ may be uniquely expressed as $\sum _{i=1}^nm_i(a_{ij})_{j\in J}$ where $n\in\NN$, $m_i\in\ZZ$ and $(a_{1j})_{j\in J},\dots ,(a_{nj})_{j\in J}$ are distinct elements of $\prod_{j\in J}Aj$.
 
-		Let $K\subseteq F$ be the subgroup generated by all expressions of the form 
-		\[(a_j)_{j\in J}-(b_j)_{j\in J}-(c_j)_{j\in J}\] 
+		Let $K\subseteq F$ be the subgroup generated by all expressions of the form
+		\[(a_j)_{j\in J}-(b_j)_{j\in J}-(c_j)_{j\in J}\]
 		such that there is some $i\in J$ for which $a_i=b_i+c_i$ and $a_j=b_j=c_j$ for all $j\ne i$. Write $\bigotimes_{j\in J}A_j$ for $F/K$ and $\otimes_{j\in J}a_j$ for the image of the basis element $(a_j)_{j\in J}$ in $\bigotimes_{j\in J}A_j$. This image is called a \emph{simple tensor}. So long as $J\ne\emptyset$, any integer multiple of a simple tensor $m(\otimes_{j\in J}a_j)$ may also be written as a simple tensor by choosing some $j$ and replacing $a_j$ by $ma_j$. Then, for $J\ne\emptyset$, each element of $\bigotimes_{j\in J}A_j$ may be represented (non-uniquely)  as a finite sum of simple tensors\footnote{If $J=\emptyset$, then every element of $\bigotimes_{j\in\emptyset}A_j$ is an integer multiple of the unique empty simple tensor. We will assume that $J\ne\emptyset$ going forwards, but the modifications required for the empty case are straightforward.}:
 		\[\sum _{i=1}^n\otimes_{j\in J}a_{ij}.\]
 
@@ -131,7 +149,7 @@ taking $(r_2,s_2)\in R\times S$ to $r_1r_2\otimes s_1s_2$. Using the distributiv
 		\subparagraph{}
 		Now, let $(R_j)_{j\in J}$ be a family of commutative rings and let $R=\bigotimes_{j\in J}R_j$ be the tensor product of their underlying abelian groups. We will construct a multiplication operation on $R$ that makes $R$ into a ring.
 
-		This multiplication operation will be built from the function 
+		This multiplication operation will be built from the function
 		\[\mu:\prod_{j\in J}R_j\times\prod_{j\in J}R_j\rightarrow R=\bigotimes_{j\in J}R_j\]
 		defined by $\mu((a_j),(b_j))=\otimes_j(a_jb_j)$. Notice that if we fix the lefthand side $a=(a_j)_{j\in J}$, then the function $\mu_a:\prod_jR_j\rightarrow R$ given by $\mu_a((b_j))=\otimes_j(a_jb_j)$ is $J$-linear. To check this, let $(b_j),(b_j^\prime),(b_j^{\prime\prime})\in\prod_jR_j$ be such that there is some $i\in J$ such that $b_i=b_i^\prime+b_i^{\prime\prime}$ while $b_j=b_j^\prime=b_j^{\prime\prime}$ for $j\ne i$. Then the $i$-component of $\otimes_j(a_jb_j)$ is $a_ib_i=a_ib_i^\prime+a_ib_i^{\prime\prime}$ so that
 		\[\otimes_{j\in J}(a_jb_j)=\otimes_{j\in J}a_jb_j^\prime+\otimes_{j\in J}a_jb_j^{\prime\prime}\]
@@ -142,7 +160,7 @@ taking $(r_2,s_2)\in R\times S$ to $r_1r_2\otimes s_1s_2$. Using the distributiv
 
 		So, we have a well-defined function
 		\[\hat{\mu}:\left(\prod_{j\in J}R_j\right)\times R\rightarrow R\]
-		given by 
+		given by
 		\[\left((a_j)_{j\in J},\sum_{k=1}^n\otimes_{j\in J}b_{kj}\right)\mapsto\sum_{k=1}^n\otimes_{j\in J}(a_jb_{kj}).\]
 		Fixing the right-hand side $b=\sum_{k=1}^n\otimes_jb_{kj}$ we obtain a function
 		\[\hat{\mu}_b:\prod_{j\in J}R_j\rightarrow R\]
@@ -150,7 +168,7 @@ taking $(r_2,s_2)\in R\times S$ to $r_1r_2\otimes s_1s_2$. Using the distributiv
 		\[(a_j)_{j\in J}\mapsto\sum_{k=1}^n\otimes_{j\in J}(a_jb_{kj}).\]
 		As above, this is a $J$-linear function and so factors through a function $\bar{\mu}_b:R\rightarrow R$ that when applied to an arbitrary element of $R$ is given by
 		\[\bar{\mu}_b:\sum_{i=1}^m\otimes_ja_{ij}\mapsto\sum_{i=1}^m\sum_{k=1}^n\otimes_j(a_{ij}b_{kj}).\]
-		Letting $b\in R$ vary, we obtain a well-defined function $\bar\mu:R\times R\rightarrow R$ 
+		Letting $b\in R$ vary, we obtain a well-defined function $\bar\mu:R\times R\rightarrow R$
 		\[\bar{\mu}\left(\sum_{i=1}^m\otimes_ja_{ij},\sum_{k=1}^n\otimes_jb_{kj}\right)=\sum_{i=1}^m\sum_{k=1}^n\otimes_j(a_{ij}b_{kj}).\]
 		As in the earlier case of a tensor product of two rings, it is easy to check that $\mu$ is an associative and commutative binary operation that distributes over addition in $R$. Furthermore, $1:=\otimes_j1$ is a multiplicative identity for $\mu$, so that $R$ is a commutative ring.
 
@@ -168,24 +186,24 @@ taking $(r_2,s_2)\in R\times S$ to $r_1r_2\otimes s_1s_2$. Using the distributiv
 		\[\psi\left(\sum_{i=1}^m\otimes_ja_{ij}\right)=\sum_{i=1}^m\psi(\otimes_ja_{ij})=\sum_{i=1}^m\psi\left(\prod_{j\in J}\iota_j(a_{ij})\right)=\sum_{i=1}^m\prod_{j\in J}\psi\iota_j(a_{ij})=\sum_{i=1}^m\prod_{j\in J}\phi_j(a_{ij}).\]
 		This gives a formula for the only possible ring homomorphism $\psi:R^\prime\rightarrow S$ satisfying our constraints. It remains to see that $\psi$ is well-defined and really is a ring homomorphism.
 
-		The strategy that we would {\it like} to follow is to show that $\psi$ is induced by a $J$-linear function $\prod_{j\in J}R_j\rightarrow S$ defined by $(a_j)\mapsto\prod_j\phi_j(a_j)$. This will work when $J$ is finite, but this function is not defined on all of $\prod_jR_j$ when $J$ is infinite! So, let us proceed with care. 
+		The strategy that we would {\it like} to follow is to show that $\psi$ is induced by a $J$-linear function $\prod_{j\in J}R_j\rightarrow S$ defined by $(a_j)\mapsto\prod_j\phi_j(a_j)$. This will work when $J$ is finite, but this function is not defined on all of $\prod_jR_j$ when $J$ is infinite! So, let us proceed with care.
 
 		\subparagraph{}
 		For an element $(a_j)\in\prod_{j\in J}R_j$, say that the \emph{support} of $(a_j)$ is $\{j\in J|a_j\ne 1\}$. Say that $(a_j)$ is of \emph{finite support} if its support is a finite set and of \emph{infinite support} if its support is an infinite set. Then $\prod_{j\in J}R_j$ is a disjoint union of the two subsets $(\prod_jR_j)^f$ of elements of finite support and $(\prod_jR_j)^\infty$ of elements of infinite support.
 
-		Recall that $F$ is the free abelian group with basis $\prod_jR_j$. Splitting the basis into these two subsets, we may write $F=F^f\oplus F^\infty$ where $F^f$ is a free abelian group with basis $(\prod_jR_j)^f$ and $F^\infty$ is a free abelian group with basis $(\prod_jR_j)^\infty$. Recall that $R=F/K$ where $K$ is a subgroup that we will recall in a moment. Notice that $R^\prime$ is the image of $F^f$ modulo $K$. The kernel of the induced group homomorphism $F^f\rightarrow R^\prime$ is $F^f\cap K$, which we will call $K^f$. So, $R^\prime\simeq F^f/K^f$. 
+		Recall that $F$ is the free abelian group with basis $\prod_jR_j$. Splitting the basis into these two subsets, we may write $F=F^f\oplus F^\infty$ where $F^f$ is a free abelian group with basis $(\prod_jR_j)^f$ and $F^\infty$ is a free abelian group with basis $(\prod_jR_j)^\infty$. Recall that $R=F/K$ where $K$ is a subgroup that we will recall in a moment. Notice that $R^\prime$ is the image of $F^f$ modulo $K$. The kernel of the induced group homomorphism $F^f\rightarrow R^\prime$ is $F^f\cap K$, which we will call $K^f$. So, $R^\prime\simeq F^f/K^f$.
 
-		Recall that $K\subseteq F$ is the subgroup generated by all expressions of the form 
-		\[(a_j)_{j\in J}-(b_j)_{j\in J}-(c_j)_{j\in J}\] 
+		Recall that $K\subseteq F$ is the subgroup generated by all expressions of the form
+		\[(a_j)_{j\in J}-(b_j)_{j\in J}-(c_j)_{j\in J}\]
 		such that there is some $i\in J$ for which $a_i=b_i+c_i$ and $a_j=b_j=c_j$ for all $j\ne i$. Notice that the supports of $(a_j), (b_j)$ and $(c_j)$ in this expression can differ only in that $i$ might be in some but not others. So, all three of $(a_j),(b_j)$ and $(c_j)$ are in $F^f$ or all three are in $F^\infty$. An arbitrary element of $K^f$ is a sum of finitely many generators above or their inverses with the property that all terms with infinite support cancel out. We may split the sum into a sum of those generators involving terms of finite support and a sum of those generators involving terms of infinite support. The latter sum must be zero. So, we see that $K^f$ is generated by expressions as above involving only terms of finite support.
 
 		To sum up, we have a homomorphism of abelian groups $\otimes:F^f\rightarrow R^\prime$ given by $(a_j)_{j\in J}\mapsto\otimes_{j\in J}a_j$. The kernel $\otimes$ is the subgroup $K^f$ generated by expressions of the form
-		\[(a_j)_{j\in J}-(b_j)_{j\in J}-(c_j)_{j\in J}\] 
+		\[(a_j)_{j\in J}-(b_j)_{j\in J}-(c_j)_{j\in J}\]
 		such that there is some $i\in J$ for which $a_i=b_i+c_i$ and $a_j=b_j=c_j$ for all $j\ne i$ and $(a_j), (b_j)$ and $(c_j)$ all have finite support.
 
 		Now, we do have a function $\tilde{\psi}:(\prod_jR_j)^f\rightarrow S$ given by $\tilde{\psi}((a_j))=\prod_{j\in J}\phi_j(a_j)$. This function is well-defined because each $(a_j)\in(\prod_jR_j)^f$ has finite support and $\phi_j(1)=1$. Since $F^f$ is a free abelian group with basis $(\prod_jR_j)^f$, $\tilde{\psi}$ induces a group homomorphism $\hat{\psi}:F^f\rightarrow S$ given by
 		\[\hat{\psi}\left(\sum_{i=1}^m\alpha_i(a_{ij})_{j\in J}\right)=\sum_{i=1}^m\alpha_i\tilde{\psi}((a_{ij})_{j\in J})=\sum_{i=1}^m\alpha_i\prod_{j\in J}\phi_j(a_{ij}).\]
-		where $\alpha_i\in\ZZ$. To see that $\tilde{\psi}$ factors through $F^f/K^f\simeq R^\prime$, we must check that each generator of $K^f$ maps to $0$. This follows from $\phi_i$ being a homomorphism on abelian groups and the distributive property of multiplication over addition in $S$. 
+		where $\alpha_i\in\ZZ$. To see that $\tilde{\psi}$ factors through $F^f/K^f\simeq R^\prime$, we must check that each generator of $K^f$ maps to $0$. This follows from $\phi_i$ being a homomorphism on abelian groups and the distributive property of multiplication over addition in $S$.
 
 		This is enough to see that $\psi:R^\prime\rightarrow S$ as given above is well-defined and is a homomorphism of abelian groups under addition. Now, we must see that it is also a homomorphism or monoids under multiplication. First note that $\psi(1)=\prod_{j\in J}\phi_j(1)=1$ so that $\psi$ preserves the identity. Now, we check directly that $\psi$ preserves multiplication:
 		\[\psi\left(\sum_{i=1}^m\otimes_ja_{ij}\right)\psi\left(\sum_{k=1}^n\otimes_jb_{kj}\right)

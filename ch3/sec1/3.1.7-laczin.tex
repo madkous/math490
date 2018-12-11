@@ -1,23 +1,18 @@
-\documentclass{article}
-% I got these from the internets: http://tug.org/pipermail/xy-pic/2001-July/000015.html
-% The provider doesn't know either. I corrected the naming of the bits.
-\newcommand{\pushoutcorner}[1][dr]{\save*!/#1+1.2pc/#1:(1,-1)@^{|-}\restore}
-\newcommand{\pullbackcorner}[1][dr]{\save*!/#1-1.2pc/#1:(-1,1)@^{|-}\restore}
+\documentclass[main.tex]{subfiles}
 
 \begin{document}
 
 \paragraph{}
 \begin{exercise}
 	Prove that if
-	$$
-	\xymatrix{
-		P\ar[r]^k\ar[d]_h \pullbackcorner & C\ar[d]^g \\
-		B\ \ar@{>->}[r]_f & A
-	}
-	$$
+	\[\begin{tikzcd}
+			P \ar[r, "k"] \ar[d, "h"]
+			\ar[dr, phantom, "\lrcorner", very near start] & C\ar[d, "g"] \\
+			B \ar[r, rightarrowtail, "f"] & A
+	\end{tikzcd}\]
 	is a pullback square and $f$ is a monomorphism, then $k$ is a monomorphism.
 \end{exercise}
-	(Recall: the notation $\rightarrowtail$ means that $f$ is mono.)
+(Recall: the notation $\rightarrowtail$ means that $f$ is mono.)
 \begin{proof}
 	Consider morphisms $\func{l,e}{D}{P}$ where $ke=le$ and $D$ is the pullback cone. We have that $gkl = gke$, which due to the commutivity of the diagram is the same as $fhl = fhe$, but since $f$ is mono, $hl=he$. Letting $c=kl=ke$ and $b=hl=he$, we have the followind diagram, where $\func{d}{D}{P}$ and $\func{j}{P}{A}$:
 	$$

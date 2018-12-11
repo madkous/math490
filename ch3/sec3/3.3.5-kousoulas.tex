@@ -1,0 +1,50 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	Show that the forgetful functors \(\func{U}{\Setp}{\Set}\) and
+	\(\func{U}{\Topp}{\Top}\) fail to preserve coproducts and explain why this
+	results demonstrates that the connectedness hypothesis in Proposition
+	3.3.8(ii) is necessary.
+\end{exercise}
+
+\begin{proof}
+	Consider first pointed sets \((A,a)\) and \((B,b)\) where neither is a
+	singleton. Letting \(C\defeq (A\setminus\{a\})\amalg(B\setminus\{b\})\),
+	then \((C,*)\), where \(*\) is some available symbol, realizes the coproduct
+	of \((A,a)\) and \((B,b)\) in \(\Setp\). The inclusion maps here are defined
+	as they are for disjoint unions normally augmented by taking either \(a\) or
+	\(b\) to \(*\) as necessary. However, under the forgetful functor \(U\), the
+	coproduct of \(A\) and \(B\) is simply the disjoint union \(A\amalg B\),
+	which (with some fussing) properly contains \(C\).
+
+	That this problem also affects topological spaces can been seen merely by
+	noting that in taking finite sets with the discrete topology we have
+	essentially recreated the category \(\Fin\) because all maps from a discrete
+	space are continuous. Given more realistic topological spaces, the coproduct
+	of two pointed spaces involves stitching them together at that point while
+	the coproduct of the underlying spaces has them essentially floating free of
+	each other.
+
+	To see why the connectedness hypothesis is necessary it is instructive to
+	examine pushouts: where coproducts are the colimit of a diagram from a
+	discrete category \(\bullet\quad\bullet\), pushouts are the colimit of a
+	connected diagram \(\bullet\gets\bullet\to\bullet\). When we take a diagram
+	of this form in \(\Setp\), we have two functions that preserve the points of
+	each object: \(f(c)=a\) and \(g(c)=b\).
+	\begin{equation*}\begin{tikzcd}
+			(C,c) \ar[r, "f"] \ar[d, "g"] & (B,b) \\
+			(A,a)
+	\end{tikzcd}\end{equation*}
+	When we apply \(U\) and ``forget'' about the points, the functions \(f\) and
+	\(g\) preserve their importance. For a set \(Z\) to be the colimit of this
+	diagram in \(\Set\) with inclusions \(\iota_A\) and \(\iota_B\), it must be
+	the case \(\iota_Af(c)=\iota_Bg(c)\) which forces \(\iota_A(a)=\iota_B(b)\).
+	This is precisely the point at which \(U\) failed to preserve the coproduct.
+
+	% Given another object \((Z,z)\) with maps
+	% \(\func{f}{(A,a)}{(Z,z)}\) and \(\func{f}{(B,b)}{(Z,z)}\), it is easy to see
+	% that we may factor each
+\end{proof}
+\end{document}

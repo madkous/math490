@@ -2,17 +2,33 @@
 \begin{document}
 
 \paragraph{}
-	\textbf{Commets: I think I am confused. There definitely needs some applications of universes in this proof, when taking power sets of classes and such. Also I think I don't think Nat(F,G) is used anywhere. I think that should be $ \sC^\sD $. }
-	\begin{exercise}
-		Prove that if $\cat{C}$ is small and $\cat{D}$ is locally small, then $\cat{D}^\cat{C}$ is locally small by defining a monomorphism from the collection of natural transformations between a fixed pair of functors $\pfunc{F,G}{\cat{C}}{\cat{D}}$ into a set. (Hint: Think about the function that sends a natural transformation to its collection of components.)
-	\end{exercise}
-	
-	\begin{proof}
-		Let $\func{\gamma}{\text{Nat}(F,G)}{\Set}$, given by $\alpha\mapsto\{\alpha_c\in\mor\cat{D}\}$ where $\Func{\alpha}{F}{G}\in\text{Nat}(F,G)$.
-		We must show that $\{\alpha_c\in\mor\cat{D}\}$ is a set. We can do this by noting that since $\cat{D}$ is locally small, $\cat{D}(x,y)$ is a set for all choices of $x,y$. Let $\func{\delta}{\ob\cat{C}}{\mathcal{P}(\mor\cat{D})}$, given by $c\mapsto\cat{D}(Fc,Gc)$, where $\mathcal{P}(\mor\cat{D})$ is the power class of $\mor\cat{D}$. We know that $\cat{D}(Fc,Gc)\in\mathcal{P}(\mor\cat{D})$, and since $\ob\cat{C}$ is a set, the range of $\delta$ is a set by the Axiom of Replacement. Taking the union of the range of $\delta$, which is also a set, gives us a set that contains all of the possible natural transformations from $F$ to $G$.
-		
-		So $\gamma$ sends any natural transformation to an element of this new set. Since the class of functions between pairs of sets is a set, and that the class of natural transformations between $F$ and $G$ is a subclass of this set, we have that these transformations form a set by restricted comprehension. Then, $\cat{D}^\cat{C}$ is locally small.
-		
-	\end{proof}
-	
+\begin{exercise}
+	Prove that if $\cat{C}$ is small and $\cat{D}$ is locally small, then
+	$\cat{D}^\cat{C}$ is locally small by defining a monomorphism from the
+	collection of natural transformations between a fixed pair of functors
+	$\pfunc{F,G}{\cat{C}}{\cat{D}}$ into a set. (Hint: Think about the function
+	that sends a natural transformation to its collection of components.)
+\end{exercise}
+
+\begin{proof}
+	Let $\func{\gamma}{\text{Nat}(F,G)}{\Set}$, given by
+	$\alpha\mapsto\{\alpha_c\in\mor\cat{D}\}$ where
+	$\Func{\alpha}{F}{G}\in\text{Nat}(F,G)$. We must show that
+	$\{\alpha_c\in\mor\cat{D}\}$ is a set. We can do this by noting that since
+	$\cat{D}$ is locally small, $\cat{D}(x,y)$ is a set for all choices of
+	$x,y$. Let $\func{\delta}{\ob\cat{C}}{\mathcal{P}(\mor\cat{D})}$, given by
+	$c\mapsto\cat{D}(Fc,Gc)$, where $\mathcal{P}(\mor\cat{D})$ is the power
+	class of $\mor\cat{D}$. We know that
+	$\cat{D}(Fc,Gc)\in\mathcal{P}(\mor\cat{D})$, and since $\ob\cat{C}$ is a
+	set, the range of $\delta$ is a set by the Axiom of Replacement. Taking the
+	union of the range of $\delta$, which is also a set, gives us a set that
+	contains all of the possible natural transformations from $F$ to $G$.
+
+	So $\gamma$ sends any natural transformation to an element of this new set.
+	Since the class of functions between pairs of sets is a set, and that the
+	class of natural transformations between $F$ and $G$ is a subclass of this
+	set, we have that these transformations form a set by restricted
+	comprehension. Then, $\cat{D}^\cat{C}$ is locally small.
+\end{proof}
+
 \end{document}

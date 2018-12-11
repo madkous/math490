@@ -1,60 +1,59 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
-	
-\paragraph{}	
-	\begin{exercise}
-		
-	 For any pair of morphisms $\func{f}{a}{b}$, $\func{g}{c}{d}$ is a locally small category $\sC$, construct the set of commutative squares $$\text{Sq}\qty{f,g} :=  \left\{\begin{gathered}\xymatrix{a \ar[d]_{f} \ar[r] & c\ar[d]^{g}  \\ b\ar[r] &d}\end{gathered}\right\}  $$ from $f$ to $g$ as a pullback in $\Set$.
-	
-	\end{exercise}
-	
-	
-	\begin{proof}
-		
+
+\paragraph{}
+\begin{exercise}
+	For any pair of morphisms $\func{f}{a}{b}$, $\func{g}{c}{d}$ is a locally
+	small category $\sC$, construct the set of commutative squares
+	$$\text{Sq}\qty{f,g} :=  \left\{\begin{gathered}\xymatrix{a \ar[d]_{f}
+	\ar[r] & c\ar[d]^{g}  \\ b\ar[r] &d}\end{gathered}\right\}  $$ from $f$ to
+	$g$ as a pullback in $\Set$.
+\end{exercise}
+
+\begin{proof}
 	Every commutative square in $\text{Sq}\qty{f,g}$ takes the form
-	$$\xymatrix{ &a \ar@{-->}[dr]^{h} \ar[d]_{f} \ar[r]^{p} & c\ar[d]^{g}
-	\\   &b \ar[r]_{q} &d  } $$  Let us now define
-		$\text{DiagSq}\qty{f,g}$ to contain each diagonal $h$ for every
-		commutative square in $\text{Sq}\qty{f,g}$,
-		$\text{TopSq}\qty{f,g}$ to contain each top morphism $p$ for
-		every commutative square in $\text{Sq}\qty{f,g}$, and
-		$\text{BottSq}\qty{f,g}$ to contain each bottom morphism $q$
-		for every commutative square in $\text{Sq}\qty{f,g}$. We will
-		define functions
-		$\func{f^{*}}{\text{BottSq}\qty{f,g}}{\text{DiagSq}\qty{f,g}}$
-		and
-		$\func{g_{*}}{\text{TopSq}\qty{f,g}}{\text{DiagSq}\qty{f,g}}$
-		as precomposition by $f$ and post-composition by $g$
-		respectively. This gives us the diagram $$\xymatrix{  &&
+	$$\xymatrix{ a \ar@{-->}[dr]^{h} \ar[d]_{f} \ar[r]^{p} & c\ar[d]^{g} \\
+	b \ar[r]_{q} &d  } $$
+	Let us now define
+	$\text{DiagSq}\qty{f,g}$ to contain each diagonal $h$ for every
+	commutative square in $\text{Sq}\qty{f,g}$,
+	$\text{TopSq}\qty{f,g}$ to contain each top morphism $p$ for
+	every commutative square in $\text{Sq}\qty{f,g}$, and
+	$\text{BottSq}\qty{f,g}$ to contain each bottom morphism $q$
+	for every commutative square in $\text{Sq}\qty{f,g}$. We will
+	define functions
+	$\func{f^{*}}{\text{BottSq}\qty{f,g}}{\text{DiagSq}\qty{f,g}}$
+	and
+	$\func{g_{*}}{\text{TopSq}\qty{f,g}}{\text{DiagSq}\qty{f,g}}$
+	as precomposition by $f$ and post-composition by $g$
+	respectively. This gives us the diagram $$\xymatrix{  &&
 		\text{TopSq}\qty{f,g} \ar[d]^{g_{*}}  \\
-								      &\text{BottSq}\qty{f,g}
-		\ar[r]_{f^{*}} &\text{DiagSq}\qty{f,g}  } $$ To show that
-		$\text{Sq}\qty{f,g}$ is the limit of the diagram, define the
-		projections
-		$\func{\pi_{1}}{\text{Sq}\qty{f,g}}{\text{TopSq}\qty{f,g}}$ and
-		$\func{\pi_{2}}{\text{Sq}\qty{f,g}}{\text{BottSq}\qty{f,g}}$ as
-		maps taking each commutative square to their respective top
-		morphism $p$ and bottom morphism $q$ respectively. It is easy
-		to see that for $D \in \text{Sq}\qty{f,g}$,
-		$f^{*}\qty{\pi_{2}(D)} = q \cdot f = h = g \cdot p =
-		g_{*}\qty{\pi_{1}(D)}$, thus $g_{*} \cdot \pi_{1} =  f^{*}
-		\cdot \pi_{2}$. Suppose $S$ was a set with morphisms
-		$\func{s_{1}}{S}{\text{TopSq}\qty{f,g}}$ and
-		$\func{s_{2}}{S}{\text{BottSq}\qty{f,g}}$ such that $g_{*}
-		\cdot s_{1} =  f^{*} \cdot s_{2}$. We need to find a unique
-		morphism  $\func{s}{S}{\text{Sq}\qty{f,g}}$ such that
-		$s_{1}\qty{x} = \pi_{1}\qty{s\qty{x}}$ and $s_{2}\qty{x} =
-		\pi_{2}\qty{s\qty{x}}$ for every element $x \in S$. Such a
-		morphism can be defined as the function that maps each element
-		$x$ to the commutative square whose top morphism is $s_{1}(x)$
-		and bottom morphism is $s_{2}(x)$. Uniqueness of $s$ follows
-		from the fact that for any $x \in S$ there is only one
-		commutative square with a top morphism $s_{1}\qty{x}$ and
-		bottom morphism $s_{2}\qty{x}$. Thus we can construct
-		$\text{Sq}\qty{f,g}$ from a pullback in $\Set$.
-	
-	
-		
-	\end{proof}
+		&\text{BottSq}\qty{f,g}
+	\ar[r]_{f^{*}} &\text{DiagSq}\qty{f,g}  } $$ To show that
+	$\text{Sq}\qty{f,g}$ is the limit of the diagram, define the
+	projections
+	$\func{\pi_{1}}{\text{Sq}\qty{f,g}}{\text{TopSq}\qty{f,g}}$ and
+	$\func{\pi_{2}}{\text{Sq}\qty{f,g}}{\text{BottSq}\qty{f,g}}$ as
+	maps taking each commutative square to their respective top
+	morphism $p$ and bottom morphism $q$ respectively. It is easy
+	to see that for $D \in \text{Sq}\qty{f,g}$,
+	$f^{*}\qty{\pi_{2}(D)} = q \cdot f = h = g \cdot p =
+	g_{*}\qty{\pi_{1}(D)}$, thus $g_{*} \cdot \pi_{1} =  f^{*}
+	\cdot \pi_{2}$. Suppose $S$ was a set with morphisms
+	$\func{s_{1}}{S}{\text{TopSq}\qty{f,g}}$ and
+	$\func{s_{2}}{S}{\text{BottSq}\qty{f,g}}$ such that $g_{*}
+	\cdot s_{1} =  f^{*} \cdot s_{2}$. We need to find a unique
+	morphism  $\func{s}{S}{\text{Sq}\qty{f,g}}$ such that
+	$s_{1}\qty{x} = \pi_{1}\qty{s\qty{x}}$ and $s_{2}\qty{x} =
+	\pi_{2}\qty{s\qty{x}}$ for every element $x \in S$. Such a
+	morphism can be defined as the function that maps each element
+	$x$ to the commutative square whose top morphism is $s_{1}(x)$
+	and bottom morphism is $s_{2}(x)$. Uniqueness of $s$ follows
+	from the fact that for any $x \in S$ there is only one
+	commutative square with a top morphism $s_{1}\qty{x}$ and
+	bottom morphism $s_{2}\qty{x}$. Thus we can construct
+	$\text{Sq}\qty{f,g}$ from a pullback in $\Set$.
+
+\end{proof}
 
 \end{document}

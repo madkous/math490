@@ -1,31 +1,25 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
-%
-%\settheorem{1}{2}{3}
-%\begin{lemma}
-	%Recall that a group as a category has a single object $x$, and that each element of the group is a morphism in the category.  All domains and codomains are that object $x$.  There is one identity morphism $1_x$, which is the identity element in the group.  Composition is the same as multiplication in this context.
-%\end{lemma}
-%\popthm
 
 \paragraph{}
 \begin{exercise}
-	Redefine the horizontal composition of natural transformations introduced 
+	Redefine the horizontal composition of natural transformations introduced
 	in Lemma 1.7.4 using vertical composition and whiskering.
 \end{exercise}
 
 \begin{proof}
 
-Consider categories C, D, and E, with functors $F,G\colon \sC \rightarrow \sD$ and 
-$H,K\colon \sD \rightarrow \sE$ with natural transformations $\alpha\colon F \Rightarrow 
-G$ and $\beta\colon H \Rightarrow K$.  This is the same as in the construction for 
-horizontal composition given in Lemma 1.7.4.  Now consider a whiskering such 
-that the first functor is the identity functor, or in other words a natural 
-transformation $H\alpha\colon HF \Rightarrow HG$ defined by $(H\alpha)_c = 
-H\alpha_c$.  Then consider a second whiskering such that the last functor is an 
-identity functor, or in other words a natural transformation $\beta G\colon HG 
-\Rightarrow KG$ defined by $(\beta G)_c = \beta_{Gc}$.  Now we can vertically 
-compose these two natural transformations to get $\beta G \cdot H \alpha\colon HF 
-\Rightarrow KG$.  This is definitionally the same as the horizontal composition 
+Consider categories C, D, and E, with functors $F,G\colon \sC \rightarrow \sD$ and
+$H,K\colon \sD \rightarrow \sE$ with natural transformations $\alpha\colon F \Rightarrow
+G$ and $\beta\colon H \Rightarrow K$.  This is the same as in the construction for
+horizontal composition given in Lemma 1.7.4.  Now consider a whiskering such
+that the first functor is the identity functor, or in other words a natural
+transformation $H\alpha\colon HF \Rightarrow HG$ defined by $(H\alpha)_c =
+H\alpha_c$.  Then consider a second whiskering such that the last functor is an
+identity functor, or in other words a natural transformation $\beta G\colon HG
+\Rightarrow KG$ defined by $(\beta G)_c = \beta_{Gc}$.  Now we can vertically
+compose these two natural transformations to get $\beta G \cdot H \alpha\colon HF
+\Rightarrow KG$.  This is definitionally the same as the horizontal composition
 natural transformation:
 \begin{equation*}
 (\beta*\alpha)_c = \beta_{Gc}H\alpha_c = (\beta G\cdot H\alpha)_c.

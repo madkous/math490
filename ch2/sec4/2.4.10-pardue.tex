@@ -1,0 +1,32 @@
+\documentclass[main.tex]{subfiles}
+% \newcommand{\kk}{\mbb{k}}
+% \newcommand{\Ab}{\textsf{Ab}\xspace}
+
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+Answer the question posed at the end of this section: fixing two objects $A,B$ in a locally small category $\sC$, we define a functor
+\[\sC(A,-)\times\sC(B,-):\sC\rightarrow\Set\]
+that carries an object $X$ to the set $\sC(A,X)\times\sC(B,X)$ whose elements are pairs of maps $a:A\rightarrow X$ and $b:B\rightarrow X$ in $\sC$. What would it mean for this functor to be representable?
+\end{exercise}
+
+The answer is actually in Remark 3.1.27 in the next chapter. Namely,  this functor is representable if and only if $A$ and $B$ have a coproduct $D=A\coprod B$ in $\sC$.
+
+In more detail, say that we have an object $D$ of $\sC$ together with morphisms $\iota_A:A\rightarrow D$ and $\iota_B:B\rightarrow D$ that for every object $X$ of $\sC$ induce a bijection
+\[I_X:\sC(D,X)\rightarrow\sC(A,X)\times\sC(B,X)\]
+by $I_X(f)=(f\iota_A,f\iota_B)$. Then for any $g:X\rightarrow Y$ we have a commutative diagram
+\[\xymatrix{\sC(D,X)\ar[r]^{g_*}\ar[d]_{I_X} & \sC(D,Y)\ar[d]^{I_Y}\\
+\sC(A,X)\times\sC(B,X)\ar[r]_{(g_*,g_*)} & \sC(A,Y)\times\sC(B,Y)}\]
+so that $I:\sC(D,-)\Rightarrow\sC(A,-)\times\sC(B,-)$ is a natural isomorphism of functors, making $D$ a representing object for $\sC(A,-)\times\sC(B,-)$.
+
+Conversely, say that for some object $D$ of $\sC$ we have a natural isomorphism $I:\sC(D,-)\Rightarrow\sC(A,-)\times\sC(B,-)$. Then define $\iota_A:A\rightarrow D$ and $\iota_B:B\rightarrow D$ to be the two components of $I_D(1_D)\in\sC(A,D)\times\sC(B,D)$. That is, $I_D(1_D)=(\iota_A,\iota_B)$.
+
+Since $I$ is a natural isomorphism from $\sC(D,-)$ to $\sC(A,-)\times\sC(B,-)$ we have for every object $X$ that $I_X:\sC(D,X)\rightarrow\sC(A,X)\times\sC(B,X)$ is a bijection. We wish to show that $I_X$ is given by the formula above. To see this, note that for any $f\in\sC(D,X)$ we have a commutative diagram
+\[\xymatrix{
+\sC(D,D)\ar[r]^{f_*}\ar[d]_{I_D} & \sC(D,X)\ar[d]^{I_X}\\
+\sC(A,D)\times\sC(B,D)\ar[r]_{(f_*,f_*)} & \sC(A,X)\times\sC(B,X)}.\]
+Using the commutativity of this diagram, we have that
+\[I_X(f)=I_Xf_*(1_D)=(f_*,f_*)I_D(1_D)=(f_*,f_*)(\iota_A,\iota_B)=(f\iota_A,f\iota_B)\]
+as claimed.
+\end{document}

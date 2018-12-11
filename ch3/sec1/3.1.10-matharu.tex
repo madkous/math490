@@ -1,0 +1,27 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	If $ (a,b) $ are positive integers satisfying the universal property of
+	(3.1.20) show that the pair $ (-a,-b) $ also satisfies the same universal
+	property. Explain why this observation does not imply that the pullback is
+	ill-defined.
+\end{exercise}
+\begin{proof}
+	\textbf{Mark how do I get the angle on this diagram}
+	For reference (3.1.20) is the following commutative diagram.
+	\begin{equation*}\begin{tikzcd}
+			\ZZ\ar[r, dashrightarrow, "b"] \ar[d, dashrightarrow, "a"]
+			\ar[dr, phantom, "\lrcorner", very near start] &
+			\ZZ\ar[d, "n"] \\ \ZZ \ar[r, "m"] &\ZZ
+	\end{tikzcd}\end{equation*}
+	We know from undergraduate algebra the least common multiple of two integers is
+	only unique up to multiplication by a unit. Therefore, $ (-a,-b) $ should
+	satisfy the above diagram as well.
+	The pullback is unique \footnote{Like everything else in category theory
+	probably} up to isomorphism. Since -1 is an automorphism on $ \ZZ $ that takes$
+	(a,b)$ to $ (-a,-b), $  so in either case the diagrams are essentially the
+	same thing as far as we are concerned.
+\end{proof}
+\end{document}

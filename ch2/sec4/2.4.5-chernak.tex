@@ -1,24 +1,42 @@
 \documentclass[main.tex]{subfiles}
 
 \begin{document}
-	\paragraph{Exercise 2.4.v} Define a contravariant functor $ F \colon \mathsf{Set^{op}} \to \mathsf{Set} $ that carries a set to the set of preorders on it. What is its category of elements? Is $ F $ representable?	
-	
-	\paragraph{Proof.} We are given that $ F $ takes each set $ X $ to the set of preorders on it; that is, $FX = \{R \subseteq X \times X | $ \textit{R is a preorder}$ \} $. Let us define $ F_{Mor} $ such that for any morphism $ f: X \to Y $ and any preorder $ S \in FY $, $ Ff(S) = \{(a,b) \subseteq X \times X | (f(a), f(b)) \in S\} $. Then for some $ f: X \to Y, g: Y \to Z $, and preorder $ T \in FZ $:	
-	\[F(gf)(T) = \{(a,b) \subseteq X \times X | (f(a), f(b)) \in \{(c,d) \subseteq Y \times Y | (f(c), f(d)) \in T\}\}\] 
-	\[\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!
-	= \{(a,b) \subseteq X \times X | (f(a), f(b)) \in Fg(T)\}\] \[\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!
-	= Ff(Fg(T)) \]
-	
-	% Ignore all the "\!"s, that's just me trying to make everything line up neatly.
-		
-	\noindent So $ F(gf) = FfFg $, meaning $ F $ fulfills the first functoriality axiom. Furthermore, the identity morphism takes every element to itself, which means $ (f(a), f(b)) = (a, b) $; meaning $ F $ also fulfills the second functoriality axiom. So we have constructed a valid contravariant functor that acts on objects in the requested manner. $ \Box $
-	
-	The objects of the category of elements of $ F $ (that is, $ \int F $) are simply ordered pairs of the form $ (X, R) $, where $ R \in FX $; and the morphisms of $ \int F $ are morphisms $ (X, R) \to (Y, S) \in \int F $ is a morphism $ f: X \to Y $ such that \[Ff(S) = \{(a,b) \subseteq X \times X | (f(a), f(b)) \in S\} = R. \Box \]
-	
-	Suppose that $ F $ is represented by some set $ X $. Then there is a natural isomorphism $ \mathsf{C}(-,X) \cong F $, and therefore a bijection $ Hom(Y, X) \leftrightarrow FY $ for all sets $ Y $. It is known that $ \#Hom(Y, X) = \#Y^{\#X}, $ so this bijection means that $ \#Y^{\#X} = \#FY $. Consider the case of a set $ A $ with 1 element: There is only one preorder\footnotemark[1] on $ A $, so $ 1^{\#X} = 1 $, which means $ X $ must have one element. But on the other hand, consider the case of a set $ B $ with two elements: There are four preorders\footnotemark[2] on $ B $, so $ 2^{\#X} = 4 $, which means $ X $ must have two elements. So we arrive at a contradiction, which means $ F $ cannot be represented by any set $ X $ --- that is to say, $ F $ is not representable. $ \Box $
-	
-	
-	\footnotetext[1]{If we define the element of $ A $ as 0, the only possible preorder is $ \{(0,0)\} $, since preorders must be reflexive.}
-	\footnotetext[2]{If we define the elements of $ B $ as 0 and 1, these preorders are: $\{(0,0), (1,1)\}, $ $ \{(0,0), (1,1), (0,1), \}, \{(0,0), (1,1), (1,0)\} $ and $ \{(0,0), (1,1), (0,1), (1,0)\} $.}
-	
+\begin{exercise}
+	Define a contravariant functor $ F \colon \mathsf{Set^{op}} \to \mathsf{Set} $
+	that carries a set to the set of preorders on it. What is its category of
+	elements? Is $ F $ representable?	
+\end{exercise}
+
+\begin{proof} We are given that $ F $ takes each set $ X $ to the set of preorders on it; that is, $FX = \{R \subseteq X \times X | $ \textit{R is a preorder}$ \} $. Let us define $ F_{Mor} $ such that for any morphism $ f: X \to Y $ and any preorder $ S \in FY $, $ Ff(S) = \{(a,b) \subseteq X \times X | (f(a), f(b)) \in S\} $. Then for some $ f: X \to Y, g: Y \to Z $, and preorder $ T \in FZ $:	
+\begin{align*}
+F(gf)(T) &= \{(a,b) \subseteq X \times X | (f(a), f(b)) \in \{(c,d) \subseteq Y
+\times Y | (f(c), f(d)) \in T\}\} \\
+&= \{(a,b) \subseteq X \times X | (f(a), f(b)) \in Fg(T)\} \\
+&= Ff(Fg(T))
+\end{align*}
+
+So $ F(gf) = FfFg $, meaning $ F $ fulfills the first functoriality axiom. Furthermore, the identity morphism takes every element to itself, which means $ (f(a), f(b)) = (a, b) $; meaning $ F $ also fulfills the second functoriality axiom. So we have constructed a valid contravariant functor that acts on objects in the requested manner. $ \Box $
+
+The objects of the category of elements of $ F $ (that is, $ \int F $) are
+simply ordered pairs of the form $ (X, R) $, where $ R \in FX $; and the
+morphisms of $ \int F $ are morphisms $ (X, R) \to (Y, S) \in \int F $ is a
+morphism $ f: X \to Y $ such that \[Ff(S) = \{(a,b) \subseteq X \times X |
+(f(a), f(b)) \in S\} = R.\]
+
+Suppose that $ F $ is represented by some set $ X $. Then there is a natural
+isomorphism $ \mathsf{C}(-,X) \cong F $, and therefore a bijection $ Hom(Y, X)
+\leftrightarrow FY $ for all sets $ Y $. It is known that $ \#Hom(Y, X) =
+\#Y^{\#X}, $ so this bijection means that $ \#Y^{\#X} = \#FY $. Consider the
+case of a set $ A $ with 1 element: There is only one preorder\footnotemark[1]
+on $ A $, so $ 1^{\#X} = 1 $, which means $ X $ must have one element. But on
+the other hand, consider the case of a set $ B $ with two elements: There are
+four preorders\footnotemark[2] on $ B $, so $ 2^{\#X} = 4 $, which means $ X $
+must have two elements. So we arrive at a contradiction, which means $ F $
+cannot be represented by any set $ X $ --- that is to say, $ F $ is not
+representable.
+\end{proof}
+
+\footnotetext[1]{If we define the element of $ A $ as 0, the only possible preorder is $ \{(0,0)\} $, since preorders must be reflexive.}
+\footnotetext[2]{If we define the elements of $ B $ as 0 and 1, these preorders are: $\{(0,0), (1,1)\}, $ $ \{(0,0), (1,1), (0,1), \}, \{(0,0), (1,1), (1,0)\} $ and $ \{(0,0), (1,1), (0,1), (1,0)\} $.}
+
 \end{document}

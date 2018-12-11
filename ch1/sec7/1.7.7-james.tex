@@ -1,0 +1,37 @@
+\begin{document}
+
+\begin{exercise}
+	Prove that a bifunctor $F\colon \sC \times \sD \rightarrow \sE$ determines and is
+	uniquely determined by:
+	\begin{enumerate}
+		\item A functor $F(c,-)\colon\sD \rightarrow \sE$ for each $c \in \sC$.
+		\item A natural transformation $F(f,-)\colon F(c,-) \implies F(c',-)$
+			for each $f\colon c \rightarrow c'$ in $\sC$.
+	\end{enumerate}
+	In other words, prove that there is a bijection between functors $\sC \times
+	\sD \rightarrow \sE$ and functors $\sC \rightarrow \sE^\sD $. By symmetry of the product
+	of categories, these classes of functors are also in bijection with functors
+	\(\sD\to\sE^\sC\).
+\end{exercise}
+
+\begin{proof}
+	From the category $\sC$, fix an object $c$ in the bifunctor $F\colon \sC \times
+	\sD
+	\rightarrow \sE$. To find a functor $F(c,-)\colon\sD \rightarrow \sE$, define
+	$F(c,-)(d) = F(c,d)$. With $c$ fixed, and $g\colon d \rightarrow d'$, then
+	$F(c,-)(g) = F(1_c, g)$. For a natural transformation $F(f,-)\colon F(c,-)
+	\implies F(c',-)$, take as components of the natural transformation
+	$F(f,-)_d = F(f, 1_d) \colon F(c,d) \rightarrow F(c',d)$. Checking the
+	naturality, $F(1_{c'}, g) F(f, 1_d) = F(f, 1_{d'}) F(1_c, g)$, whenever
+	$(1_{c'}, g)(f, 1_d) = (f, 1_d')(1_c,g)$. Thus $F(f,-)\colon F(c,-) \implies
+	F(c',-)$ is a natural transformation, and conditions (i) and (ii) are
+	determinied by the bifunctor $F\colon \sC \times \sD \rightarrow \sE$.
+
+	Similarly, with the definitions that for a fixed $c$ in $\sC$, $F(c,d) =
+	F(c,-)(d)$ and $F(1_c, g) = F(c,-)(g)$, along with the natural tranformation
+	$F(f,-)_d = F(f, 1_d) \colon F(c,d) \rightarrow F(c',d)$, such that $F(1_{c'}, g)
+	F(f, 1_d) = F(f, 1_{d'}) F(1_c, g)$, whenever $(1_{c'}, g)(f, 1_d) = (f,
+	1_d')(1_c,g)$, the bifunctor $F\colon \sC \times \sD \rightarrow \sE$ is determined.
+\end{proof}
+
+\end{document}

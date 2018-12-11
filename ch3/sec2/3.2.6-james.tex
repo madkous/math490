@@ -1,36 +1,30 @@
 \documentclass[main.tex]{subfiles}
-
 \begin{document}
-	
-
 
 \begin{exercise}
-Prove that the limit of any small functor $F\colon \sC \rightarrow \Set$ is
-isomorphic to the set of functors $\sC \rightarrow \int F$ that defines a section
-to the canonical projection $ \prod \colon \int F \rightarrow \sC$ from the category
-of elements of $F$. Using this description of the limit, define the limit cone.
-\end{exercise}	
+	Prove that the limit of any small functor $F\colon \sC \rightarrow \Set$ is
+	isomorphic to the set of functors $\sC \rightarrow \int F$ that defines a section
+	to the canonical projection $ \prod \colon \int F \rightarrow \sC$ from the category
+	of elements of $F$. Using this description of the limit, define the limit cone.
+\end{exercise}
 
 \begin{proof}
+	Starting with the set of functors $\sC \rightarrow \int F$,
+	let $\phi$ be the functor $\sC \rightarrow \int F$, which defines a setion to $
+	\prod \colon \int F \rightarrow \sC$, such that, for $\sC\rightarrow^{\phi}\int F
+	\rightarrow^{\prod} \sC$, $\prod \phi = 1_\sC$. Here, $\prod$ is the forgetful
+	functor, projecting $(c, x)$ to $c$. Since $\prod \phi$ takes objects in $\sC$ to
+	objects in $\sC$, then the functor $\phi$ operates as an inclusion of objects $c$
+	in $\sC$ into the category of elements, namely, $\phi = (c, x)$, for $x \in Fc$.
 
-Starting with the set of functors $\sC \rightarrow \int F$,
-let $\phi$ be the functor $\sC \rightarrow \int F$, which defines a setion to $
-\prod \colon \int F \rightarrow \sC$, such that, for $\sC\rightarrow^{\phi}\int F
-\rightarrow^{\prod} \sC$, $\prod \phi = 1_\sC$. Here, $\prod$ is the forgetful
-functor, projecting $(c, x)$ to $c$. Since $\prod \phi$ takes objects in $\sC$ to
-objects in $\sC$, then the functor $\phi$ operates as an inclusion of objects $c$
-in $\sC$ into the category of elements, namely, $\phi = (c, x)$, for $x \in Fc$.
+	Since $\lim F \subset \prod_{j \in J} F_j$ is the set of tuples $\{(x_j)_{j \in
+	J} | \forall f \colon j \rightarrow k \in J, Ff(x_j) = x_k \in F_k\}$. Then for
+	$f\colon(c,x) \rightarrow (c',x')$, with $f \colon c \rightarrow c'$ in $\sC$,
+	such that $f(x)
+	= x'$, $\prod \phi = 1_\sC$. Thus $\lim F$ is isomorphic to the set of $\phi$.
 
-Since $\lim F \subset \prod_{j \in J} F_j$ is the set of tuples $\{(x_j)_{j \in
-J} | \forall f \colon j \rightarrow k \in J, Ff(x_j) = x_k \in F_k\}$. Then for
-$f\colon(c,x) \rightarrow (c',x')$, with $f \colon c \rightarrow c'$ in $\sC$,
-such that $f(x)
-= x'$, $\prod \phi = 1_\sC$. Thus $\lim F$ is isomorphic to the set of $\phi$.
+	Also, since $\lim F \subset \prod Fc$, with $\lim F \rightarrow Fc$ and $\pi_c
+	\colon\prod Fc \rightarrow Fc$, then this $\lim F$ is the limit cone.
+\end{proof}
 
-Also, since $\lim F \subset \prod Fc$, with $\lim F \rightarrow Fc$ and $\pi_c
-\colon\prod Fc \rightarrow Fc$, then this $\lim F$ is the limit cone.
-
-
-\end{proof}	
-	
-	\end{document}
+\end{document}

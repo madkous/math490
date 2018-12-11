@@ -33,6 +33,9 @@
     % linkcolor=black,
     % urlcolor=black
 }
+\tikzcdset{
+	arrow style=math font
+}
 
 \newcommand{\attr}[1]{\begin{flushright}by {#1}\end{flushright}}
 \newcommand{\authorAA}{Anthony Agwu}
@@ -213,7 +216,7 @@
    <10-12> MnSymbolA-Bold10
    <12-> MnSymbolA-Bold12}{}
 \DeclareSymbolFont{MnSyA} {U} {MnSymbolA}{m}{n}
-\DeclareMathSymbol{\downmapsto}{\mathrel}{MnSyA}{"2B}  
+\DeclareMathSymbol{\downmapsto}{\mathrel}{MnSyA}{"2B}
 
 % blackboard bold shortcuts
 \renewcommand{\AA}{\mathbb{A}} % replaced Angstrom symbol Å
@@ -326,6 +329,7 @@
 \newcommand{\rtwo}{\sqrt{2}}
 \newcommand*{\lst}[3][1]{{#2}_{#1},\dots,{#2}_{#3}}
 \newcommand*{\fm}[3][i]{\{{#2}_{#1}\}_{{#1}\in{#3}}}
+\newcommand{\el}{\intup\!\!}
 
 % function defintions
 \newcommand*{\xfunc}[4]{{#2}\colon{#3}{#1}{#4}}

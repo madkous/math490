@@ -1,0 +1,74 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	Generalize Proposition 3.3.8 to show that for any $F:\sC\rightarrow\Set$, the projection functor $\Pi:\el F\rightarrow\sC$:
+	\begin{enumerate}
+		\item strictly creates all limits that $\sC$ admits and that $F$ preserves, and
+		\item strictly creates all connected colimits that $\sC$ admits.
+	\end{enumerate}
+\end{exercise}
+
+Consider an ordered pair $(K,x)$ where $K:J\rightarrow\sC$ and $x:1\Rightarrow
+FK$. Here $1=\{0\}$ is a singleton set, or the corresponding constant functor
+from $J$ to $\Set$, and we identify $x_i:1\rightarrow FKi$ with $x_i(0)\in FKi$.
+This pair gives a diagram $(K,x):J\rightarrow\el F$. For each morphism
+$g:i\rightarrow j$ in $J$ the morphism $(K,x)g:(Ki,x_i)\rightarrow(Kj,x_j)$ is
+given by $Kg:Ki\rightarrow Kj$. This is a morphism in $\el F$ because the
+natural transformation $x:1\Rightarrow FK$ tells us that $FKg(x_i)=x_j$.
+
+Now, all diagrams $L:J\rightarrow\el F$ are of this form. Indeed, let $K=\Pi L$.
+Then for every $i\in\ob J$ we have that $Li=(Ki,x_i)$ for some $x_i\in FKi$ and
+for every $g:i\rightarrow j$, $Lg:(Ki,x_i)\rightarrow(Kj,x_j)$ is given by
+$Kg:Ki\rightarrow Kj$ such that $FK(x_i)=x_j$. But, this precisely gives a
+natural transformation $x:1\Rightarrow FK$ as described above.
+
+\subparagraph{}
+Now, for part (1) say that $K:\sJ\rightarrow\sC$ has a limit cone $\lambda:\lim
+K\Rightarrow K$ and that $F$ preserves this limit. That is, $F\lambda:F\lim
+K\Rightarrow FK$ is also a limit cone. Then the natural transformation
+$x:1\Rightarrow FK$ must uniquely factor through $F\lambda$. That is, there is a
+unique $\hat{x}:1\rightarrow F\lim K$ such that $F\lambda\circ\hat{x}=x$. We
+conflate the symbol $\hat{x}$ with $\hat{x}(0)\in F\lim K$. By construction,
+$F\lambda_i(\hat{x})=x_i\in Fi$. This gives us a cone $\hat{\lambda}:(\lim
+K,\hat{x})\Rightarrow(K,x)$. Furthermore, $\Pi\hat{\lambda}=\lambda$.
+
+We must now show that $\hat{\lambda}$ is the only lift of $\lambda$ and that
+$\hat{\lambda}$ is a limit cone. So, let $\mu:(c,z)\Rightarrow(K,x)$ be a
+natural transformation for which $(c,z)\in\ob\el F$ (that is, $c\in\ob\sC$ and
+$z\in Fc$) and $\Pi\mu=\lambda$. Then $c=\Pi(c,z)=\lim K$ so that $z\in F\lim K$
+and $F\lambda_i(z)=x_i$ for each $i\in\ob\sJ$. Identifying $z$ with the constant
+function $z:1\rightarrow F\lim K$ we have that $F\lambda\circ z=x$. But,
+$\hat{x}$ was uniquely defined by this property, so that $z=\hat{x}$. Comparing
+now with $\hat{\lambda}$, we have that $\mu=\hat{\lambda}$ as required. This
+proves that $\hat{\lambda}$ is the unique lift of $\lambda$.
+
+Now, we must see that $\hat{\lambda}:(\lim K,\hat{x})\Rightarrow(K,x)$ is a
+limit cone. Let $\mu:(c,z)\Rightarrow(K,x)$ be another cone. (Here,
+$c\in\ob\sC$, $z\in Fc$ and $\mu$ are not the same $c$, $z$ and $\mu$ as in the
+previous paragraph.) We must prove that $\mu$ factors uniquely through
+$\hat{\lambda}$. Since $\Pi\mu:c\Rightarrow K$, there is a unique
+$f:c\rightarrow\lim K$ in $\sC$ such  that $\lambda f=\Pi\mu$. Also, for every
+$i\in\ob J$, $x_i=F\Pi\mu_i(z)=F\lambda_i f(z)$. Just as in the previous
+paragraph, we have that $F\lambda\circ f(z)=x$ so that $f(z)$ satisfies the
+defining property of $\hat{x}$. Thus, $f(z)=\hat{x}$ and $f:c\rightarrow\lim K$
+determines a morphism $\hat{f}:(c,z)\rightarrow(\lim K,\hat{x})$ in $\el F$.
+This morphism is the unique morphism such that $\hat{\lambda}\hat{f}=\mu$,
+showing that $\hat{\lambda}:(\lim K,\hat{x})\Rightarrow(K,x)$ is a limit cone.
+
+\subparagraph{}
+For the second part, say that $\sJ$ is a small connected category (which is in particular nonempty) and that $(K,x):\sJ\rightarrow\el F$ is a diagram such that $K:\sJ\rightarrow\sC$ has a colimit cone $\lambda:K\Rightarrow\colim K$. We start by building a lift $\hat\lambda:(K,x)\Rightarrow(\colim K,\hat x)$. Since $x:1\Rightarrow FK$ is a natural transformation, for any $g:i\rightarrow j$ in $\sJ$ we have that $x_j=FKg(x_i)$. Using that $\lambda:K\Rightarrow\colim K$ is a natural transformation and $F$ is a functor, we find that
+\[F\lambda_i(x_i)=F(\lambda_jKg)(x_i)=F\lambda_jFKg(x_i)=F\lambda_j(x_j).\]
+Since $\sJ$ is connected, this implies that $F\lambda_i(x_i)=F\lambda_j(x_j)$ for arbitrary objects $i,j\in\ob\sJ$. Since $\sJ\ne\emptyset$, we may then define $\hat{x}\in F\colim\sJ$ by $\hat{x}=\lambda_i(x_i)$ for an arbitrary choice of $i\in\ob\sJ$ and the definition is independent of that choice. This gives a cone $\hat{\lambda}:(K,x)\Rightarrow(\colim K,\hat x)$ under $(K,x)$ such that $\Pi\hat{\lambda}=\lambda$.
+
+We now show that $\hat{\lambda}$ is the unique lift of $\lambda$. Let
+$\mu:(K,x)\Rightarrow(c,z)$ be another cone under $(K,x)$ such that
+$\Pi\mu=\lambda$. Then $c=\colim K$ since $\Pi\mu=\lambda$. Furthermore, for any
+$i\in\ob\sJ$, $z=F\lambda_i(x_i)=\hat{x}$. So, $\mu$ is identical with
+$\hat\lambda$.
+
+Finally, we must show that $\hat\lambda:(K,x)\Rightarrow(\colim K,\hat x)$ is a colimit cone. Let $\mu:(K,x)\Rightarrow(c,z)$ be another cone under $(K,x)$. Then $\Pi\mu:K\Rightarrow c$ is a cone under $K$ in $\sC$, so that there is a unique morphism $f:\colim K\rightarrow c$ in $\sC$ such that $\Pi\mu=f\lambda$. Further, for any $i\in\ob\sJ$, we have that
+\[Ff(\hat{x})=FfF\lambda_i(x_i)=F(f\lambda_i)(x_i)=F\Pi\mu_i(x_i)=z.\]
+So, the $f$ that we uniquely determined gives a morphism $\hat f:(\colim K,\hat x)\rightarrow(c,z)$, the unique morphism such that $\mu=\hat f\hat\lambda$. This proves that $\hat{\lambda}:(K,x)\Rightarrow(\colim K,\hat x)$ is a colimit cone.
+\end{document}

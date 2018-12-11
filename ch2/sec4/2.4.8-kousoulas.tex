@@ -1,0 +1,26 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\maketitle
+
+\paragraph{}
+\begin{exercise}
+	Prove that for any \(\func{F}{\sC}{\Set}\), the canonical forgetful functor
+	\(\func{\Pi}{\int F}{\sC}\) has the following property: for any morphism
+	\(\func{f}{c}{d}\) in the ``base category'' \(\sC\) and any object \((c,x)\)
+	in the fiber over \(c\), there is a unique lift of the morphism \(f\) to a
+	morphism in \(\int F\) with domain \((c,x)\) that projects along \(\Pi\) to
+	\(f\). A functor with this property is called a \textbf{discrete left
+	fibration}.
+\end{exercise}
+
+\begin{proof}
+	Recall that the objects of \(\int F\) are pairs \((c,x)\) such that
+	\(x\in Fx\) and morphisms are pointed maps compatible with the pairs. The
+	canonical forgetful functor simply takes \((c,x)\) to \(c\) and a morphism
+	to itself. If we are given a morphism \(\func{f}{c}{d}\) and an object
+	\((c,x)\), then by the nature of functions, there is a unique \(y\in Fd\)
+	such that \(Ff(x)=y\). This \(y\) determines a unique object \((d,y)\) in
+	\(\int F\) along with a morphism \(\func{f}{(c,x)}{(d,y)}\). It is clear
+	that this is the only morphism satisfying \(Ff(x)=y\).
+\end{proof}
+\end{document}
