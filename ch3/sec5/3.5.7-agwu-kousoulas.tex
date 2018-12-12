@@ -1,0 +1,218 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\paragraph{}
+\begin{exercise}
+	Following Grothendieck, define a \textbf{fiber space} \(\func{p}{E}{B}\) to
+	be a morphism in \(\Top\). A map of fiber spaces is a commutative square.
+	Thus the category of fiver spaces is isomorphic to the diagram category
+	\(\Top^\two\). We are also interested in the non-full subcategory
+	\(\Top/B\subset\Top^\two\) of fiber spaces over \(B\) and maps whose
+	codomain component is the identity. Prove the following:
+	\begin{enumerate}[(i)]
+		\item A map
+			\[\begin{tikzcd}
+					E' \ar[r, "g"] \ar[d, "p'"] & E \ar[d, "p"] \\
+					B' \ar[r, "f"] & B
+			\end{tikzcd}\]
+			of fiber spaces induces a canonical map from the fiber of a point
+			\(b\in B'\) to the fiber over its image \(f(b)\in B\).
+			\begin{proof}
+				The fiber of \(b\) is a subset of \(E'\), so we may consider its
+				image under \(g\). Given a point \(e\) in this set we have that
+				\(p'(e)=b\) and \(pg(e)=fp'(e)\) by assumption, and thus
+				\(pg(e)=f(b)\). This means that \(g(e)\) is in the fiber of
+				\(f(b)\) and thus the restriction of \(g\) to the fiber of \(b\)
+				lands in the fiber of \(f(b)\).
+			\end{proof}
+
+		\item The fiber of a product of fiber spaces is the product of the
+			fibers.
+			\begin{proof}
+				Let \(\cI\) be some set and \(\func{p_i}{E_i}{B_i}\) be an
+				\(\cI\) indexed set of maps over corresponding \(\cI\) indexed
+				spaces, and \(\func{p}{E}{B}\) be the corresponding products.
+				We claim that:
+				\[\inv{\qty{\prod_{i\in\cI}p_i}}(b)=
+					\prod_{i\in\cI}\qty{\inv{p_i}(b_i)}\qtext{for all
+				\(b=(b_i)_{i\in\cI}\in B\)}.\]
+
+				We then have a collection of diagrams for each \(i\in\cI\).
+				\begin{equation*}\begin{tikzcd}
+						E_b\subset E \ar[r, "\pi_i"] \ar[d, "p", shift left=4] &
+						E_i\supset E_{b_i} \ar[d, "p_i", shift right=4] \\
+						b\in B \ar[r, "\pi_i"] & B_i\ni b_i
+				\end{tikzcd}\end{equation*}
+				If we trace the path of \(b\) through this diagram it is clear
+				that the bottom commutes by the definition of \(b\). Chasing
+				\(b\) up the left side we have the fiber \(\inv{p}(b)\), and on
+				the right we have the fiber \(\inv{p_i}(b_i)\). The previous
+				part says that the restriction of \(\pi_i\) defines a map from
+				the former fiber to the latter. However, the projections map
+				\(\prod_{i\in\cI}\qty{\inv{p_i}(b_i)}\) onto each
+				\(\inv{p_i}(b_i)\).
+			\end{proof}
+	\end{enumerate}
+	A projection \(B\by F\to B\) defines a \textbf{trivial fiber space} over
+	\(B\), a definition that makes sense for any space \(F\).
+	\begin{enumerate}[(i),resume]
+		\item Show that the fiber of a trivial fiber space \(B\by F\to B\) is
+			isomorphic to \(F\).
+			\begin{proof}
+				Given an element \(b\in B\), its fiber is
+				\(\inv{\pi_1}(b)=\set{(b,f)|f\in F}\). Note that if \(f=f'\) in
+				\(F\) then \((b,f)=(b,f')\) in \(B\by F\). Thus
+				\(\pi_2|_{\inv{\pi_1}(b)}\) is injective in addition to being
+				surjective, and thus has an inverse map. Further, because the
+				projection is an open map this inverse is also continuous. Thus
+				\(\inv{\pi_1}(b)\) is isomorphic to \(B\).
+			\end{proof}
+
+			\pagebreak
+		\item Characterize the isomorphisms in \(\Top/B\) between the two
+			trivial fiber spaces (with a priori distinct fibers) over \(B\).
+
+			\subparagraph{}
+			Note that \(\Top/B\) is a slice category, so an isomorphism in this
+			category is an isomorphism in \(\Top\) with the additional condition
+			that it commutes with the projections onto \(B\).
+
+			Explicitly, we require the following diagram to commute.
+			\[\begin{tikzcd}
+					B\by F \ar[rr, "\gm", shift left] \ar[dr, "\pi_1"] &&
+					B\by F' \ar[ll, "\de", shift left] \ar[dl, "\pi_1"] \\ &B
+			\end{tikzcd}\]
+			Note first that the map \(\gm\) may be decomposed into
+			\(\func{\pi_1\gm}{B\by F}{B}\) and \(\func{\pi_2\gm}{B\by F}{F'}\)
+			and the universal property of products guarantees that this
+			decomposition preserves all of the information of \(\gm\). Now, one
+			of the identities we can pull from the diagram is that
+			\(\pi_1\gm=\pi_1\). This means we can restrict our consideration to
+			the other projection \(\pi_2\gm\).
+
+			Given a homeomorphism \(\func{\tilde{\gm}}{F}{F'}\) we may define
+			\(\func{\gm}{B\by F}{B\by F'}\) by
+			\((b,f)\mapsto(b,\tilde{\gm}(f))\). If \(\tilde{\gm}\) is
+			invertible, then it is clear that \(\gm\) satisfies all of the
+			conditions imposed by the diagram. However, this is too restrictive.
+			What if instead we had a family of maps
+			\(\set{\func{\gm_b}{F}{F'}}_{b\in B}\) and defined \(\gm\) by
+			\((b,f)\mapsto(b,\gm_b(f))\). In this case \(\gm\) will satisfy the
+			condition that \(\pi_1\gm=\pi_1\) and if each \(\gm_b\) is
+			invertible, then \(\gm\) will be as well, but it is not necessarily
+			the case that \(\gm\) is continuous, i.e. it might be that \(\gm\)
+			is not an arrow in our category.
+
+			To see how we may impose continuity on \(\gm\), recall that a family
+			is in fact a function so we have \(\func{\Gm}{B}{\Top(F,F')}\) where
+			\(\Gm(b)=\gm_b\). Further, we may uncurry this to
+			\(\func{\Gm}{B\by F}{F'}\) which is a function for which we have a
+			well defined notion of continuity. Supposing then \(\Gm\) is
+			continuous in this sense. The universal property of \(B\by F'\) then
+			gives us that \(\pi_1\by\Gm=\gm\) is continuous and thus a
+			legitimate map for our diagram.
+
+			Piecing all of this together, let \(\func{\Gm}{B\by F}{F'}\) and
+			\(\func{\De}{B\by F'}{F}\) be continuous maps such that the
+			restrictions are inverses:
+			\(\Gm(b,-)=\inv{\De(b,-)}\) for any \(b\in B\). Next define
+			\(\gm=\pi_1\by\Gm\) so that \(\gm(b,f)=(b,\Gm(b,f))\) and like wise
+			for \(\de\). Then \(\gm\) and \(\de\) are inverses and satisfy all
+			the conditions imposed by the diagram.
+
+		\item Prove that the assignment of the set of continuous sections of a
+			fiber space over \(B\) defines a functor
+			\(\func{\Sect}{\Top/B}{\Set}\).
+			\begin{proof}
+				We can define $\Sect$ by mapping each fiber space $p$ over $B$
+				to its set of continuous sections, and by mapping each morphism
+				$\func{f}{p}{q}$ to a function $\func{f \cdot -}{\Sect p}{\Sect
+				q}$ defined by left composition of $f$. To verify that our
+				proposed function is a map between set of sections let $s$ be a
+				section of $p$, then $1_{B} = p \cdot s$. Since $p = q \cdot f$,
+				then $1_{B} = q \cdot f \cdot s$, showing that $f \cdot s$ is a
+				section of $q$. To verify that this is indeed a functor, note
+				that the identity morphism on $\func{p}{E}{B}$ defined by
+				$\func{1_{E}}{p}{p}$ gets mapped to left composition by $1_{E}$
+				which induces the identity on $\Sect p$. Take morphism $g \cdot
+				f$ .Then $\Sect \qty{g \cdot f} = g \cdot f \cdot - = g \cdot
+				\qty{f \cdot -} = \Sect g \cdot \Sect f$. Thus $\Sect$ is a
+				functor
+			\end{proof}
+
+		\item Consider the non-full subcategory \(\Top^\two_\pb\) of fiber
+			spaces in which the morphisms are the pullback squares. Prove that
+			the assignment of the set of continuous sections to a fiber space
+			defines a functor \(\func{\Sect}{\qty{\Top^\two_\pb}^\op}{\Set}\).
+			\begin{proof}
+				We can define $\Sect $by mapping each fiber space $p$ over $B$
+				to its set of continuous sections and each morphisms,
+				$\func{\qty{f,g}}{p'}{p}$ is a pullback, then $\qty{f,g}$ get
+				mapped to a function $\func{\sm_{\qty{f,g}}}{\Sect p}{\Sect p'}$
+				defined as follows: each section $s$ of $p$ gets taken to a
+				section $s'$ using the universal property of the pullback
+				$\qty{f,g}$ shown in following diagram:
+				\[ \begin{tikzcd}
+						B' \ar[drr, bend left, "s \cdot g"]
+						\ar[ddr, bend right, "1_{B'}"]
+						\ar[dr, dotted, "s'" description] & & \\ &
+						E' \ar[r, "f"] \ar[d, "p'"]
+						\ar[dr, phantom, "\lrcorner", very near start] &
+						E \ar[d, "p"] \\ &
+						B' \ar[r,"g"] &
+						B
+				\end{tikzcd}\]
+				Thus $s'$ is unique for each $s$ confirming that
+				$\sm_{\qty{f,g}}$ is a function. To verify that $\Sect$ is a
+				functor note that the identity morphism on $p$ induces the
+				following commutative diagram:
+				\[\begin{tikzcd}
+					B \ar[drr, bend left, "s"]
+					\ar[ddr, bend right, "1_{B}"]
+					\ar[dr, dotted, "s" description] & & \\ &
+					E \ar[r, "1_{E}"] \ar[d, "p"]
+					\ar[dr, phantom, "\lrcorner", very near start] &
+					E \ar[d, "p"] \\ & B \ar[r, "1_{B}"] & B
+				\end{tikzcd}\]
+				where $s$ is a section.
+				
+				For morphisms $\qty{f',g'}$  and $\qty{f,g}$ such that
+				$\qty{f,g} \cdot \qty{f',g'}$ makes sense, if $s \in \Sect p$
+				with $ \sm_{\qty{f,g}}\qty{s} = s'$ and $
+				\sm_{\qty{f',g'}}\qty{s'} = s''$, then $s \cdot g = f \cdot
+				s'$ and $s' \cdot g' = f' \cdot s''$ by the universal property
+				of pullbacks $\qty{f',g'}$  and $\qty{f,g}$. We get that $s
+				\cdot g \cdot g' = f \cdot s' \cdot g' = f \cdot f' \cdot s'' $.
+				Since $s''$ is a section of $p''$ this allows the following
+				diagram to commute:
+				\[\begin{tikzcd}
+					B \ar[drr, bend left, "s \cdot g \cdot g' "]
+					\ar[ddr, bend right, "1_{B''}"]
+					\ar[dr, dotted, "s''" description] & & \\ &
+					E'' \ar[r, "f \cdot f'"] \ar[d, "p''"] \ar[dr, phantom,
+					"\lrcorner", very near start] &
+					E \ar[d, "p"] \\ & B'' \ar[r,"g \cdot g'"] & B
+				\end{tikzcd}\]
+				showing that $ s'' =
+				\sm_{\qty{f',g'}}\qty{\sm_{\qty{f,g}}\qty{s}} =
+				\sm_{\qty{f,g}\cdot \qty{f',g'}}\qty{s} $ for all $s \in
+				\Sect p$. Thus, $\sm_{\qty{f,g}\cdot \qty{f',g'}} =
+				\sm_{\qty{f',g'}} \cdot \sm_{\qty{f,g}}$. This shows that
+				$\Sect$ preserves composition. Therefore, $\Sect$ is a functor.
+			\end{proof}
+
+		\item Describe the compatibility between the actions of the ``sections''
+			functors just introduced with respect to the map \(g\) of fiber
+			spaces \(p\) and \(q\) over \(B\) and their restrictions along
+			\(\func{f}{B'}{B}\).
+			\[\begin{tikzcd}
+					E' \ar[rr] \ar[dd] && E \ar[dd] \ar[dr] \\ &
+					F' \ar[rr] \ar[dl] && F \ar[dl] \\
+					B' \ar[rr] && B
+			\end{tikzcd}\]
+			\begin{proof}
+			\end{proof}
+	\end{enumerate}
+\end{exercise}
+
+\end{document}
