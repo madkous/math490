@@ -1,52 +1,39 @@
 \documentclass[main.tex]{subfiles}
-
 \begin{document}
 
 \paragraph{}
 \begin{exercise}
-Give a second proof of Proposition 3.1.7 by using the universal properties of
-each of a pair of limit cones $ \lambda \colon l \Rightarrow F $
-and $ \lambda' \colon l' \Rightarrow F $ to directly construct the unique
-isomorphism $ l \cong l' $ between their apexes.
+	Give a second proof of Proposition 3.1.7 by using the universal properties
+	of each of a pair of limit cones $ \lm \colon l \Rightarrow F $ and $
+	\lm' \colon l' \Rightarrow F $ to directly construct the unique
+	isomorphism $ l \cong l' $ between their apexes.
 \end{exercise}
-\paragraph{Proof.}
 
-\begin{quote}
-	{\small Note that this proof is not mine---Dr. Pardue mentioned it in class; I'm just rewriting it.}
-\end{quote}
+\begin{proof}
+Since $ \lm $ and $ \lm' $ are limit cones, for any cones $
+\Lm\colon c\Rightarrow F $ and  $ \Lm'\colon c^\prime\Rightarrow F $ there are
+unique morphisms $ f \colon c\rightarrow l $ and $ f^\prime \colon c'
+\rightarrow l' $ such that $\Lm =\lm f$ and $\Lm^\prime
+=\lm^\prime f^\prime$.
 
-Since $ \lambda $ and $ \lambda' $ are limit cones, for any cones $ \Lambda \in
-\mathsf{Cone}(l, F) $ and  $ \Lambda' \in \mathsf{Cone}(l', F) $ there are
-unique natural transformations $ f \colon \Lambda \Rightarrow \lambda $ and $ g
-\colon \Lambda' \Rightarrow \lambda' $. Furthermore, there are unique natural
-transformations $ \eta \colon \lambda \Rightarrow \lambda' $ and $ \epsilon
-\colon \lambda' \Rightarrow \lambda $. The following commutative diagrams
-illustrate these transformations:
-\begin{tikzcd}
-	& & l \arrow[rd, "\lambda", bend left] \arrow[rd, "\Lambda"', bend right] &  & l' \arrow[ld, "\Lambda'", bend left] \arrow[ld, "\lambda'"', bend right] & & & 	\Lambda \arrow[d, "f"] & \Lambda' \arrow[d, "g"'] \\
-	& & & F & & & & \lambda \arrow[r, "\eta", bend right] & \lambda' \arrow[l, "\epsilon"', bend right]
-\end{tikzcd}
-where the left diagram describes the various cones over $ F $ and the
-right diagram describes the transformations between those cones.
+In the case in which $\Lm=\lm$ and $\Lm^\prime =\lm^\prime$, the
+unique $f$ and $f^\prime$ satisfying $\lm=\lm f$ and $\lm^\prime
+=\lm^\prime f$ are $f=1_l$ and $f^\prime =1_{l^\prime}$.
 
-Because these diagrams commute, we can compose $ g\Lambda' = \lambda' = \eta f
-\Lambda $ and $ f \Lambda = \lambda = \epsilon g \Lambda' $. We can substitute
-in both of these compositions to obtain $\lambda' = \eta (\epsilon g \Lambda') $
-and $ \lambda = \epsilon (\eta f \Lambda) $, and from those obtain $ \lambda' =
-\eta \epsilon \lambda' $ and $ \lambda = \epsilon \eta \lambda $. So we can
-conclude that $ \epsilon \eta = 1_\lambda $ and $\eta \epsilon = 1_{\lambda'} $,
-which means that for any particular $ m \in \lambda, m' \in \lambda' $, (that
-is, for any leg of $ \lambda: l \Rightarrow F $ or $ \lambda': l' \Rightarrow F
-$) $ \epsilon_m \eta_m m = m \epsilon_m \eta_m $ and $ \eta_{m'} \epsilon_{m'}
-m' = m' \eta_{m'} \epsilon_{m'} $. So $ \epsilon $ and $ \eta $ form a natural
-isomorphism, illustrated in part by the following diagram:
+In the case in which $\Lm=\lm^\prime$ and $\Lm^\prime =\lm$ we
+obtain unique morphisms $g\colon l^\prime\rightarrow l$ and $g^\prime\colon l\rightarrow
+l^\prime$ such that $\lm^\prime =\lm g$ and $\lm =\lm^\prime
+g^\prime$.
 
-\[\begin{tikzcd}
-	&&&& l \arrow[r, "\eta_l"'] \arrow[d, "\lambda_x"] \arrow[ldd, "\lambda_y" description] \arrow[llddd, "\lambda_{...}"'] & l' \arrow[l, "\epsilon_{l'}"', bend right] \arrow[d, "\lambda'_x"'] \arrow[rdd, "\lambda'_y" description] \arrow[rrddd, "\lambda'_{...}"] &  &  \\
-	&&&& x \arrow[r, "\eta_x"', bend right] & x \arrow[l, "\epsilon_x"'] &  &  \\
-	&&& y \arrow[rrr, "\eta_y"', bend right] &  &  & y \arrow[lll, "\epsilon_y"] &  \\
-	&&... \arrow[rrrrr, "\epsilon_{...}"'] &  &  &  &  & ... \arrow[lllll, "\eta_{...}", bend left]
-\end{tikzcd}\]
-where the $x,y,\dots$ are objects in $ F $. The most relevant parts of this diagram are the morphisms $ \eta_l $ and $ \epsilon_l' $, (the top set of arrows) denoting the components of $ \eta $ and $ \epsilon $ taking $ l $ to $ l' $ and vice versa, respectively. As we determined earlier, $ \eta $ and $ \epsilon $ are a natural isomorphism, so $ \eta_l $ and $ \epsilon_l' $ must also be an isomorphism. Finally, recall that for a given $ \Lambda, \Lambda'; \eta $ and $ \epsilon $ are unique. So we have constructed a canonical isomorphism between $ l $ and $ l' $, given by the component morphisms $ \eta_l: l \to l' $ and $ \epsilon_l': l' \to l. $ $ \Box $
+Thus, $\lm =\lm^\prime g^\prime =\lm gg^\prime$. But, we have
+already seen that the unique morphism $f$ such that $\lm =\lm f$ is
+$1_l$. So, $gg^\prime =1_l$. Similarly, $\lm^\prime =\lm
+g=\lm^\prime g^\prime g$ and a similar uniqueness argument made above shows
+us that $g^\prime g=1_{l^\prime}$.
+
+So, $g$ and $g^\prime$ are inverse isomorphisms between $l$ and $l^\prime$ as
+required.
+
+\end{proof}
 
 \end{document}

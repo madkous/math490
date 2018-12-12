@@ -1,81 +1,100 @@
 \documentclass[main.tex]{subfiles}
-
 \begin{document}
-	\paragraph{}
 
-	\begin{exercise}
+\paragraph{}
+\begin{exercise}
 	By the Yoneda Lemma, natural endomorphisms of the covariant power set
-	functor \(P: \textsf{Set}^{op} \to \textsf{Set}\) correspond
+	functor \(P\colon\textsf{Set}^{op} \to \textsf{Set}\) correspond
 	bijectively to endomorphisms of its representing object \(\Omega = \{0,
 	1\}\). Describe the natural endomorphisms of \(P\) that correspond to
 	each of the four elements of \(\hom(\Omega, \Omega)\). Do these
 	functions induce natural endomorphisms of the covariant functor?	
 \end{exercise}
-	
-	\paragraph{Proof.} The Yoneda Lemma gives the isomorphism $
+
+\begin{proof}
+	The Yoneda Lemma gives the isomorphism $
 	\hom(\mathsf{C}(-,c), F) \cong Fc $, for any object $ c $ and
 	contravariant functor $ F $ into $ \mathsf{Set} $. Setting $ c $ to be
-	$ \Omega $ gives us an isomorphism $ \Psi: F\Omega \to
+	$ \Omega $ gives us an isomorphism $ \Psi\colon F\Omega \to
 	\hom(\mathsf{C}(-,\Omega), F) $; such that for any $ g \in F\Omega $ we
-	obtain a natural transformation $ \Psi(g): \mathsf{C}(-,\Omega)
+	obtain a natural transformation $ \Psi(g)\colon\mathsf{C}(-,\Omega)
 	\Rightarrow F. $ For any set $ Z $ we can also look at a particular leg
-	of this natural transformation, $ \Psi(g)_Z: \mathsf{C}(Z,\Omega) \to
-	FZ; $ which takes each $ f: Z \to \Omega $ to $ Ff(g). $ Now let $ F $
+	of this natural transformation, $ \Psi(g)_Z\colon\mathsf{C}(Z,\Omega) \to
+	FZ; $ which takes each $ f\colon Z \to \Omega $ to $ Ff(g). $ Now let $ F $
 	be $ \mathsf{Set}(-, \Omega). $ This means that $ \Psi(g)_Z:
-	\mathsf{C}(Z,\Omega) \to  \mathsf{C}(Z,\Omega) $ takes each $ f: Z \to
+	\mathsf{C}(Z,\Omega) \to  \mathsf{C}(Z,\Omega) $ takes each $ f\colon Z \to
 	\Omega $ to $ \mathsf{C}(f)(g) = f^*g = gf. $
-	
+
 	Recall that $ f $ and $ gf $ both correspond bijectively to elements of
 	$ PZ $ under the bijection $ \phi $ defined in Proposition 2.1.6(i)
 	that takes functions to the preimage of $ 1 \in \Omega $ under those
 	functions. So the endomorphism $ \Psi(g)_Z $ corresponds to the
-	endomorphism $ h_Z: PZ \to PZ $ that takes $ \phi f $ to $ \phi (gf), $
-	for all $ f: Z \to \Omega. $ That is to say, $ h_Z $ takes the set $
+	endomorphism $ h_Z\colon PZ \to PZ $ that takes $ \phi f $ to $ \phi (gf), $
+	for all $ f\colon Z \to \Omega. $ That is to say, $ h_Z $ takes the set $
 	\{x \in Z | f(x) = 1\} $ to the set $ \{x \in Z | gf(x) = 1\}. $
 	Generalizing for all sets $ Z, $ we have a bijection that takes $
-	\Psi(g): \mathsf{C}(-,\Omega) \Rightarrow \mathsf{C}(-,\Omega) $ to $
-	h: P \Rightarrow P $, such that $ h $ takes $ \{x \in Z | f(x) = 1\} $
+	\Psi(g)\colon\mathsf{C}(-,\Omega) \Rightarrow \mathsf{C}(-,\Omega) $ to $
+	h\colon P \Rightarrow P $, such that $ h $ takes $ \{x \in Z | f(x) = 1\} $
 	to $ \{x \in Z | gf(x) = 1\}, $ for \textit{all} sets $ Z. $ 
-	
+
 	\begin{itemize}
 		\item Let $ h $ be the identity endomorphism $ 1_P $. For any
-			set $ Z $ and function $ f: Z \to \Omega, $ $ \phi(gf)
+			set $ Z $ and function $ f\colon Z \to \Omega, $ $ \phi(gf)
 			= 1_P\phi(f) = 1_P\{x \in Z | f(x) = 1\} = \{x \in Z |
 			f(x) = 1\}. $ So $ gf(x) = f(x) $ for all functions $
-			f: Z \to \Omega $ and $ x \in Z, $ and this can only be
+			f\colon Z \to \Omega $ and $ x \in Z, $ and this can only be
 			the case if $ g = 1_\Omega. $
 		\item Let $ h $ be the complement endomorphism $ \mathrm{Comp},
 			$ which sends each $ A\in PZ $ to $ Z\backslash A $.
-			For any set $ Z $ and function $ f: Z \to \Omega, $ $
+			For any set $ Z $ and function $ f\colon Z \to \Omega, $ $
 			\phi(gf) = \mathrm{Comp}\phi(f) = \mathrm{Comp}\{x \in
 			Z | f(x) = 1\} = \{x \in Z | f(x) \neq 1\}. $ So $
-			gf(x) \neq f(x) $ for all functions $ f: Z \to \Omega $
+			gf(x) \neq f(x) $ for all functions $ f\colon Z \to \Omega $
 			and $ x \in Z, $ which means $ g $ must be the
-			transposition morphism $ \tau: \Omega \to \Omega; $
+			transposition morphism $ \tau\colon\Omega \to \Omega; $
 			which sends $ 1 $ to $ 0 $ and $ 0 $ to $ 1 $.
 		\item Let $ h $ be the constant endomorphism $ c_\emptyset $
 			that sends all $ A\in PZ $ to $ emptyset. $ For any set
-			$ Z $ and function $ f: Z \to \Omega, $ $ \phi(gf) =
+			$ Z $ and function $ f\colon Z \to \Omega, $ $ \phi(gf) =
 			c_\emptyset(f) = c_\emptyset\{x \in Z | f(x) = 1\} =
-			\emptyset. $ So $ gf(x) = 0 $ for all functions $ f: Z
+			\emptyset. $ So $ gf(x) = 0 $ for all functions $ f\colon Z
 			\to \Omega $ and $ x \in Z, $  and this can only be the
-			case if $ g = c_0: \Omega \to \Omega; $ the constant
+			case if $ g = c_0\colon\Omega \to \Omega; $ the constant
 			morphism that sends both $ 0 $ and $ 1 $ to $ 0. $ 
 		\item Let $ h $ be the constant endomorphism $ c_P $ that sends
 			all $ A\in PZ $ to $ Z. $ For any set $ Z $ and
-			function $ f: Z \to \Omega, $ $ \phi(gf) = c_P\phi(f) =
+			function $ f\colon Z \to \Omega, $ $ \phi(gf) = c_P\phi(f) =
 			c_P\{x \in Z | f(x) = 1\} = Z. $ So $ gf(x) = 1 $ for
-			all functions $ f: Z \to \Omega $ and $ x \in Z, $  and
-			this can only be the case if $ g = c_1: \Omega \to
+			all functions $ f\colon Z \to \Omega $ and $ x \in Z, $  and
+			this can only be the case if $ g = c_1\colon\Omega \to
 			\Omega; $ the constant morphism that sends both $ 0 $
 			and $ 1 $ to $ 1. $
 	\end{itemize}
-	
+
 	So $ 1_P $ corresponds to $ 1_\Omega $, $ \mathrm{Comp} $ corresponds
 	to $ \tau $, $ c_\emptyset $ corresponds to $ c_0, $ and $ c_P $
 	corresponds to $ c_1 $.
-	
-	These functions do not induce endomorphisms of the covariant power set
-	functor because $ \mathsf{C}(\Omega, -) $ does not represent that
-	
+
+	% These functions do not induce endomorphisms of the covariant power set
+	% functor because $ \mathsf{C}(\Omega, -) $ does not represent that
+
+	Of the four different functions $h$ above, the only two that are natural
+	endomorphisms of the \emph{covariant} power set functor $P$ are the first
+	and third.
+
+	The identity is obviously a natural endomorphism. But, so is the constant
+	endomorphism $c_\emptyset$. Indeed in this case for any function
+	$f\colon e X\to Y$ and any $A\in P(X)$,
+	\[P(f)h_X(A)=P(f)(\emptyset)=\emptyset = h_YP(f)(A).\]
+
+	But, $h$ is not a natural endomorphism in the second and fourth cases. For
+	example, let $X$ be any nonempty set and $f\colon\emptyset\to X$ be the
+	unique such function. If $h=\text{Comp}$, then
+	$P(f)h_\emptyset(\emptyset)=P(f)(\emptyset)=\emptyset$ while
+	$h_XP(f)(\emptyset)=h_X(\emptyset)=X$. So, $P(f)h_\emptyset\ne h_XP(f)$ and
+	$h$ is \emph{not} a natural endomorphism. The very same computation shows
+	that if $h$ is the constant function sending every element of $P(Z)$ to $Z$,
+	then for $f\colon\emptyset\to X$, $P(f)h_\emptyset\ne h_XP(f)$ and $h$ is
+	not a natural endomorphism.
+\end{proof}
 \end{document}
