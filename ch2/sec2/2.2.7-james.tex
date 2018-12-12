@@ -4,16 +4,16 @@
 \begin{exercise}
 	Use the Yoneda lemma to explain the connection between homeomorphisms of the
 	standard unit interval $I = [0,1] \subset R$ and natural automorphisms of the
-	path functor $\bold {Path} : \bold {Top} \rightarrow \bold {Set}$.
+	path functor $\bold {Path} \colon\bold {Top} \rightarrow \bold {Set}$.
 \end{exercise}
 
 \begin{proof}
-	Viewing the path functor, $F = \bold {Path}: \bold{Top} \rightarrow
+	Viewing the path functor, $F = \bold {Path}\colon\bold{Top} \rightarrow
 	\Set$, in light of the Yoneda lemma, there is a bijection $Hom(
-	\bold{Top} (I,-),F) \cong FI$, such that $(\alpha : \bold{Top} (I,-)
+	\bold{Top} (I,-),F) \cong FI$, such that $(\alpha \colon\bold{Top} (I,-)
 	\Rightarrow F) \mapsto \alpha_I (1_I)$, and for $x \in FI$ with $y \in ob
-	\Top$, $x \mapsto (\psi (x) : \Top(I,-) \Rightarrow F)$, with
-	components of the natural transformation $\psi(x)_y : \bold{Top} (I,y)
+	\Top$, $x \mapsto (\psi (x) \colon\Top(I,-) \Rightarrow F)$, with
+	components of the natural transformation $\psi(x)_y \colon\bold{Top} (I,y)
 	\rightarrow Fy$.
 
 	Now, for paths in the unit interval, with continuous functions $f$ being mapped
@@ -21,15 +21,23 @@
 	\bold{Path}) \cong \bold{Path} (I)$, with $I \mapsto \Top(I,-) =
 	\bold{Path} (I)$. The covariant functor $\Top^{op} \rightarrow
 	\bold{Set}^{\Top}$ then gives an isomorphism between endomorphisms of the
-	unit interval and natural transformations of the path funtor. Thus by the
-	Yoneda embedding theorem, endomorphisms on $I$, viewed as mophisms between
-	objects in $End(I)^{\op}$ correspond to natural transformations of the path
-	funtor.
+	unit interval and natural transformations of the path funtor.
 
-	Since these endomorphisms can be viewed as monoids, then the isomorphism is
-	also between monoids, and those natural endomorphisms that are natural
-	automorphisms of the path functor, are isomorphic to the homeomorphisms of
-	the unit interval.
+	The Yoneda embedding theorem shows that this is actually a monoid isomorphism
+	between $\Hom(\Path,\Path)$ and $\Path(I)=\Top(I,I)$. This gives an isomorphism
+	between their groups of invertible elements. In the first case, these are the
+	natural automorphisms of $\Path$. In the second, these are the homeomorphisms of
+	$I$ to itself.
+
+	% Thus by the
+	% Yoneda embedding theorem, endomorphisms on $I$, viewed as mophisms between
+	% objects in $End(I)^{\op}$ correspond to natural transformations of the path
+	% funtor.
+
+	% Since these endomorphisms can be viewed as monoids, then the isomorphism is
+	% also between monoids, and those natural endomorphisms that are natural
+	% automorphisms of the path functor, are isomorphic to the homeomorphisms of
+	% the unit interval.
 \end{proof}
 
 \end{document}

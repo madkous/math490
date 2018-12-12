@@ -14,15 +14,18 @@
 \end{exercise}
 (Recall: the notation $\rightarrowtail$ means that $f$ is mono.)
 \begin{proof}
-	Consider morphisms $\func{l,e}{D}{P}$ where $ke=le$ and $D$ is the pullback cone. We have that $gkl = gke$, which due to the commutivity of the diagram is the same as $fhl = fhe$, but since $f$ is mono, $hl=he$. Letting $c=kl=ke$ and $b=hl=he$, we have the followind diagram, where $\func{d}{D}{P}$ and $\func{j}{P}{A}$:
-	$$
-	\xymatrix{
+	Consider morphisms $\func{l,e}{D}{P}$ where $ke=kl$ and $P$ is the pullback
+	cone. We have that $gkl = gke$, which due to the commutativity of the diagram
+	is the same as $fhl = fhe$, but since $f$ is mono, $hl=he$. Letting
+	$c=kl=ke$ and $b=hl=he$, we have the following diagram.
+	\[\xymatrix{
 		D\ar@/_/[ddr]_b \ar@/^/[drr]^c\ar[dr]|d\\
-		&P\ar[r]^k\ar[d]_h\ar[dr]^j & C\ar[d]^g \\
+		&P\ar[r]^k\ar[d]_h\ar[dr] & C\ar[d]^g \\
 		&B\ \ar@{>->}[r]_f & A
-	}
-	$$
-	Then we have that $gc=fb$ and there must be a unique morphism $d$ where $c=kd$ and $b=hd$. Since $d$ is unique, we must have that $l=e$ and thus $k$ is a monomorphism.
+	}\]
+	Then we have that $gc=fb$ and there must be a unique morphism $d$ where
+	$c=kd$ and $b=hd$. Since $d$ is unique, we must have that $l=e$ and thus $k$
+	is a monomorphism.
 \end{proof}
 
 \end{document}

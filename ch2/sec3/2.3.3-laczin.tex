@@ -1,0 +1,36 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\paragraph{}
+\begin{exercise}
+	The set $B^A$ of functions from a set $A$ to a set $B$ represents the
+	contravariant functor $\func{\Set(-\times A, B)}{\Set^\op}{\Set}$. The
+	universal element for this representation is a function
+	$$\func{\text{ev}}{B^A\times A}{B}$$
+	called the \tbf{evaluation map}. Define the evaluation map and describe its universal property, in analogy with the universal bilinear map $\otimes$ of Example $2.3.7$.
+\end{exercise}
+
+\begin{proof}
+	In our case, we have that $\Set(-\times A, B)$ is representable by the
+	functions from $A$ to $B$, denoted as $B^A$. We will start by unpacking the Yoneda lemma to get the following isomorphism:
+	$$
+	\Hom(\Set(-,B^A), \Set(-\times A, B))\cong \Set(B^A\times A, B).
+	$$
+
+	Let $\Func{\alpha}{\Set(-,B^A)}{\Set(-\times A, B)}$ be a natural
+	isomorphism (that is, an element of the left side of the above
+	isomorphism). The Yoneda bijection gives us that $\alpha\mapsto
+	\alpha_{B^A}(1_{B^A})$. We want to show that $\text{ev} =
+	\alpha_{B^A}(1_{B^A})$. The object $\alpha_{B^A}(1_{B^A})$ is a morphism
+	$\Set(B^A, B^A)\rightarrow \Set(B^A\times A, B)$, given by $f \mapsto
+	\tilde{f}$ such that for $a\in A$ and a function $\func{g}{A}{B}$,
+	$\tilde{f}(g,a) = \tilde{f}(g)(a)$. In our case, $f=1_{B^A}$, so
+	$\tilde{1}_{B^A}(g,a) = g(a) = \text{ev}(g,a)$. Then,
+	$\alpha_{B^A}(1_{B^A}) = \text{ev}$.
+
+	In a more general sense, we have for any $U$ and all functions
+	$\func{f}{U\times A}{B}$ there exists a unique $\func{\tilde{f}}{U}{B^A}$,
+	such that $f(u,a) = \tilde{f}(u)(a)$, this being the universal property of
+	the evaluation map.
+\end{proof}
+
+\end{document}

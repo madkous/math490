@@ -1,0 +1,70 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+\begin{exercise}
+	For a small category $\sJ$, define a functor $\func{i_{0}}{\sJ}{\sJ \by \two}$ so that the pushout
+	$$\xymatrix{ \sJ  \ar[d]_{i_{0}} \ar[r]^{!} & \one \ar[d]^{ s}  \\    \sJ \by \two \ar[r]_{}  & \ulcorner \sJ^{\triangleleft}  } $$ in $\Cat$ defines the cone over $\sJ$, with the functor $\func{s}{\one}{\sJ^{\triangleleft} }$ picking out the summit object. Remark 3.1.8 gives an informal description of this category, which is used to index the diagram formed by a cone over a diagram of shape $\sJ$.
+\end{exercise}
+
+\begin{proof}
+	The functor  $i_{0}$ can be defined by taking objects $j$ to the tuple $\qty{j,0}$ and morphisms $f$ to the morphism $f \by 1_{0}$. to show that the above diagram commutes Call the bottom functor $\pi$ and we will define $\pi$ as follows:
+	\begin{enumerate}
+		\item $\pi$ maps object $\qty{j,0}$ to the summit object in $\sJ^{\triangleleft} $ which we will denoted as $s^{*}$.
+		\item $\pi$ maps object $\qty{j,1}$ to $j$
+		\item $\pi$ maps morphism $f\by1_{0}$ to $1_{s^{*}}$
+		\item $\pi$ maps morphism $f \by 1_{1}$ to $f$
+		\item $\pi$ maps morphism $f \by \phi$ where $\phi$ is the unique morphism in $\two$ from $0$ to $1$ to the leg of the cone in $\sJ^{\triangleleft} $ from $s^{*}$ to $\cod f$ which we will denote as $c_{\cod f}$
+	\end{enumerate}
+
+	To ensure that $\pi$ is a functor, take an identity morphism
+	$1_{j}\by1_{i}$. $\pi$ will map $1_{j}\by1_{i}$ to either $1_{s^{*}}$ or
+	$1_{j}$, thus $\pi$ preserves identities. Now take morphisms $f\by m_{0}$
+	and $g\by m_{1}$ such that $g\cdot f \by m_{1}\cdot m_{0}$ make sense.
+	$m_{1}\cdot m_{0}$ determines what $\pi$ maps $g\cdot f \by m_{1}\cdot
+	m_{0}$ to. If $m_{1}\cdot m_{0} = 1_{0}$, then $m_{1} = m_{0} = 1_{0}$, then
+	$f\by m_{0}$, $g\by m_{1}$ and $g\cdot f \by m_{1}\cdot m_{0}$ get mapped to
+	$1_{s^{*}}$. If $m_{1}\cdot m_{0} = 1_{1}$, then $m_{1} = m_{0} = 1_{1}$,
+	then $f\by m_{0}$, $g\by m_{1}$ and $g\cdot f \by m_{1}\cdot m_{0}$ get
+	mapped to $f$, $g$, and $g\cdot f$ respectively. If  $m_{1}\cdot m_{0} =
+	\phi$, then either $m_{0} = \phi$ and $m_{1} = 1_{1}$ or $m_{0} = 1_{0}$ and
+	$m_{1} = \phi$, thus either $\pi\qty{ f\by m_{0} }= c_{\cod f}$ and
+	$\pi\qty{ g\by m_{1} }= g$ or $\pi\qty{ f\by m_{0} }= 1_{s^{*}}$ and
+	$\pi\qty{ g \by m_{1} }=  c_{\cod g}$  . Also, $\pi$ maps $g\cdot f \by
+	m_{1}\cdot m_{0}$ to $c_{\cod g}$. For the first case, the fact that $g
+	\cdot c_{\cod f} = c_{\cod g}$ follows from the fact that $c_{\cod f}$ and
+	$c_{\cod g}$ are legs of a cone under $s^{*}$. The second case follows
+	trivially. Thus, $\pi$ preserves composition. Therefore $\pi$ is a functor.
+	Let $j \in \ob \sJ$ and $f \in \mor \sJ$, then $\pi \cdot i_{0}j  = s^{*} =
+	s \cdot !j$ and $\pi \cdot i_{0}f  = 1_{s^{*}} = s \cdot !f$. Thus the above
+	diagram commutes. Now to show that $\sJ^{\triangleleft}$ is the colimit of
+	the diagram, Let $\sC$ be a small category with functors $\func{p_{0}}{\sJ
+	\by \two}{\sC}$ and $\func{p_{1}}{\one}{\sC}$ such that $p_{0} \cdot i_{0} =
+	p_{1} \cdot !  $. Define a functor
+	$\func{\upsilon}{\sJ^{\triangleleft}}{\sC}$ as follows
+
+	\begin{enumerate}
+		\item $\upsilon$ maps $s^{*}$ to  object $p_{0}\qty{j,0}$ for some $j \in \ob \sJ$
+		\item $\upsilon$ maps non-summit object $j$ in $\sJ^{\triangleleft}$ to $p_{0}\qty{j,1}$
+		\item $\upsilon$ maps $1_{s^{*}}$ to  $p_{0}\qty{f\by1_{0}}$ for some $f \in \mor \sJ$
+		\item $\upsilon$ maps morphism $f$ between non-summit objects to  $p_{0}\qty{f\by1_{1}}$
+		\item $\upsilon$ maps each leg $c_{j}$ to $p_{0}\qty{1_{j}\by\phi}$
+	\end{enumerate}
+
+	$\upsilon$ is well-defined since $p_{0} \cdot i_{0}  = p_{1} \cdot !  $. To
+	verify that $\upsilon$ is a functor, note that $p_{0}\qty{f\by1_{0}} =
+	1_{p_{0}\qty{j,0}}$ by the previously stated equation and since $\one$ only
+	has the identity morphism on $0$. Also, $p_{0}\qty{1_{j}\by1_{1}}$ is an
+	identity morphism by functoriality of $p_{0}$. Thus $\upsilon$ preserves
+	identities. $\upsilon$ preserves composition of morphism since $p_{0}$ is a
+	functor. So we have that $\upsilon$  is a functor. The fact that $p_{1} =
+	\upsilon \cdot  s $ follows from that fact that $p_{0}\qty{j,0}  = p_{1} 0
+	$. To show $p_{0} = \upsilon \cdot  \pi $, note that we only need to show
+	that $p_{0}\qty{1_{j}\by\phi} = p_{0}\qty{h\by\phi}$ whenever $\cod h = j$
+	since every other case is covered in the definition of $\upsilon$. By
+	functoriality, we have that $p_{0}\qty{h\by\phi} =
+	p_{0}\qty{1_{j}\by\phi}\cdot p_{0}\qty{h\by 1_{0}} =
+	p_{0}\qty{1_{j}\by\phi}$. Uniqueness of $\upsilon$ follows from construction
+	and from the equation $p_{0} \cdot i_{0}  = p_{1} \cdot !  $. Therefore,
+	$\sJ^{\triangleleft}$ is the colimit of the above diagram.
+\end{proof}
+
+\end{document}

@@ -1,0 +1,94 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
+\settheorem{3}{2}{16}
+\begin{example}
+	An \textbf{idempotent} is an endomorphism $\func{e}{A}{A}$ of some object so
+	that $e\cdot e = e$. The limit of an idempotent in $\Set$ is the set of
+	cones with summit $1$, i.e., the set of $a\in A$ so that $ea=a$. This is the
+	set of \textbf{fixed points} for the idempotent $e$, often denoted by $A^e$.
+
+	Alternatively, applying Theorem 3.2.13 in the simplified form in Exercise
+	3.2.ii, the limit $A^e$ is constructed as the equalizer
+	$$
+	\xymatrix{
+		A^e\ar@{>->}[r]^s & A\ar@<-.5ex>[r]_e \ar@<.5ex>[r]^1 & A
+	}
+	$$
+	The universal property of the equalizer implies that $e$ factors through $s$
+	along a unique map $r$.
+	$$
+	\xymatrix{
+		A\ar@{-->}[d]_r\ar[dr]^e\\
+		A^e\ar@{>->}[r]^s & A\ar@<-.5ex>[r]_e \ar@<.5ex>[r]^1 & A
+	}
+	$$
+	The factorization $e=sr$ is said to \textbf{split} the idempotent. Now $srs
+	= es = s$ implies that $rs$ and $1_{A^e}$ both define factorizations of the
+	diagram
+	$$
+	\xymatrix{
+		A^e\ar[dr]^s\ar@<-.5ex>@{-->}[d]_{rs} \ar@<.5ex>@{-->}[d]^{1_{A^e}}\\
+		A^e\ar@{>->}[r]^s & A\ar@<-.5ex>[r]_e \ar@<.5ex>[r]^1 & A
+	}
+	$$
+	Uniqueness implies $rs=1_{A^e}$ so $A^e$ is a retract of $A$. Conversely,
+	any retract diagram
+	$$
+	\xymatrix{
+		B\ar@{>->}[r]^s & A\ar@{->>}[r]^r & B & rs=1_B
+	}
+	$$
+	gives rise to an idempotent $sr$ on $A$, which is split by $B$.
+\end{example}
+
+\begin{exercise}
+	Dualize the construction of Example 3.2.16 to express the splitting of an
+	idempotent as a coequalizer. Explain why these colimits (or limits) are
+	preserved by any functor and conclude that splittings of idempotents commute
+	with both limits and colimits of any shape.
+\end{exercise}
+\begin{proof}
+	As in the example, the colimit $A_e$ can be constructed as a coequalizer:
+	$$
+	\xymatrix{
+		A\ar@<-.5ex>[r]_e \ar@<.5ex>[r]^1 & A\ar@{->>}[r]^s & A_e
+	}
+	$$
+	And the universal property implies that $e$ factors through $rs$ where $r$ is unique:
+	$$
+	\xymatrix{
+		A\ar@<-.5ex>[r]_e \ar@<.5ex>[r]^1 & A\ar[dr]^e\ar@{->>}[r]^s & A_e\ar@{-->}[d]^r \\
+		& & A\\
+	}
+	$$
+	where $s$ has become an epimorphism, and the factorization $e=rs$ splits the idempotent (note the change in order of the factorization: $rs$, from the original category's $sr$). Then we have $srs = se = s$ implies that $sr$ and $1_{A_e}$ are factorizations of
+	$$
+	\xymatrix{
+		A\ar@<-.5ex>[r]_e \ar@<.5ex>[r]^1 & A\ar[dr]_s\ar@{->>}[r]^s & A_e\ar@<.5ex>@{-->}[d]^{1_{A_e}}\ar@<-.5ex>@{-->}[d]_{sr} \\
+		& & A_e\\
+	}
+	$$
+	And uniqueness implies that $sr = 1_{A_e}$, so $A_e$ is a retract of $A$. Conversely, any retract of the form
+	$$
+	\xymatrix{
+		B\ar@{>->}[r]^r & A\ar@{->>}[r]^s & B
+	}
+	$$
+	gives an idempotent $sr$ on $A$, which is split by $B$. (This gives a
+	construction of Example 1.2.9 and its dual, of split monomorphisms and split
+	epimorphisms.)
+
+	To see that these limits and colimits are preserved by any functor $F$, note
+	that we have for any idempotent $\func{e}{A}{A}$, that $Fe\circ Fe =
+	F(e\circ e) = Fe$. That is, functors take idempotents to idempotents. Then,
+	since all splittings of idempotents can be expressed as an equalizer (with a
+	limit $A^e$) or a coequalizer (with a colimit $A_e$), it must be that any
+	functor preserves these limits (or colimits).
+
+	Finally, since these splittings of idempotents can be expressed as both
+	limits and colimits, by Theorem 3.8.1 (that limits commute with limits) and
+	its dual (for colimits), they commute with limits and colimits of any shape.
+\end{proof}
+
+\end{document}
