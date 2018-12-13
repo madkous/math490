@@ -1,5 +1,4 @@
 \documentclass[main.tex]{subfiles}
-
 \begin{document}
 
 \paragraph{}
@@ -12,7 +11,8 @@
 	\end{enumerate}
 \end{exercise}
 \begin{lemma}
-	The tensor product of two vector spaces $ V\AND W $ is spanned by rank one tensors.
+	The tensor product of two vector spaces $ V\AND W $ is spanned by rank one 
+	tensors.
 \end{lemma}
 \begin{proof}
 	Rank one tensors have the form $ \sum_{i=1}^n v_i\otimes w_i,$ where
@@ -25,8 +25,16 @@
 	equivalent to the Axiom of Choice) a maximal linearly independent set 
 	exists. Since a basis can be defined a maximal linearly independent subset 
 	of a vector space, we have the every vector space has a basis. }
-	Suppose there was an element of $ V\otimes W $ that is not in
-	the span of the rank one tensors. 
+	These rank one tensors are linearly independent so then can be found in a 
+	some basis $ B $ of $ V\otimes W. $ Suppose there was an element of $ 
+	V\otimes W $ that is not in	the span of the rank one tensors. Call it $ z. $
+	Then $ z \cup B $ is still a linearly independent and can be contained in
+	some basis $ B'. $ Since a linear maps is completely defined by its action
+	on the basis, we could construct two distinct linear maps that we could 
+	factor function $ \func{f}{V\times W}{U} $ through. This contradicts
+	the uniqueness of the universal property of the tensor product,
+	so the rank one tensors span the tensor product space. 
+
 \end{proof}
 	
 \begin{proof}
@@ -44,13 +52,14 @@ we have found the unique $ \bar{f} $ that makes the above diagram commutes,
 we can apply the universal property of the tensor product to see that $ 
 \mbb{k}\otimes_{\mbb{k}} V\cong V $ as desired. 
 
-Now we will show $ \qty{U\otimes V}\otimes W\cong U\otimes\qty{V\otimes W} $ for any $ \mbb{k} $ vector spaces $ U,V,\AND W. $ For some vector space $ X $ 
+Now we will show $ \qty{U\otimes V}\otimes W\cong U\otimes\qty{V\otimes W} $ 
+for any $ \mbb{k} $ vector spaces $ U,V,\AND W. $ For some vector space $ X $ 
 let $ f $ be a trilinear map $ \func{f}{U\times V\times W}{X}.$ Define
 $ \func{f_w}{U\times V}{W} $ to be $ f_w(u,v)=f(u,v,w).$ 
 Notice that $ f_w $ is 
 a bilinear map from $ U\times V $ to $ X, $ by the universal property of the 
-tensor product there exists a unique linear map $ \bar{f}_w $ that makes the following 
-diagram commute.
+tensor product there exists a unique linear map $ \bar{f}_w $ that makes the 
+following diagram commute.
 $$
 \xymatrix{U\times V\ar[r]^{\otimes}\ar[dr]_{f_w}&U\otimes V\ar[d]^{\bar{f}_w}\\&X
 }
@@ -66,10 +75,7 @@ $$
 %$$
 %\bar{f}_{\al w_1+w_1}(u,v)=f(u,v,\al w_1+w_2)=\al f(u,v,w_1)+f(u,v,w_2)=\al\bar{f}_{w_1}+\bar{f}_{w_2}.
 %$$
-Define $ \func{f_L}{(U\otimes V)\times W}{X},$\footnote{The set of all simple tensors form a 
-	basis for the tensor product space of $ U\otimes V, $ so we can write $ 
-	z=\sum_{i=1}^{t}u_i\otimes v_i $ (for more details see problem 3.1.xiii).
-	However since the proof is indpendent of the representation of each object in   $ U\otimes V$ we can simply use $ z\IN U\otimes V. $} 
+Define $ \func{f_L}{(U\otimes V)\times W}{X},$ 
 to be bilinear map. Thus $f_L(z,w) 
 =\bar{f}_{L_w}(z\otimes 
 v_i)$ is a linear map and we can apply the universal property again to get the following 
@@ -86,7 +92,7 @@ $$
 }
 $$
 Again we can define $ \func{f_R}{U\times(V\otimes W)}{X}, $
-where $ f_R(u,\sum_{i=1}^tv_i\otimes w_i).$ By the universal property of the 
+where $ f_R(u,\sum_{i=1}^t\al_iv_i\otimes w_i).$ By the universal property of the 
 tensor product we have the following commutative diagram.
 $$
 \xymatrix{U\times (V\otimes W)\ar[r]^{\otimes}\ar[dr]_{f_R}&U\otimes (V\otimes W)\ar[d]^{\bar{f}_{R}}\\&X
@@ -100,62 +106,35 @@ $$
 $$
 and
 $$
-\bar{g}_{\al u_1+u_2}(v,w)=g(\al u_1+u_2,v,w)=\al g(u_1,v,w)+g(u_2,v,w)=\al\bar{g}_{u_1}+\bar{g}_{u_2}.
+\bar{g}_{\al u_1+u_2}(v,w)=g(\al u_1+u_2,v,w)=\al 
+g(u_1,v,w)+g(u_2,v,w)=\al\bar{g}_{u_1}+\bar{g}_{u_2}.
 $$
-I feel like from here I should just be able to quote Proposition 2.3.1 and be done, but I am not quite sure if I have gone far enough.
+By construction $ f\AND g $ for 
+$
+\Func{\zeta_-}{\cat{Trilin}(U,V,W,-)}{\Vect{k}(U\otimes (V\otimes W),-)}\AND
+\Func{\eta_-}{\cat{Trilin}(U,V,W,-)}{\Vect{k}((U\otimes V)\otimes W,-)}
+$
+we have the following commutative diagrams.
 $$
 \xymatrix{
-	\msf{Trilin}(U,V,W;X)\ar[r]^{f-\circ}\ar[d]_{\eta_X}&
-	\msf{Trilin}(U,V,W;Y)\ar[d]^{\eta_Y}\\
-	\Vect{k}(U\otimes V\otimes W,X) \ar[r]^{f-\circ}
+	\cat{Trilin}(U,V,W;X)\ar[r]^{g-\circ}\ar[d]_{\zeta_X}&
+	\cat{Trilin}(U,V,W;Y)\ar[d]^{\zeta_Y}\\
+	\Vect{k}(U\otimes (V\otimes W),X) \ar[r]^{g-\circ}
+	&\Vect{k}(U\otimes (V\otimes W),Y)
+}
+$$
+$$
+\xymatrix{
+	\cat{Trilin}(U,V,W;X)\ar[r]^{f-\circ}\ar[d]_{\eta_X}&
+	\cat{Trilin}(U,V,W;Y)\ar[d]^{\eta_Y}\\
+	\Vect{k}((U\otimes V)\otimes W,X) \ar[r]^{f-\circ}
 	&\Vect{k}((U\otimes V)\otimes W,Y)
 }
 $$
-Where $ \Func{\eta_X}{\msf{Trilin}(U,V,W,-)}{\Vect{k}((U\otimes V)\otimes W,-)} $
+Each leg in both these natural transformations are isomorphisms, so $ f\AND g $ 
+represent the same functor. Thus by Proposition 2.3.1, we must have
+that $$ (U\otimes V)\otimes W\cong U\otimes(V\otimes W). $$
 
 \end{proof}
 
 \end{document}
-For part two this diagram is so wide I cannot get it on one page, but it should work.
-$$
-\xymatrix{\Vect{\mbb{k}}(U\otimes_{\mbb{k}}V)\otimes_{\mbb{k}}W\ar[r]^\cong
-	\ar[d]_{\bar{f}_*}
-	&\msf{Bilin}((U\otimes_{\mbb{k}}V),W;(U\otimes_{\mbb{k}}V)\otimes_{\mbb{k}}W)
-	\ar[d]^{\bar{f}_*}
-	\ar[r]^\cong&
-	\\
-	\Vect{\mbb{k}}((U\otimes_{\mbb{k}}V)\otimes_{\mbb{k}}W,X)
-	\ar[r]^\cong&
-	\msf{Bilin}((U\otimes_{\mbb{k}}V),W;X)
-	\ar[r]^\cong&
-}
-$$
-$$
-\xymatrix{
-	\msf{Trilin}(U,V,W;(U\otimes_{\mbb{k}}V)\otimes_{\mbb{k}}W)
-	\ar[r]^\cong \ar[d]_{\bar{g}_*}
-	&\Vect{\mbb{k}}(U\otimes_{\mbb{k}}(V\otimes_{\mbb{k}}W))
-	\ar[d]^{\bar{h}_*}
-	\\
-	\msf{Trilin}(U,V,W;X)\ar[r]^\cong
-	&\Vect{\mbb{k}}(U\otimes_{\mbb{k}}(V\otimes_{\mbb{k}}W),X)&
-}
-$$
-
-$$
-\xymatrix{\Vect{\mbb{k}}(U\otimes_{\mbb{k}}(V\otimes_{\mbb{k}}W))\ar[r]^\cong
-	\ar[d]_{\bar{h}_*}
-	&\msf{Bilin}(U,(V\otimes_{\mbb{k}}W);U\otimes_{\mbb{k}}(V\otimes_{\mbb{k}}W))
-	\ar[d]^{\bar{h}_*}
-	\\
-	\Vect{\mbb{k}}(U\otimes_{\mbb{k}}(V\otimes_{\mbb{k}}W),X)\ar[r]^\cong
-	&\msf{Bilin}(U,(V\otimes_{\mbb{k}}W);X)
-}
-$$
-My biggest suspicion is the $ \msf{Trilin} $ business. 
-I want to say that 
-$$
-\xymatrix{\msf{Bilin}((U\otimes_{\mbb{k}}V),W;(U\otimes_{\mbb{k}}V)\otimes_{\mbb{k}}W)\ar[r]^(.6)\cong & \msf{Trilin}(U,V,W;X)
-}
-$$
-since they are exactly the same. I want to say this is ``obvious" in the sense of how everything is obvious in mathematics. But I cannot say this mathematically correct at all. I think my only option might be to follow her proof on page 64 and do what every she does for commutativity with associativity. If you have any thoughts on how to approach this it would be much appreciated.  
