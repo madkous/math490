@@ -1,72 +1,71 @@
 \documentclass[main.tex]{subfiles}
 \begin{document}
-	
+
 	\paragraph{}
 	\begin{exercise}
 		Define a contravariant functor $ \cat{Fin}_{\textrm{mono}}^\op \to
-		\Top$ from 
+		\Top$ from
 		the	category of finite sets and injections to the category of
-		topological 
+		topological
 		spaces that sends a set with $ n $ elements to the space $
-		\cat{PConf}_n(X) $ 
-		constructed in Example 3.5.4. Explain why the functor does not induce a 
+		\cat{PConf}_n(X) $
+		constructed in Example 3.5.4. Explain why the functor does not induce a
 		similar functor sending an $ n $-element set to the space $ \cat{Conf}_n(X). $
 	\end{exercise}
-	
+
 	\begin{proof}
 		Recall that
 		$$
 		\cat{PConf}_n(X)=\{(x_1,\dots,x_n)\mid x_i\neq x_j \forall i\neq j
 		\}.
 		$$
-		For simplicity we will define $ F\colon\cat{Fin}_{\textrm{mono}}^\op 
+		For simplicity we will define $ F\colon\cat{Fin}_{\textrm{mono}}^\op
 		\to \Top $  on finite sets of the form $ \{0,\dots,n-1\} $ and then
 		extend $ F $ to arbitrary finite sets. Define $ F $ on the objects by
 		the map $\{0,\dots,n-1\}\mapsto \cat{PConf}_n(X)$ and on morphisms as
-		$ (x_0,\dots,x_{n-1})\mapsto (x_{f(0)},\dots, x_{f(m-1)}). $ 
-		Note that this functor is contravariant as we have $f$ in the 
-		subscripts not $f\inv.$ We also needed that $ f $ was injective else we 
-		could land on the ''fat diagonal." For example if $ f $ has sent every
+		$ (x_0,\dots,x_{n-1})\mapsto (x_{f(0)},\dots, x_{f(m-1)}). $
+		Note that this functor is contravariant as we have $f$ in the
+		subscripts not $f\inv.$ We also needed that $ f $ was injective else we
+		could land on the ``fat diagonal.'' For example if $ f $ has sent every
 		element to $ 0 $ we would be on the actual diagonal, not even the fat
 		one.
-		
-		To extend this map to any finite set we first note that that every 
+
+		To extend this map to any finite set we first note that that every
 		finite set $ A $ with $ n $ elements
 		is pretty much the same as the set $ \{0,\dots,n-1\}, $
 		since we can always find a bijection between them, so the
-		extension should not be too bad. For any finite set $ A $ with $ n $ 
-		elements we can fix\footnote{Notice to do we do need to invoke the 
-		Axiom of Choice in a larger universe as the collection of singletons is 
-		a proper class, so we are choosing a proper class worth of 
-		bijections.} a bijection $ \func{\phi_A}{A}{\{0,\dots,n-1\}}.$ 
+		extension should not be too bad. For any finite set $ A $ with $ n $
+		elements we can fix\footnote{Notice to do we do need to invoke the
+		Axiom of Choice in a larger universe as the collection of singletons is
+		a proper class, so we are choosing a proper class worth of
+		bijections.} a bijection $ \func{\phi_A}{A}{\{0,\dots,n-1\}}.$
 		This gives a commutative diagram for finite sets $ A\AND B $ of
 		sizes $ m\AND n $ respectively and a injective
 		map $ f $ between them.
 		$$
 		\xymatrix{
 			A\ar[r]^{f}\ar[d]_{\phi_A}&B\ar[d]^{\phi_B}\\
-			\{0,\dots,m-1 \}\ar[r]_{\phi_B f\phi_A\inv}&\{0,\dots,n-1\}
+			\{0,\dots,m-1 \}\ar[r]_{\phi_B f\inv{\phi_A}}&\{0,\dots,n-1\}
 		}
 		$$
-		
+
 		Now we can extend
-		$F\colon\cat{Fin}_{\textrm{mono}}^\op 
-		\to \Top $ 
+		$F\colon\cat{Fin}_{\textrm{mono}}^\op
+		\to \Top $
 		on morphisms as $ Ff\coloneq F(\phi_B f\phi_A\inv),$
 		where $ F $ sends both $\phi_A\inv\AND\phi_B $ to the identity map
 		in $ \cat{Conf}_n(X). $
-		This is equivalent to $ (x_1,\dots,x_n)\mapsto (x_{f(1)},\dots, 
-		x_{f(m)}),$ while leaving the action on objects the same. 
-		
-		If we try and induce a similar functor, but allowed for 
-		permutation we could have for a fixed	injective map $f$ that takes 
-		order tuples in the same equivalence class to tuples in different 
-		equivalence classes. Consider the ordered triples	$ (x_0,x_1,x_2) 
-		\AND (x_1,x_2,x_0)$ and the map $ \func{g}{\{0,1\}}{\{1,2,3\}} $ with $ 
-		g(0)=1\AND g(1)=2. $ If we apply the functor we defined earlier we have 
-		$ (x_0,x_1,x_2)\mapsto (x_0,x_1) \AND (x_1,x_2,x_0)\mapsto (x_1,x_2).$ 
-		Even though $ (x_0,x_1,x_2) \AND (x_1,x_2,x_0)$ were in the same 
+		This is equivalent to $ (x_1,\dots,x_n)\mapsto (x_{f(1)},\dots,
+		x_{f(m)}),$ while leaving the action on objects the same.
+
+		If we try and induce a similar functor, but allowed for
+		permutation we could have for a fixed	injective map $f$ that takes
+		order tuples in the same equivalence class to tuples in different
+		equivalence classes. Consider the ordered triples	$ (x_0,x_1,x_2)
+		\AND (x_1,x_2,x_0)$ and the map $ \func{g}{\{0,1\}}{\{1,2,3\}} $ with $
+		g(0)=1\AND g(1)=2. $ If we apply the functor we defined earlier we have
+		$ (x_0,x_1,x_2)\mapsto (x_0,x_1) \AND (x_1,x_2,x_0)\mapsto (x_1,x_2).$
+		Even though $ (x_0,x_1,x_2) \AND (x_1,x_2,x_0)$ were in the same
 		equivalence class $ (x_0,x_1)\AND (x_1,x_2) $ are not.
 	\end{proof}
-	
 \end{document}
