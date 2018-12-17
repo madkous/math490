@@ -175,7 +175,7 @@
 					E \ar[d, "p"] \\ & B \ar[r, "1_{B}"] & B
 				\end{tikzcd}\]
 				where $s$ is a section.
-				
+
 				For morphisms $\qty{f',g'}$  and $\qty{f,g}$ such that
 				$\qty{f,g} \cdot \qty{f',g'}$ makes sense, if $s \in \Sect p$
 				with $ \sm_{\qty{f,g}}\qty{s} = s'$ and $
@@ -211,6 +211,58 @@
 					B' \ar[rr] && B
 			\end{tikzcd}\]
 			\begin{proof}
+				Consider the pullbacks
+
+				$$ \begin{tikzcd}
+					F' \ar[r, "\pi_{1}"] \ar[d, "q'" {left}] \arrow[dr, phantom, "\lrcorner", very near start] & F \ar[d, "q"] \\
+					B' \ar[r, "f"] & B
+				\end{tikzcd} $$ and
+
+				$$ \begin{tikzcd}
+					E' \ar[r, "\pi_{2}"] \ar[d, "p'" {left}] \arrow[dr, phantom, "\lrcorner", very near start] & E \ar[d, "p"] \\
+					B' \ar[r, "f"] & B
+				\end{tikzcd} $$ and a morphism $\func{g}{E}{F}$ such that $q \cdot g = p$. Using the universal property of the first pullback, we can derive a new morphism $\func{g'}{E'}{F'}$ such that
+
+				$$ \begin{tikzcd}
+					E'
+					\arrow[drr, bend left, "g \cdot \pi_{2} "]
+					\arrow[ddr, bend right, "p'" {left}]
+					\arrow[dr, dotted, "g'" description] & & \\
+														 & F' \arrow[r, "\pi_{1}"] \arrow[d, "q'"{left}] \arrow[dr, phantom, "\lrcorner", very near start]
+														 & F \arrow[d, "q"] \\
+														 & B' \arrow[r,"f"]
+														 & B
+				\end{tikzcd}$$
+
+				We can treat the triples $\qty{g,p,q}$ and $\qty{g',p',q'}$ as morphisms $\func{g}{p}{q}$ and $\func{g'}{p'}{q'}$ in $\Top/B$. We can also treat the two pullback diagrams as morphisms $\func{\qty{\pi_{1},f}}{q'}{q}$ and $\func{\qty{\pi_{2},f}}{p'}{p}$ in \(\Top^\two_\pb\). Applying the functor $\Sect$ defined in part 5 to $\func{g}{p}{q}$ and $\func{g'}{p'}{q'}$ we get the functions $\func{g \cdot -}{\Sect p}{\Sect q}$ and $\func{g' \cdot -}{\Sect p'}{\Sect q'}$. Applying $\Sect$ defined in part 6 to the pullback squares we get the functions
+				$\func{\sigma_{\qty{\pi_{1},f}} }{\Sect q}{\Sect q'}$ and $\func{\sigma_{\qty{\pi_{2},f}} }{\Sect p}{\Sect p'}$. To show that two definitions of $\Sect$ are compatible, we will show that the following diagram commutes:
+				$$ \begin{tikzcd}
+					\Sect p \ar[r, "g \cdot -"] \ar[d, "\sigma_{\qty{\pi_{2},f}}" {left}]
+					& \Sect q \ar[d, "\sigma_{\qty{\pi_{1},f}}"] \\
+					\Sect p' \ar[r, "g' \cdot -"{below}] & \Sect q'
+				\end{tikzcd} $$ which should be the result of applying a functor $\Sect$ overloaded with the definitions from part 5 and 6 to the following diagram:
+				$$ \begin{tikzcd}
+					E'\arrow[dr, phantom, "\lrcorner", very near start] \ar[dd, bend right , "p'"{left}] \ar[r, "\pi_{2}" ] \ar[d, "g' "] & E \ar[d,"g"{left} ] \ar[dd, bend left , "p"{right}]\\
+					F' \arrow[dr, phantom, "\lrcorner", very near start] \ar[r , "\pi_{1}" ] \ar[d, "q'" ] & F \ar[d, "q"{left}] \\
+					B' \ar[r, "f"{below} ] & B
+				\end{tikzcd} $$ which is  the combination of the two pullbacks with the morphisms $g$ and $g'$ included. Let $s \in \Sect p$, then $g \cdot s \in \Sect q$ and $\sigma_{\qty{\pi_{2},f}}\qty{s} = s' \in \Sect p'$. To show that $g' \cdot s' = \sigma_{\qty{\pi_{1},f}}\qty{g \cdot s}$ we will use the universal property of the second pullback defined at the beginning of the proof. This gives us $\pi_{2} \cdot s' = s \cdot f$. By extension, $g \cdot \pi_{2} \cdot s' = g \cdot s \cdot f  $. By the diagram above, this gives us that $ \pi_{1} \cdot g'  \cdot s' = g \cdot s \cdot f  $. Furthermore $q' \cdot g' \cdot s' = p'  \cdot s' = 1_{B'}$. This allows the following diagram to commute:
+				$$ \begin{tikzcd}
+					B'
+					\arrow[drr, bend left, "g \cdot s \cdot f"]
+					\arrow[ddr, bend right, "1_{B'}" {left}]
+					\arrow[dr, dotted, "g' \cdot s'" description] & & \\
+																  & F' \arrow[r, "\pi_{1}"] \arrow[d, "q'"{left}] \arrow[dr, phantom, "\lrcorner", very near start]
+																  & F\arrow[d, "q"] \\
+																  & B' \arrow[r,"f"]
+																  & B
+				\end{tikzcd} .$$
+
+				This confirms that $g' \cdot s' = \sigma_{\qty{\pi_{1},f}}\qty{g
+				\cdot s}$ and that the diagram formed by the $\Sect$ functor
+				commutes. This shows that the definitions of $\Sect$ in 5 and 6
+				are compatible in the sense that $\Sect$ overloaded with both
+				defintions, preserves commutativity of diagrams formed by
+				morphisms of $\Top /B$  and \(\Top^\two_\pb\)
 			\end{proof}
 	\end{enumerate}
 \end{exercise}
