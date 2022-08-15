@@ -333,7 +333,7 @@
 \newcommand{\el}{\intup\!\!}
 
 % function defintions
-\newcommand*{\xfunc}[4]{{#2}\colon{#3}{#1}{#4}}
+\newcommand*{\xfunc}[4]{{#2}\colon{#3}\mathrel{#1}{#4}}
 \newcommand*{\func}[3]{\xfunc{\to}{#1}{#2}{#3}}
 \newcommand*{\Func}[3]{\xfunc{\To}{#1}{#2}{#3}}
 \newcommand*{\mono}[3]{\xfunc{\rightarrowtail}{#1}{#2}{#3}}
@@ -341,7 +341,7 @@
 \newcommand*{\epic}[3]{\xfunc{\twoheadrightarrow}{#1}{#2}{#3}}
 \newcommand*{\incl}[3]{\xfunc{\hookrightarrow}{#1}{#2}{#3}}
 \newcommand*{\pfunc}[3]{\xfunc{\rightrightarrows}{#1}{#2}{#3}}
-\newcommand*{\idfunc}[1]{\func{\id_{#1}{#1}{#1}}}
+\newcommand*{\idfunc}[1]{\func{\id_{#1}}{#1}{#1}}
 \newcommand*{\oper}[2]{\func{#1}{{#2}\by{#2}}{#2}}
 \newcommand*{\nper}[3]{\func{#1}{{#2}^{#3}}{#2}}
 \newcommand*{\maps}[3]{\xfunc{\mapsto}{#1}{#2}{#3}}
